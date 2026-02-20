@@ -1,0 +1,2 @@
+tier,n_runs,samples_per_run,all_balance_ok_1e-10,max_of_max_abs_balance_residual,median_max_abs_balance_residual,p95_max_abs_balance_residual,min_noncomm_norm,max_noncomm_norm
+tier1,270,16,True,4.440892098500626e-16,1.1102230246251565e-16,2.220446049250313e-16,0.8802985854082106,1.0662702819607914

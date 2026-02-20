@@ -1,0 +1,2 @@
+n_runs,n_unique_seeds,all_gauge_invariant_within_tol,max_of_max_abs_delta_lambda_gauge,median_max_abs_delta_lambda_gauge,p95_max_abs_delta_lambda_gauge,min_mean_commutator_norm,max_mean_commutator_norm,median_mean_commutator_norm
+180,20,True,1.1102230246251565e-15,4.440892098500626e-16,7.799316747991715e-16,0.11882974124578773,0.14442976702994942,0.12075517358035287

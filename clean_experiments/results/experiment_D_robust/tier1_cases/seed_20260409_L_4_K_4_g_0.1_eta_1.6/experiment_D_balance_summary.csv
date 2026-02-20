@@ -1,0 +1,2 @@
+seed,Nsamples,L_sites,K_layers,gamma_deph,eta0,"noncomm_norm_[U0,U1]",max_abs_balance_residual,mean_abs_balance_residual,balance_closure_ok_1e-10
+20260409,16,4,4,0.1,1.6,1.0442646194114757,1.1102230246251565e-16,1.0600334990571817e-17,True

@@ -1,0 +1,2 @@
+n_runs,all_max_delta_lt_1e-12,max_of_max_abs_delta_lambda_full_gauge,median_of_max_abs_delta_lambda_full_gauge,min_mean_commutator_norm_adjacent_Umu
+20,True,1.0547118733938987e-15,6.106226635438361e-16,0.12010617366049275

@@ -1,0 +1,2 @@
+seed,Lx,K_layers,mean_commutator_norm_adjacent_Umu,max_commutator_norm_adjacent_Umu,mean_abs_delta_lambda_gauge,max_abs_delta_lambda_gauge,gauge_invariant_within_tol
+20260218,8,30,0.11907817875800664,0.4916658337658773,6.563488901684122e-17,5.551115123125783e-16,True

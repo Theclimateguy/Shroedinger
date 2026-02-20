@@ -1,0 +1,2 @@
+n_cases,n_rows_total,max_rel_error_overall,p99_rel_error_overall,median_rel_error_overall,max_cross_profile_spread_Lambda_num,p99_cross_profile_spread_Lambda_num,fraction_cases_spread_lt_1e-12
+120,360,3.918375119888501e-15,2.386734839389659e-15,3.1040802316084654e-16,8.43769498715119e-15,7.925882172798997e-15,1.0

@@ -1,0 +1,2 @@
+n_total_profile_runs,n_unique_cases,mean_R2_constant,mean_R2_gaussian,mean_R2_oscillating,fraction_cases_oscillating_lowest_R2,mean_const_minus_osc_R2,mean_gauss_minus_osc_R2
+144,48,0.9377913930194112,0.3364219267625263,0.047308523283107605,1.0,0.8904828697363035,0.28911340347941866

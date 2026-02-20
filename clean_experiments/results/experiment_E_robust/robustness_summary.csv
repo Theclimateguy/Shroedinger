@@ -1,0 +1,2 @@
+n_runs,n_unique_seed_cases,eta0_values,fraction_runs_coh_r2_better,n_runs_coh_r2_better,mean_r2_gap_coh_minus_lambda,median_r2_gap_coh_minus_lambda,p10_r2_gap_coh_minus_lambda,fraction_runs_corr_coh_gt_corr_lambda,mean_corr_gap_coh_minus_lambda
+180,10,"0.5,0.9,1.5",1.0,180,0.048340474581943335,0.04629077034700824,0.02855233969701939,1.0,0.29855854273927407

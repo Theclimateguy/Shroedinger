@@ -1,0 +1,2 @@
+n_cases,n_rows_total,k_values,max_rel_error_overall,p99_rel_error_overall,median_rel_error_overall,fraction_rows_rel_error_lt_1e-12,fraction_cases_max_rel_error_lt_1e-12
+120,720,"4,8,16,32,64,128",6.291430828113642e-15,3.022760064622583e-15,1.4764134790422522e-16,1.0,1.0

@@ -1,0 +1,2 @@
+n_total_runs,all_balance_ok_1e-10,max_of_max_abs_balance_residual,median_max_abs_balance_residual,p99_max_abs_balance_residual,n_runs_residual_gt_1e-12,n_runs_residual_gt_1e-10
+275,True,4.440892098500626e-16,1.1102230246251565e-16,4.440892098500626e-16,0,0
