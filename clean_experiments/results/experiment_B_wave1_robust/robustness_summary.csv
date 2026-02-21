@@ -1,0 +1,2 @@
+n_cases,seed,spatial_tol,antisym_tol,angle_tol,ratio_std_tol,r2_min,fraction_pass_all,n_failed,max_abs_spatial_err_max,max_abs_antisym_err_max,max_abs_angle_err_max,max_ratio_std,min_r2_angle,p99_abs_angle_err,p99_abs_spatial_err
+120,20260220,1e-11,1e-11,1e-11,1e-10,0.999999999999,1.0,0,2.220446049250313e-16,0.0,4.440892098500626e-16,1.4442773419238785e-12,1.0,4.229949723821849e-16,2.220446049250313e-16

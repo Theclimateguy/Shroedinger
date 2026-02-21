@@ -1,0 +1,2 @@
+seed,n_samples,n_sites,n_links,n_steps,dt,t_hop,mass,omega_gauge,theta_base,theta_step,gamma_matter,gamma_gauge,comm_QH_fro,gauge_link_unitarity_max,max_abs_continuity_residual,mean_abs_continuity_residual,max_total_charge_drift,mean_max_charge_drift_per_sample,pass_ward_comm,pass_continuity,pass_charge_drift,pass_all
+20260229,12,3,2,80,0.02,0.8,0.25,0.35,0.4,0.2,0.06,0.04,0.0,1.1102230246251565e-16,1.1549802455580738e-16,1.3162878838969192e-17,1.3322676295501878e-15,5.736152293896642e-16,True,True,True,True

@@ -1,0 +1,2 @@
+cases,success_rate,min_corr_source_comm,min_abs_corr_source_fs_omega,max_gauge_source_diff,max_gauge_response_metric_diff,max_corr_delta_coarse
+12,1.0,0.9927656964741329,0.9927656964741356,1.4432899320127035e-15,5.95967719618784e-13,0.015623900896037046

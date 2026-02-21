@@ -1,0 +1,2 @@
+n_thetas,n_steps_min,n_steps_max,abs_err_tol,fraction_pass_abs_err_tol,max_finest_abs_error,median_finest_abs_error,pass_all
+7,64,512,0.003,1.0,1.5167903843394518e-05,1.102018943857154e-05,True

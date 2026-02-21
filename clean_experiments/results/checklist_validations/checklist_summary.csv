@@ -1,0 +1,15 @@
+check_id,claim,metric,value,target,pass,details
+C1,Unitarity of transfer U†U=I,||U†U-I||_F,1.7659702401806928e-16,<=1e-14,True,Delta_mu=1.0
+C2,Cocycle U23 U12 = U13,||U23U12-U13||_F,3.3422138886441676e-16,<=1e-14,True,Constant connection control
+C3,Isometric embedding V†V=I2,||V†V-I2||_F,0.0,<=1e-14,True,V: C2 -> C3
+C4,Lindblad structure and Tr(drho/dt)=0,"max(||anti-(-i mu_dot A)||_F, max|Tr drho|)",5.551115123125783e-17,<=1e-13,True,anti_err=0.000e+00; trace_err=5.551e-17
+C5,Classical limit mu_dot -> 0,"at mu_dot=1e-4: max(real eig err, imag eig, op gap)",6.0166435825965296e-05,small and tending to 0,True,real_err=1.141e-09; imag=2.100e-05; op_gap=6.017e-05
+C6,Finite curvature and Bianchi identity,"max(||F12||_F, ||D1F23+D2F31+D3F12||_F)",0.41764089838041485,finite F12 and Bianchi residual <=1e-12,True,||F12||=4.176e-01; Bianchi=1.963e-17
+C7,Norm conserved only after summing layers,"max(total dev), max(layer-1 oscillation)",0.02496097909005912,total <=1e-12; layer oscillation ~ few percent,True,total_dev=9.504e-14; layer1_osc=2.4961%; mu_dot=0.1
+C8,Tr(F rho) state dependence with rotated connection,state spread at phi=90deg,0.3999999999999999,approx 0.4 in first-wave control case,True,Across six pure states at x=pi (control setup)
+C9,Coherence contributes to gravity source,|Lambda_matter(|+>)| and basis neutrality proxy,0.40491085129952126,plus nonzero; basis/mixed near zero,True,Lambda_plus=4.049e-01; Lambda_minus=-4.049e-01; mixed_proxy=0.000e+00
+C10,Exact law Lambda_matter ~ sin(phi),std(Lambda/sin(phi)),5.527269374018042e-13,<=1e-10,True,r2=1.000000; max_abs_angle_err=1.665e-16
+C11,Symmetrized curvature gives real averages,max imaginary part after symmetrization,0.0,<=1e-14,True,raw_imag_max=0.000e+00; sym_imag_max=0.000e+00
+C12,Spatial modulation of Lambda,(max-min)/mean for Lambda_matter(x),0.6446000800438754,O(0.65) in baseline notes,True,Profile-induced inhomogeneity ratio
+C13,Gravitational neutrality of mixed state,mixed-state matter contribution,0.0,<=1e-12,True,proxy=0.000e+00
+C14,Lambda_vac linear in U(1)-component difference,max|Lambda_vac - (alpha2-alpha1)(1+0.1 cos x)|,0.0,<=1e-14,True,beta-function proxy via Delta alpha

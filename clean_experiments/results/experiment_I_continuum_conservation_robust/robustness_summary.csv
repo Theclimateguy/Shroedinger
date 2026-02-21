@@ -1,0 +1,2 @@
+n_cases,seed,intercept_hard_tol,intercept_rel_tol,fraction_pass_hard_tol,fraction_pass_scaled_tol,fraction_pass_all,n_failed,median_abs_intercept,max_abs_intercept,median_fit_r2,min_fit_r2
+12,20260224,0.005,0.08,0.8333333333333334,1.0,1.0,0,0.002827205128454832,0.010451882989280632,0.8705735533681404,0.6030781345954288

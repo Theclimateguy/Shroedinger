@@ -1,0 +1,2 @@
+mu1,mu2,nx,alpha1_val,alpha2_val,max_abs_spatial_err,max_abs_antisym_err,max_abs_angle_err,rmse_angle,r2_angle,ratio_mean,ratio_std
+1.0,2.0,96,0.498678539144664,1.1273017692348815,2.220446049250313e-16,0.0,1.1102230246251565e-16,6.360358361118805e-17,1.0,0.8320321284821823,9.88173340428704e-13

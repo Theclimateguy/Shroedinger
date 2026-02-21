@@ -1,0 +1,2 @@
+n_runs,seed,fraction_pass_all,n_failed,median_test_r2_median,min_test_r2_median,median_test_r2_p25,min_test_r2_p25,median_perm_p,max_perm_p,median_boot_sign_consistency_mean,min_boot_sign_consistency_mean
+4,20260226,1.0,0,0.3568840826556372,0.31370243145058346,0.2458442708107399,0.17648462464897513,0.008496594340285091,0.009900990099009901,0.9472222222222222,0.6652777777777779

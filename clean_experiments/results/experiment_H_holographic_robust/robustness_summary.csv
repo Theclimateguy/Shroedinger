@@ -1,0 +1,2 @@
+n_cases,seed,trace_tol,stability_gain_min,fraction_pass_all,n_failed,median_stability_gain,min_stability_gain,max_trace_raw,max_trace_cut,mean_cut_fraction_mean
+24,20260222,1e-11,1.0,1.0,0,3.9308575929852942,1.7664077243452605,2.2231982594580445e-16,2.3054248201385277e-16,0.41313330639089624
