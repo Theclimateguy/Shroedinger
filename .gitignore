@@ -5,3 +5,11 @@ __pycache__/
 # Local manuscript is maintained and published separately
 manuscript/
 
+# Local environment and data artifacts
+.venv/
+data/
+research_program_summary.csv
+
+# Local exploratory files (not part of canonical experiment set)
+clean_experiments/experiment_QFT_free_chain.py
+clean_experiments/results/experiment_QFT_free_chain/
