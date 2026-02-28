@@ -18,6 +18,7 @@ This file defines the continuous experiment numbering used in the article draft 
 | Experiment 12 | K (Lambda bridge) | `clean_experiments/experiment_K_lambda_bridge.py` | `out/experiment_K_lambda_bridge` | `clean_experiments/results/experiment_K_lambda_bridge_robust` |
 | Experiment 13 | K2 (theory-space curvature) | `clean_experiments/experiment_K2_theory_space_curvature.py` | `clean_experiments/results/experiment_K2_theory_space_curvature` | `clean_experiments/results/experiment_K2_theory_space_curvature_robust` |
 | Experiment 14 | L (matter fields) | `clean_experiments/experiment_L_matter_fields.py` | `clean_experiments/results/experiment_L_matter_fields` | `clean_experiments/results/experiment_L_matter_fields_robust` |
+| Experiment 15 | M (cosmo flow structural-scale test) | `clean_experiments/experiment_M_cosmo_flow.py` | `clean_experiments/results/experiment_M_cosmo_flow` | `clean_experiments/results/experiment_M_cosmo_flow_robust` |
 
 ## Notes
 
