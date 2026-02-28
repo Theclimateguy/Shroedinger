@@ -1,0 +1,2 @@
+cases,cases_ok,success_rate,median_oof_gain,min_oof_gain,max_perm_p,median_lambda_sign_consistency,min_strata_gain
+8,8,0.0,-0.00032038839981572286,-0.001476959480359922,0.9753086419753086,0.9166666666666667,-0.002627454295269391

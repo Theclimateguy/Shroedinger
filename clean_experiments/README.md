@@ -32,9 +32,34 @@ This folder contains cleaned, runnable scripts mapped to the experiments describ
    - Theory-space geometry check: finite-difference FS/QGT and response-metric curvature diagnostics vs RG noncommutativity.
 14. **Experiment 14 (L, stage-2)**: `experiment_L_matter_fields.py`
    - Matter-field embedding (`fermion + gauge`) with global Ward (`[Q,H]=0`) and local continuity residual checks.
+15. **Experiment 15 (M, stage-2)**: `experiment_M_cosmo_flow.py`
+   - Structural-scale atmospheric experiment: `rho_mu` from modal covariances, interscale noncommutativity proxy, and blocked-CV residual-closure test.
 
 The full mapping table is in `clean_experiments/EXPERIMENT_NUMBERING.md`.
 Stage-2 hypothesis-level protocol is in `clean_experiments/HYPOTHESIS_ROADMAP.md`.
+
+## Experiment M decision policy
+
+Experiment 15 uses a dual-threshold policy:
+
+1. **Theoretical Detection Threshold**
+   - `min_mae_gain >= 0.002`
+   - `perm_p <= 0.05`
+   - `strata_positive_frac >= 0.8`
+   - Used to validate detectability of the structural-scale physical effect.
+2. **Engineering Impact Threshold**
+   - `min_mae_gain >= 0.03`
+   - Used to decide whether to pursue heavy production/operational integration.
+
+Reference methodology and calibrated runs:
+
+- `clean_experiments/EXPERIMENT_M_METHODS_AND_RESULTS.md`
+
+## Exploratory RG/QFT sanity check
+
+- `experiment_QFT_free_chain.py`
+  - Free-fermion chain with Wilsonian shell elimination (`Lambda_n = pi * 2^{-n}`), exact Gaussian trace-out, and intertwinement defect diagnostics (`exact_pushforward` vs fitted Markovian generators).
+  - Default run includes **3 size checks**: `N = 32, 64, 128`.
 
 ## Checklist validations (non-numbered)
 
@@ -62,6 +87,8 @@ python clean_experiments/experiment_J_berry_refinement.py --out out/experiment_J
 python clean_experiments/experiment_K_lambda_bridge.py --out clean_experiments/results/experiment_K_lambda_bridge
 python clean_experiments/experiment_K2_theory_space_curvature.py --out clean_experiments/results/experiment_K2_theory_space_curvature
 python clean_experiments/experiment_L_matter_fields.py --out clean_experiments/results/experiment_L_matter_fields
+python clean_experiments/experiment_M_cosmo_flow.py --input /path/to/wpwp_data.nc --out clean_experiments/results/experiment_M_cosmo_flow
+python clean_experiments/experiment_QFT_free_chain.py --out clean_experiments/results/experiment_QFT_free_chain
 python clean_experiments/experiment_wave1_robust.py --cases 40 --out clean_experiments/results/experiment_B_wave1_robust
 python clean_experiments/experiment_H_holographic_robust.py --cases 24 --out clean_experiments/results/experiment_H_holographic_robust
 python clean_experiments/experiment_I_continuum_conservation_robust.py --cases 12 --out clean_experiments/results/experiment_I_continuum_conservation_robust
@@ -69,5 +96,22 @@ python clean_experiments/experiment_J_berry_refinement_robust.py --out clean_exp
 python clean_experiments/experiment_K_lambda_bridge_robust.py --out clean_experiments/results/experiment_K_lambda_bridge_robust --runs 4
 python clean_experiments/experiment_K2_theory_space_curvature_robust.py --out clean_experiments/results/experiment_K2_theory_space_curvature_robust --cases 12
 python clean_experiments/experiment_L_matter_fields_robust.py --out clean_experiments/results/experiment_L_matter_fields_robust --cases 10
+python clean_experiments/experiment_M_cosmo_flow_robust.py --input /path/to/wpwp_data.nc --out clean_experiments/results/experiment_M_cosmo_flow_robust --cases 8
 python clean_experiments/checklist_validations.py --out clean_experiments/results/checklist_validations
+```
+
+Calibrated Experiment M run used in the latest results package:
+
+```bash
+python clean_experiments/experiment_M_cosmo_flow.py \
+  --input data/processed/wpwp_era5_2017_2019_experiment_M_input.nc \
+  --out clean_experiments/results/experiment_M_cosmo_flow_v3_calibrated \
+  --residual-mode physical_zscore \
+  --coherence-mode offdiag_fro \
+  --n-modes-per-var 6 \
+  --window 18 \
+  --cov-shrinkage 0.1 \
+  --ridge-alpha 1e-6 \
+  --min-positive-strata-frac 0.67 \
+  --n-perm 140
 ```

@@ -1,0 +1,4 @@
+name,residual_mode,coherence_mode,n_modes_per_var,window,cov_shrinkage,ridge_alpha,oof_gain_frac,perm_p_value,lambda_sign_consistency,strata_positive_frac,strata_min_gain,pass_all
+cfgB_phys_offdiag_m6_w24_cov00_r1e6,physical_zscore,offdiag_fro,6,24,0.0,1e-06,0.002339931914689215,0.0070921985815602835,1.0,1.0,0.0014533019628254515,False
+cfgC_comp_offdiag_m4_w72_cov05_r1e5,component_zscore,offdiag_fro,4,72,0.5,1e-05,-0.0003878539784707347,0.6666666666666666,0.8333333333333334,0.0,-0.0006489115178600301,False
+cfgA_phys_offdiag_m2_w96_cov02_r1e3,physical_zscore,offdiag_fro,2,96,0.2,0.001,-0.0025366496054769366,0.48226950354609927,0.8333333333333334,0.0,-0.002979139517066279,False
