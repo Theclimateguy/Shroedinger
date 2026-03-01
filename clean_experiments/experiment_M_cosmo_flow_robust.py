@@ -60,6 +60,11 @@ def main() -> None:
     parser.add_argument("--temp-var", default=None)
     parser.add_argument("--pressure-var", default=None)
     parser.add_argument("--density-var", default=None)
+    parser.add_argument("--temp-pl-var", default=None)
+    parser.add_argument("--q-pl-var", default=None)
+    parser.add_argument("--u-pl-var", default=None)
+    parser.add_argument("--v-pl-var", default=None)
+    parser.add_argument("--w-pl-var", default=None)
 
     parser.add_argument("--strata-q", type=int, default=3)
     parser.add_argument("--min-mae-gain", type=float, default=0.03)
@@ -79,6 +84,14 @@ def main() -> None:
         choices=["offdiag_fro", "relative_offdiag_fro"],
         default="offdiag_fro",
     )
+    parser.add_argument("--coherence-floor", type=float, default=0.0)
+    parser.add_argument("--coherence-power", type=float, default=1.0)
+    parser.add_argument("--coherence-blend", type=float, default=1.0)
+    parser.add_argument(
+        "--feature-set",
+        choices=["lambda_only", "lambda_entropy", "lambda_entropy_vertical", "auto"],
+        default="lambda_only",
+    )
     args = parser.parse_args()
 
     outdir = Path(args.out)
@@ -95,6 +108,11 @@ def main() -> None:
         "temp": args.temp_var,
         "pressure": args.pressure_var,
         "density": args.density_var,
+        "temp_pl": args.temp_pl_var,
+        "q_pl": args.q_pl_var,
+        "u_pl": args.u_pl_var,
+        "v_pl": args.v_pl_var,
+        "w_pl": args.w_pl_var,
     }
 
     base_edges = [float(x.strip()) for x in args.scale_edges_km.split(",") if x.strip()]
@@ -126,6 +144,9 @@ def main() -> None:
                 residual_mode=args.residual_mode,
                 cov_shrinkage=float(params["cov_shrinkage"]),
                 coherence_mode=args.coherence_mode,
+                coherence_floor=args.coherence_floor,
+                coherence_power=args.coherence_power,
+                coherence_blend=args.coherence_blend,
                 strata_q=args.strata_q,
                 min_mae_gain=args.min_mae_gain,
                 max_perm_p=args.max_perm_p,
@@ -138,6 +159,7 @@ def main() -> None:
                 max_time=args.max_time,
                 level_dim=args.level_dim,
                 level_index=args.level_index,
+                feature_set=args.feature_set,
                 var_overrides=var_overrides,
                 verbose=False,
             )

@@ -90,3 +90,32 @@ This directory stores robust validation artifacts for each clean experiment.
      exact Gaussian pushforward baseline, and fitted Markovian intertwinement defects.
    - See `qft_free_chain_all_summaries.csv`, `qft_free_chain_size_checks.csv`,
      `qft_free_chain_all_pair_defects.csv`.
+21. `experiment_M_cosmo_flow_v4_vertical_entropy/` (Experiment 15 diagnostic, excluded from core claim)
+   - Raw vertical-entropy feature-set run (`lambda_entropy_vertical`).
+   - Current status: non-significant/negative in core residual-closure metric.
+   - See `experiment_M_summary.csv`.
+22. `experiment_M_cosmo_flow_v4_macro_calibrated/` (Experiment 15 curated)
+   - Macro-calibrated physically interpretable Lambda run (`feature_set=lambda_only`,
+     `coherence_blend=0.6`, `coherence_floor=0.0`, `coherence_power=1.0`).
+   - See `experiment_M_summary.csv`, `experiment_M_timeseries.csv`,
+     `experiment_M_splits.csv`, `experiment_M_permutation.csv`.
+23. `experiment_M_horizontal_vertical_compare/` (Experiment 15 curated analysis)
+   - Consistency check between horizontal and vertical Lambda representations,
+     plus combined-model and quartile-stratified diagnostics.
+   - See `comparison_report.md`, `lambda_correlation_stats.csv`,
+     `model_comparison.csv`, `quartile_gain_comparison.csv`,
+     `artifact_diagnosis.json`.
+24. `experiment_M_extremes_amplitude/` (Experiment 15 curated analysis)
+   - Extreme-regime amplitude diagnostics (`union/intersection P90`, tail response,
+     severity deciles).
+   - See `extreme_amplitude_report.md`, `extreme_model_comparison.csv`,
+     `extreme_amplitude_summary.csv`, `extreme_tail_response.csv`.
+25. `experiment_M_extremes_calibration/` (Experiment 15 curated analysis)
+   - Anti-overfit regime calibration (`train=2017-2018`, `test=2019`), one-SE
+     model selection, out-of-time test, and lambda ablation.
+   - See `calibration_report.md`, `selected_configs.csv`,
+     `test_out_of_time_metrics.csv`, `calibration_ablation_report.md`.
+26. `experiment_M_extremes_quarterly/` (Experiment 15 curated analysis)
+   - Rolling-origin quarterly test over 2019 with train-only threshold estimation.
+   - See `quarterly_report.md`, `quarterly_rolling_metrics.csv`,
+     `quarterly_summary.csv`.

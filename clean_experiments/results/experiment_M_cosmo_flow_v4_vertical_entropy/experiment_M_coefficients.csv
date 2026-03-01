@@ -1,0 +1,9 @@
+term,value
+intercept_base,8.716777345856902e-14
+intercept_full,-0.19732051363827463
+ctrl_base,-0.2213631091263193
+ctrl_full,-0.18668274250846195
+lambda_full,-1374.9904079386476
+entropy_curv_struct_full,0.8906929902257726
+entropy_vertical_channel_full,3.6749442911919394
+entropy_vertical_curvature_full,-3.397345081415788

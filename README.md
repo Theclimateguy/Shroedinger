@@ -56,6 +56,17 @@ Detailed protocol and latest calibration/results are documented in:
 
 - `clean_experiments/EXPERIMENT_M_METHODS_AND_RESULTS.md`
 
+Curated Experiment M residual-closure analysis scripts:
+
+- `clean_experiments/experiment_M_horizontal_vertical_compare.py`
+- `clean_experiments/experiment_M_extremes_amplitude.py`
+- `clean_experiments/experiment_M_extremes_calibration.py`
+- `clean_experiments/experiment_M_extremes_quarterly.py`
+
+Standalone write-up (not merged into the main manuscript):
+
+- `clean_experiments/EXPERIMENT_M_LAMBDA_RESIDUAL_CLOSURE_STANDALONE.tex`
+
 ## Legacy and working materials
 
 - `experiments/` contains legacy/original scripts and notes used for historical replication.

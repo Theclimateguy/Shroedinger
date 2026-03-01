@@ -1,0 +1,169 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,booktabs}
+\usepackage{hyperref}
+\usepackage{array}
+
+\title{Experiment M (Standalone Note):\\Lambda Signal in Atmospheric Residual Closure}
+\author{Project Working Note}
+\date{March 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This standalone note summarizes only the physically interpretable Experiment M blocks where a Lambda-dependent signal is visible through moisture-budget residual closure under time-aware validation. The note is intentionally separate from the main manuscript and serves as a focused technical record for the Lambda-via-residual-closure claim.
+\end{abstract}
+
+\section{Objective and Curation Rule}
+We retain only runs that satisfy both conditions:
+\begin{enumerate}
+  \item Lambda is constructed from explicit multiscale atmospheric structure (\(\rho_\mu\), interscale noncommutativity, coherence weighting).
+  \item Residual-closure evidence is tested with blocked or out-of-time protocols (not random shuffle across time).
+\end{enumerate}
+
+Runs that are non-significant, unstable, or physically hard to interpret in the current form are treated as diagnostics and excluded from the core claim.
+
+\section{Data and Target}
+Domain: WPWP, 6-hourly ERA5 subset, 2017-01-01 to 2019-12-31 (\(n=4380\)).
+
+Primary fields used in multiscale matrices:
+\[
+\{IWV,\ IVT_u,\ IVT_v,\ P-E,\ \zeta\},
+\]
+where \(\zeta = \partial_x v - \partial_y u\) and \(P-E=\mathrm{precip}-\mathrm{evap}\).
+
+Residual target:
+\[
+r(t)=\left\langle \partial_t IWV + \nabla\cdot IVT + (P-E)\right\rangle_{x,y},
+\quad
+y(t)=z\text{-score}(r(t)).
+\]
+
+\section{Formal Lambda Construction}
+\subsection{Scale bands and modal coefficients}
+Spatial Fourier masks over wavelength bands (default edges \(25,50,100,200,400,800,1600\) km) define scale index \(\mu\). For each band \(b\), time \(t\), and each field role, top-power Fourier cells are selected and concatenated into complex vector \(a_{b,t}\).
+
+\subsection{Density matrices}
+Within rolling window \(W\):
+\[
+C_{b,t}=\frac{A_{b,t}^\dagger A_{b,t}}{W},\qquad
+\rho_{b,t}=\frac{C_{b,t}}{\mathrm{Tr}(C_{b,t})},
+\]
+with shrinkage and ridge stabilization.
+
+Interpretation:
+\begin{itemize}
+  \item diagonal \(\rho_{ii}\): normalized modal power partition;
+  \item off-diagonal \(\rho_{ij}\): cross-mode coupling.
+\end{itemize}
+
+\subsection{Coherence and interscale curvature proxy}
+Band coherence proxy:
+\[
+\mathrm{coh}_{b,t}=\| \mathrm{offdiag}(\rho_{b,t})\|_F.
+\]
+
+Interscale forward/reverse maps between neighboring bands produce
+\[
+G_{\mathrm{fwd}},\ G_{\mathrm{back}},\ \mathrm{Comm}=G_{\mathrm{fwd}}G_{\mathrm{back}}-G_{\mathrm{back}}G_{\mathrm{fwd}},
+\]
+and Hermitian projector \(F_{\mathrm{phys}}=\mathrm{Hermitian}(i\,\mathrm{Comm})\).
+
+Band scalar:
+\[
+\lambda_{\mu,b,t}=\Re\ \mathrm{Tr}(F_{\mathrm{phys}}\rho_{b,t}).
+\]
+
+Final scalar:
+\[
+\Lambda(t)=\sum_b w_{b,t}\,\mathrm{signal}_{b,t}\,\lambda_{\mu,b,t},
+\]
+where \(w_{b,t}\) comes from structure counts in band-limited vorticity and \(\mathrm{signal}_{b,t}\) is coherence (optionally blended with entropy diagonal-mixing in macro calibration).
+
+\section{Baseline Physics and Gain Metric}
+Baseline control:
+\[
+\mathrm{ctrl}(t)=z\text{-score}\left(\log n(t)\right),\qquad
+n(t)=\left\langle \frac{p}{k_B T}\right\rangle_{x,y}
+\]
+(or direct density if provided).
+
+Models:
+\[
+\text{base: } y\sim \mathrm{ctrl},
+\qquad
+\text{full: } y\sim \mathrm{ctrl}+\Lambda\ (\text{or calibrated regime extensions}).
+\]
+
+Out-of-sample gain:
+\[
+\mathrm{gain}=\frac{\mathrm{MAE}_{\mathrm{base}}-\mathrm{MAE}_{\mathrm{full}}}{\mathrm{MAE}_{\mathrm{base}}}.
+\]
+
+\section{Curated Results}
+\subsection{Core detectability}
+\begin{itemize}
+  \item v3 calibrated: gain \(=0.003379\), permutation \(p=0.007092\).
+  \item v4 macro calibrated: gain \(=0.003412\), permutation \(p=0.007092\).
+\end{itemize}
+
+\subsection{Horizontal vs vertical consistency}
+\begin{itemize}
+  \item \(r(\Lambda_h,\Lambda_v)=0.99631\), \(R^2=0.99263\).
+  \item Combined model underperforms single-feature models, consistent with redundant signal under strong collinearity.
+\end{itemize}
+
+\subsection{Extreme-regime analysis}
+Direct linear \(\mathrm{ctrl}+\Lambda\) on pure extreme slices is noisy and often negative, while non-extreme slices stay positive. This supports a regime-shift interpretation.
+
+\subsection{Anti-overfit regime calibration (train 2017--2018, test 2019)}
+Selected models (\(q=0.85\), \(\alpha=0.1\)):
+\begin{itemize}
+  \item horizontal\_regime: gain\(_\mathrm{all}=0.140295\), CI95 \([0.064032,0.206147]\).
+  \item vertical\_regime: gain\(_\mathrm{all}=0.139717\), CI95 \([0.060624,0.205027]\).
+\end{itemize}
+
+Ablation versus \(\mathrm{regime\_no\_lambda}\):
+\begin{itemize}
+  \item \(\Delta\)gain (\(\Lambda_v\)) \(=+0.00696\), CI95 \([0.00041,0.01453]\).
+  \item \(\Delta\)gain (\(\Lambda_h\)) \(=+0.00752\), CI95 \([0.00063,0.01615]\).
+\end{itemize}
+
+\subsection{Quarterly rolling-origin (2019)}
+Regime models remain positive across all quarters; global linear models remain near zero on average.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+Model & Mean gain (all) & Std & Mean gain (extreme) & Mean gain (non-extreme) \\
+\midrule
+horizontal\_regime & 0.1445 & 0.1211 & 0.1806 & 0.1502 \\
+vertical\_regime   & 0.1439 & 0.1217 & 0.1806 & 0.1492 \\
+horizontal\_global & 0.0032 & 0.0101 & -0.0035 & 0.0075 \\
+vertical\_global   & 0.0032 & 0.0098 & -0.0031 & 0.0073 \\
+\bottomrule
+\end{tabular}
+\caption{Quarterly rolling-origin summary over 2019.}
+\end{table}
+
+\section{Excluded from Core Claim}
+\begin{itemize}
+  \item v2 baseline run (non-significant/negative).
+  \item Raw vertical-entropy run with \texttt{feature\_set=lambda\_entropy\_vertical} (non-significant/negative).
+  \item Pure extreme-only linear slices without regime calibration.
+\end{itemize}
+
+\section{Artifact Pointers}
+Curated output directories:
+\begin{itemize}
+  \item \texttt{clean\_experiments/results/experiment\_M\_cosmo\_flow\_v3\_calibrated/}
+  \item \texttt{clean\_experiments/results/experiment\_M\_cosmo\_flow\_v4\_macro\_calibrated/}
+  \item \texttt{clean\_experiments/results/experiment\_M\_horizontal\_vertical\_compare/}
+  \item \texttt{clean\_experiments/results/experiment\_M\_extremes\_amplitude/}
+  \item \texttt{clean\_experiments/results/experiment\_M\_extremes\_calibration/}
+  \item \texttt{clean\_experiments/results/experiment\_M\_extremes\_quarterly/}
+\end{itemize}
+
+\end{document}

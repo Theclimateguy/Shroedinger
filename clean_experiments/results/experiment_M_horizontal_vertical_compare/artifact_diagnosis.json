@@ -1,0 +1,9 @@
+{
+  "verdict": "likely_detectability_limit_with_redundant_physical_signal",
+  "r2_lambda_h_lambda_v": 0.9926332646230128,
+  "combined_minus_best_single_gain": -0.0008460263201739752,
+  "mean_abs_gap_horizontal_vs_vertical_strata_gain": 0.0002154781175014603,
+  "gain_horizontal": 0.0033792709486674087,
+  "gain_vertical": 0.003412096666016668,
+  "gain_combined": 0.0025660703458426927
+}

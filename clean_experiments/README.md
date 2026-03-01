@@ -55,6 +55,27 @@ Reference methodology and calibrated runs:
 
 - `clean_experiments/EXPERIMENT_M_METHODS_AND_RESULTS.md`
 
+## Experiment M curated residual-closure package
+
+For claims about physically meaningful `Lambda` signal in atmospheric residual closure,
+use only the curated M block documented in:
+
+- `clean_experiments/EXPERIMENT_M_METHODS_AND_RESULTS.md`
+
+Curated scripts:
+
+- `experiment_M_cosmo_flow.py` (core Lambda construction and baseline closure)
+- `experiment_M_horizontal_vertical_compare.py` (horizontal vs vertical consistency)
+- `experiment_M_extremes_amplitude.py` (extreme-regime diagnostics)
+- `experiment_M_extremes_calibration.py` (anti-overfit regime calibration, out-of-time 2019 test)
+- `experiment_M_extremes_quarterly.py` (2019 rolling-origin quarterly robustness)
+- `EXPERIMENT_M_LAMBDA_RESIDUAL_CLOSURE_STANDALONE.tex` (standalone write-up, intentionally separate from the main manuscript)
+
+Excluded from core physical claim in current form:
+
+- raw vertical-entropy run with `feature_set=lambda_entropy_vertical`
+- pure extreme-only linear slices without regime calibration
+
 ## Exploratory RG/QFT sanity check
 
 - `experiment_QFT_free_chain.py`
@@ -88,6 +109,10 @@ python clean_experiments/experiment_K_lambda_bridge.py --out clean_experiments/r
 python clean_experiments/experiment_K2_theory_space_curvature.py --out clean_experiments/results/experiment_K2_theory_space_curvature
 python clean_experiments/experiment_L_matter_fields.py --out clean_experiments/results/experiment_L_matter_fields
 python clean_experiments/experiment_M_cosmo_flow.py --input /path/to/wpwp_data.nc --out clean_experiments/results/experiment_M_cosmo_flow
+python clean_experiments/experiment_M_horizontal_vertical_compare.py
+python clean_experiments/experiment_M_extremes_amplitude.py
+python clean_experiments/experiment_M_extremes_calibration.py
+python clean_experiments/experiment_M_extremes_quarterly.py
 python clean_experiments/experiment_QFT_free_chain.py --out clean_experiments/results/experiment_QFT_free_chain
 python clean_experiments/experiment_wave1_robust.py --cases 40 --out clean_experiments/results/experiment_B_wave1_robust
 python clean_experiments/experiment_H_holographic_robust.py --cases 24 --out clean_experiments/results/experiment_H_holographic_robust
@@ -113,5 +138,21 @@ python clean_experiments/experiment_M_cosmo_flow.py \
   --cov-shrinkage 0.1 \
   --ridge-alpha 1e-6 \
   --min-positive-strata-frac 0.67 \
+  --n-perm 140
+```
+
+Extended Experiment M run with entropy-curvature and vertical pressure-level channels:
+
+```bash
+python clean_experiments/experiment_M_cosmo_flow.py \
+  --input data/processed/wpwp_era5_2017_2019_experiment_M_vertical_input.nc \
+  --out clean_experiments/results/experiment_M_cosmo_flow_v4_vertical_entropy \
+  --residual-mode physical_zscore \
+  --coherence-mode offdiag_fro \
+  --feature-set lambda_entropy_vertical \
+  --n-modes-per-var 6 \
+  --window 18 \
+  --cov-shrinkage 0.1 \
+  --ridge-alpha 1e-6 \
   --n-perm 140
 ```

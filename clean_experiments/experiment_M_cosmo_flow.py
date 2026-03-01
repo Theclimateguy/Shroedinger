@@ -95,6 +95,16 @@ VAR_CANDIDATES: dict[str, tuple[str, ...]] = {
     ),
 }
 
+VERTICAL_VAR_CANDIDATES: dict[str, tuple[str, ...]] = {
+    "temp_pl": ("temp_pl", "t_pl", "t"),
+    "q_pl": ("q_pl", "specific_humidity", "q"),
+    "u_pl": ("u_pl", "u_plv"),
+    "v_pl": ("v_pl", "v_plv"),
+    "w_pl": ("w_pl", "w", "omega", "vertical_velocity"),
+}
+
+LEVEL_DIM_CANDIDATES: tuple[str, ...] = ("pressure_level", "level", "plev", "isobaricInhPa")
+
 
 @dataclass(frozen=True)
 class LoadedData:
@@ -103,6 +113,9 @@ class LoadedData:
     lon: np.ndarray
     fields: dict[str, np.ndarray]
     variable_names: dict[str, str]
+    vertical_fields: dict[str, np.ndarray]
+    vertical_var_names: dict[str, str]
+    level: np.ndarray | None
 
 
 def _parse_float_list(value: str) -> list[float]:
@@ -125,6 +138,17 @@ def _find_var_name(available: list[str], role: str, override: str | None) -> str
         f"No variable found for role '{role}'. Tried {VAR_CANDIDATES[role]}. "
         f"Provide --{role.replace('_', '-')}-var explicitly."
     )
+
+
+def _try_find_var_name(available: list[str], role: str, override: str | None, candidates: dict[str, tuple[str, ...]]) -> str | None:
+    if override:
+        if override not in available:
+            raise KeyError(f"Variable '{override}' requested for role '{role}' not found in input dataset.")
+        return override
+    for cand in candidates[role]:
+        if cand in available:
+            return cand
+    return None
 
 
 def _infer_dim_name(dims: tuple[str, ...], candidates: tuple[str, ...], fallback: str | None = None) -> str:
@@ -177,6 +201,43 @@ def _slice_tyx(
     return np.asarray(arr, dtype=float)
 
 
+def _to_tlyx_da(da):
+    # Squeeze singleton non-core dimensions automatically.
+    for d in list(da.dims):
+        if da.sizes[d] == 1:
+            da = da.isel({d: 0})
+
+    dims = tuple(da.dims)
+    if len(dims) != 4:
+        raise ValueError(f"Expected 4D variable (time,level,lat,lon), got dims={dims}")
+
+    t_dim = _infer_dim_name(dims, ("time", "valid_time", "datetime", "date"), fallback=dims[0])
+    l_dim = _infer_dim_name(dims, LEVEL_DIM_CANDIDATES, fallback=dims[1])
+    y_dim = _infer_dim_name(dims, ("lat", "latitude", "y", "rlat"), fallback=dims[-2])
+    x_dim = _infer_dim_name(dims, ("lon", "longitude", "x", "rlon"), fallback=dims[-1])
+
+    keep = (t_dim, l_dim, y_dim, x_dim)
+    if len(set(keep)) != 4:
+        raise ValueError(f"Could not map dimensions to (time,level,lat,lon). dims={dims}, mapped={keep}")
+
+    da = da.transpose(t_dim, l_dim, y_dim, x_dim)
+    return da, t_dim, l_dim, y_dim, x_dim
+
+
+def _slice_tlyx(
+    arr: np.ndarray,
+    *,
+    time_stride: int,
+    lat_stride: int,
+    lon_stride: int,
+    max_time: int | None,
+) -> np.ndarray:
+    arr = arr[::time_stride, :, ::lat_stride, ::lon_stride]
+    if max_time is not None:
+        arr = arr[:max_time]
+    return np.asarray(arr, dtype=float)
+
+
 def _load_from_xarray(
     path: Path,
     *,
@@ -212,9 +273,12 @@ def _load_from_xarray(
                     break
 
     fields: dict[str, np.ndarray] = {}
+    vertical_fields: dict[str, np.ndarray] = {}
+    vertical_var_names: dict[str, str] = {}
     t_coords = None
     lat_coords = None
     lon_coords = None
+    level_coords = None
 
     for role, name in variable_names.items():
         da = ds[name]
@@ -233,6 +297,39 @@ def _load_from_xarray(
             max_time=max_time,
         )
         fields[role] = values
+
+    # Optional pressure-level variables for vertical entropy channels.
+    for role in ("temp_pl", "q_pl", "u_pl", "v_pl", "w_pl"):
+        override = var_overrides.get(role)
+        name = _try_find_var_name(available, role, override, VERTICAL_VAR_CANDIDATES)
+        if name is None:
+            continue
+        da = ds[name]
+        if da.ndim < 4 or not any(dim in da.dims for dim in LEVEL_DIM_CANDIDATES):
+            # Skip non-pressure-level variables that accidentally match a candidate name.
+            continue
+        da, t_dim_v, l_dim, y_dim_v, x_dim_v = _to_tlyx_da(da)
+
+        if t_coords is None:
+            t_coords = np.asarray(da[t_dim_v].values)
+            lat_coords = np.asarray(da[y_dim_v].values)
+            lon_coords = np.asarray(da[x_dim_v].values)
+        if level_coords is None:
+            level_coords = np.asarray(da[l_dim].values, dtype=float)
+        else:
+            level_now = np.asarray(da[l_dim].values, dtype=float)
+            if len(level_now) != len(level_coords) or not np.allclose(level_now, level_coords):
+                raise ValueError(f"Pressure levels for '{name}' are inconsistent with previous vertical variables.")
+
+        values = _slice_tlyx(
+            da.values,
+            time_stride=time_stride,
+            lat_stride=lat_stride,
+            lon_stride=lon_stride,
+            max_time=max_time,
+        )
+        vertical_fields[role] = values
+        vertical_var_names[role] = name
 
     if t_coords is None or lat_coords is None or lon_coords is None:
         raise ValueError("Failed to load coordinates from dataset.")
@@ -253,7 +350,25 @@ def _load_from_xarray(
                 f"Variable '{role}' has shape {arr.shape}, expected {(nt, ny, nx)} after slicing/alignment."
             )
 
-    return LoadedData(time=t_coords, lat=lat_coords, lon=lon_coords, fields=fields, variable_names=variable_names)
+    for role, arr in vertical_fields.items():
+        if arr.ndim != 4:
+            raise ValueError(f"Vertical variable '{role}' must have shape (time,level,lat,lon), got {arr.shape}")
+        if arr.shape[0] != nt or arr.shape[2] != ny or arr.shape[3] != nx:
+            raise ValueError(
+                f"Vertical variable '{role}' has shape {arr.shape}, expected ({nt},n_level,{ny},{nx}) after slicing/alignment."
+            )
+
+    ds.close()
+    return LoadedData(
+        time=t_coords,
+        lat=lat_coords,
+        lon=lon_coords,
+        fields=fields,
+        variable_names=variable_names,
+        vertical_fields=vertical_fields,
+        vertical_var_names=vertical_var_names,
+        level=level_coords,
+    )
 
 
 def _load_from_npz(
@@ -324,7 +439,16 @@ def _load_from_npz(
     if len(lon) != nx:
         raise ValueError(f"Lon coordinate length mismatch: {len(lon)} vs {nx}")
 
-    return LoadedData(time=time, lat=lat, lon=lon, fields=fields, variable_names=variable_names)
+    return LoadedData(
+        time=time,
+        lat=lat,
+        lon=lon,
+        fields=fields,
+        variable_names=variable_names,
+        vertical_fields={},
+        vertical_var_names={},
+        level=None,
+    )
 
 
 def _load_data(
@@ -636,9 +760,18 @@ def _compute_rho_and_lambda(
     ridge: float,
     cov_shrinkage: float,
     coherence_mode: str,
-) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    coherence_floor: float,
+    coherence_power: float,
+    coherence_blend: float,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     if not (0.0 <= cov_shrinkage <= 1.0):
         raise ValueError(f"cov_shrinkage must be in [0,1], got {cov_shrinkage}")
+    if coherence_floor < 0.0:
+        raise ValueError(f"coherence_floor must be >=0, got {coherence_floor}")
+    if coherence_power <= 0.0:
+        raise ValueError(f"coherence_power must be >0, got {coherence_power}")
+    if not (0.0 <= coherence_blend <= 1.0):
+        raise ValueError(f"coherence_blend must be in [0,1], got {coherence_blend}")
 
     n_bands = len(coeff_by_band)
     nt = coeff_by_band[0].shape[0]
@@ -658,6 +791,7 @@ def _compute_rho_and_lambda(
     trace_err = np.zeros((nt, n_bands), dtype=float)
     min_eig = np.zeros((nt, n_bands), dtype=float)
     lambda_mu = np.zeros((nt, n_bands), dtype=float)
+    entropy_mu = np.zeros((nt, n_bands), dtype=float)
 
     for b in range(n_bands):
         m = coeff_scaled[b].shape[1]
@@ -687,6 +821,9 @@ def _compute_rho_and_lambda(
             eigs = np.linalg.eigvalsh(rho)
             min_eig[t, b] = float(np.min(np.real(eigs)))
             trace_err[t, b] = float(abs(np.real(np.trace(rho)) - 1.0))
+            eigs_pos = np.clip(np.real(eigs), 0.0, None)
+            z = eigs_pos / (np.sum(eigs_pos) + 1e-15)
+            entropy_mu[t, b] = float(-np.sum(z * np.log(z + 1e-15)))
             offdiag = rho - np.diag(np.diag(rho))
             offdiag_norm = float(np.linalg.norm(offdiag, ord="fro"))
             if coherence_mode == "offdiag_fro":
@@ -746,9 +883,93 @@ def _compute_rho_and_lambda(
             lambda_mu[t, b] = float(np.nan_to_num(lam_val, nan=0.0, posinf=0.0, neginf=0.0))
 
     w = n_struct / np.sum(n_struct, axis=1, keepdims=True)
-    lambda_struct = np.sum(w * coh * lambda_mu, axis=1)
 
-    return lambda_struct, w, coh, lambda_mu, trace_err, min_eig
+    coh_eff = np.power(np.maximum(coh + coherence_floor, 0.0), coherence_power)
+    # Entropy-based normalized diagonal-mixing proxy (classical/macroscopic regime).
+    max_entropy = np.log(np.maximum(np.asarray([max(coeff_scaled[b].shape[1], 1) for b in range(n_bands)], dtype=float), 1.0))
+    max_entropy = np.where(max_entropy < 1e-12, 1.0, max_entropy)
+    diag_mix = np.clip(entropy_mu / max_entropy[None, :], 0.0, 1.0)
+    signal_mu = coherence_blend * coh_eff + (1.0 - coherence_blend) * diag_mix
+
+    lambda_struct = np.sum(w * signal_mu * lambda_mu, axis=1)
+    entropy_curvature_mu = np.zeros_like(entropy_mu)
+    if n_bands >= 3:
+        entropy_curvature_mu[:, 1:-1] = entropy_mu[:, 2:] - 2.0 * entropy_mu[:, 1:-1] + entropy_mu[:, :-2]
+    entropy_curvature_struct = np.sum(w * np.abs(entropy_curvature_mu), axis=1)
+
+    return lambda_struct, w, coh, lambda_mu, trace_err, min_eig, entropy_mu, entropy_curvature_struct
+
+
+def _compute_vertical_entropy_features(
+    *,
+    vertical_fields: dict[str, np.ndarray],
+    window: int,
+    ridge: float,
+    cov_shrinkage: float,
+    pressure_levels: np.ndarray | None,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    if len(vertical_fields) == 0:
+        return np.zeros((0, 0), dtype=float), np.zeros(0, dtype=float), np.zeros(0, dtype=float)
+
+    roles = sorted(vertical_fields.keys())
+    nt, n_level, ny, nx = next(iter(vertical_fields.values())).shape
+    n_pix = ny * nx
+    n_roles = len(roles)
+
+    # cov_tl[t, l] is covariance across variable roles at pressure level l.
+    cov_tl = np.zeros((nt, n_level, n_roles, n_roles), dtype=float)
+    for t in range(nt):
+        stack = np.stack([np.nan_to_num(vertical_fields[r][t], nan=0.0, posinf=0.0, neginf=0.0).reshape(n_level, n_pix) for r in roles], axis=0)
+        stack = stack - np.mean(stack, axis=2, keepdims=True)
+        cov_tl[t] = np.einsum("rln,sln->lrs", stack, stack, optimize=True) / float(max(n_pix, 1))
+
+    entropy_pl = np.zeros((nt, n_level), dtype=float)
+    eye = np.eye(n_roles, dtype=float)
+    for t in range(nt):
+        i0 = max(0, t - window + 1)
+        c_win = np.mean(cov_tl[i0 : t + 1], axis=0)  # n_level x n_roles x n_roles
+        for l in range(n_level):
+            c = 0.5 * (c_win[l] + c_win[l].T)
+            if cov_shrinkage > 0.0:
+                c = (1.0 - cov_shrinkage) * c + cov_shrinkage * np.diag(np.diag(c))
+            c = c + ridge * eye
+            tr = float(np.trace(c))
+            if tr < 1e-14:
+                rho = eye / float(n_roles)
+            else:
+                rho = c / tr
+            vals = np.linalg.eigvalsh(0.5 * (rho + rho.T))
+            vals = np.clip(np.real(vals), 0.0, None)
+            z = vals / (np.sum(vals) + 1e-15)
+            entropy_pl[t, l] = float(-np.sum(z * np.log(z + 1e-15)))
+
+    if n_level < 2:
+        return entropy_pl, np.zeros(nt, dtype=float), np.zeros(nt, dtype=float)
+
+    dS_adj = entropy_pl[:, 1:] - entropy_pl[:, :-1]
+    if pressure_levels is None or len(pressure_levels) != n_level:
+        w_adj = np.full(n_level - 1, 1.0 / float(n_level - 1), dtype=float)
+        w_lvl = np.full(n_level, 1.0 / float(n_level), dtype=float)
+    else:
+        p = np.asarray(pressure_levels, dtype=float)
+        dp = np.abs(np.diff(p))
+        if np.sum(dp) < 1e-15:
+            w_adj = np.full(n_level - 1, 1.0 / float(n_level - 1), dtype=float)
+        else:
+            w_adj = dp / np.sum(dp)
+        w_lvl = np.ones(n_level, dtype=float)
+        w_lvl[1:-1] = 0.5 * (np.abs(p[2:] - p[:-2]))
+        if np.sum(w_lvl) < 1e-15:
+            w_lvl = np.full(n_level, 1.0 / float(n_level), dtype=float)
+        else:
+            w_lvl = w_lvl / np.sum(w_lvl)
+
+    entropy_vertical_channel = np.sum(w_adj[None, :] * np.abs(dS_adj), axis=1)
+    d2 = np.zeros_like(entropy_pl)
+    if n_level >= 3:
+        d2[:, 1:-1] = entropy_pl[:, 2:] - 2.0 * entropy_pl[:, 1:-1] + entropy_pl[:, :-2]
+    entropy_vertical_curvature = np.sum(w_lvl[None, :] * np.abs(d2), axis=1)
+    return entropy_pl, entropy_vertical_channel, entropy_vertical_curvature
 
 
 def _blocked_splits(n: int, n_folds: int) -> list[tuple[np.ndarray, np.ndarray]]:
@@ -813,17 +1034,16 @@ def _fit_ridge_scaled(
 def _evaluate_splits(
     *,
     y: np.ndarray,
-    n_ctrl: np.ndarray,
-    lambda_struct: np.ndarray,
+    x_base: np.ndarray,
+    x_full: np.ndarray,
+    base_feature_names: list[str],
+    full_feature_names: list[str],
     splits: list[tuple[np.ndarray, np.ndarray]],
     ridge_alpha: float,
 ) -> tuple[pd.DataFrame, np.ndarray, np.ndarray]:
     rows: list[dict[str, float | int]] = []
     yhat_base_oof = np.full_like(y, np.nan, dtype=float)
     yhat_full_oof = np.full_like(y, np.nan, dtype=float)
-
-    x_base = n_ctrl.reshape(-1, 1)
-    x_full = np.column_stack([n_ctrl, lambda_struct])
 
     for split_id, (train_idx, test_idx) in enumerate(splits):
         y_train = y[train_idx]
@@ -842,21 +1062,21 @@ def _evaluate_splits(
         mae_full = float(np.mean(np.abs(y_test - yhat_f)))
         gain = float((mae_base - mae_full) / (mae_base + 1e-12))
 
-        rows.append(
-            {
-                "split_id": int(split_id),
-                "n_train": int(len(train_idx)),
-                "n_test": int(len(test_idx)),
-                "mae_base": mae_base,
-                "mae_full": mae_full,
-                "mae_gain_frac": gain,
-                "coef_base_ctrl": float(coef_b[0]),
-                "intercept_base": float(intercept_b),
-                "coef_full_ctrl": float(coef_f[0]),
-                "coef_full_lambda": float(coef_f[1]),
-                "intercept_full": float(intercept_f),
-            }
-        )
+        row: dict[str, float | int] = {
+            "split_id": int(split_id),
+            "n_train": int(len(train_idx)),
+            "n_test": int(len(test_idx)),
+            "mae_base": mae_base,
+            "mae_full": mae_full,
+            "mae_gain_frac": gain,
+            "intercept_base": float(intercept_b),
+            "intercept_full": float(intercept_f),
+        }
+        for i, name in enumerate(base_feature_names):
+            row[f"coef_base_{name}"] = float(coef_b[i])
+        for i, name in enumerate(full_feature_names):
+            row[f"coef_full_{name}"] = float(coef_f[i])
+        rows.append(row)
 
     return pd.DataFrame(rows), yhat_base_oof, yhat_full_oof
 
@@ -872,8 +1092,11 @@ def _block_permute(x: np.ndarray, block: int, rng: np.random.Generator) -> np.nd
 def _permutation_test(
     *,
     y: np.ndarray,
-    n_ctrl: np.ndarray,
-    lambda_struct: np.ndarray,
+    x_base: np.ndarray,
+    x_full: np.ndarray,
+    base_feature_names: list[str],
+    full_feature_names: list[str],
+    permute_cols: np.ndarray,
     splits: list[tuple[np.ndarray, np.ndarray]],
     ridge_alpha: float,
     n_perm: int,
@@ -884,8 +1107,10 @@ def _permutation_test(
 
     real_df, _, _ = _evaluate_splits(
         y=y,
-        n_ctrl=n_ctrl,
-        lambda_struct=lambda_struct,
+        x_base=x_base,
+        x_full=x_full,
+        base_feature_names=base_feature_names,
+        full_feature_names=full_feature_names,
         splits=splits,
         ridge_alpha=ridge_alpha,
     )
@@ -894,11 +1119,14 @@ def _permutation_test(
     rows = []
     count_ge = 0
     for pid in range(n_perm):
-        lam_perm = _block_permute(lambda_struct, block=perm_block, rng=rng)
+        x_full_perm = np.asarray(x_full, dtype=float).copy()
+        x_full_perm[:, permute_cols] = _block_permute(x_full[:, permute_cols], block=perm_block, rng=rng)
         perm_df, _, _ = _evaluate_splits(
             y=y,
-            n_ctrl=n_ctrl,
-            lambda_struct=lam_perm,
+            x_base=x_base,
+            x_full=x_full_perm,
+            base_feature_names=base_feature_names,
+            full_feature_names=full_feature_names,
             splits=splits,
             ridge_alpha=ridge_alpha,
         )
@@ -956,6 +1184,12 @@ def _strata_table(
     return pd.DataFrame(rows)
 
 
+def _resolve_feature_set(feature_set: str, has_vertical_input: bool) -> str:
+    if feature_set == "auto":
+        return "lambda_entropy_vertical" if has_vertical_input else "lambda_entropy"
+    return feature_set
+
+
 def run_experiment(
     *,
     input_path: Path,
@@ -975,6 +1209,9 @@ def run_experiment(
     residual_mode: str | None,
     cov_shrinkage: float,
     coherence_mode: str,
+    coherence_floor: float,
+    coherence_power: float,
+    coherence_blend: float,
     strata_q: int,
     min_mae_gain: float,
     max_perm_p: float,
@@ -987,6 +1224,7 @@ def run_experiment(
     max_time: int | None,
     level_dim: str | None,
     level_index: int,
+    feature_set: str,
     var_overrides: dict[str, str | None],
     verbose: bool = True,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
@@ -1090,38 +1328,94 @@ def run_experiment(
         peak_quantile=peak_quantile,
     )
 
-    lambda_struct, w_mu, coh_mu, lambda_mu, trace_err_mu, min_eig_mu = _compute_rho_and_lambda(
+    lambda_struct, w_mu, coh_mu, lambda_mu, trace_err_mu, min_eig_mu, entropy_mu, entropy_curvature_struct = _compute_rho_and_lambda(
         coeff_by_band=coeff_by_band,
         n_struct=n_struct,
         window=window,
         ridge=ridge_alpha,
         cov_shrinkage=cov_shrinkage,
         coherence_mode=coherence_mode,
+        coherence_floor=coherence_floor,
+        coherence_power=coherence_power,
+        coherence_blend=coherence_blend,
     )
 
-    valid_mask = np.isfinite(res0) & np.isfinite(lambda_struct) & np.isfinite(n_ctrl)
+    has_vertical_input = len(loaded.vertical_fields) > 0
+    feature_set_eff = _resolve_feature_set(feature_set, has_vertical_input)
+    if feature_set_eff not in {"lambda_only", "lambda_entropy", "lambda_entropy_vertical"}:
+        raise ValueError(
+            f"Unknown feature_set='{feature_set_eff}'. "
+            "Use one of: lambda_only, lambda_entropy, lambda_entropy_vertical, auto."
+        )
+    if feature_set_eff == "lambda_entropy_vertical" and not has_vertical_input:
+        raise ValueError(
+            "feature_set=lambda_entropy_vertical requires pressure-level variables in the input "
+            "(e.g., temp_pl,q_pl,u_pl,v_pl,w_pl)."
+        )
+
+    entropy_vertical_channel = np.full(nt, np.nan, dtype=float)
+    entropy_vertical_curvature = np.full(nt, np.nan, dtype=float)
+    entropy_pl = np.zeros((0, 0), dtype=float)
+    if feature_set_eff == "lambda_entropy_vertical":
+        entropy_pl, entropy_vertical_channel, entropy_vertical_curvature = _compute_vertical_entropy_features(
+            vertical_fields=loaded.vertical_fields,
+            window=window,
+            ridge=ridge_alpha,
+            cov_shrinkage=cov_shrinkage,
+            pressure_levels=loaded.level,
+        )
+
+    feature_arrays: dict[str, np.ndarray] = {
+        "ctrl": n_ctrl,
+        "lambda": lambda_struct,
+    }
+    if feature_set_eff in {"lambda_entropy", "lambda_entropy_vertical"}:
+        feature_arrays["entropy_curv_struct"] = entropy_curvature_struct
+    if feature_set_eff == "lambda_entropy_vertical":
+        feature_arrays["entropy_vertical_channel"] = entropy_vertical_channel
+        feature_arrays["entropy_vertical_curvature"] = entropy_vertical_curvature
+
+    valid_mask = np.isfinite(res0)
+    for arr in feature_arrays.values():
+        valid_mask &= np.isfinite(arr)
     valid_idx = np.where(valid_mask)[0]
     if len(valid_idx) < max(40, n_folds * 8):
         raise ValueError(f"Not enough valid points after filtering: {len(valid_idx)}")
 
     y = res0[valid_idx]
-    lam = lambda_struct[valid_idx]
-    ctrl = n_ctrl[valid_idx]
+    base_feature_names = ["ctrl"]
+    if feature_set_eff == "lambda_only":
+        full_feature_names = ["ctrl", "lambda"]
+    elif feature_set_eff == "lambda_entropy":
+        full_feature_names = ["ctrl", "lambda", "entropy_curv_struct"]
+    else:
+        full_feature_names = ["ctrl", "lambda", "entropy_curv_struct", "entropy_vertical_channel", "entropy_vertical_curvature"]
+
+    x_base_rel = np.column_stack([feature_arrays[name][valid_idx] for name in base_feature_names])
+    x_full_rel = np.column_stack([feature_arrays[name][valid_idx] for name in full_feature_names])
+    ctrl = x_base_rel[:, 0]
+    lam = feature_arrays["lambda"][valid_idx]
 
     splits_rel = _blocked_splits(len(valid_idx), n_folds=n_folds)
 
     split_df, yhat_base_rel, yhat_full_rel = _evaluate_splits(
         y=y,
-        n_ctrl=ctrl,
-        lambda_struct=lam,
+        x_base=x_base_rel,
+        x_full=x_full_rel,
+        base_feature_names=base_feature_names,
+        full_feature_names=full_feature_names,
         splits=splits_rel,
         ridge_alpha=ridge_alpha,
     )
 
+    permute_cols = np.array([i for i, name in enumerate(full_feature_names) if name != "ctrl"], dtype=int)
     p_perm, perm_df, stat_real = _permutation_test(
         y=y,
-        n_ctrl=ctrl,
-        lambda_struct=lam,
+        x_base=x_base_rel,
+        x_full=x_full_rel,
+        base_feature_names=base_feature_names,
+        full_feature_names=full_feature_names,
+        permute_cols=permute_cols,
         splits=splits_rel,
         ridge_alpha=ridge_alpha,
         n_perm=n_perm,
@@ -1138,15 +1432,15 @@ def run_experiment(
     )
 
     full_coef, full_intercept, yhat_full_all_rel = _fit_ridge_scaled(
-        np.column_stack([ctrl, lam]),
+        x_full_rel,
         y,
-        np.column_stack([ctrl, lam]),
+        x_full_rel,
         ridge_alpha,
     )
     base_coef, base_intercept, yhat_base_all_rel = _fit_ridge_scaled(
-        ctrl.reshape(-1, 1),
+        x_base_rel,
         y,
-        ctrl.reshape(-1, 1),
+        x_base_rel,
         ridge_alpha,
     )
 
@@ -1174,6 +1468,16 @@ def run_experiment(
         float(np.mean(strata_df["mae_gain_frac"].to_numpy(dtype=float) >= min_strata_gain)) if len(strata_df) else float("nan")
     )
     corr_lambda_density = float(np.corrcoef(lam, ctrl)[0, 1]) if np.std(lam) > 1e-12 and np.std(ctrl) > 1e-12 else float("nan")
+    corr_entropy_ctrl = (
+        float(np.corrcoef(feature_arrays["entropy_curv_struct"][valid_idx], ctrl)[0, 1])
+        if "entropy_curv_struct" in feature_arrays and np.std(feature_arrays["entropy_curv_struct"][valid_idx]) > 1e-12 and np.std(ctrl) > 1e-12
+        else float("nan")
+    )
+    corr_vert_channel_ctrl = (
+        float(np.corrcoef(feature_arrays["entropy_vertical_channel"][valid_idx], ctrl)[0, 1])
+        if "entropy_vertical_channel" in feature_arrays and np.std(feature_arrays["entropy_vertical_channel"][valid_idx]) > 1e-12 and np.std(ctrl) > 1e-12
+        else float("nan")
+    )
 
     pass_mae = bool(oof_gain >= min_mae_gain)
     pass_perm = bool(p_perm <= max_perm_p)
@@ -1183,6 +1487,9 @@ def run_experiment(
     else:
         pass_strata = bool(strata_positive_frac >= min_positive_strata_frac)
     pass_all = bool(pass_mae and pass_perm and pass_sign and pass_strata)
+
+    coef_base_global = {name: float(base_coef[i]) for i, name in enumerate(base_feature_names)}
+    coef_full_global = {name: float(full_coef[i]) for i, name in enumerate(full_feature_names)}
 
     summary_df = pd.DataFrame(
         [
@@ -1199,10 +1506,16 @@ def run_experiment(
                 "residual_mode": str(residual_mode),
                 "cov_shrinkage": float(cov_shrinkage),
                 "coherence_mode": str(coherence_mode),
+                "coherence_floor": float(coherence_floor),
+                "coherence_power": float(coherence_power),
+                "coherence_blend": float(coherence_blend),
                 "n_folds": int(n_folds),
                 "n_perm": int(n_perm),
                 "perm_block": int(perm_block),
                 "density_source": density_source,
+                "feature_set": feature_set_eff,
+                "has_vertical_input": bool(has_vertical_input),
+                "n_vertical_levels": int(0 if loaded.level is None else len(loaded.level)),
                 "mae_base_oof": float(mae_base_oof),
                 "mae_full_oof": float(mae_full_oof),
                 "oof_gain_frac": float(oof_gain),
@@ -1215,10 +1528,15 @@ def run_experiment(
                 "strata_positive_frac": float(strata_positive_frac) if not np.isnan(strata_positive_frac) else np.nan,
                 "min_positive_strata_frac": float(min_positive_strata_frac),
                 "corr_lambda_ctrl": corr_lambda_density,
-                "coef_full_ctrl_global": float(full_coef[0]),
-                "coef_full_lambda_global": float(full_coef[1]),
+                "corr_entropy_ctrl": corr_entropy_ctrl,
+                "corr_entropy_vertical_channel_ctrl": corr_vert_channel_ctrl,
+                "coef_full_ctrl_global": coef_full_global.get("ctrl", np.nan),
+                "coef_full_lambda_global": coef_full_global.get("lambda", np.nan),
+                "coef_full_entropy_curv_struct_global": coef_full_global.get("entropy_curv_struct", np.nan),
+                "coef_full_entropy_vertical_channel_global": coef_full_global.get("entropy_vertical_channel", np.nan),
+                "coef_full_entropy_vertical_curvature_global": coef_full_global.get("entropy_vertical_curvature", np.nan),
                 "intercept_full_global": float(full_intercept),
-                "coef_base_ctrl_global": float(base_coef[0]),
+                "coef_base_ctrl_global": coef_base_global.get("ctrl", np.nan),
                 "intercept_base_global": float(base_intercept),
                 "pass_mae_gain": pass_mae,
                 "pass_perm": pass_perm,
@@ -1235,6 +1553,9 @@ def run_experiment(
             "time": pd.to_datetime(time).astype(str) if np.issubdtype(np.asarray(time).dtype, np.datetime64) else np.asarray(time),
             "residual_base_res0": res0,
             "lambda_struct": lambda_struct,
+            "entropy_curv_struct": entropy_curvature_struct,
+            "entropy_vertical_channel": entropy_vertical_channel,
+            "entropy_vertical_curvature": entropy_vertical_curvature,
             "n_density_ctrl_z": n_ctrl,
             "d_iwv_dt_mean": res_components["d_iwv_dt_mean"],
             "div_ivt_mean": res_components["div_ivt_mean"],
@@ -1258,19 +1579,24 @@ def run_experiment(
         timeseries[f"weight_mu_{bid}"] = w_mu[:, b]
         timeseries[f"coh_mu_{bid}"] = coh_mu[:, b]
         timeseries[f"lambda_mu_{bid}"] = lambda_mu[:, b]
+        timeseries[f"entropy_mu_{bid}"] = entropy_mu[:, b]
         timeseries[f"n_struct_mu_{bid}"] = n_struct[:, b]
         timeseries[f"rho_trace_err_mu_{bid}"] = trace_err_mu[:, b]
         timeseries[f"rho_min_eig_mu_{bid}"] = min_eig_mu[:, b]
 
-    coeff_df = pd.DataFrame(
-        [
-            {"term": "intercept_base", "value": float(base_intercept)},
-            {"term": "ctrl_base", "value": float(base_coef[0])},
-            {"term": "intercept_full", "value": float(full_intercept)},
-            {"term": "ctrl_full", "value": float(full_coef[0])},
-            {"term": "lambda_full", "value": float(full_coef[1])},
-        ]
-    )
+    if entropy_pl.size > 0 and loaded.level is not None:
+        for i, p_level in enumerate(np.asarray(loaded.level, dtype=float)):
+            lid = f"{i:02d}"
+            timeseries[f"pressure_level_hpa_{lid}"] = float(p_level)
+            timeseries[f"entropy_pl_{lid}"] = entropy_pl[:, i]
+
+    coeff_rows = [
+        {"term": "intercept_base", "value": float(base_intercept)},
+        {"term": "intercept_full", "value": float(full_intercept)},
+    ]
+    coeff_rows.extend({"term": f"{name}_base", "value": coef_base_global[name]} for name in base_feature_names)
+    coeff_rows.extend({"term": f"{name}_full", "value": coef_full_global[name]} for name in full_feature_names)
+    coeff_df = pd.DataFrame(coeff_rows)
 
     mode_meta = mode_meta.copy()
     for b in range(len(masks)):
@@ -1337,6 +1663,34 @@ def main() -> None:
         default="offdiag_fro",
         help="How to compute per-band coherence from rho_mu(t).",
     )
+    parser.add_argument(
+        "--coherence-floor",
+        type=float,
+        default=0.0,
+        help="Additive floor for coherence proxy before structural coupling (>=0).",
+    )
+    parser.add_argument(
+        "--coherence-power",
+        type=float,
+        default=1.0,
+        help="Power transform for coherence proxy before structural coupling (>0).",
+    )
+    parser.add_argument(
+        "--coherence-blend",
+        type=float,
+        default=1.0,
+        help="Blend between coherence proxy and entropy-diagonal proxy in Lambda_struct (1=coherence-only, 0=entropy-only).",
+    )
+    parser.add_argument(
+        "--feature-set",
+        choices=["lambda_only", "lambda_entropy", "lambda_entropy_vertical", "auto"],
+        default="lambda_only",
+        help=(
+            "Feature block for full model. "
+            "lambda_only keeps legacy setup; lambda_entropy adds entropy-curvature; "
+            "lambda_entropy_vertical also adds pressure-level entropy channels."
+        ),
+    )
 
     parser.add_argument("--time-stride", type=int, default=1)
     parser.add_argument("--lat-stride", type=int, default=1)
@@ -1356,6 +1710,11 @@ def main() -> None:
     parser.add_argument("--temp-var", default=None)
     parser.add_argument("--pressure-var", default=None)
     parser.add_argument("--density-var", default=None)
+    parser.add_argument("--temp-pl-var", default=None)
+    parser.add_argument("--q-pl-var", default=None)
+    parser.add_argument("--u-pl-var", default=None)
+    parser.add_argument("--v-pl-var", default=None)
+    parser.add_argument("--w-pl-var", default=None)
 
     parser.add_argument("--quiet", action="store_true")
     args = parser.parse_args()
@@ -1371,6 +1730,11 @@ def main() -> None:
         "temp": args.temp_var,
         "pressure": args.pressure_var,
         "density": args.density_var,
+        "temp_pl": args.temp_pl_var,
+        "q_pl": args.q_pl_var,
+        "u_pl": args.u_pl_var,
+        "v_pl": args.v_pl_var,
+        "w_pl": args.w_pl_var,
     }
 
     _, _, _, _, _, summary = run_experiment(
@@ -1391,6 +1755,9 @@ def main() -> None:
         residual_mode=args.residual_mode,
         cov_shrinkage=args.cov_shrinkage,
         coherence_mode=args.coherence_mode,
+        coherence_floor=args.coherence_floor,
+        coherence_power=args.coherence_power,
+        coherence_blend=args.coherence_blend,
         strata_q=args.strata_q,
         min_mae_gain=args.min_mae_gain,
         max_perm_p=args.max_perm_p,
@@ -1403,6 +1770,7 @@ def main() -> None:
         max_time=args.max_time,
         level_dim=args.level_dim,
         level_index=args.level_index,
+        feature_set=args.feature_set,
         var_overrides=var_overrides,
         verbose=not args.quiet,
     )

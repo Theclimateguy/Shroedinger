@@ -1,0 +1,4 @@
+run,oof_gain_frac,perm_p_value,strata_positive_frac,lambda_sign_consistency,pass_all,feature_set
+horizontal_v3_calibrated,0.0033792709486676,0.0070921985815602,1.0,1.0,False,n/a
+vertical_v4_entropy_raw,-0.0036701426250453,0.7092198581560284,0.3333333333333333,1.0,False,lambda_entropy_vertical
+vertical_v4_macro_calibrated,0.0034120966660166,0.0070921985815602,1.0,1.0,True,lambda_only
