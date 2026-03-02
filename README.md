@@ -1,46 +1,55 @@
 # Shroedinger — Clean Experiments and Documentation
 
-This repository intentionally keeps only the canonical `clean_experiments` codebase and documentation.
+This repository keeps the canonical `clean_experiments` codebase and documentation.
 
 ## Scope
 
 - Included:
   - `clean_experiments/` scripts and experiment docs (`*.py`, `*.md`, `*.tex`)
-  - root documentation (`README.md`, `research_programm_summary.csv`)
-  - generated markdown reports under `clean_experiments/results/**` (documentation only)
-- Excluded from version control:
+  - root docs (`README.md`, `research_programm_summary.csv`)
+  - markdown reports in `clean_experiments/results/**`
+- Excluded from Git:
   - legacy `experiments/`
   - local `manuscript/`
-  - raw/intermediate data and heavy generated artifacts (CSV/PNG/NPZ/JSON)
+  - heavy generated artifacts (`CSV/PNG/NPZ/JSON`)
 
-## Experiment set
+## Program Numbering (1-20)
 
-Canonical experiment mapping is documented in:
+Source of truth: `research_programm_summary.csv`.
 
-- `clean_experiments/EXPERIMENT_NUMBERING.md`
-- `clean_experiments/HYPOTHESIS_ROADMAP.md`
-- `research_programm_summary.csv`
+1. A — gauge invariance and noncommutativity (`experiment_A.py`)
+2. B / wave-1 — `Lambda_matter` sinusoidal/state checks (`experiment_wave1_user.py`)
+3. D — balance closure on `(t,x,mu)` (`experiment_D.py`)
+4. E — coherence-driven rate diagnostics (`experiment_E.py`)
+5. F — sinusoidal-law robustness (`experiment_F.py`)
+6. G — fixed-phase profile scan (`experiment_G.py`)
+7. G2 (toy-chain) — Clausius regression vs epsilon (`experiment_G2_toy_chain.py`)
+8. G2 (single-qubit) — Clausius regression vs profile (`experiment_G2_single_qubit.py`)
+9. H1 — holographic truncation with layer growth (`experiment_H_holographic.py`)
+10. H2 — continuum conservation extrapolation (`experiment_I_continuum_conservation.py`)
+11. H3 — Berry-phase refinement (`experiment_J_berry_refinement.py`)
+12. H4 — `Lambda_matter` bridge test (`experiment_K_lambda_bridge.py`)
+13. H4b — theory-space curvature vs RG noncommutativity (`experiment_K2_theory_space_curvature.py`)
+14. H5 — matter fields (`fermion+gauge`) (`experiment_L_matter_fields.py`)
+15. M1 — macro detectability in ERA5 moisture closure (`experiment_M_cosmo_flow.py`)
+16. M2 — horizontal/vertical consistency + placebo noise controls (`experiment_M_horizontal_vertical_compare.py`)
+17. M3 — land/ocean detectability and noise probe (`experiment_M_land_ocean_split.py`, `experiment_M_land_ocean_noise_probe.py`)
+18. O1 — thermodynamic (Clausius baseline vs `+Lambda`) test (`experiment_O_entropy_equilibrium.py`)
+19. O2 — spatial macro-signal diagnostics (`experiment_O_spatial_variance.py`, `experiment_O_lambda_spatial_viz.py`, `experiment_O_spatial_active_west.py`)
+20. M4 — staged falsification of Lambda necessity (S1/S2/S3) (`experiment_M_lambda_falsification_tests.py`)
 
-Current sequence is A, B (wave-1), D, E, F, G, G2, H, I, J, K, K2, L, M, N, O,
-including the M4 staged falsification block (S1/S2/S3) in Experiment M.
+## Auxiliary (not in 1-20 program numbering)
 
-## Reproducibility note
+- N moisture-budget follow-up branch:
+  - `experiment_N_navier_stokes_budget.py`
+  - `experiment_N_followup_dual.py`
 
-Run scripts to generate local outputs into `clean_experiments/results/...`.
-These outputs are not versioned by design; keep them local or publish separately when needed.
+## Reproducibility
 
-## Quick start
-
-```bash
-python clean_experiments/experiment_A.py --out out/experiment_A
-python clean_experiments/experiment_wave1_user.py --out out/experiment_B_wave1
-python clean_experiments/experiment_M_cosmo_flow.py --input /path/to/wpwp_data.nc --out clean_experiments/results/experiment_M_cosmo_flow
-python clean_experiments/experiment_M_lambda_falsification_tests.py
-python clean_experiments/experiment_N_navier_stokes_budget.py --input-nc /path/to/wpwp_vertical_data.nc --lambda-csv /path/to/experiment_M_timeseries.csv --outdir clean_experiments/results/experiment_N_navier_stokes_budget
-python clean_experiments/experiment_O_entropy_equilibrium.py --input-nc /path/to/wpwp_vertical_data.nc --lambda-csv /path/to/experiment_M_timeseries.csv --outdir clean_experiments/results/experiment_O_entropy_equilibrium
-```
+Run scripts locally and write outputs to `clean_experiments/results/...`.
+Heavy artifacts are intentionally not versioned in GitHub.
 
 ## Notes
 
 - `manuscript/` is maintained outside this repository.
-- `clean_experiments/EXPERIMENT_M_LAMBDA_RESIDUAL_CLOSURE_STANDALONE.tex` is kept as a standalone technical note.
+- `clean_experiments/EXPERIMENT_M_LAMBDA_RESIDUAL_CLOSURE_STANDALONE.tex` is a standalone technical note.

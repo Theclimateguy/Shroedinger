@@ -19,17 +19,26 @@ locally during runs and are not versioned by default in GitHub.
 
 ## Experiment Map
 
-| New ID | Hypothesis | Script | Core metric | Pass criterion |
+| Block ID | Hypothesis | Script | Core metric | Pass criterion |
 |---|---|---|---|---|
-| Experiment 9 (H) | Exponential `dim(H_mu)` growth + holographic truncation regularizes observables | `clean_experiments/experiment_H_holographic.py` | stability gain of regularized truncated integral across `K`-scan | `stability_gain > 1`, trace residual in Lindblad RHS below tolerance |
-| Experiment 10 (I) | Covariant conservation in continuum limit | `clean_experiments/experiment_I_continuum_conservation.py` | intercept of residual fit vs `(dmu, dt)` and fit quality | small extrapolated intercept and stable fit across robust runs |
-| Experiment 11 (J) | Berry phase artifact check | `clean_experiments/experiment_J_berry_refinement.py` | wrapped phase error vs analytic Berry law | finest-grid error remains below tolerance across angle scan |
-| Experiment 12 (K) | `Lambda_matter` linkage to effective cosmological source proxy | `clean_experiments/experiment_K_lambda_bridge.py` | repeated-holdout median `R2`, permutation p-value, bootstrap/profile sign diagnostics | median holdout `R2` above threshold, permutation significance, stable coefficient-sign diagnostics |
-| Experiment 13 (K2) | Theory-space curvature diagnostics vs RG noncommutativity | `clean_experiments/experiment_K2_theory_space_curvature.py` | corr(`source_spread`, commutator norm), corr(`source_spread`, `|Omega_FS|`), gauge/convergence checks | strong positive geometric correlations and stable gauge/coarse checks |
-| Experiment 14 (L) | Matter-field embedding (fermion + gauge sectors) | `clean_experiments/experiment_L_matter_fields.py` | Ward identity (`||[Q,H]||_F`), local continuity residual, total-charge drift | commutator and continuity at numerical precision; drift bounded |
-| Experiment 15 (M) | Structural-scale cosmological-flow test from atmospheric multiscale fields | `clean_experiments/experiment_M_cosmo_flow.py` | blocked-CV MAE gain of residual closure (baseline ctrl vs ctrl+`Lambda_struct`), permutation p-value, sign consistency | **Two-level policy**: Theoretical Detection Threshold: `min_mae_gain >= 0.002`, `perm_p <= 0.05`, `strata_positive_frac >= 0.8`; Engineering Impact Threshold: `min_mae_gain >= 0.03` |
-| Experiment 16 (N) | Navier-Stokes moisture-budget closure from multiscale atmospheric fields | `clean_experiments/experiment_N_navier_stokes_budget.py` (+ `clean_experiments/experiment_N_followup_dual.py`) | out-of-time gain (`test_gain_all`), permutation significance, quarterly rolling-origin consistency | detection considered present if at least one calibrated branch yields positive out-of-time gain with `perm_p <= 0.05` and non-degenerate quarterly signal |
-| Experiment 17 (O) | Clausius thermodynamic consistency with Lambda correction and spatial anomaly maps | `clean_experiments/experiment_O_entropy_equilibrium.py` (+ spatial: `experiment_O_spatial_variance.py`, `experiment_O_lambda_spatial_viz.py`, `experiment_O_spatial_active_west.py`) | FT-domain `R2` gain vs Clausius baseline, permutation significance, spatial gain pattern diagnostics | Clausius baseline must remain stable; Lambda-augmented model should show reproducible incremental signal beyond noise in temporal and spatial diagnostics |
+| H1 | Exponential `dim(H_mu)` growth + holographic truncation regularizes observables | `clean_experiments/experiment_H_holographic.py` | stability gain of regularized truncated integral across `K`-scan | `stability_gain > 1`, trace residual in Lindblad RHS below tolerance |
+| H2 | Covariant conservation in continuum limit | `clean_experiments/experiment_I_continuum_conservation.py` | intercept of residual fit vs `(dmu, dt)` and fit quality | small extrapolated intercept and stable fit across robust runs |
+| H3 | Berry phase artifact check | `clean_experiments/experiment_J_berry_refinement.py` | wrapped phase error vs analytic Berry law | finest-grid error remains below tolerance across angle scan |
+| H4 | `Lambda_matter` linkage to effective cosmological source proxy | `clean_experiments/experiment_K_lambda_bridge.py` | repeated-holdout median `R2`, permutation p-value, bootstrap/profile sign diagnostics | median holdout `R2` above threshold, permutation significance, stable coefficient-sign diagnostics |
+| H4b | Theory-space curvature diagnostics vs RG noncommutativity | `clean_experiments/experiment_K2_theory_space_curvature.py` | corr(`source_spread`, commutator norm), corr(`source_spread`, `|Omega_FS|`), gauge/convergence checks | strong positive geometric correlations and stable gauge/coarse checks |
+| H5 | Matter-field embedding (fermion + gauge sectors) | `clean_experiments/experiment_L_matter_fields.py` | Ward identity (`||[Q,H]||_F`), local continuity residual, total-charge drift | commutator and continuity at numerical precision; drift bounded |
+| M1 | Structural-scale cosmological-flow test from atmospheric multiscale fields | `clean_experiments/experiment_M_cosmo_flow.py` | blocked-CV MAE gain of residual closure (baseline ctrl vs ctrl+`Lambda_struct`), permutation p-value, sign consistency | **Two-level policy**: Theoretical Detection Threshold: `min_mae_gain >= 0.002`, `perm_p <= 0.05`, `strata_positive_frac >= 0.8`; Engineering Impact Threshold: `min_mae_gain >= 0.03` |
+| M2 | Structural consistency (`Lambda_h` vs `Lambda_v`) and placebo controls | `clean_experiments/experiment_M_horizontal_vertical_compare.py` | cross-reconstruction correlation, synthetic placebo tail checks | strong cross-reconstruction consistency and signal above placebo tail |
+| M3 | Land/ocean detectability and noise-limit probe | `clean_experiments/experiment_M_land_ocean_split.py`, `clean_experiments/experiment_M_land_ocean_noise_probe.py` | split gain by surface type under target variants | positive ocean detectability with physically interpretable land-noise behavior |
+| O1 | Clausius thermodynamic consistency with Lambda correction | `clean_experiments/experiment_O_entropy_equilibrium.py` | FT-domain `R2` gain vs Clausius baseline, permutation significance | Clausius baseline stable; Lambda increment interpreted against noise floor |
+| O2 | Spatial anomaly diagnostics for macro-signal detectability | `clean_experiments/experiment_O_spatial_variance.py`, `clean_experiments/experiment_O_lambda_spatial_viz.py`, `clean_experiments/experiment_O_spatial_active_west.py` | spatial gain pattern diagnostics and climatology correlation checks | reproducible spatial diagnostics with explicit detectability limits |
+| M4 | Lambda necessity falsification (scale permutation / commutator control / IC) | `clean_experiments/experiment_M_lambda_falsification_tests.py` | S1/S2/S3 staged falsification metrics | real Lambda must outperform placebo/comm controls and improve IC criteria |
+
+Auxiliary branch (outside program numbering 1-20):
+
+- N moisture-budget closure follow-up:
+  - `clean_experiments/experiment_N_navier_stokes_budget.py`
+  - `clean_experiments/experiment_N_followup_dual.py`
 
 ## Artifact Standard (for stage-2 experiments)
 

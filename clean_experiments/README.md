@@ -3,53 +3,56 @@
 This folder contains cleaned, runnable scripts for the canonical experiment set.
 Generated artifacts under `clean_experiments/results/...` are local-only and are not versioned in this repository (except markdown reports).
 
-## Continuous numbering (article order)
+## Program numbering (1-20)
 
-1. **Experiment 1 (A)**: `experiment_A.py`
-   - `sec:numerics:A`: gauge invariance of `Lambda = Re Tr(F rho)` and noncommutativity diagnostics.
-2. **Experiment 2 (B, wave-1)**: `experiment_wave1_user.py`
-   - Newly integrated first-wave block: commutator algebra, Hermitian curvature projection, spatial `Lambda_matter(x)`, and `Lambda_matter ~ sin(phi)` law.
-3. **Experiment 3 (D)**: `experiment_D.py`
-   - `sec:numerics:D`: full balance closure on `(t, x, mu)` with explicit vertical flux/source terms.
-4. **Experiment 4 (E)**: `experiment_E.py`
-   - `sec:numerics:EFG`: coherence-driven vertical rates and predictor comparison vs `|Lambda|` features.
-5. **Experiment 5 (F)**: `experiment_F.py`
-   - `sec:numerics:EFG`: sinusoidal law check `Lambda ~ sin(varphi)` and discretization convergence.
-6. **Experiment 6 (G)**: `experiment_G.py`
-   - `sec:numerics:EFG`: profile scan with fixed total phase `varphi = integral omega dmu`.
-7. **Experiment 7 (G2 toy-chain)**: `experiment_G2_toy_chain.py`
-   - `sec:numerics:G2`: Clausius regression scan over `epsilon`.
-8. **Experiment 8 (G2 single-qubit)**: `experiment_G2_single_qubit.py`
-   - `sec:numerics:G2`: Clausius regression under profile scans.
-9. **Experiment 9 (H, stage-2)**: `experiment_H_holographic.py`
-   - Exponential `dim(H_mu)` growth with holographic truncation: impact on integral regularization and vertical dynamics stability.
-10. **Experiment 10 (I, stage-2)**: `experiment_I_continuum_conservation.py`
-   - Continuum extrapolation of the balance residual derived from microscopic dynamics (`dt,dmu -> 0` trend test).
-11. **Experiment 11 (J, stage-2)**: `experiment_J_berry_refinement.py`
-   - Berry-phase refinement with fine `mu`-step scan and robust angle sweep.
-12. **Experiment 12 (K, stage-2)**: `experiment_K_lambda_bridge.py`
-   - Bridge test for `Lambda_matter` contribution to effective `Lambda` proxy using repeated stratified holdout, permutation significance, and bootstrap coefficient stability.
-13. **Experiment 13 (K2, stage-2)**: `experiment_K2_theory_space_curvature.py`
-   - Theory-space geometry check: finite-difference FS/QGT and response-metric curvature diagnostics vs RG noncommutativity.
-14. **Experiment 14 (L, stage-2)**: `experiment_L_matter_fields.py`
-   - Matter-field embedding (`fermion + gauge`) with global Ward (`[Q,H]=0`) and local continuity residual checks.
-15. **Experiment 15 (M, stage-2)**: `experiment_M_cosmo_flow.py`
-   - Structural-scale atmospheric experiment: `rho_mu` from modal covariances, interscale noncommutativity proxy, and blocked-CV residual-closure test.
-16. **Experiment 16 (N, stage-2)**: `experiment_N_navier_stokes_budget.py`
-   - Navier-Stokes moisture-budget closure in pressure coordinates with blocked-CV one-SE calibration and out-of-time 2019 testing.
-   - Follow-up dual branch: `experiment_N_followup_dual.py`
-     (`N11` source-proxy baseline extension and `N12` localized multiscale Lambda variant).
-   - Data-manifest/download helpers used for acquisition planning:
-     `EXPERIMENT_N_DATA_MANIFEST.md`, `download_N_data_era5.py`, `download_N_data_merra2.py`.
-17. **Experiment 17 (O, stage-2)**: `experiment_O_entropy_equilibrium.py`
-   - Clausius-consistent thermodynamic test: `dS_hor` proxy vs `dQ_in` proxy baseline (`1/T_eff` fit), plus `Lambda` correction with out-of-time/permutation diagnostics.
-   - Theory mapping note: `EXPERIMENT_O_THEORY_ALIGNMENT.md`
-   - Spatial non-averaged decomposition: `experiment_O_spatial_variance.py`
-     (local per-gridpoint regressions `dS~dQ` vs `dS~dQ+Lambda_local`, gain map, correlation with convective climatology).
-   - Lambda spatial visualization: `experiment_O_lambda_spatial_viz.py`
-     (maps of mean/std/|Lambda|, local corr with convective activity, west/east time series).
-   - Active-west masked analysis: `experiment_O_spatial_active_west.py`
-     (subset diagnostics for `active`, `active_west`, land/ocean stratification on top of spatial-point metrics).
+Numbering below follows `research_programm_summary.csv`.
+
+1. **A**: `experiment_A.py`
+   - Gauge invariance of `Lambda = Re Tr(F rho)` and noncommutativity diagnostics.
+2. **B / wave-1**: `experiment_wave1_user.py`
+   - Commutator algebra, Hermitian curvature projection, spatial `Lambda_matter(x)`, and `Lambda_matter ~ sin(phi)`.
+3. **D**: `experiment_D.py`
+   - Full balance closure on `(t, x, mu)` with explicit vertical flux/source terms.
+4. **E**: `experiment_E.py`
+   - Coherence-driven vertical-rate diagnostics and predictor comparison vs `|Lambda|`.
+5. **F**: `experiment_F.py`
+   - Sinusoidal law check and discretization convergence.
+6. **G**: `experiment_G.py`
+   - Fixed-phase profile scan (`varphi = integral omega dmu`).
+7. **G2 (toy-chain)**: `experiment_G2_toy_chain.py`
+   - Clausius-regression scan over `epsilon`.
+8. **G2 (single-qubit)**: `experiment_G2_single_qubit.py`
+   - Clausius-regression profile scan.
+9. **H1**: `experiment_H_holographic.py`
+   - Exponential layer growth with holographic truncation.
+10. **H2**: `experiment_I_continuum_conservation.py`
+   - Continuum extrapolation of conservation residuals.
+11. **H3**: `experiment_J_berry_refinement.py`
+   - Berry-phase refinement with robust angle sweep.
+12. **H4**: `experiment_K_lambda_bridge.py`
+   - `Lambda_matter` linkage to effective-source proxy.
+13. **H4b**: `experiment_K2_theory_space_curvature.py`
+   - Theory-space curvature diagnostics vs RG noncommutativity.
+14. **H5**: `experiment_L_matter_fields.py`
+   - Matter-field embedding (`fermion + gauge`) with Ward/continuity checks.
+15. **M1**: `experiment_M_cosmo_flow.py`
+   - Macro detectability of Lambda in ERA5 moisture-budget closure.
+16. **M2**: `experiment_M_horizontal_vertical_compare.py`
+   - Horizontal-vs-vertical Lambda consistency and placebo-style diagnostics.
+17. **M3**: `experiment_M_land_ocean_split.py`, `experiment_M_land_ocean_noise_probe.py`
+   - Land/ocean detectability split and noise-limit probing.
+18. **O1**: `experiment_O_entropy_equilibrium.py`
+   - Clausius baseline vs `+Lambda` thermodynamic test.
+19. **O2**: `experiment_O_spatial_variance.py`, `experiment_O_lambda_spatial_viz.py`, `experiment_O_spatial_active_west.py`
+   - Spatial macro-signal diagnostics and regional masking analyses.
+20. **M4**: `experiment_M_lambda_falsification_tests.py`
+   - Staged Lambda necessity falsification (S1/S2/S3).
+
+Auxiliary (not in 1-20 numbering):
+
+- `experiment_N_navier_stokes_budget.py`
+- `experiment_N_followup_dual.py`
+- `EXPERIMENT_N_DATA_MANIFEST.md`, `download_N_data_era5.py`, `download_N_data_merra2.py`
 
 The full mapping table is in `clean_experiments/EXPERIMENT_NUMBERING.md`.
 Stage-2 hypothesis-level protocol is in `clean_experiments/HYPOTHESIS_ROADMAP.md`.
