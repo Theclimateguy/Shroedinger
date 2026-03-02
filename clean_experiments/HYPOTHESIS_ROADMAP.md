@@ -2,6 +2,9 @@
 
 This roadmap maps each stage-2 hypothesis to a concrete numerical protocol and artifact.
 
+Repository scope note: CSV/JSON/PNG artifacts mentioned in this roadmap are generated
+locally during runs and are not versioned by default in GitHub.
+
 ## Priority Order
 
 1. **H1**: realistic layer growth + holographic truncation (implemented)

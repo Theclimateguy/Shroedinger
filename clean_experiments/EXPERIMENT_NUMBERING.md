@@ -2,6 +2,10 @@
 
 This file defines the continuous experiment numbering used in the article draft and in `clean_experiments`.
 
+Note: output folders listed below are canonical runtime locations. In this repository,
+heavy generated artifacts are not versioned by default; only lightweight documentation
+files (for example, markdown reports) are kept.
+
 | Continuous ID | Legacy ID | Script | Main output folder | Robust folder |
 |---|---|---|---|---|
 | Experiment 1 | A | `clean_experiments/experiment_A.py` | `out/experiment_A` | `clean_experiments/results/experiment_A_robust` |

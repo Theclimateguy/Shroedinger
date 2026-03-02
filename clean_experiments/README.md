@@ -102,12 +102,6 @@ Excluded from core physical claim in current form:
 - raw vertical-entropy run with `feature_set=lambda_entropy_vertical`
 - pure extreme-only linear slices without regime calibration
 
-## Exploratory RG/QFT sanity check
-
-- `experiment_QFT_free_chain.py`
-  - Free-fermion chain with Wilsonian shell elimination (`Lambda_n = pi * 2^{-n}`), exact Gaussian trace-out, and intertwinement defect diagnostics (`exact_pushforward` vs fitted Markovian generators).
-  - Default run includes **3 size checks**: `N = 32, 64, 128`.
-
 ## Checklist validations (non-numbered)
 
 - `checklist_validations.py`

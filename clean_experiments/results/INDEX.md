@@ -1,6 +1,7 @@
 # Robust Validation Index
 
-This directory stores robust validation artifacts for each clean experiment.
+This directory stores lightweight documentation for robust validation artifacts.
+Heavy generated outputs (CSV/JSON/PNG/NPZ) are produced locally and are not versioned by default.
 
 0. `checklist_validations/` (cross-experiment checklist block)
    - Structural + wave-1 checklist validations used in the manuscript:
@@ -85,11 +86,9 @@ This directory stores robust validation artifacts for each clean experiment.
    - Parameter-search artifacts for calibration.
    - See `search_results_screening.csv`, `calibration_full_compare.csv`,
      `local_sweep_summary.csv`.
-20. `experiment_QFT_free_chain/` (exploratory, non-numbered)
-   - Free-fermion chain RG shell elimination (`Lambda_n = pi * 2^{-n}`),
-     exact Gaussian pushforward baseline, and fitted Markovian intertwinement defects.
-   - See `qft_free_chain_all_summaries.csv`, `qft_free_chain_size_checks.csv`,
-     `qft_free_chain_all_pair_defects.csv`.
+20. (reserved)
+   - Previously used for exploratory QFT-free-chain diagnostics.
+   - Not part of the current canonical repository scope.
 21. `experiment_M_cosmo_flow_v4_vertical_entropy/` (Experiment 15 diagnostic, excluded from core claim)
    - Raw vertical-entropy feature-set run (`lambda_entropy_vertical`).
    - Current status: non-significant/negative in core residual-closure metric.
