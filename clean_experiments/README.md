@@ -5,7 +5,7 @@ Generated artifacts under `clean_experiments/results/...` are local-only and are
 
 ## Program numbering (1-20)
 
-Numbering below follows `research_programm_summary.csv`.
+Numbering below follows `research_programm_summary.csv` (core block `1-20`; F-series follow-up in rows `21-26`).
 
 1. **A**: `experiment_A.py`
    - Gauge invariance of `Lambda = Re Tr(F rho)` and noncommutativity diagnostics.

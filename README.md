@@ -13,9 +13,11 @@ This repository keeps the canonical `clean_experiments` codebase and documentati
   - local `manuscript/`
   - heavy generated artifacts (`CSV/PNG/NPZ/JSON`)
 
-## Program Numbering (1-20)
+## Program Numbering (1-20 core + follow-up rows)
 
 Source of truth: `research_programm_summary.csv`.
+
+Core canonical block is rows `1-20`; follow-up F-series is recorded in rows `21-26`.
 
 1. A — gauge invariance and noncommutativity (`experiment_A.py`)
 2. B / wave-1 — `Lambda_matter` sinusoidal/state checks (`experiment_wave1_user.py`)
