@@ -53,6 +53,16 @@ Auxiliary (not in 1-20 numbering):
 - `experiment_N_navier_stokes_budget.py`
 - `experiment_N_followup_dual.py`
 - `EXPERIMENT_N_DATA_MANIFEST.md`, `download_N_data_era5.py`, `download_N_data_merra2.py`
+- F-series follow-up (March 2026):
+  - `experiment_F1_fractal_emergence.py`
+  - `experiment_F2_scale_covariance.py`
+  - `experiment_F3_lambda_fractal_bridge.py`
+  - `experiment_F4_holonomy_fractal_encoder.py` (exploratory baseline)
+  - `experiment_F4b_independent_holonomy_ablation.py` (independent final F4 test)
+  - `experiment_F5_lambda_struct_fractal_era5.py`
+  - `experiment_F5_spatial_fractal_maps.py`
+  - `experiment_F6_soc_avalanches.py`
+  - Consolidated report: `clean_experiments/results/experiment_F_series_2026_03_06/report.md`
 
 The full mapping table is in `clean_experiments/EXPERIMENT_NUMBERING.md`.
 Stage-2 hypothesis-level protocol is in `clean_experiments/HYPOTHESIS_ROADMAP.md`.
@@ -169,6 +179,14 @@ python clean_experiments/experiment_M_lambda_falsification_tests.py
 python clean_experiments/experiment_M_land_ocean_split.py
 python clean_experiments/experiment_M_land_ocean_spatial_viz.py
 python clean_experiments/experiment_M_land_ocean_noise_probe.py
+python clean_experiments/experiment_F1_fractal_emergence.py --out clean_experiments/results/experiment_F1_fractal_emergence
+python clean_experiments/experiment_F2_scale_covariance.py --out clean_experiments/results/experiment_F2_scale_covariance
+python clean_experiments/experiment_F3_lambda_fractal_bridge.py --out clean_experiments/results/experiment_F3_lambda_fractal_bridge
+python clean_experiments/experiment_F4_holonomy_fractal_encoder.py --out clean_experiments/results/experiment_F4_holonomy_fractal_encoder
+python clean_experiments/experiment_F4b_independent_holonomy_ablation.py --out clean_experiments/results/experiment_F4b_independent_holonomy_ablation
+python clean_experiments/experiment_F5_lambda_struct_fractal_era5.py --out clean_experiments/results/experiment_F5_lambda_struct_fractal_era5
+python clean_experiments/experiment_F5_spatial_fractal_maps.py --out clean_experiments/results/experiment_F5_spatial_fractal_maps
+python clean_experiments/experiment_F6_soc_avalanches.py --out clean_experiments/results/experiment_F6_soc_avalanches
 python clean_experiments/experiment_N_navier_stokes_budget.py --input-nc /path/to/wpwp_vertical_data.nc --lambda-csv /path/to/experiment_M_timeseries.csv --outdir clean_experiments/results/experiment_N_navier_stokes_budget
 python clean_experiments/experiment_N_followup_dual.py --input-nc /path/to/wpwp_vertical_data.nc --lambda-csv /path/to/experiment_M_timeseries.csv --outdir clean_experiments/results/experiment_N_followup
 python clean_experiments/experiment_O_entropy_equilibrium.py --input-nc /path/to/wpwp_vertical_data.nc --lambda-csv /path/to/experiment_M_timeseries.csv --outdir clean_experiments/results/experiment_O_entropy_equilibrium

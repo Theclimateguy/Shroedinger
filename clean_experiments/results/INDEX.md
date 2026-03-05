@@ -171,3 +171,41 @@ Heavy generated outputs (CSV/JSON/PNG/NPZ) are produced locally and are not vers
      to interpret closure detectability limits.
    - See `noise_probe_metrics.csv`, `noise_probe_components.csv`,
      `noise_probe_verdict.json`, `plot_noise_probe_gains.png`, `report.md`.
+37. `experiment_F1_fractal_emergence/` (F1 follow-up)
+   - Balance-driven fractal emergence scan in two-scale GKSL setting over
+     `epsilon in [0.01, 10]`.
+   - See `report.md`.
+38. `experiment_F2_scale_covariance/` (F2 follow-up)
+   - Scale-covariant section test near `epsilon*` with RG-trace prediction check.
+   - See `report.md`.
+39. `experiment_F3_lambda_fractal_bridge/` (F3 follow-up)
+   - Operational bridge between `Lambda_matter` and excess fractal dimension
+     (`D_f - d_top`) with regression diagnostics.
+   - See `report.md`.
+40. `experiment_F4_holonomy_fractal_encoder/` (F4 exploratory baseline)
+   - Holonomy-path ordering diagnostics as fractal encoder baseline.
+   - See `report.md`.
+41. `experiment_F4b_independent_holonomy_ablation/` (F4 independent final)
+   - Independent holonomy test with required ablations, bootstrap on `epsilon*`,
+     gauge robustness, and failed-seed diagnostics.
+   - See `report.md`.
+42. `experiment_F5_lambda_struct_fractal_era5/` (F5 on ERA5/WPWP)
+   - Structural-scale `Lambda` detectability and multiscale surrogate linkage
+     with placebo/commutative falsifications.
+   - See `report.md`.
+43. `experiment_F5_spatial_fractal_maps/` (F5 spatial follow-up)
+   - Spatial maps for PSD/variogram/composite fractal deltas conditioned on
+     high/low `|Lambda|` regimes.
+   - See `report.md`.
+44. `experiment_F6_soc_avalanches/` (F6 SOC signature)
+   - Avalanche-size power-law diagnostics for `DeltaLambda_coh` with
+     `alpha_pred = 1 + 1/y_rel` coupling to F2.
+   - See `report.md`.
+45. `experiment_F6_soc_robustness/` (F6 robustness addendum)
+   - Sensitivity diagnostics for `transfer_fraction` and `cap_power` with
+     on-critical and off-critical checks.
+   - See `report.md`.
+46. `experiment_F_series_2026_03_06/` (F1-F6 consolidated package)
+   - One-page consolidated summary of all March 2026 F-series runs
+     and manuscript-facing conclusions/caveats.
+   - See `report.md`.

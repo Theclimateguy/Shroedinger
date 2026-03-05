@@ -33,3 +33,14 @@ Note: listed output folders are canonical runtime locations. Heavy generated art
   - `clean_experiments/experiment_N_navier_stokes_budget.py`
   - `clean_experiments/experiment_N_followup_dual.py`
   - `clean_experiments/EXPERIMENT_N_DATA_MANIFEST.md`
+
+- F-series follow-up branch (March 2026):
+  - `clean_experiments/experiment_F1_fractal_emergence.py`
+  - `clean_experiments/experiment_F2_scale_covariance.py`
+  - `clean_experiments/experiment_F3_lambda_fractal_bridge.py`
+  - `clean_experiments/experiment_F4_holonomy_fractal_encoder.py` (exploratory baseline)
+  - `clean_experiments/experiment_F4b_independent_holonomy_ablation.py` (independent final for F4)
+  - `clean_experiments/experiment_F5_lambda_struct_fractal_era5.py`
+  - `clean_experiments/experiment_F5_spatial_fractal_maps.py`
+  - `clean_experiments/experiment_F6_soc_avalanches.py`
+  - Consolidated report: `clean_experiments/results/experiment_F_series_2026_03_06/report.md`

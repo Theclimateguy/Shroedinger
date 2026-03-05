@@ -44,6 +44,17 @@ Source of truth: `research_programm_summary.csv`.
   - `experiment_N_navier_stokes_budget.py`
   - `experiment_N_followup_dual.py`
 
+- F-series follow-up branch (March 2026):
+  - `experiment_F1_fractal_emergence.py`
+  - `experiment_F2_scale_covariance.py`
+  - `experiment_F3_lambda_fractal_bridge.py`
+  - `experiment_F4_holonomy_fractal_encoder.py` (exploratory)
+  - `experiment_F4b_independent_holonomy_ablation.py` (independent final for F4 block)
+  - `experiment_F5_lambda_struct_fractal_era5.py`
+  - `experiment_F5_spatial_fractal_maps.py`
+  - `experiment_F6_soc_avalanches.py`
+  - Consolidated summary: `clean_experiments/results/experiment_F_series_2026_03_06/report.md`
+
 ## Reproducibility
 
 Run scripts locally and write outputs to `clean_experiments/results/...`.
