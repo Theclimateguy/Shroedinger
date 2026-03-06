@@ -34,7 +34,7 @@ locally during runs and are not versioned by default in GitHub.
 | O2 | Spatial anomaly diagnostics for macro-signal detectability | `clean_experiments/experiment_O_spatial_variance.py`, `clean_experiments/experiment_O_lambda_spatial_viz.py`, `clean_experiments/experiment_O_spatial_active_west.py` | spatial gain pattern diagnostics and climatology correlation checks | reproducible spatial diagnostics with explicit detectability limits |
 | M4 | Lambda necessity falsification (scale permutation / commutator control / IC) | `clean_experiments/experiment_M_lambda_falsification_tests.py` | S1/S2/S3 staged falsification metrics | real Lambda must outperform placebo/comm controls and improve IC criteria |
 
-Auxiliary branch (outside program numbering 1-20):
+Atmosphere extension branch (outside canonical `A01-A10` landscape block):
 
 - N moisture-budget closure follow-up:
   - `clean_experiments/experiment_N_navier_stokes_budget.py`
