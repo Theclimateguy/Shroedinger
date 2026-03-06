@@ -209,3 +209,24 @@ Heavy generated outputs (CSV/JSON/PNG/NPZ) are produced locally and are not vers
    - One-page consolidated summary of all March 2026 F-series runs
      and manuscript-facing conclusions/caveats.
    - See `report.md`.
+47. `experiment_F6b_era5_heavy_tails/` (F6b strict ERA5 heavy-tail test)
+   - Clauset/Newman-style tail fit for structural `|Lambda|` with floating
+     `x_min`, MLE exponent estimation, and LLR comparison against exponential tail.
+   - See `report.md`, `experiment_F6b_tail_metrics.csv`,
+     `experiment_F6b_best_fits.csv`, `experiment_F6b_verdict.json`.
+48. `experiment_F6b_era5_heavy_tails_panel/` (F6b panel extension)
+   - Same strict protocol applied to reconstructed panel
+     `|Lambda_local(t,y,x)|` to reduce aggregation bias.
+   - See `report.md`, `experiment_F6b_panel_tail_metrics.csv`,
+     `experiment_F6b_panel_best_fits.csv`, `experiment_F6b_panel_verdict.json`.
+49. `experiment_F6c_clustered_subspace_tails/` (F6c clustered subspace tails)
+   - Anti-overfit cluster decomposition of tail fits by fixed multiscale proxies
+     (`fractal`, `convective`, `exchange`) with corrected significance.
+   - See `report.md`, `experiment_F6c_cluster_table.csv`,
+     `experiment_F6c_cluster_tail_metrics.csv`, `experiment_F6c_verdict.json`.
+50. `experiment_F6c_spatial_panel_viz/` (F6c spatial patch mapping)
+   - Patch-wise spatial map of tail exponent `alpha` and strict SOC masks on
+     `|Lambda_local(t,y,x)|` panel.
+   - See `report.md`, `experiment_F6c_spatial_patch_tail_metrics.csv`,
+     `experiment_F6c_spatial_summary.csv`,
+     `plot_F6c_spatial_alpha_map.png`, `plot_F6c_spatial_soc_candidate_mask.png`.
