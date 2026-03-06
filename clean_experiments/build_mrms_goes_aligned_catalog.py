@@ -100,8 +100,10 @@ def main() -> None:
     if use_event_id:
         mrms = mrms[mrms["event_id"].astype(str).isin(common_events)].copy()
         goes = goes[goes["event_id"].astype(str).isin(common_events)].copy()
-        mrms = mrms.sort_values(["event_id", "obs_dt"]).reset_index(drop=True)
-        goes = goes.sort_values(["event_id", "obs_dt"]).reset_index(drop=True)
+        # pandas merge_asof requires global monotonic order by the "on" key,
+        # even when "by" is provided.
+        mrms = mrms.sort_values(["obs_dt", "event_id"]).reset_index(drop=True)
+        goes = goes.sort_values(["obs_dt", "event_id"]).reset_index(drop=True)
         aligned = pd.merge_asof(
             left=mrms,
             right=goes,

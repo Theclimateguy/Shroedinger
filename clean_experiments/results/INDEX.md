@@ -72,6 +72,13 @@ Canonical numbering is alphanumeric and split by domain:
   - Clausius baseline vs Lambda correction (thermodynamic test).
 - `[A05]` `experiment_O_spatial_variance/`, `experiment_O_lambda_spatial_viz/`, `experiment_O_spatial_active_west/`
   - Spatial decomposition of macro-signal detectability.
+  - A05 scale-space continuation:
+    - `experiment_P1_spatial_occupancy_cascade/`
+    - `experiment_P2_theory_bridge_ablation/`
+    - `experiment_P2_noncommuting_coarse_graining_calibrated/`
+    - `realpilot_2024_p2dense_calibrated/`
+    - `experiment_P2_noncommuting_coarse_graining_dense_calibrated/`
+    - `experiment_P2_l8_diagnostic_block/`
 - `[A06]` `experiment_M_lambda_falsification_tests/`
   - Staged Lambda necessity falsification (S1/S2/S3).
 - `[A07]` `experiment_F5_lambda_struct_fractal_era5/`, `experiment_F5_spatial_fractal_maps/`

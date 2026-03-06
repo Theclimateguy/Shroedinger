@@ -51,11 +51,24 @@ Legacy `1-20` numbering is deprecated. The canonical map is now split by data do
 - `A03` M3 — land/ocean detectability and noise probe (`experiment_M_land_ocean_split.py`, `experiment_M_land_ocean_noise_probe.py`)
 - `A04` O1 — thermodynamic test: Clausius baseline vs `+Lambda` (`experiment_O_entropy_equilibrium.py`)
 - `A05` O2 — spatial macro-signal diagnostics (`experiment_O_spatial_variance.py`, `experiment_O_lambda_spatial_viz.py`, `experiment_O_spatial_active_west.py`)
+  - A05 scale-space continuation (P1/P2): `experiment_P1_spatial_occupancy_cascade.py`, `experiment_P2_noncommuting_coarse_graining.py`, `experiment_P2_theory_bridge_ablation.py`, `run_p2_calibrated_dense_ingest.py`, `experiment_P2_l8_diagnostic_block.py`
 - `A06` M4 — staged falsification of Lambda necessity (`experiment_M_lambda_falsification_tests.py`)
 - `A07` F5 — structural Lambda and multiscale/fractional surrogates in ERA5 (`experiment_F5_lambda_struct_fractal_era5.py`, `experiment_F5_spatial_fractal_maps.py`)
 - `A08` F6b — strict heavy-tail test of `|Lambda_struct|` (`experiment_F6b_era5_heavy_tails.py`, `experiment_F6b_era5_heavy_tails_panel.py`)
 - `A09` F6c — clustered subspace heavy-tail fits (`experiment_F6c_clustered_subspace_tails.py`)
 - `A10` F6c-spatial — patch-wise spatial tail maps (`experiment_F6c_spatial_panel_viz.py`)
+
+### A05 Scale-Space Continuation (P1/P2)
+
+- `A05.R1_p1_spatial_occupancy_cascade` — P1-lite occupancy cascade on sparse panel.
+- `A05.R2_p2_theory_bridge_c009` — P2 density-matrix bridge + C009 calibration on sparse panel.
+- `A05.R3_p2_dense_c009` — calibrated dense ingest transfer test (`240x16` panel).
+- `A05.R4_p2_l8_resolution` — narrow `l=8` diagnostic block; matched-event/operator/resolution/regime checks, with memory-motivated interpretation.
+
+Program-level finalization artifact:
+
+- `clean_experiments/EXPERIMENT_A_ATMOSPHERE_PIPELINE.md`
+- `clean_experiments/results/experiment_P2_l8_diagnostic_block/report_P2_l8_resolution.md`
 
 ### Atmosphere extensions (outside canonical A01-A10 block)
 

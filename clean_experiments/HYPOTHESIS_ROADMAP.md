@@ -32,6 +32,10 @@ locally during runs and are not versioned by default in GitHub.
 | M3 | Land/ocean detectability and noise-limit probe | `clean_experiments/experiment_M_land_ocean_split.py`, `clean_experiments/experiment_M_land_ocean_noise_probe.py` | split gain by surface type under target variants | positive ocean detectability with physically interpretable land-noise behavior |
 | O1 | Clausius thermodynamic consistency with Lambda correction | `clean_experiments/experiment_O_entropy_equilibrium.py` | FT-domain `R2` gain vs Clausius baseline, permutation significance | Clausius baseline stable; Lambda increment interpreted against noise floor |
 | O2 | Spatial anomaly diagnostics for macro-signal detectability | `clean_experiments/experiment_O_spatial_variance.py`, `clean_experiments/experiment_O_lambda_spatial_viz.py`, `clean_experiments/experiment_O_spatial_active_west.py` | spatial gain pattern diagnostics and climatology correlation checks | reproducible spatial diagnostics with explicit detectability limits |
+| A05.R1 | Process-resolved scale-space occupancy cascade (`l -> 2l`) | `clean_experiments/experiment_P1_spatial_occupancy_cascade.py` | per-scale MAE/R2 gain, permutation p-value, event-level robustness | positive gain/significance on fine-to-mid scales with blocked-by-event CV |
+| A05.R2 | Noncommuting coarse-graining density-matrix bridge (C009 calibration) | `clean_experiments/experiment_P2_noncommuting_coarse_graining.py`, `clean_experiments/experiment_P2_theory_bridge_ablation.py` | bridge gain vs baseline, commutator diagnostics, all-scale pass on sparse panel | calibrated C009 must retain positive all-scale gain and permutation significance on sparse panel |
+| A05.R3 | Dense intra-event transferability of calibrated bridge | `clean_experiments/run_p2_calibrated_dense_ingest.py`, `clean_experiments/experiment_P2_noncommuting_coarse_graining.py` | sparse-vs-dense transfer table (ALL + per-scale) under blocked event CV | preserve global gain while explicitly diagnosing fine-scale regime sensitivity |
+| A05.R4 | `l=8` diagnostic resolution block (matched-event/operator/resolution/regime) | `clean_experiments/experiment_P2_l8_diagnostic_block.py` | matched-event control, operator attribution, threshold/downsample sensitivity, regime split | isolate whether degradation is event-pool, operator, or resolution-driven and map path to theory-consistent memory extension |
 | M4 | Lambda necessity falsification (scale permutation / commutator control / IC) | `clean_experiments/experiment_M_lambda_falsification_tests.py` | S1/S2/S3 staged falsification metrics | real Lambda must outperform placebo/comm controls and improve IC criteria |
 
 Atmosphere extension branch (outside canonical `A01-A10` landscape block):
@@ -52,4 +56,6 @@ Atmosphere extension branch (outside canonical `A01-A10` landscape block):
 
 ## Immediate Next Action
 
-N and O are now implemented; next iteration should prioritize richer process-resolved forcing data and/or refined regional logic for stronger detection margins.
+For the A05 process-resolved continuation, keep C009 as baseline and prioritize
+theory-consistent memory extension (`P2-memory`, retarded density matrix) to
+stabilize finest-scale transfer without manual operator dropping.

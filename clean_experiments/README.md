@@ -63,6 +63,7 @@ Canonical mapping is defined in `research_programm_summary.csv` and split into t
   - Clausius baseline vs `+Lambda` thermodynamic test.
 - `A05` **O2**: `experiment_O_spatial_variance.py`, `experiment_O_lambda_spatial_viz.py`, `experiment_O_spatial_active_west.py`
   - Spatial macro-signal diagnostics and regional masking analyses.
+  - Scale-space continuation (P1/P2): `experiment_P1_spatial_occupancy_cascade.py`, `experiment_P2_noncommuting_coarse_graining.py`, `experiment_P2_theory_bridge_ablation.py`, `run_p2_calibrated_dense_ingest.py`, `experiment_P2_l8_diagnostic_block.py`.
 - `A06` **M4**: `experiment_M_lambda_falsification_tests.py`
   - Staged Lambda necessity falsification (S1/S2/S3).
 - `A07` **F5**: `experiment_F5_lambda_struct_fractal_era5.py`, `experiment_F5_spatial_fractal_maps.py`
@@ -74,19 +75,32 @@ Canonical mapping is defined in `research_programm_summary.csv` and split into t
 - `A10` **F6c-spatial**: `experiment_F6c_spatial_panel_viz.py`
   - Patch-wise spatial tail exponent mapping.
 
+### A05 run-level log (scale-space count-geometry continuation)
+
+- `A05.R1_p1_spatial_occupancy_cascade`
+  - P1-lite occupancy cascade on sparse panel.
+  - Artifacts: `clean_experiments/results/experiment_P1_spatial_occupancy_cascade/`.
+- `A05.R2_p2_theory_bridge_c009`
+  - P2 noncommuting bridge with ablation-selected C009 (`[occ,sq,log,grad]=[1.5,1,1,1]`, `lambda_scale_power=0.5`, `decoherence_alpha=0.5`).
+  - Artifacts: `clean_experiments/results/experiment_P2_noncommuting_coarse_graining_calibrated/`, `clean_experiments/results/experiment_P2_theory_bridge_ablation/`.
+- `A05.R3_p2_dense_c009`
+  - Dense intra-event transfer test for calibrated C009 (`240 rows / 16 events`).
+  - Artifacts: `clean_experiments/results/realpilot_2024_p2dense_calibrated/`, `clean_experiments/results/experiment_P2_noncommuting_coarse_graining_dense_calibrated/`.
+- `A05.R4_p2_l8_resolution`
+  - Narrow `l=8` diagnostics (matched-event, operator attribution, resolution sensitivity, regime split).
+  - Finalization report: `clean_experiments/results/experiment_P2_l8_diagnostic_block/report_P2_l8_resolution.md`.
+
 Atmosphere extensions outside canonical `A01-A10`:
 
 - `experiment_N_navier_stokes_budget.py`
 - `experiment_N_followup_dual.py`
 - `EXPERIMENT_N_DATA_MANIFEST.md`, `download_N_data_era5.py`, `download_N_data_merra2.py`
-- scale-space count-geometry branch:
-  - `experiment_P1_spatial_occupancy_cascade.py`
-  - `EXPERIMENT_P1_P2_P3_SPATIAL_COUNT_GEOMETRY.md`
 - granular ingest pilot (MRMS + GOES):
   - `download_mrms.py`
   - `download_goes.py`
   - `build_mrms_goes_aligned_catalog.py`
   - `download_matched_windows.py`
+  - `download_matched_parallel.py`
   - `run_ultralight_mrms_goes_pilot.py`
   - `pilot_events_template.csv`
   - `EXPERIMENT_GRANULAR_MRMS_GOES_INGEST.md`
@@ -94,6 +108,7 @@ Atmosphere extensions outside canonical `A01-A10`:
 
 The full mapping table is in `clean_experiments/EXPERIMENT_NUMBERING.md`.
 Stage-2 hypothesis-level protocol is in `clean_experiments/HYPOTHESIS_ROADMAP.md`.
+Canonical Group A runbook is in `clean_experiments/EXPERIMENT_A_ATMOSPHERE_PIPELINE.md`.
 
 Numbering policy:
 
@@ -291,6 +306,11 @@ python clean_experiments/experiment_O_entropy_equilibrium.py --input-nc /path/to
 python clean_experiments/experiment_O_spatial_variance.py --input-nc /path/to/wpwp_vertical_data.nc --m-timeseries-csv /path/to/experiment_M_timeseries.csv --m-summary-csv /path/to/experiment_M_summary.csv --m-mode-index-csv /path/to/experiment_M_mode_index.csv --outdir clean_experiments/results/experiment_O_spatial_variance
 python clean_experiments/experiment_O_lambda_spatial_viz.py --input-nc /path/to/wpwp_vertical_data.nc --m-timeseries-csv /path/to/experiment_M_timeseries.csv --m-summary-csv /path/to/experiment_M_summary.csv --m-mode-index-csv /path/to/experiment_M_mode_index.csv --outdir clean_experiments/results/experiment_O_lambda_spatial_viz
 python clean_experiments/experiment_O_spatial_active_west.py --input-csv clean_experiments/results/experiment_O_spatial_variance/spatial_point_metrics.csv --outdir clean_experiments/results/experiment_O_spatial_active_west
+python clean_experiments/experiment_P1_spatial_occupancy_cascade.py --panel-csv clean_experiments/results/realpilot_2024_dataset_panel_v1_expanded.csv --outdir clean_experiments/results/experiment_P1_spatial_occupancy_cascade --scales-cells 8 16 32 --mrms-downsample 16 --mrms-threshold 3.0 --n-perm 49
+python clean_experiments/experiment_P2_theory_bridge_ablation.py --panel-csv clean_experiments/results/realpilot_2024_dataset_panel_v1_expanded.csv --outdir clean_experiments/results/experiment_P2_theory_bridge_ablation --scales-cells 8 16 32 --mrms-downsample 16 --mrms-threshold 3.0 --top-k 4 --n-perm-final 49
+python clean_experiments/experiment_P2_noncommuting_coarse_graining.py --panel-csv clean_experiments/results/realpilot_2024_dataset_panel_v1_expanded.csv --outdir clean_experiments/results/experiment_P2_noncommuting_coarse_graining_calibrated --scales-cells 8 16 32 --mrms-downsample 16 --mrms-threshold 3.0 --lambda-weights 1.5 1.0 1.0 1.0 --lambda-scale-power 0.5 --decoherence-alpha 0.5 --n-perm 49
+python clean_experiments/run_p2_calibrated_dense_ingest.py --top-events 16 --context-hours 6 --budget-gb 50
+python clean_experiments/experiment_P2_l8_diagnostic_block.py --outdir clean_experiments/results/experiment_P2_l8_diagnostic_block
 python clean_experiments/experiment_wave1_robust.py --cases 40 --out clean_experiments/results/experiment_B_wave1_robust
 python clean_experiments/experiment_H_holographic_robust.py --cases 24 --out clean_experiments/results/experiment_H_holographic_robust
 python clean_experiments/experiment_I_continuum_conservation_robust.py --cases 12 --out clean_experiments/results/experiment_I_continuum_conservation_robust

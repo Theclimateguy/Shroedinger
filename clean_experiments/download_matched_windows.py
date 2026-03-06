@@ -118,7 +118,14 @@ def main() -> None:
             key = str(r.get("key", ""))
             url = str(r.get("url", ""))
             local_path = str(r.get("local_path", ""))
-            size = int(float(r.get("file_size_bytes", 0) or 0))
+            size_raw = r.get("file_size_bytes", 0)
+            if pd.isna(size_raw):
+                size = 0
+            else:
+                try:
+                    size = int(float(size_raw))
+                except Exception:  # noqa: BLE001
+                    size = 0
 
             if len(local_path) == 0:
                 out_rows.append(

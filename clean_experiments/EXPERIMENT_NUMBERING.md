@@ -50,6 +50,18 @@ Note: output folders listed below are canonical runtime locations. Heavy generat
 | A09 | F6c | `clean_experiments/experiment_F6c_clustered_subspace_tails.py` | `clean_experiments/results/experiment_F6c_clustered_subspace_tails` |
 | A10 | F6c_spatial | `clean_experiments/experiment_F6c_spatial_panel_viz.py` | `clean_experiments/results/experiment_F6c_spatial_panel_viz` |
 
+## A05 run-level log (scale-space count-geometry continuation)
+
+All process-resolved scale-space continuation runs are logged under canonical code `A05`
+with run-level identifiers in the `ветка` field of `research_programm_summary.csv`.
+
+| Run ID (`ветка`) | Purpose | Primary script(s) | Canonical output folder(s) |
+|---|---|---|---|
+| `A05.R1_p1_spatial_occupancy_cascade` | P1-lite occupancy cascade in scale space | `clean_experiments/experiment_P1_spatial_occupancy_cascade.py` | `clean_experiments/results/experiment_P1_spatial_occupancy_cascade` |
+| `A05.R2_p2_theory_bridge_c009` | P2 bridge calibration and sparse-panel C009 finalization | `clean_experiments/experiment_P2_theory_bridge_ablation.py`, `clean_experiments/experiment_P2_noncommuting_coarse_graining.py` | `clean_experiments/results/experiment_P2_theory_bridge_ablation`, `clean_experiments/results/experiment_P2_noncommuting_coarse_graining_calibrated` |
+| `A05.R3_p2_dense_c009` | Dense intra-event transfer test for calibrated C009 | `clean_experiments/run_p2_calibrated_dense_ingest.py`, `clean_experiments/experiment_P2_noncommuting_coarse_graining.py` | `clean_experiments/results/realpilot_2024_p2dense_calibrated`, `clean_experiments/results/experiment_P2_noncommuting_coarse_graining_dense_calibrated` |
+| `A05.R4_p2_l8_resolution` | Narrow `l=8` diagnostics and resolution/theory interpretation | `clean_experiments/experiment_P2_l8_diagnostic_block.py` | `clean_experiments/results/experiment_P2_l8_diagnostic_block` |
+
 ## A07 run-level log (frozen granular continuation)
 
 All granular MRMS+GOES/M-realpilot continuation runs are logged under canonical code `A07`
@@ -69,19 +81,18 @@ with run-level identifiers in the `ветка` field of `research_programm_summa
   - `clean_experiments/experiment_N_navier_stokes_budget.py`
   - `clean_experiments/experiment_N_followup_dual.py`
   - `clean_experiments/EXPERIMENT_N_DATA_MANIFEST.md`
-- P scale-space count-geometry branch:
-  - `clean_experiments/experiment_P1_spatial_occupancy_cascade.py`
-  - `clean_experiments/EXPERIMENT_P1_P2_P3_SPATIAL_COUNT_GEOMETRY.md`
 - granular ingest branch (MRMS + GOES pilot):
   - `clean_experiments/download_mrms.py`
   - `clean_experiments/download_goes.py`
   - `clean_experiments/build_mrms_goes_aligned_catalog.py`
   - `clean_experiments/download_matched_windows.py`
+  - `clean_experiments/download_matched_parallel.py`
   - `clean_experiments/run_ultralight_mrms_goes_pilot.py`
   - `clean_experiments/pilot_events_template.csv`
   - `clean_experiments/EXPERIMENT_GRANULAR_MRMS_GOES_INGEST.md`
 
 ## Consolidated summaries
 
+- `clean_experiments/EXPERIMENT_A_ATMOSPHERE_PIPELINE.md`
 - `clean_experiments/results/experiment_F_series_2026_03_06/report.md`
 - `research_programm_summary.csv`
