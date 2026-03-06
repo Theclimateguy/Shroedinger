@@ -79,6 +79,9 @@ Canonical numbering is alphanumeric and split by domain:
     - `realpilot_2024_p2dense_calibrated/`
     - `experiment_P2_noncommuting_coarse_graining_dense_calibrated/`
     - `experiment_P2_l8_diagnostic_block/`
+    - `experiment_P2_memory/`
+    - `experiment_P2_memory_x_viz/`
+    - `experiment_P2_memory_geo_viz/`
 - `[A06]` `experiment_M_lambda_falsification_tests/`
   - Staged Lambda necessity falsification (S1/S2/S3).
 - `[A07]` `experiment_F5_lambda_struct_fractal_era5/`, `experiment_F5_spatial_fractal_maps/`

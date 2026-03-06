@@ -61,6 +61,7 @@ with run-level identifiers in the `ветка` field of `research_programm_summa
 | `A05.R2_p2_theory_bridge_c009` | P2 bridge calibration and sparse-panel C009 finalization | `clean_experiments/experiment_P2_theory_bridge_ablation.py`, `clean_experiments/experiment_P2_noncommuting_coarse_graining.py` | `clean_experiments/results/experiment_P2_theory_bridge_ablation`, `clean_experiments/results/experiment_P2_noncommuting_coarse_graining_calibrated` |
 | `A05.R3_p2_dense_c009` | Dense intra-event transfer test for calibrated C009 | `clean_experiments/run_p2_calibrated_dense_ingest.py`, `clean_experiments/experiment_P2_noncommuting_coarse_graining.py` | `clean_experiments/results/realpilot_2024_p2dense_calibrated`, `clean_experiments/results/experiment_P2_noncommuting_coarse_graining_dense_calibrated` |
 | `A05.R4_p2_l8_resolution` | Narrow `l=8` diagnostics and resolution/theory interpretation | `clean_experiments/experiment_P2_l8_diagnostic_block.py` | `clean_experiments/results/experiment_P2_l8_diagnostic_block` |
+| `A05.R5_p2_memory` | Retarded density-matrix closure for dense fine-scale transfer | `clean_experiments/experiment_P2_memory.py` | `clean_experiments/results/experiment_P2_memory`, `clean_experiments/results/experiment_P2_memory_x_viz`, `clean_experiments/results/experiment_P2_memory_geo_viz` |
 
 ## A07 run-level log (frozen granular continuation)
 

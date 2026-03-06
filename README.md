@@ -51,7 +51,7 @@ Legacy `1-20` numbering is deprecated. The canonical map is now split by data do
 - `A03` M3 — land/ocean detectability and noise probe (`experiment_M_land_ocean_split.py`, `experiment_M_land_ocean_noise_probe.py`)
 - `A04` O1 — thermodynamic test: Clausius baseline vs `+Lambda` (`experiment_O_entropy_equilibrium.py`)
 - `A05` O2 — spatial macro-signal diagnostics (`experiment_O_spatial_variance.py`, `experiment_O_lambda_spatial_viz.py`, `experiment_O_spatial_active_west.py`)
-  - A05 scale-space continuation (P1/P2): `experiment_P1_spatial_occupancy_cascade.py`, `experiment_P2_noncommuting_coarse_graining.py`, `experiment_P2_theory_bridge_ablation.py`, `run_p2_calibrated_dense_ingest.py`, `experiment_P2_l8_diagnostic_block.py`
+  - A05 scale-space continuation (P1/P2): `experiment_P1_spatial_occupancy_cascade.py`, `experiment_P2_noncommuting_coarse_graining.py`, `experiment_P2_theory_bridge_ablation.py`, `run_p2_calibrated_dense_ingest.py`, `experiment_P2_l8_diagnostic_block.py`, `experiment_P2_memory.py`
 - `A06` M4 — staged falsification of Lambda necessity (`experiment_M_lambda_falsification_tests.py`)
 - `A07` F5 — structural Lambda and multiscale/fractional surrogates in ERA5 (`experiment_F5_lambda_struct_fractal_era5.py`, `experiment_F5_spatial_fractal_maps.py`)
 - `A08` F6b — strict heavy-tail test of `|Lambda_struct|` (`experiment_F6b_era5_heavy_tails.py`, `experiment_F6b_era5_heavy_tails_panel.py`)
@@ -64,11 +64,16 @@ Legacy `1-20` numbering is deprecated. The canonical map is now split by data do
 - `A05.R2_p2_theory_bridge_c009` — P2 density-matrix bridge + C009 calibration on sparse panel.
 - `A05.R3_p2_dense_c009` — calibrated dense ingest transfer test (`240x16` panel).
 - `A05.R4_p2_l8_resolution` — narrow `l=8` diagnostic block; matched-event/operator/resolution/regime checks, with memory-motivated interpretation.
+- `A05.R5_p2_memory` — retarded density-matrix closure; recovers dense `l=8` pass under full operators and standard threshold.
 
 Program-level finalization artifact:
 
 - `clean_experiments/EXPERIMENT_A_ATMOSPHERE_PIPELINE.md`
+- `clean_experiments/EXPERIMENT_P2_MEMORY.md`
 - `clean_experiments/results/experiment_P2_l8_diagnostic_block/report_P2_l8_resolution.md`
+- `clean_experiments/results/experiment_P2_memory/report.md`
+- `clean_experiments/results/experiment_P2_memory_x_viz/report.md`
+- `clean_experiments/results/experiment_P2_memory_geo_viz/report.md`
 
 ### Atmosphere extensions (outside canonical A01-A10 block)
 

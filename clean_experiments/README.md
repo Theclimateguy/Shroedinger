@@ -63,7 +63,7 @@ Canonical mapping is defined in `research_programm_summary.csv` and split into t
   - Clausius baseline vs `+Lambda` thermodynamic test.
 - `A05` **O2**: `experiment_O_spatial_variance.py`, `experiment_O_lambda_spatial_viz.py`, `experiment_O_spatial_active_west.py`
   - Spatial macro-signal diagnostics and regional masking analyses.
-  - Scale-space continuation (P1/P2): `experiment_P1_spatial_occupancy_cascade.py`, `experiment_P2_noncommuting_coarse_graining.py`, `experiment_P2_theory_bridge_ablation.py`, `run_p2_calibrated_dense_ingest.py`, `experiment_P2_l8_diagnostic_block.py`.
+  - Scale-space continuation (P1/P2): `experiment_P1_spatial_occupancy_cascade.py`, `experiment_P2_noncommuting_coarse_graining.py`, `experiment_P2_theory_bridge_ablation.py`, `run_p2_calibrated_dense_ingest.py`, `experiment_P2_l8_diagnostic_block.py`, `experiment_P2_memory.py`.
 - `A06` **M4**: `experiment_M_lambda_falsification_tests.py`
   - Staged Lambda necessity falsification (S1/S2/S3).
 - `A07` **F5**: `experiment_F5_lambda_struct_fractal_era5.py`, `experiment_F5_spatial_fractal_maps.py`
@@ -89,6 +89,11 @@ Canonical mapping is defined in `research_programm_summary.csv` and split into t
 - `A05.R4_p2_l8_resolution`
   - Narrow `l=8` diagnostics (matched-event, operator attribution, resolution sensitivity, regime split).
   - Finalization report: `clean_experiments/results/experiment_P2_l8_diagnostic_block/report_P2_l8_resolution.md`.
+- `A05.R5_p2_memory`
+  - Retarded density-matrix closure on dense panel under full operators and standard threshold.
+  - Finalization report: `clean_experiments/results/experiment_P2_memory/report.md`.
+  - Supporting visual diagnostics: `clean_experiments/visualize_p2_memory_x_profiles.py`, `clean_experiments/visualize_p2_memory_geo_maps.py`.
+  - Visualization reports: `clean_experiments/results/experiment_P2_memory_x_viz/report.md`, `clean_experiments/results/experiment_P2_memory_geo_viz/report.md`.
 
 Atmosphere extensions outside canonical `A01-A10`:
 

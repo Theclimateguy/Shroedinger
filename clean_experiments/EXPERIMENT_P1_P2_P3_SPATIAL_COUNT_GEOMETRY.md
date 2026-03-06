@@ -2,7 +2,7 @@
 
 Program placement:
 - this block is now part of the canonical atmosphere Group A pipeline as
-  `A05` run-level continuation (`A05.R1 ... A05.R4`).
+  `A05` run-level continuation (`A05.R1 ... A05.R5`).
 
 ## Goal
 Shift from time-ahead forecasting to a scale-space formulation where the scale coordinate is spatial:
@@ -114,6 +114,33 @@ This is now the primary P2 lambda observable used in closure tests.
     theory-consistent next step: retarded density matrix (`P2-memory`), rather
     than ad-hoc production retuning.
 
+### P2-memory finalization (March 2026)
+
+- script: `clean_experiments/experiment_P2_memory.py`
+- spec: `clean_experiments/EXPERIMENT_P2_MEMORY.md`
+- run output: `clean_experiments/results/experiment_P2_memory/`
+- implemented form:
+  - lagged tile-state features for `t-1` and `t-2`
+  - exponential memory weights with parameters `eta` and `tau`
+  - optional persistence gating
+  - memory applied only on selected scales, default `l=8`
+  - locked baseline remains C009 with full operator set and threshold `3.0`
+- confirmed final config:
+  - `memory_source = occupancy`
+  - `lookback = 2`
+  - `memory_eta = 0.8`
+  - `memory_tau = 0.75`
+  - `persistence_power = 0.0`
+- confirmed results:
+  - `l=8`: `mae_gain = 1.224306e-06`, `r2_gain = 1.343877e-04`,
+    `perm_p = 0.02`, `event_positive_frac = 0.9375`, `PASS_ALL = True`
+  - `ALL`: `mae_gain = 1.372379e-06`, `r2_gain = 2.177551e-04`,
+    `perm_p = 0.02`, `PASS_ALL = True`
+- interpretation:
+  - dense fine-scale degradation is consistent with missing memory, not with a
+    need for manual operator dropping.
+  - the A05 scale-space series is now closed by a theory-close retarded bridge.
+
 ## P3: Structure Thermodynamics
 
 ### Core idea
@@ -167,6 +194,12 @@ python clean_experiments/run_p2_calibrated_dense_ingest.py \
   --top-events 16 \
   --context-hours 6 \
   --budget-gb 50
+
+python clean_experiments/experiment_P2_memory.py \
+  --outdir clean_experiments/results/experiment_P2_memory \
+  --top-k 6 \
+  --final-n-perm 49 \
+  --all-scales-n-perm 49
 ```
 
 ## Scale Parameterization Guidance

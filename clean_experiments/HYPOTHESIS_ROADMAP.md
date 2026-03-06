@@ -36,6 +36,7 @@ locally during runs and are not versioned by default in GitHub.
 | A05.R2 | Noncommuting coarse-graining density-matrix bridge (C009 calibration) | `clean_experiments/experiment_P2_noncommuting_coarse_graining.py`, `clean_experiments/experiment_P2_theory_bridge_ablation.py` | bridge gain vs baseline, commutator diagnostics, all-scale pass on sparse panel | calibrated C009 must retain positive all-scale gain and permutation significance on sparse panel |
 | A05.R3 | Dense intra-event transferability of calibrated bridge | `clean_experiments/run_p2_calibrated_dense_ingest.py`, `clean_experiments/experiment_P2_noncommuting_coarse_graining.py` | sparse-vs-dense transfer table (ALL + per-scale) under blocked event CV | preserve global gain while explicitly diagnosing fine-scale regime sensitivity |
 | A05.R4 | `l=8` diagnostic resolution block (matched-event/operator/resolution/regime) | `clean_experiments/experiment_P2_l8_diagnostic_block.py` | matched-event control, operator attribution, threshold/downsample sensitivity, regime split | isolate whether degradation is event-pool, operator, or resolution-driven and map path to theory-consistent memory extension |
+| A05.R5 | Retarded density-matrix memory extension on dense panel | `clean_experiments/experiment_P2_memory.py` | sign flip and significance recovery on `l=8`, plus restored all-scale pass vs dense C009 baseline | recover positive `l=8` gain and `perm_p <= 0.05` under full operators and threshold `3.0`, without ad-hoc retune |
 | M4 | Lambda necessity falsification (scale permutation / commutator control / IC) | `clean_experiments/experiment_M_lambda_falsification_tests.py` | S1/S2/S3 staged falsification metrics | real Lambda must outperform placebo/comm controls and improve IC criteria |
 
 Atmosphere extension branch (outside canonical `A01-A10` landscape block):
@@ -56,6 +57,7 @@ Atmosphere extension branch (outside canonical `A01-A10` landscape block):
 
 ## Immediate Next Action
 
-For the A05 process-resolved continuation, keep C009 as baseline and prioritize
-theory-consistent memory extension (`P2-memory`, retarded density matrix) to
-stabilize finest-scale transfer without manual operator dropping.
+The A05 process-resolved continuation is now numerically closed through
+`A05.R5_p2_memory`. Next work item is manuscript integration, with P2-memory
+described as the final theory-close fine-scale closure and with explicit caveat
+that the current implementation is a minimal retarded surrogate.
