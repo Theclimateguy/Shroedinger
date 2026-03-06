@@ -7,7 +7,7 @@ Legacy numeric `1-20` indexing is deprecated.
 Canonical blocks:
 
 - `TOY_MODEL`: `T01 ... T19`
-- `ATMOSPHERE_DATA`: `A01 ... A15`
+- `ATMOSPHERE_DATA`: `A01 ... A10`
 
 Note: output folders listed below are canonical runtime locations. Heavy generated artifacts are local-only by default; this repository keeps code and lightweight documentation.
 
@@ -49,18 +49,29 @@ Note: output folders listed below are canonical runtime locations. Heavy generat
 | A08 | F6b | `clean_experiments/experiment_F6b_era5_heavy_tails.py`, `clean_experiments/experiment_F6b_era5_heavy_tails_panel.py` | `clean_experiments/results/experiment_F6b_era5_heavy_tails`, `clean_experiments/results/experiment_F6b_era5_heavy_tails_panel` |
 | A09 | F6c | `clean_experiments/experiment_F6c_clustered_subspace_tails.py` | `clean_experiments/results/experiment_F6c_clustered_subspace_tails` |
 | A10 | F6c_spatial | `clean_experiments/experiment_F6c_spatial_panel_viz.py` | `clean_experiments/results/experiment_F6c_spatial_panel_viz` |
-| A11 | M-realpilot-v1-indep | `clean_experiments/experiment_M_realpilot_v1_frozen.py` | `clean_experiments/results/experiment_M_realpilot_v1_frozen_independent_seasonal_2024` |
-| A12 | M-realpilot-v1-satcomp | `clean_experiments/experiment_M_realpilot_satellite_component_stability.py` | `clean_experiments/results/experiment_M_realpilot_v1_frozen_independent_seasonal_2024/satellite_component_stability`, `clean_experiments/results/experiment_M_realpilot_v1_expanded_positive/satellite_component_stability` |
-| A13 | M-realpilot-v1-geography | `clean_experiments/experiment_M_realpilot_v1_frozen.py`, `clean_experiments/build_realpilot_unified_panel.py` | `clean_experiments/results/experiment_M_realpilot_v1_frozen_independent_geographic_southwest_2024`, `clean_experiments/results/realpilot_2024_dataset_panel_v1_independent_geographic_southwest_2024.csv` |
-| A14 | M-realpilot-applicability-map | `clean_experiments/summarize_m_realpilot_applicability.py` | `clean_experiments/results/experiment_M_realpilot_applicability_map` |
-| A15 | M-realpilot-regime-perimeter | `clean_experiments/build_m_realpilot_regime_detection_package.py` | `clean_experiments/results/experiment_M_realpilot_regime_detection_package` |
 
-## Atmosphere extensions (outside canonical A01-A15)
+## A07 run-level log (frozen granular continuation)
+
+All granular MRMS+GOES/M-realpilot continuation runs are logged under canonical code `A07`
+with run-level identifiers in the `ветка` field of `research_programm_summary.csv`.
+
+| Run ID (`ветка`) | Purpose | Primary script(s) | Canonical output folder(s) |
+|---|---|---|---|
+| `A07.R1_mrealpilot_v1_indep` | Independent seasonal frozen extension | `clean_experiments/experiment_M_realpilot_v1_frozen.py` | `clean_experiments/results/experiment_M_realpilot_v1_frozen_independent_seasonal_2024` |
+| `A07.R2_mrealpilot_v1_satcomp` | ABI-only vs ABI+GLM stability on independent seasonal set | `clean_experiments/experiment_M_realpilot_satellite_component_stability.py` | `clean_experiments/results/experiment_M_realpilot_v1_frozen_independent_seasonal_2024/satellite_component_stability` |
+| `A07.R3_mrealpilot_v1_geography` | Independent geographic frozen extension (Southwest) | `clean_experiments/experiment_M_realpilot_v1_frozen.py`, `clean_experiments/build_realpilot_unified_panel.py` | `clean_experiments/results/experiment_M_realpilot_v1_frozen_independent_geographic_southwest_2024`, `clean_experiments/results/realpilot_2024_dataset_panel_v1_independent_geographic_southwest_2024.csv` |
+| `A07.R4_mrealpilot_applicability_map` | Cross-run applicability map | `clean_experiments/summarize_m_realpilot_applicability.py` | `clean_experiments/results/experiment_M_realpilot_applicability_map` |
+| `A07.R5_mrealpilot_regime_perimeter` | Formal perimeter and regime-detection package | `clean_experiments/build_m_realpilot_regime_detection_package.py` | `clean_experiments/results/experiment_M_realpilot_regime_detection_package` |
+
+## Atmosphere extensions (outside canonical A01-A10)
 
 - N moisture-budget branch:
   - `clean_experiments/experiment_N_navier_stokes_budget.py`
   - `clean_experiments/experiment_N_followup_dual.py`
   - `clean_experiments/EXPERIMENT_N_DATA_MANIFEST.md`
+- P scale-space count-geometry branch:
+  - `clean_experiments/experiment_P1_spatial_occupancy_cascade.py`
+  - `clean_experiments/EXPERIMENT_P1_P2_P3_SPATIAL_COUNT_GEOMETRY.md`
 - granular ingest branch (MRMS + GOES pilot):
   - `clean_experiments/download_mrms.py`
   - `clean_experiments/download_goes.py`

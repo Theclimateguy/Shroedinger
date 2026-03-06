@@ -79,6 +79,9 @@ Atmosphere extensions outside canonical `A01-A10`:
 - `experiment_N_navier_stokes_budget.py`
 - `experiment_N_followup_dual.py`
 - `EXPERIMENT_N_DATA_MANIFEST.md`, `download_N_data_era5.py`, `download_N_data_merra2.py`
+- scale-space count-geometry branch:
+  - `experiment_P1_spatial_occupancy_cascade.py`
+  - `EXPERIMENT_P1_P2_P3_SPATIAL_COUNT_GEOMETRY.md`
 - granular ingest pilot (MRMS + GOES):
   - `download_mrms.py`
   - `download_goes.py`
@@ -91,6 +94,11 @@ Atmosphere extensions outside canonical `A01-A10`:
 
 The full mapping table is in `clean_experiments/EXPERIMENT_NUMBERING.md`.
 Stage-2 hypothesis-level protocol is in `clean_experiments/HYPOTHESIS_ROADMAP.md`.
+
+Numbering policy:
+
+- Canonical experiment codes are locked to `T01..T19` and `A01..A10`.
+- All new continuations are logged as run-level IDs in `ветка` (for example `A07.R1_*`) without creating `A11+`.
 
 ## M-realpilot v1 (frozen prereg protocol)
 

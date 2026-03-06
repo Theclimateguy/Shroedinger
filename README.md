@@ -73,6 +73,11 @@ Legacy `1-20` numbering is deprecated. The canonical map is now split by data do
 - Consolidated March 2026 F-series report:
   - `clean_experiments/results/experiment_F_series_2026_03_06/report.md`
 
+Numbering policy:
+
+- Canonical codes are fixed at `T01..T19` and `A01..A10`.
+- Continuation runs are logged via run-level IDs in `ветка` (for example `A07.R1_*`), not by adding `A11+`.
+
 ### M-realpilot prereg (frozen v1)
 
 - frozen script: `clean_experiments/experiment_M_realpilot_v1_frozen.py`
