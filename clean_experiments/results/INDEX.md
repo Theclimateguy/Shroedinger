@@ -82,6 +82,7 @@ Canonical numbering is alphanumeric and split by domain:
     - `experiment_P2_memory/`
     - `experiment_P2_memory_x_viz/`
     - `experiment_P2_memory_geo_viz/`
+    - `experiment_P2_memory_gksl_cptp/`
 - `[A06]` `experiment_M_lambda_falsification_tests/`
   - Staged Lambda necessity falsification (S1/S2/S3).
 - `[A07]` `experiment_F5_lambda_struct_fractal_era5/`, `experiment_F5_spatial_fractal_maps/`

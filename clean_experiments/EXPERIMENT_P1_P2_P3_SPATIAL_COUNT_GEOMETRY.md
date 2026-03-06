@@ -2,7 +2,7 @@
 
 Program placement:
 - this block is now part of the canonical atmosphere Group A pipeline as
-  `A05` run-level continuation (`A05.R1 ... A05.R5`).
+  `A05` run-level continuation (`A05.R1 ... A05.R6`).
 
 ## Goal
 Shift from time-ahead forecasting to a scale-space formulation where the scale coordinate is spatial:
@@ -139,7 +139,27 @@ This is now the primary P2 lambda observable used in closure tests.
 - interpretation:
   - dense fine-scale degradation is consistent with missing memory, not with a
     need for manual operator dropping.
-  - the A05 scale-space series is now closed by a theory-close retarded bridge.
+  - this surrogate step restores detectability but leaves a methodological caveat:
+    memory is effective lag-mixing, not explicit GKSL/CPTP dynamics.
+
+### P2-memory full GKSL/CPTP finalization (March 2026)
+
+- script: `clean_experiments/experiment_P2_memory_gksl_cptp.py`
+- spec: `clean_experiments/EXPERIMENT_P2_MEMORY_GKSL_CPTP.md`
+- run output: `clean_experiments/results/experiment_P2_memory_gksl_cptp/`
+- model:
+  - explicit state propagation on each `(event, scale, tile)` trajectory:
+    `rho_t = Reset o GAD o Dephase o U (rho_{t-1})`
+  - each block is CPTP; composition is CPTP.
+- confirmed results (`49` permutations):
+  - `l=8`: `mae_gain = 2.270824e-06`, `r2_gain = 2.134425e-04`,
+    `perm_p = 0.02`, `event_positive_frac = 0.9375`, `PASS_ALL = True`
+  - `ALL`: `mae_gain = 2.191610e-06`, `r2_gain = 2.891841e-04`,
+    `perm_p = 0.02`, `PASS_ALL = True`
+  - CPTP diagnostics: max trace/PSD violation proxy `~8.88e-16`
+- interpretation:
+  - memory benefit survives full dynamical modeling and is not a surrogate artifact.
+  - `A05` memory branch is now closed with full GKSL/CPTP effective dynamics.
 
 ## P3: Structure Thermodynamics
 
@@ -197,6 +217,12 @@ python clean_experiments/run_p2_calibrated_dense_ingest.py \
 
 python clean_experiments/experiment_P2_memory.py \
   --outdir clean_experiments/results/experiment_P2_memory \
+  --top-k 6 \
+  --final-n-perm 49 \
+  --all-scales-n-perm 49
+
+python clean_experiments/experiment_P2_memory_gksl_cptp.py \
+  --outdir clean_experiments/results/experiment_P2_memory_gksl_cptp \
   --top-k 6 \
   --final-n-perm 49 \
   --all-scales-n-perm 49

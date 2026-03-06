@@ -65,15 +65,18 @@ Legacy `1-20` numbering is deprecated. The canonical map is now split by data do
 - `A05.R3_p2_dense_c009` — calibrated dense ingest transfer test (`240x16` panel).
 - `A05.R4_p2_l8_resolution` — narrow `l=8` diagnostic block; matched-event/operator/resolution/regime checks, with memory-motivated interpretation.
 - `A05.R5_p2_memory` — retarded density-matrix closure; recovers dense `l=8` pass under full operators and standard threshold.
+- `A05.R6_p2_memory_gksl_cptp` — full GKSL/CPTP memory dynamics; confirms and strengthens `l=8` gain under explicit CPTP evolution.
 
 Program-level finalization artifact:
 
 - `clean_experiments/EXPERIMENT_A_ATMOSPHERE_PIPELINE.md`
 - `clean_experiments/EXPERIMENT_P2_MEMORY.md`
+- `clean_experiments/EXPERIMENT_P2_MEMORY_GKSL_CPTP.md`
 - `clean_experiments/results/experiment_P2_l8_diagnostic_block/report_P2_l8_resolution.md`
 - `clean_experiments/results/experiment_P2_memory/report.md`
 - `clean_experiments/results/experiment_P2_memory_x_viz/report.md`
 - `clean_experiments/results/experiment_P2_memory_geo_viz/report.md`
+- `clean_experiments/results/experiment_P2_memory_gksl_cptp/report.md`
 
 ### Atmosphere extensions (outside canonical A01-A10 block)
 

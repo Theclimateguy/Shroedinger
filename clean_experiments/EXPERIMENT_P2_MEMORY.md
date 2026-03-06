@@ -2,7 +2,11 @@
 
 Program placement:
 - canonical Group A atmosphere continuation: `A05.R5_p2_memory`
-- this closes the P1/P2 scale-space series after `A05.R4_p2_l8_resolution`
+- surrogate memory stage after `A05.R4_p2_l8_resolution`
+
+Status update:
+- full-model continuation is now implemented as `A05.R6_p2_memory_gksl_cptp`.
+- see `clean_experiments/EXPERIMENT_P2_MEMORY_GKSL_CPTP.md`.
 
 ## Goal
 Introduce a theory-close memory term into the local scale bridge so that the
@@ -68,8 +72,8 @@ P2-memory final:
 - Memory restores the fine-scale bridge without lowering the active threshold.
 - The successful regime is short-memory and occupancy-led, which is consistent
   with fast but non-instantaneous decorrelation on the smallest resolved scale.
-- Within the current A05 program this is the preferred physical closure of the
-  `l=8` problem and the final experiment in the P1/P2 series.
+- This stage is a successful surrogate bridge and a transition to full model.
+- Final memory closure is now `A05.R6` (explicit GKSL/CPTP dynamics).
 
 ## Canonical outputs
 - final report:
@@ -88,7 +92,8 @@ P2-memory final:
 These diagnostics are not separate canonical runs. They are article/support
 visualizations attached to `A05.R5_p2_memory`.
 
-## Article-facing caveat
-This is a minimal effective memory bridge, not a full GKSL plus explicit CPTP
-history model. In the manuscript it should be described as a theory-motivated
-retarded surrogate that empirically closes the dense fine-scale gap.
+## Article-facing caveat (for R5)
+This stage is a minimal effective memory bridge, not a full GKSL plus explicit
+CPTP history model. In manuscript terms it should be presented as an
+intermediate surrogate step; the full effective dynamics are documented in
+`EXPERIMENT_P2_MEMORY_GKSL_CPTP.md`.

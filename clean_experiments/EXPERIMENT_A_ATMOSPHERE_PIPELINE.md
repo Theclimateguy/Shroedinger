@@ -9,7 +9,7 @@ This runbook defines the canonical atmosphere pipeline (`ATMOSPHERE_DATA`).
 3. `A03` M3 land/ocean + noise-limit probe
 4. `A04` O1 thermodynamic baseline check
 5. `A05` O2 spatial diagnostics
-6. `A05.R1..R5` scale-space continuation (P1/P2)
+6. `A05.R1..R6` scale-space continuation (P1/P2)
 7. `A06` M4 falsification block
 8. `A07` F5 structural Lambda/fractal surrogates
 9. `A08` F6b heavy-tail strict fits
@@ -22,12 +22,14 @@ This runbook defines the canonical atmosphere pipeline (`ATMOSPHERE_DATA`).
 - `A05.R2_p2_theory_bridge_c009`: completed, C009 selected.
 - `A05.R3_p2_dense_c009`: completed (dense ingest + transfer check).
 - `A05.R4_p2_l8_resolution`: completed as diagnostic block.
-- `A05.R5_p2_memory`: completed, retarded density-matrix surrogate restores dense fine-scale pass.
+- `A05.R5_p2_memory`: completed, surrogate memory restores dense fine-scale pass.
+- `A05.R6_p2_memory_gksl_cptp`: completed, full GKSL/CPTP memory confirms and strengthens the gain.
 
 Program decision:
 - Keep C009 as canonical baseline for Group A.
 - Treat `l=8` retune variants as diagnostics only.
-- Use P2-memory as the final theory-close closure of the `A05` scale-space series.
+- Treat `A05.R5` as surrogate transition step.
+- Use `A05.R6` full GKSL/CPTP as the final memory closure of the `A05` scale-space series.
 
 ## Command skeleton
 
@@ -78,6 +80,13 @@ python clean_experiments/experiment_P2_memory.py \
   --top-k 6 \
   --final-n-perm 49 \
   --all-scales-n-perm 49
+
+# A05.R6
+python clean_experiments/experiment_P2_memory_gksl_cptp.py \
+  --outdir clean_experiments/results/experiment_P2_memory_gksl_cptp \
+  --top-k 6 \
+  --final-n-perm 49 \
+  --all-scales-n-perm 49
 ```
 
 ## Finalization artifacts
@@ -86,6 +95,8 @@ python clean_experiments/experiment_P2_memory.py \
 - `clean_experiments/results/experiment_P2_l8_diagnostic_block/report.md`
 - `clean_experiments/results/experiment_P2_l8_diagnostic_block/l8_diagnostic_decision_table.csv`
 - `clean_experiments/EXPERIMENT_P2_MEMORY.md`
+- `clean_experiments/EXPERIMENT_P2_MEMORY_GKSL_CPTP.md`
 - `clean_experiments/results/experiment_P2_memory/report.md`
 - `clean_experiments/results/experiment_P2_memory_x_viz/report.md`
 - `clean_experiments/results/experiment_P2_memory_geo_viz/report.md`
+- `clean_experiments/results/experiment_P2_memory_gksl_cptp/report.md`
