@@ -62,8 +62,32 @@ Legacy `1-20` numbering is deprecated. The canonical map is now split by data do
 - N moisture-budget follow-up branch:
   - `experiment_N_navier_stokes_budget.py`
   - `experiment_N_followup_dual.py`
+- granular ingest branch (high-resolution MRMS + GOES pilot):
+  - `clean_experiments/download_mrms.py`
+  - `clean_experiments/download_goes.py`
+  - `clean_experiments/build_mrms_goes_aligned_catalog.py`
+  - `clean_experiments/download_matched_windows.py`
+  - `clean_experiments/run_ultralight_mrms_goes_pilot.py`
+  - `clean_experiments/pilot_events_template.csv`
+  - `clean_experiments/EXPERIMENT_GRANULAR_MRMS_GOES_INGEST.md`
 - Consolidated March 2026 F-series report:
   - `clean_experiments/results/experiment_F_series_2026_03_06/report.md`
+
+### M-realpilot prereg (frozen v1)
+
+- frozen script: `clean_experiments/experiment_M_realpilot_v1_frozen.py`
+- SHA256: `aded0e49e825a318a2de07f49faa9c877277d2e76f223277495bdcebfbe8f3f2`
+- policy: expand only event list, rerun unchanged script, compare headline metrics only.
+- expanded event list seed: `clean_experiments/pilot_events_real_2024_us_convective_expanded_v1.csv`
+- locked positive reference: `clean_experiments/results/experiment_M_realpilot_v1_expanded_positive/`
+- independent seasonal extension list: `clean_experiments/pilot_events_realpilot_v1_independent_seasonal_2024.csv`
+- independent geographic extension list: `clean_experiments/pilot_events_realpilot_v1_independent_geographic_southwest_2024.csv`
+- independent extension compare: `clean_experiments/results/experiment_M_realpilot_v1_independent_extension_compare/report.md`
+- ABI-only vs ABI+GLM stability: `clean_experiments/experiment_M_realpilot_satellite_component_stability.py`
+- applicability-map builder: `clean_experiments/summarize_m_realpilot_applicability.py`
+- applicability map: `clean_experiments/results/experiment_M_realpilot_applicability_map/report.md`
+- perimeter + regime-detection package builder: `clean_experiments/build_m_realpilot_regime_detection_package.py`
+- perimeter + regime-detection package: `clean_experiments/results/experiment_M_realpilot_regime_detection_package/report.md`
 
 ## Reproducibility
 

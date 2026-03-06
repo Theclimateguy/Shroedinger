@@ -1,0 +1,4 @@
+event_id,start_utc,end_utc,notes
+E01,2026-01-01T00:00:00Z,2026-01-01T02:59:59Z,replace with real convective event
+E02,2026-01-02T00:00:00Z,2026-01-02T02:59:59Z,replace with real convective event
+E03,2026-01-03T00:00:00Z,2026-01-03T02:59:59Z,replace with real convective event

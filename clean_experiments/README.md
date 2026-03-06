@@ -79,10 +79,56 @@ Atmosphere extensions outside canonical `A01-A10`:
 - `experiment_N_navier_stokes_budget.py`
 - `experiment_N_followup_dual.py`
 - `EXPERIMENT_N_DATA_MANIFEST.md`, `download_N_data_era5.py`, `download_N_data_merra2.py`
+- granular ingest pilot (MRMS + GOES):
+  - `download_mrms.py`
+  - `download_goes.py`
+  - `build_mrms_goes_aligned_catalog.py`
+  - `download_matched_windows.py`
+  - `run_ultralight_mrms_goes_pilot.py`
+  - `pilot_events_template.csv`
+  - `EXPERIMENT_GRANULAR_MRMS_GOES_INGEST.md`
 - Consolidated report: `clean_experiments/results/experiment_F_series_2026_03_06/report.md`
 
 The full mapping table is in `clean_experiments/EXPERIMENT_NUMBERING.md`.
 Stage-2 hypothesis-level protocol is in `clean_experiments/HYPOTHESIS_ROADMAP.md`.
+
+## M-realpilot v1 (frozen prereg protocol)
+
+Frozen script:
+
+- `clean_experiments/experiment_M_realpilot_v1_frozen.py`
+- SHA256: `aded0e49e825a318a2de07f49faa9c877277d2e76f223277495bdcebfbe8f3f2`
+- locked positive run: `clean_experiments/results/experiment_M_realpilot_v1_expanded_positive/`
+
+Preregistered rules:
+
+1. Do not modify model code, feature definitions, CV design, thresholds, or permutation settings.
+2. Expand only event list (`clean_experiments/pilot_events_real_2024_us_convective_expanded_v1.csv` and future supersets).
+3. Keep fixed evaluation setup:
+   - target: `next_p95`
+   - model: `Ridge(alpha=10.0)`
+   - CV: leave-one-event-out
+   - placebo tests: `time_shuffle` and `event_shuffle`
+   - permutations: `n_perm=499`
+4. Compare only headline metrics across runs:
+   - `mae_baseline`, `mae_full`, `mean_mae_gain`
+   - `perm_p_time_shuffle`, `perm_p_event_shuffle`
+   - `event_positive_frac`, `PASS_ALL`
+5. Any additional targets (e.g., `delta_p95`) are reported as secondary checks, not replacement primary endpoints.
+
+Current extension assets:
+
+- independent seasonal event list: `clean_experiments/pilot_events_realpilot_v1_independent_seasonal_2024.csv`
+- independent geographic event list: `clean_experiments/pilot_events_realpilot_v1_independent_geographic_southwest_2024.csv`
+- unified panel builder: `clean_experiments/build_realpilot_unified_panel.py`
+- satellite component stability check: `clean_experiments/experiment_M_realpilot_satellite_component_stability.py`
+- applicability-map builder: `clean_experiments/summarize_m_realpilot_applicability.py`
+- regime-detection package builder: `clean_experiments/build_m_realpilot_regime_detection_package.py`
+- independent seasonal frozen run: `clean_experiments/results/experiment_M_realpilot_v1_frozen_independent_seasonal_2024/`
+- independent geographic frozen run: `clean_experiments/results/experiment_M_realpilot_v1_frozen_independent_geographic_southwest_2024/`
+- baseline-vs-independent headline compare: `clean_experiments/results/experiment_M_realpilot_v1_independent_extension_compare/report.md`
+- applicability map (season/region + ABI-only vs ABI+GLM): `clean_experiments/results/experiment_M_realpilot_applicability_map/report.md`
+- full diagnostic perimeter + regime conclusion: `clean_experiments/results/experiment_M_realpilot_regime_detection_package/report.md`
 
 ## A01/M1 decision policy
 
@@ -168,6 +214,33 @@ Execute downloads:
 ```bash
 python clean_experiments/download_N_data_era5.py --download
 python clean_experiments/download_N_data_merra2.py --download
+
+python clean_experiments/download_mrms.py \
+  --start-date 2026-01-01 \
+  --end-date 2026-01-02 \
+  --dry-run
+
+python clean_experiments/download_goes.py \
+  --start-date 2026-01-01 \
+  --end-date 2026-01-02 \
+  --satellites G19 G18 \
+  --products ABI-L2-CMIPF GLM-L2-LCFA \
+  --abi-channels C02 C08 C13 \
+  --dry-run
+
+python clean_experiments/build_mrms_goes_aligned_catalog.py \
+  --mrms-manifest manifests/mrms_manifest.csv \
+  --goes-manifest manifests/goes_manifest.csv \
+  --out aligned_catalog.parquet
+
+python clean_experiments/download_matched_windows.py \
+  --aligned-catalog aligned_catalog.parquet \
+  --mrms-manifest manifests/mrms_manifest.csv \
+  --goes-manifest manifests/goes_manifest.csv
+
+python clean_experiments/run_ultralight_mrms_goes_pilot.py \
+  --events-csv clean_experiments/pilot_events_template.csv \
+  --stage manifest_only
 ```
 
 ## Quick smoke runs
