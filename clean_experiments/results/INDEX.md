@@ -6,7 +6,7 @@ Heavy generated outputs (CSV/JSON/PNG/NPZ) are produced locally and are not vers
 Canonical numbering is alphanumeric and split by domain:
 
 - `TOY_MODEL`: `T01 ... T19`
-- `ATMOSPHERE_DATA`: `A01 ... A10`
+- `ATMOSPHERE_DATA`: `A01 ... A14`
 
 ## Cross-Experiment Checks
 
@@ -93,13 +93,31 @@ Canonical numbering is alphanumeric and split by domain:
   - Cluster-conditioned heavy-tail fits with anti-overfit protocol.
 - `[A10]` `experiment_F6c_spatial_panel_viz/`
   - Patch-wise spatial alpha maps and strict SOC candidate masks.
+- `[A11]` `experiment_M_phi_only_strict_causal2019_train2019_test2020_ext2021_perm1999/`, `experiment_M_gksl_hybrid_strict_2017_2020_causal2018_locked_raw/`
+  - Strict chronological `Phi`-over-`Lambda` transfer check endpoint pair.
+- `[A12]` `experiment_M_halo_boundary_strict_causal2019_train2019_test2020_ext2021_v2/`
+  - Strict halo-boundary core-only closure endpoint.
+- `[A13]` `experiment_M_halo_boundary_widthscan_w0_causal2019_train2019_test2020_ext2021/`, `experiment_M_halo_boundary_widthscan_w4_causal2019_train2019_test2020_ext2021/`, `experiment_M_halo_boundary_widthscan_w6_causal2019_train2019_test2020_ext2021/`, `experiment_M_halo_boundary_widthscan_w8_causal2019_train2019_test2020_ext2021/`, `experiment_M_halo_boundary_widthscan_w10_causal2019_train2019_test2020_ext2021/`
+  - Preregistered halo-width scan under fixed-core strict protocol.
+- `[A14]` `experiment_M_halo_boundary_falsify_remote_w4_causal2019_train2019_test2020_ext2021/`, `experiment_M_halo_boundary_falsify_misaligned_w4_causal2019_train2019_test2020_ext2021/`
+  - Halo-physics falsification controls (`local` vs `remote` vs `misaligned`).
 
-## Atmosphere Extensions Outside Canonical A01-A10
+## Atmosphere Extensions Outside Canonical A01-A14
 
 - `experiment_N_navier_stokes_budget/`
   - Navier-Stokes moisture-budget closure with blocked-CV and out-of-time checks.
 - `experiment_N_followup/`
   - `N11` source-proxy and `N12` localized-Lambda follow-up branches.
+- `experiment_M_gksl_hybrid_bridge*/`
+  - Non-strict GKSL bridge variants retained as auxiliary diagnostics.
+- `experiment_M_gksl_hybrid_strict_locked_raw/`, `experiment_M_gksl_hybrid_strict_screened/`, `experiment_M_gksl_hybrid_strict_2017_2020_causal2018_nested/`, `experiment_M_gksl_hybrid_strict_2017_2020_noncausal_locked_raw/`
+  - Additional strict hybrid variants outside canonical endpoint pair.
+- `experiment_M_phi_only_strict_causal2018_locked_raw_perm1999/`, `experiment_M_phi_only_strict_causal2018_nested_perm1999/`
+  - Additional phi-only strict variants outside canonical endpoint pair.
+- `experiment_M_halo_boundary_strict_causal2019_train2019_test2020_ext2021/`
+  - Pre-final halo strict run retained for reproducibility.
+- `EXPERIMENT_M_GKSL_TRANSFER_HALO_BRANCH_2026_03_07.md`
+  - Full March 7, 2026 run inventory and branch-level interpretation.
 
 ## Consolidated Program Docs
 

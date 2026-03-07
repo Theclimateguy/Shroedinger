@@ -8,7 +8,7 @@ Generated artifacts under `clean_experiments/results/...` are local-only and are
 Canonical mapping is defined in `research_programm_summary.csv` and split into two blocks:
 
 - `TOY_MODEL`: `T01 ... T19`
-- `ATMOSPHERE_DATA`: `A01 ... A10`
+- `ATMOSPHERE_DATA`: `A01 ... A14`
 
 ### TOY_MODEL
 
@@ -74,8 +74,16 @@ Canonical mapping is defined in `research_programm_summary.csv` and split into t
   - Clustered subspace heavy-tail fits under anti-overfit protocol.
 - `A10` **F6c-spatial**: `experiment_F6c_spatial_panel_viz.py`
   - Patch-wise spatial tail exponent mapping.
+- `A11` **M5**: `experiment_M_gksl_hybrid_strict.py`
+  - Strict chronological `Phi`-over-`Lambda` transfer check on ERA5 closure holdouts.
+- `A12` **M6**: `experiment_M_halo_boundary_strict.py`
+  - Strict core-only closure with adjacent halo boundary context.
+- `A13` **M7**: `experiment_M_halo_boundary_strict.py`
+  - Preregistered halo-width scan (`w=0,4,6,8,10`) under fixed core protocol.
+- `A14` **M8**: `experiment_M_halo_boundary_strict.py`
+  - Halo-physics falsification (`local` vs `remote` vs `misaligned` context).
 
-### A05 run-level log (scale-space count-geometry continuation)
+### A05 run-level log (scale-space count-geometry continuation, ATMOSPHERE_EXTENSION)
 
 - `A05.R1_p1_spatial_occupancy_cascade`
   - P1-lite occupancy cascade on sparse panel.
@@ -98,11 +106,29 @@ Canonical mapping is defined in `research_programm_summary.csv` and split into t
   - Full effective GKSL/CPTP memory model on dense panel (`rho_t = Reset o GAD o Dephase o U(rho_{t-1})`).
   - Finalization report: `clean_experiments/results/experiment_P2_memory_gksl_cptp/report.md`.
 
-Atmosphere extensions outside canonical `A01-A10`:
+Atmosphere extensions outside canonical `A01-A14`:
 
 - `experiment_N_navier_stokes_budget.py`
 - `experiment_N_followup_dual.py`
 - `EXPERIMENT_N_DATA_MANIFEST.md`, `download_N_data_era5.py`, `download_N_data_merra2.py`
+- M transfer/halo auxiliary branch (outside canonical A11-A14 endpoints):
+  - `experiment_M_gksl_hybrid_bridge.py`
+  - non-strict bridge reports:
+    - `results/experiment_M_gksl_hybrid_bridge/report.md`
+    - `results/experiment_M_gksl_hybrid_bridge_locked_raw/report.md`
+    - `results/experiment_M_gksl_hybrid_bridge_locked_raw_v2/report.md`
+    - `results/experiment_M_gksl_hybrid_bridge_screened/report.md`
+    - `results/experiment_M_gksl_hybrid_bridge_screened_v2/report.md`
+  - additional strict variants:
+    - `results/experiment_M_gksl_hybrid_strict_locked_raw/report.md`
+    - `results/experiment_M_gksl_hybrid_strict_screened/report.md`
+    - `results/experiment_M_gksl_hybrid_strict_2017_2020_causal2018_nested/report.md`
+    - `results/experiment_M_gksl_hybrid_strict_2017_2020_noncausal_locked_raw/report.md`
+    - `results/experiment_M_phi_only_strict_causal2018_locked_raw_perm1999/report.md`
+    - `results/experiment_M_phi_only_strict_causal2018_nested_perm1999/report.md`
+  - pre-final halo strict auxiliary run:
+    - `results/experiment_M_halo_boundary_strict_causal2019_train2019_test2020_ext2021/report.md`
+  - full branch summary: `EXPERIMENT_M_GKSL_TRANSFER_HALO_BRANCH_2026_03_07.md`
 - granular ingest pilot (MRMS + GOES):
   - `download_mrms.py`
   - `download_goes.py`
@@ -120,8 +146,8 @@ Canonical Group A runbook is in `clean_experiments/EXPERIMENT_A_ATMOSPHERE_PIPEL
 
 Numbering policy:
 
-- Canonical experiment codes are locked to `T01..T19` and `A01..A10`.
-- All new continuations are logged as run-level IDs in `ветка` (for example `A07.R1_*`) without creating `A11+`.
+- Canonical experiment codes are locked to `T01..T19` and `A01..A14`.
+- Continuation runs are logged as run-level IDs in `ветка` (for example `A05.R*`, `A07.R*`, `A11.E*`) under `ATMOSPHERE_EXTENSION`.
 
 ## M-realpilot v1 (frozen prereg protocol)
 
@@ -300,6 +326,7 @@ python clean_experiments/experiment_M_lambda_falsification_tests.py
 python clean_experiments/experiment_M_land_ocean_split.py
 python clean_experiments/experiment_M_land_ocean_spatial_viz.py
 python clean_experiments/experiment_M_land_ocean_noise_probe.py
+python clean_experiments/experiment_M_halo_boundary_strict.py --input-nc data/processed/wpwp_era5_2017_2021_experiment_M_input.nc --outdir clean_experiments/results/experiment_M_halo_boundary_strict_causal2019_train2019_test2020_ext2021_v2 --train-end-year 2019 --test-year 2020 --external-year 2021 --halo-width-cells 8 --fine-band-idx 0 --coarse-band-idx 1 --n-perm 1999
 python clean_experiments/experiment_F1_fractal_emergence.py --out clean_experiments/results/experiment_F1_fractal_emergence
 python clean_experiments/experiment_F2_scale_covariance.py --out clean_experiments/results/experiment_F2_scale_covariance
 python clean_experiments/experiment_F3_lambda_fractal_bridge.py --out clean_experiments/results/experiment_F3_lambda_fractal_bridge

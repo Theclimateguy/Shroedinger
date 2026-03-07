@@ -20,7 +20,7 @@ Source of truth: `research_programm_summary.csv`.
 Legacy `1-20` numbering is deprecated. The canonical map is now split by data domain:
 
 - `TOY_MODEL` block: `T01 ... T19`
-- `ATMOSPHERE_DATA` block: `A01 ... A10`
+- `ATMOSPHERE_DATA` block: `A01 ... A14`
 
 ### TOY_MODEL block
 
@@ -57,8 +57,12 @@ Legacy `1-20` numbering is deprecated. The canonical map is now split by data do
 - `A08` F6b — strict heavy-tail test of `|Lambda_struct|` (`experiment_F6b_era5_heavy_tails.py`, `experiment_F6b_era5_heavy_tails_panel.py`)
 - `A09` F6c — clustered subspace heavy-tail fits (`experiment_F6c_clustered_subspace_tails.py`)
 - `A10` F6c-spatial — patch-wise spatial tail maps (`experiment_F6c_spatial_panel_viz.py`)
+- `A11` M5 — strict chronological Phi-over-Lambda transfer check on ERA5 closure (`experiment_M_gksl_hybrid_strict.py`)
+- `A12` M6 — strict halo-boundary core-closure with adjacent bath context (`experiment_M_halo_boundary_strict.py`)
+- `A13` M7 — preregistered halo-width scan (`w=0,4,6,8,10`) under fixed core (`experiment_M_halo_boundary_strict.py`)
+- `A14` M8 — halo-physics falsification (`local` vs `remote` vs `misaligned`) (`experiment_M_halo_boundary_strict.py`)
 
-### A05 Scale-Space Continuation (P1/P2)
+### A05 Scale-Space Continuation (P1/P2, ATMOSPHERE_EXTENSION)
 
 - `A05.R1_p1_spatial_occupancy_cascade` — P1-lite occupancy cascade on sparse panel.
 - `A05.R2_p2_theory_bridge_c009` — P2 density-matrix bridge + C009 calibration on sparse panel.
@@ -78,11 +82,30 @@ Program-level finalization artifact:
 - `clean_experiments/results/experiment_P2_memory_geo_viz/report.md`
 - `clean_experiments/results/experiment_P2_memory_gksl_cptp/report.md`
 
-### Atmosphere extensions (outside canonical A01-A10 block)
+### Atmosphere extensions (outside canonical A01-A14 block)
 
 - N moisture-budget follow-up branch:
   - `experiment_N_navier_stokes_budget.py`
   - `experiment_N_followup_dual.py`
+- M transfer/halo auxiliary runs (outside canonical A11-A14 endpoints):
+  - `clean_experiments/experiment_M_gksl_hybrid_bridge.py`
+  - non-strict bridge families:
+    - `clean_experiments/results/experiment_M_gksl_hybrid_bridge/report.md`
+    - `clean_experiments/results/experiment_M_gksl_hybrid_bridge_locked_raw/report.md`
+    - `clean_experiments/results/experiment_M_gksl_hybrid_bridge_locked_raw_v2/report.md`
+    - `clean_experiments/results/experiment_M_gksl_hybrid_bridge_screened/report.md`
+    - `clean_experiments/results/experiment_M_gksl_hybrid_bridge_screened_v2/report.md`
+  - additional strict variants:
+    - `clean_experiments/results/experiment_M_gksl_hybrid_strict_locked_raw/report.md`
+    - `clean_experiments/results/experiment_M_gksl_hybrid_strict_screened/report.md`
+    - `clean_experiments/results/experiment_M_gksl_hybrid_strict_2017_2020_causal2018_nested/report.md`
+    - `clean_experiments/results/experiment_M_gksl_hybrid_strict_2017_2020_noncausal_locked_raw/report.md`
+    - `clean_experiments/results/experiment_M_phi_only_strict_causal2018_locked_raw_perm1999/report.md`
+    - `clean_experiments/results/experiment_M_phi_only_strict_causal2018_nested_perm1999/report.md`
+  - pre-final halo strict run retained as auxiliary:
+    - `clean_experiments/results/experiment_M_halo_boundary_strict_causal2019_train2019_test2020_ext2021/report.md`
+  - full day branch inventory:
+    - `clean_experiments/EXPERIMENT_M_GKSL_TRANSFER_HALO_BRANCH_2026_03_07.md`
 - granular ingest branch (high-resolution MRMS + GOES pilot):
   - `clean_experiments/download_mrms.py`
   - `clean_experiments/download_goes.py`
@@ -96,8 +119,8 @@ Program-level finalization artifact:
 
 Numbering policy:
 
-- Canonical codes are fixed at `T01..T19` and `A01..A10`.
-- Continuation runs are logged via run-level IDs in `ветка` (for example `A07.R1_*`), not by adding `A11+`.
+- Canonical codes are fixed at `T01..T19` and `A01..A14`.
+- Continuation runs are logged via run-level IDs in `ветка` (for example `A05.R*`, `A07.R*`, `A11.E*`) under `ATMOSPHERE_EXTENSION`.
 
 ### M-realpilot prereg (frozen v1)
 

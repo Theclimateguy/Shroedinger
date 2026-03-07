@@ -39,8 +39,12 @@ locally during runs and are not versioned by default in GitHub.
 | A05.R5 | Retarded density-matrix memory extension on dense panel | `clean_experiments/experiment_P2_memory.py` | sign flip and significance recovery on `l=8`, plus restored all-scale pass vs dense C009 baseline | recover positive `l=8` gain and `perm_p <= 0.05` under full operators and threshold `3.0`, without ad-hoc retune |
 | A05.R6 | Full GKSL/CPTP memory dynamics on dense panel | `clean_experiments/experiment_P2_memory_gksl_cptp.py` | same detection metrics as A05.R5 + CPTP validity diagnostics | retain or improve `l=8`/ALL gains under explicit CPTP evolution; show negligible trace/PSD violation |
 | M4 | Lambda necessity falsification (scale permutation / commutator control / IC) | `clean_experiments/experiment_M_lambda_falsification_tests.py` | S1/S2/S3 staged falsification metrics | real Lambda must outperform placebo/comm controls and improve IC criteria |
+| A11 (M5) | Strict chronological transfer test: does `Phi` improve over `Lambda` on ERA5 holdouts? | `clean_experiments/experiment_M_gksl_hybrid_strict.py` | `gain_phi_vs_lambda` on `test=2020` and `external=2021` with permutation | canonical endpoint is a strict signed result (negative/near-zero accepted as falsification of direct transfer) |
+| A12 (M6) | Strict halo-boundary core closure with adjacent bath context | `clean_experiments/experiment_M_halo_boundary_strict.py` | `gain(ERA_window vs ERA_core)` on `2020` and `2021` with fixed core-only target | positive/significant transfer on both years under blocked chronology |
+| A13 (M7) | Preregistered halo-width scan under fixed core | `clean_experiments/experiment_M_halo_boundary_strict.py` | gain curve vs `halo_width in {0,4,6,8,10}` | non-trivial width dependence with stable optimum and `w=0` no-context collapse |
+| A14 (M8) | Halo-physics falsification (`local` vs `remote` vs `misaligned`) | `clean_experiments/experiment_M_halo_boundary_strict.py` | `gain(local) - gain(remote/misaligned)` on test/external | local adjacent halo must outperform remote/misaligned controls |
 
-Atmosphere extension branch (outside canonical `A01-A10` landscape block):
+Atmosphere extension branch (outside canonical `A01-A14` landscape block):
 
 - N moisture-budget closure follow-up:
   - `clean_experiments/experiment_N_navier_stokes_budget.py`

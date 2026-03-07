@@ -252,6 +252,90 @@ Key findings:
 - ocean remains positive in all variants (`~0.0017` to `0.0041`, significant in current permutation test),
 - this supports a **detectability limitation** interpretation: over-land closure is degraded by noisy/parameterized components (especially `P-E`) and high-frequency residual noise.
 
+### 6.10 Halo-boundary strict closure (core-only score with bath observables)
+
+`experiment_M_halo_boundary_strict.py` (run on `2017..2021`, strict split `train<=2019 -> test=2020 -> external=2021`):
+
+- target is scored only on interior core `C` (central window),
+- predictors are allowed on `C U H` with halo ring `H` (`halo_width_cells=8`),
+- explicit boundary bath terms are included:
+  - `bath_c2f = (coarse_halo - coarse_core) * fine_core`
+  - `bath_f2c = (fine_halo - fine_core) * coarse_core`
+- model ladder:
+  - `ERA_core`
+  - `ERA_window`
+  - `ERA_window + Phi_H`
+  - `ERA_window + Lambda_H` (with bath terms)
+  - `ERA_window + Phi_H + Lambda_H`
+  - shuffled halo control
+
+Key strict results (`..._v2` run):
+
+- **test 2020**:
+  - `ERA_window` gain vs core: `0.136707`, `perm_p=0.0005`
+  - `+Phi_H` incremental vs `ERA_window`: `+0.000093` (small, CI overlaps 0)
+  - `+Lambda_H` incremental vs `ERA_window`: `-0.000002` (small, CI overlaps 0)
+  - `+Phi_H+Lambda_H` incremental vs `ERA_window`: `+0.000103` (small, CI overlaps 0)
+- **external 2021**:
+  - `ERA_window` gain vs core: `0.092229`, `perm_p=0.0005`
+  - `+Phi_H` incremental vs `ERA_window`: `+0.000068` (small, CI overlaps 0)
+  - `+Lambda_H` incremental vs `ERA_window`: `+0.000045` (small, CI overlaps 0)
+  - `+Phi_H+Lambda_H` incremental vs `ERA_window`: `+0.000144` (small, CI overlaps 0)
+
+Interpretation:
+
+- halo context materially improves interior closure and transfers to external year,
+- shuffled full-halo control collapses (`gain < 0` on test, near-zero on external),
+- incremental `Phi_H`/`Lambda_H` over `ERA_window` in this setup is positive but currently small.
+
+### 6.11 Final preregistered halo-width scan (fixed-core protocol)
+
+Protocol (locked before scan):
+
+- split fixed: `train<=2019 -> test=2020 -> external=2021`,
+- fixed core: `core_margin_cells=10`,
+- halo mode fixed to `local`,
+- scanned `halo_width_cells in {0,4,6,8,10}`,
+- model ladder unchanged (`ERA_core`, `ERA_window`, `+Phi_H`, `+Lambda_H`, `+Phi_H+Lambda_H`, shuffled control).
+
+Primary endpoint (`ERA_window` gain vs `ERA_core`):
+
+- `w=0`: test `0.000000` (`p=1.0`), external `0.000000` (`p=1.0`)
+- `w=4`: test `0.151703` (`p=0.0005`), external `0.156626` (`p=0.0005`)
+- `w=6`: test `0.137846` (`p=0.0005`), external `0.131756` (`p=0.0005`)
+- `w=8`: test `0.129966` (`p=0.0005`), external `0.112355` (`p=0.0005`)
+- `w=10`: test `0.126708` (`p=0.0005`), external `0.097619` (`p=0.0005`)
+
+Interpretation:
+
+- no-context control (`w=0`) collapses exactly to zero gain,
+- best transfer is at `w=4`,
+- wider rings degrade gain, consistent with locality-limited boundary exchange rather than monotonic feature inflation.
+
+### 6.12 Final halo-physics falsification block (fixed width=4)
+
+With width fixed at the scan optimum (`w=4`), compare physically adjacent halo against context replacements:
+
+- `local`: adjacent halo ring
+- `remote`: same-size non-adjacent region
+- `misaligned`: adjacent halo shifted in space
+
+Primary endpoint (`ERA_window` gain vs `ERA_core`):
+
+- `local`: test `0.151703`, external `0.156626`
+- `remote`: test `0.097182`, external `0.058412`
+- `misaligned`: test `0.073343`, external `0.059724`
+
+Contrasts:
+
+- local - remote: `+0.054521` (test), `+0.098214` (external)
+- local - misaligned: `+0.078360` (test), `+0.096902` (external)
+
+Interpretation:
+
+- physically adjacent halo is substantially more informative than remote or shifted context,
+- this supports boundary-exchange interpretation and rejects the "extra features only" explanation.
+
 ## 7) Detectability constraints and interpretation
 
 Final interpretation of the full curated M package:
@@ -320,6 +404,59 @@ Noise-probe diagnostics:
 .venv/bin/python clean_experiments/experiment_M_land_ocean_noise_probe.py
 ```
 
+Halo-boundary strict closure:
+
+```bash
+.venv/bin/python clean_experiments/experiment_M_halo_boundary_strict.py \
+  --input-nc data/processed/wpwp_era5_2017_2021_experiment_M_input.nc \
+  --outdir clean_experiments/results/experiment_M_halo_boundary_strict_causal2019_train2019_test2020_ext2021_v2 \
+  --train-end-year 2019 \
+  --test-year 2020 \
+  --external-year 2021 \
+  --halo-width-cells 8 \
+  --fine-band-idx 0 \
+  --coarse-band-idx 1 \
+  --n-perm 1999
+```
+
+Halo-width scan (final preregistered block):
+
+```bash
+for w in 0 4 6 8 10; do
+  .venv/bin/python clean_experiments/experiment_M_halo_boundary_strict.py \
+    --input-nc data/processed/wpwp_era5_2017_2021_experiment_M_input.nc \
+    --outdir clean_experiments/results/experiment_M_halo_boundary_widthscan_w${w}_causal2019_train2019_test2020_ext2021 \
+    --train-end-year 2019 \
+    --test-year 2020 \
+    --external-year 2021 \
+    --core-margin-cells 10 \
+    --halo-width-cells ${w} \
+    --halo-mode local \
+    --fine-band-idx 0 \
+    --coarse-band-idx 1 \
+    --n-perm 1999
+done
+```
+
+Halo-physics falsification (final control block):
+
+```bash
+for mode in remote misaligned; do
+  .venv/bin/python clean_experiments/experiment_M_halo_boundary_strict.py \
+    --input-nc data/processed/wpwp_era5_2017_2021_experiment_M_input.nc \
+    --outdir clean_experiments/results/experiment_M_halo_boundary_falsify_${mode}_w4_causal2019_train2019_test2020_ext2021 \
+    --train-end-year 2019 \
+    --test-year 2020 \
+    --external-year 2021 \
+    --core-margin-cells 10 \
+    --halo-width-cells 4 \
+    --halo-mode ${mode} \
+    --fine-band-idx 0 \
+    --coarse-band-idx 1 \
+    --n-perm 1999
+done
+```
+
 ## 10) Artifact map
 
 - `clean_experiments/EXPERIMENT_M_LAMBDA_RESIDUAL_CLOSURE_STANDALONE.tex`
@@ -333,3 +470,12 @@ Noise-probe diagnostics:
 - `clean_experiments/results/experiment_M_land_ocean_split/`
 - `clean_experiments/results/experiment_M_land_ocean_spatial_viz/`
 - `clean_experiments/results/experiment_M_land_ocean_noise_probe/`
+- `clean_experiments/results/experiment_M_halo_boundary_strict_causal2019_train2019_test2020_ext2021_v2/`
+- `clean_experiments/results/experiment_M_halo_boundary_widthscan_w0_causal2019_train2019_test2020_ext2021/`
+- `clean_experiments/results/experiment_M_halo_boundary_widthscan_w4_causal2019_train2019_test2020_ext2021/`
+- `clean_experiments/results/experiment_M_halo_boundary_widthscan_w6_causal2019_train2019_test2020_ext2021/`
+- `clean_experiments/results/experiment_M_halo_boundary_widthscan_w8_causal2019_train2019_test2020_ext2021/`
+- `clean_experiments/results/experiment_M_halo_boundary_widthscan_w10_causal2019_train2019_test2020_ext2021/`
+- `clean_experiments/results/experiment_M_halo_boundary_falsify_remote_w4_causal2019_train2019_test2020_ext2021/`
+- `clean_experiments/results/experiment_M_halo_boundary_falsify_misaligned_w4_causal2019_train2019_test2020_ext2021/`
+- `clean_experiments/EXPERIMENT_M_GKSL_TRANSFER_HALO_BRANCH_2026_03_07.md`

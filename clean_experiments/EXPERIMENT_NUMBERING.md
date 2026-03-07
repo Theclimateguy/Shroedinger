@@ -7,7 +7,7 @@ Legacy numeric `1-20` indexing is deprecated.
 Canonical blocks:
 
 - `TOY_MODEL`: `T01 ... T19`
-- `ATMOSPHERE_DATA`: `A01 ... A10`
+- `ATMOSPHERE_DATA`: `A01 ... A14`
 
 Note: output folders listed below are canonical runtime locations. Heavy generated artifacts are local-only by default; this repository keeps code and lightweight documentation.
 
@@ -49,11 +49,16 @@ Note: output folders listed below are canonical runtime locations. Heavy generat
 | A08 | F6b | `clean_experiments/experiment_F6b_era5_heavy_tails.py`, `clean_experiments/experiment_F6b_era5_heavy_tails_panel.py` | `clean_experiments/results/experiment_F6b_era5_heavy_tails`, `clean_experiments/results/experiment_F6b_era5_heavy_tails_panel` |
 | A09 | F6c | `clean_experiments/experiment_F6c_clustered_subspace_tails.py` | `clean_experiments/results/experiment_F6c_clustered_subspace_tails` |
 | A10 | F6c_spatial | `clean_experiments/experiment_F6c_spatial_panel_viz.py` | `clean_experiments/results/experiment_F6c_spatial_panel_viz` |
+| A11 | M5_phi_transfer_strict | `clean_experiments/experiment_M_gksl_hybrid_strict.py` | `clean_experiments/results/experiment_M_phi_only_strict_causal2019_train2019_test2020_ext2021_perm1999`, `clean_experiments/results/experiment_M_gksl_hybrid_strict_2017_2020_causal2018_locked_raw` |
+| A12 | M6_halo_boundary_strict | `clean_experiments/experiment_M_halo_boundary_strict.py` | `clean_experiments/results/experiment_M_halo_boundary_strict_causal2019_train2019_test2020_ext2021_v2` |
+| A13 | M7_halo_width_scan | `clean_experiments/experiment_M_halo_boundary_strict.py` | `clean_experiments/results/experiment_M_halo_boundary_widthscan_w0_causal2019_train2019_test2020_ext2021`, `clean_experiments/results/experiment_M_halo_boundary_widthscan_w4_causal2019_train2019_test2020_ext2021`, `clean_experiments/results/experiment_M_halo_boundary_widthscan_w6_causal2019_train2019_test2020_ext2021`, `clean_experiments/results/experiment_M_halo_boundary_widthscan_w8_causal2019_train2019_test2020_ext2021`, `clean_experiments/results/experiment_M_halo_boundary_widthscan_w10_causal2019_train2019_test2020_ext2021` |
+| A14 | M8_halo_falsification | `clean_experiments/experiment_M_halo_boundary_strict.py` | `clean_experiments/results/experiment_M_halo_boundary_falsify_remote_w4_causal2019_train2019_test2020_ext2021`, `clean_experiments/results/experiment_M_halo_boundary_falsify_misaligned_w4_causal2019_train2019_test2020_ext2021` |
 
 ## A05 run-level log (scale-space count-geometry continuation)
 
-All process-resolved scale-space continuation runs are logged under canonical code `A05`
-with run-level identifiers in the `ветка` field of `research_programm_summary.csv`.
+All process-resolved scale-space continuation runs are logged under
+`ATMOSPHERE_EXTENSION` with anchored run IDs `A05.R*`
+in the `ветка` field of `research_programm_summary.csv`.
 
 | Run ID (`ветка`) | Purpose | Primary script(s) | Canonical output folder(s) |
 |---|---|---|---|
@@ -66,8 +71,9 @@ with run-level identifiers in the `ветка` field of `research_programm_summa
 
 ## A07 run-level log (frozen granular continuation)
 
-All granular MRMS+GOES/M-realpilot continuation runs are logged under canonical code `A07`
-with run-level identifiers in the `ветка` field of `research_programm_summary.csv`.
+All granular MRMS+GOES/M-realpilot continuation runs are logged under
+`ATMOSPHERE_EXTENSION` with anchored run IDs `A07.R*`
+in the `ветка` field of `research_programm_summary.csv`.
 
 | Run ID (`ветка`) | Purpose | Primary script(s) | Canonical output folder(s) |
 |---|---|---|---|
@@ -77,7 +83,20 @@ with run-level identifiers in the `ветка` field of `research_programm_summa
 | `A07.R4_mrealpilot_applicability_map` | Cross-run applicability map | `clean_experiments/summarize_m_realpilot_applicability.py` | `clean_experiments/results/experiment_M_realpilot_applicability_map` |
 | `A07.R5_mrealpilot_regime_perimeter` | Formal perimeter and regime-detection package | `clean_experiments/build_m_realpilot_regime_detection_package.py` | `clean_experiments/results/experiment_M_realpilot_regime_detection_package` |
 
-## Atmosphere extensions (outside canonical A01-A10)
+## A11 extension log (transfer diagnostics outside canonical endpoints)
+
+Auxiliary diagnostics around canonical `A11..A14` are logged under `ATMOSPHERE_EXTENSION`
+with `A11.E*` run IDs.
+
+| Run ID (`ветка`) | Purpose | Primary script(s) | Canonical output folder(s) |
+|---|---|---|---|
+| `A11.E1_transfer_sanity_locked_ranges` | Baseline M1 transfer sanity on extended chronological ranges | `clean_experiments/experiment_M_cosmo_flow.py` | `clean_experiments/results/experiment_M_cosmo_flow_2017_2020_v4locked`, `clean_experiments/results/experiment_M_cosmo_flow_2017_2020_v4locked_causal2018`, `clean_experiments/results/experiment_M_cosmo_flow_2017_2020q1_v4locked`, `clean_experiments/results/experiment_M_cosmo_flow_2017_2021_v4locked_causal2019` |
+| `A11.E2_gksl_bridge_non_strict` | Non-strict bridge family (screened/locked variants) | `clean_experiments/experiment_M_gksl_hybrid_bridge.py` | `clean_experiments/results/experiment_M_gksl_hybrid_bridge*` |
+| `A11.E3_gksl_hybrid_strict_variants` | Additional strict-hybrid variants beyond canonical endpoint pair | `clean_experiments/experiment_M_gksl_hybrid_strict.py` | `clean_experiments/results/experiment_M_gksl_hybrid_strict_locked_raw`, `clean_experiments/results/experiment_M_gksl_hybrid_strict_screened`, `clean_experiments/results/experiment_M_gksl_hybrid_strict_2017_2020_causal2018_nested`, `clean_experiments/results/experiment_M_gksl_hybrid_strict_2017_2020_noncausal_locked_raw` |
+| `A11.E4_phi_only_strict_variants` | Additional phi-only strict variants (causal2018 locked/nested) | `clean_experiments/experiment_M_gksl_hybrid_strict.py` | `clean_experiments/results/experiment_M_phi_only_strict_causal2018_locked_raw_perm1999`, `clean_experiments/results/experiment_M_phi_only_strict_causal2018_nested_perm1999` |
+| `A12.E1_halo_boundary_prefinal_v1` | Pre-final strict halo run before corrected canonical v2 | `clean_experiments/experiment_M_halo_boundary_strict.py` | `clean_experiments/results/experiment_M_halo_boundary_strict_causal2019_train2019_test2020_ext2021` |
+
+## Atmosphere extensions (outside canonical A01-A14)
 
 - N moisture-budget branch:
   - `clean_experiments/experiment_N_navier_stokes_budget.py`
