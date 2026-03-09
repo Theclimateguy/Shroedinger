@@ -1,0 +1,9 @@
+.DS_Store
+manuscript/
+research_programm_summary.csv
+
+__pycache__/
+*.py[cod]
+
+.venv/
+out/
