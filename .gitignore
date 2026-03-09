@@ -16,6 +16,7 @@ experiments/
 clean_experiments/experiment_QFT_free_chain.py
 
 # Generated experiment artifacts are local-only
+clean_experiments/out/
 clean_experiments/results/**
 !clean_experiments/results/
 !clean_experiments/results/**/
