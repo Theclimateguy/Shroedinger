@@ -1,69 +1,92 @@
-# Hypothesis Validation Roadmap (Stage 2)
+# Hypothesis Validation Roadmap (Canonical Numbering)
 
-This roadmap maps each stage-2 hypothesis to a concrete numerical protocol and artifact.
+This roadmap is aligned to the canonical experiment landscape in
+`clean_experiments/EXPERIMENT_NUMBERING.md`.
 
-Repository scope note: CSV/JSON/PNG artifacts mentioned in this roadmap are generated
-locally during runs and are not versioned by default in GitHub.
+Primary notation:
+- `TOY_MODEL`: `T01 ... T20`
+- `ATMOSPHERE_DATA`: `A01 ... A15`
+- run-level extensions: `A05.R*`, `A07.R*`, `A11.E*`
 
-## Priority Order
+Legacy `H*` labels are kept only as aliases for historical continuity.
 
-1. **H1**: realistic layer growth + holographic truncation (implemented)
-2. **H2**: continuum conservation (`\nabla_a T^{ab}_{eff}=0`) from dynamics (implemented v1)
-3. **H3**: Berry phase high-resolution verification (implemented)
-4. **H4**: `Lambda_matter` to `Lambda_obs` calibration proxy (implemented v1)
-5. **H4b**: theory-space curvature proxy (FS/QGT + response metric) vs RG noncommutativity (implemented)
-6. **H5**: matter fields (`fermion + gauge`) embedding (implemented v1)
-7. **H6**: cosmological flow (`omega(mu)`) to spectrum-level observables (implemented v1)
-8. **H7**: Navier-Stokes moisture-budget closure with Lambda coupling (implemented v1 + follow-up)
-9. **H8**: thermodynamic equilibrium/anomaly decomposition with spatial non-averaged diagnostics (implemented v1)
+## Legacy Alias Map (H* -> Canonical)
 
-## Experiment Map
+- `H1 -> T09`
+- `H2 -> T10`
+- `H3 -> T11`
+- `H4 -> T12`
+- `H4b -> T13`
+- `H5 -> T14`
+- Atmospheric validation stack previously referred to as `H6/H7/H8` is now tracked by canonical `A*` blocks.
 
-| Block ID | Hypothesis | Script | Core metric | Pass criterion |
+## Priority Order (Canonical)
+
+1. `T09` (`H1`) holographic truncation regularization
+2. `T10` (`H2`) continuum conservation extrapolation
+3. `T11` (`H3`) Berry-phase high-resolution check
+4. `T12` (`H4`) `Lambda_matter -> Lambda_obs` bridge proxy
+5. `T13` (`H4b`) theory-space curvature vs RG noncommutativity
+6. `T14` (`H5`) matter-field embedding and continuity/Ward checks
+7. `A01` detectability of structural-scale closure signal on atmospheric fields
+8. `A04` thermodynamic consistency with Lambda correction
+9. `A05` spatial detectability diagnostics
+10. `A06` staged falsification of Lambda necessity
+11. `A11 ... A14` strict transfer/halo boundary validation and falsification
+12. `A15` ERA Einstein-in-a-box closure check
+
+## Hypothesis-to-Experiment Map
+
+| Canonical code | Legacy alias | Primary script(s) | Core metric | Pass criterion |
 |---|---|---|---|---|
-| H1 | Exponential `dim(H_mu)` growth + holographic truncation regularizes observables | `clean_experiments/experiment_H_holographic.py` | stability gain of regularized truncated integral across `K`-scan | `stability_gain > 1`, trace residual in Lindblad RHS below tolerance |
-| H2 | Covariant conservation in continuum limit | `clean_experiments/experiment_I_continuum_conservation.py` | intercept of residual fit vs `(dmu, dt)` and fit quality | small extrapolated intercept and stable fit across robust runs |
-| H3 | Berry phase artifact check | `clean_experiments/experiment_J_berry_refinement.py` | wrapped phase error vs analytic Berry law | finest-grid error remains below tolerance across angle scan |
-| H4 | `Lambda_matter` linkage to effective cosmological source proxy | `clean_experiments/experiment_K_lambda_bridge.py` | repeated-holdout median `R2`, permutation p-value, bootstrap/profile sign diagnostics | median holdout `R2` above threshold, permutation significance, stable coefficient-sign diagnostics |
-| H4b | Theory-space curvature diagnostics vs RG noncommutativity | `clean_experiments/experiment_K2_theory_space_curvature.py` | corr(`source_spread`, commutator norm), corr(`source_spread`, `|Omega_FS|`), gauge/convergence checks | strong positive geometric correlations and stable gauge/coarse checks |
-| H5 | Matter-field embedding (fermion + gauge sectors) | `clean_experiments/experiment_L_matter_fields.py` | Ward identity (`||[Q,H]||_F`), local continuity residual, total-charge drift | commutator and continuity at numerical precision; drift bounded |
-| M1 | Structural-scale cosmological-flow test from atmospheric multiscale fields | `clean_experiments/experiment_M_cosmo_flow.py` | blocked-CV MAE gain of residual closure (baseline ctrl vs ctrl+`Lambda_struct`), permutation p-value, sign consistency | **Two-level policy**: Theoretical Detection Threshold: `min_mae_gain >= 0.002`, `perm_p <= 0.05`, `strata_positive_frac >= 0.8`; Engineering Impact Threshold: `min_mae_gain >= 0.03` |
-| M2 | Structural consistency (`Lambda_h` vs `Lambda_v`) and placebo controls | `clean_experiments/experiment_M_horizontal_vertical_compare.py` | cross-reconstruction correlation, synthetic placebo tail checks | strong cross-reconstruction consistency and signal above placebo tail |
-| M3 | Land/ocean detectability and noise-limit probe | `clean_experiments/experiment_M_land_ocean_split.py`, `clean_experiments/experiment_M_land_ocean_noise_probe.py` | split gain by surface type under target variants | positive ocean detectability with physically interpretable land-noise behavior |
-| O1 | Clausius thermodynamic consistency with Lambda correction | `clean_experiments/experiment_O_entropy_equilibrium.py` | FT-domain `R2` gain vs Clausius baseline, permutation significance | Clausius baseline stable; Lambda increment interpreted against noise floor |
-| O2 | Spatial anomaly diagnostics for macro-signal detectability | `clean_experiments/experiment_O_spatial_variance.py`, `clean_experiments/experiment_O_lambda_spatial_viz.py`, `clean_experiments/experiment_O_spatial_active_west.py` | spatial gain pattern diagnostics and climatology correlation checks | reproducible spatial diagnostics with explicit detectability limits |
-| A05.R1 | Process-resolved scale-space occupancy cascade (`l -> 2l`) | `clean_experiments/experiment_P1_spatial_occupancy_cascade.py` | per-scale MAE/R2 gain, permutation p-value, event-level robustness | positive gain/significance on fine-to-mid scales with blocked-by-event CV |
-| A05.R2 | Noncommuting coarse-graining density-matrix bridge (C009 calibration) | `clean_experiments/experiment_P2_noncommuting_coarse_graining.py`, `clean_experiments/experiment_P2_theory_bridge_ablation.py` | bridge gain vs baseline, commutator diagnostics, all-scale pass on sparse panel | calibrated C009 must retain positive all-scale gain and permutation significance on sparse panel |
-| A05.R3 | Dense intra-event transferability of calibrated bridge | `clean_experiments/run_p2_calibrated_dense_ingest.py`, `clean_experiments/experiment_P2_noncommuting_coarse_graining.py` | sparse-vs-dense transfer table (ALL + per-scale) under blocked event CV | preserve global gain while explicitly diagnosing fine-scale regime sensitivity |
-| A05.R4 | `l=8` diagnostic resolution block (matched-event/operator/resolution/regime) | `clean_experiments/experiment_P2_l8_diagnostic_block.py` | matched-event control, operator attribution, threshold/downsample sensitivity, regime split | isolate whether degradation is event-pool, operator, or resolution-driven and map path to theory-consistent memory extension |
-| A05.R5 | Retarded density-matrix memory extension on dense panel | `clean_experiments/experiment_P2_memory.py` | sign flip and significance recovery on `l=8`, plus restored all-scale pass vs dense C009 baseline | recover positive `l=8` gain and `perm_p <= 0.05` under full operators and threshold `3.0`, without ad-hoc retune |
-| A05.R6 | Full GKSL/CPTP memory dynamics on dense panel | `clean_experiments/experiment_P2_memory_gksl_cptp.py` | same detection metrics as A05.R5 + CPTP validity diagnostics | retain or improve `l=8`/ALL gains under explicit CPTP evolution; show negligible trace/PSD violation |
-| M4 | Lambda necessity falsification (scale permutation / commutator control / IC) | `clean_experiments/experiment_M_lambda_falsification_tests.py` | S1/S2/S3 staged falsification metrics | real Lambda must outperform placebo/comm controls and improve IC criteria |
-| A11 (M5) | Strict chronological transfer test: does `Phi` improve over `Lambda` on ERA5 holdouts? | `clean_experiments/experiment_M_gksl_hybrid_strict.py` | `gain_phi_vs_lambda` on `test=2020` and `external=2021` with permutation | canonical endpoint is a strict signed result (negative/near-zero accepted as falsification of direct transfer) |
-| A12 (M6) | Strict halo-boundary core closure with adjacent bath context | `clean_experiments/experiment_M_halo_boundary_strict.py` | `gain(ERA_window vs ERA_core)` on `2020` and `2021` with fixed core-only target | positive/significant transfer on both years under blocked chronology |
-| A13 (M7) | Preregistered halo-width scan under fixed core | `clean_experiments/experiment_M_halo_boundary_strict.py` | gain curve vs `halo_width in {0,4,6,8,10}` | non-trivial width dependence with stable optimum and `w=0` no-context collapse |
-| A14 (M8) | Halo-physics falsification (`local` vs `remote` vs `misaligned`) | `clean_experiments/experiment_M_halo_boundary_strict.py` | `gain(local) - gain(remote/misaligned)` on test/external | local adjacent halo must outperform remote/misaligned controls |
+| `T09` | `H1` | `clean_experiments/experiment_H_holographic.py` | stability gain of truncated integral across `K` scan | `stability_gain > 1` and bounded trace residual |
+| `T10` | `H2` | `clean_experiments/experiment_I_continuum_conservation.py` | extrapolated residual intercept vs `(dmu, dt)` | small/stable continuum-limit intercept |
+| `T11` | `H3` | `clean_experiments/experiment_J_berry_refinement.py` | wrapped phase error vs analytic Berry law | finest-grid error below tolerance |
+| `T12` | `H4` | `clean_experiments/experiment_K_lambda_bridge.py` | holdout `R2`, permutation p-value, coefficient-sign stability | positive stable signal under repeated holdout + permutation |
+| `T13` | `H4b` | `clean_experiments/experiment_K2_theory_space_curvature.py` | corr(`source_spread`, commutator/FS responses), gauge/coarse checks | positive geometric correlations with stable control checks |
+| `T14` | `H5` | `clean_experiments/experiment_L_matter_fields.py` | Ward commutator norm, continuity residual, charge drift | numerical-precision conservation/continuity |
+| `A01` | `H6/H7 (legacy atmosphere core)` | `clean_experiments/experiment_M_cosmo_flow.py` | blocked-CV MAE gain (`baseline` vs `+Lambda_struct`), permutation | detection threshold: `min_mae_gain >= 0.002`, `perm_p <= 0.05`, `strata_positive_frac >= 0.8` |
+| `A02` | `H7 (consistency controls)` | `clean_experiments/experiment_M_horizontal_vertical_compare.py` | cross-reconstruction consistency and placebo controls | signal above placebo tail with stable cross-consistency |
+| `A03` | `H7 (surface split)` | `clean_experiments/experiment_M_land_ocean_split.py`, `clean_experiments/experiment_M_land_ocean_noise_probe.py` | surface-split gain under target variants | positive ocean detectability + interpretable land noise behavior |
+| `A04` | `H8` | `clean_experiments/experiment_O_entropy_equilibrium.py` | FT-domain `R2` gain vs Clausius baseline | Lambda increment above noise floor with stable baseline |
+| `A05` | `H8 (spatial)` | `clean_experiments/experiment_O_spatial_variance.py`, `clean_experiments/experiment_O_lambda_spatial_viz.py`, `clean_experiments/experiment_O_spatial_active_west.py` | spatial gain and climatology correlation diagnostics | reproducible spatial diagnostics with explicit detectability bounds |
+| `A06` | `H7 falsification` | `clean_experiments/experiment_M_lambda_falsification_tests.py` | staged S1/S2/S3 falsification metrics | real Lambda outperforms placebo/commutator controls |
+| `A11` | `M5 strict transfer` | `clean_experiments/experiment_M_gksl_hybrid_strict.py` | `gain_phi_vs_lambda` on strict holdouts | signed strict endpoint (including negative/near-zero as falsification evidence) |
+| `A12` | `M6 strict halo boundary` | `clean_experiments/experiment_M_halo_boundary_strict.py` | gain with local halo context on test/external years | positive/significant transfer under blocked chronology |
+| `A13` | `M7 width scan` | `clean_experiments/experiment_M_halo_boundary_strict.py` | gain vs `halo_width` | non-trivial width dependence; `w=0` context collapse |
+| `A14` | `M8 halo falsification` | `clean_experiments/experiment_M_halo_boundary_strict.py` | local vs remote/misaligned gain contrast | local adjacent halo outperforms controls |
+| `A15` | `EIB ERA endpoint` | `clean_experiments/experiment_scale_gravity_einstein_box_era.py` | regime-wise `Lambda ~ Pi` (especially inertial) | inertial binned slope positive and significant with target `R2` |
 
-Atmosphere extension branch (outside canonical `A01-A14` landscape block):
+## Canonical A05 Run-Level Continuation
 
-- N moisture-budget closure follow-up:
-  - `clean_experiments/experiment_N_navier_stokes_budget.py`
-  - `clean_experiments/experiment_N_followup_dual.py`
+| Run ID | Primary script(s) | Validation target |
+|---|---|---|
+| `A05.R1` | `clean_experiments/experiment_P1_spatial_occupancy_cascade.py` | occupancy cascade detectability in scale space |
+| `A05.R2` | `clean_experiments/experiment_P2_noncommuting_coarse_graining.py`, `clean_experiments/experiment_P2_theory_bridge_ablation.py` | calibrated noncommuting bridge on sparse panel |
+| `A05.R3` | `clean_experiments/run_p2_calibrated_dense_ingest.py`, `clean_experiments/experiment_P2_noncommuting_coarse_graining.py` | sparse-to-dense transfer stability |
+| `A05.R4` | `clean_experiments/experiment_P2_l8_diagnostic_block.py` | `l=8` failure-mode isolation (event/operator/resolution/regime) |
+| `A05.R5` | `clean_experiments/experiment_P2_memory.py` | retarded-memory recovery at `l=8` |
+| `A05.R6` | `clean_experiments/experiment_P2_memory_gksl_cptp.py` | full GKSL/CPTP memory closure with CPTP diagnostics |
 
-## Artifact Standard (for stage-2 experiments)
+## Canonical A07 and A11 Extension Logs
 
-- Core metric tables (`test_metrics.csv` and/or `summary_metrics.csv`) with headline diagnostics.
-- `..._dataset.csv` or `..._scan.csv` with raw sweep values.
-- Optional robust block: `clean_experiments/results/<experiment>_robust/`.
-- Add to:
-  - `clean_experiments/README.md`
-  - `clean_experiments/EXPERIMENT_NUMBERING.md`
-  - `clean_experiments/results/INDEX.md`
+- `A07.R*`: frozen granular MRMS+GOES/M-realpilot continuation family.
+- `A11.E*`: transfer diagnostics outside canonical `A11 ... A14` endpoints.
 
-## Immediate Next Action
+Detailed mapping and canonical output folders remain in:
+- `clean_experiments/EXPERIMENT_NUMBERING.md`
 
-The A05 process-resolved continuation is now numerically closed through
-`A05.R6_p2_memory_gksl_cptp`. Next work item is manuscript integration with
-clear separation:
-- `A05.R5`: surrogate memory step
-- `A05.R6`: full effective GKSL/CPTP closure
+## Data Download / Ingest Scripts Present in Repository
+
+Atmospheric and granular data ingestion utilities currently present:
+
+- `clean_experiments/download_N_data_era5.py`
+- `clean_experiments/download_N_data_merra2.py`
+- `clean_experiments/download_mrms.py`
+- `clean_experiments/download_goes.py`
+- `clean_experiments/download_matched_windows.py`
+- `clean_experiments/download_matched_parallel.py`
+- `clean_experiments/build_mrms_goes_aligned_catalog.py`
+- `clean_experiments/run_ultralight_mrms_goes_pilot.py`
+
+Repository scope note: generated heavy artifacts are local-only by default.
