@@ -19,8 +19,8 @@ Source of truth: `research_programm_summary.csv`.
 
 Legacy `1-20` numbering is deprecated. The canonical map is now split by data domain:
 
-- `TOY_MODEL` block: `T01 ... T19`
-- `ATMOSPHERE_DATA` block: `A01 ... A14`
+- `TOY_MODEL` block: `T01 ... T20`
+- `ATMOSPHERE_DATA` block: `A01 ... A15`
 
 ### TOY_MODEL block
 
@@ -43,6 +43,7 @@ Legacy `1-20` numbering is deprecated. The canonical map is now split by data do
 - `T17` F3 — Lambda/fractal bridge (`experiment_F3_lambda_fractal_bridge.py`)
 - `T18` F4/F4b — holonomy encoding and independent ablation (`experiment_F4_holonomy_fractal_encoder.py`, `experiment_F4b_independent_holonomy_ablation.py`)
 - `T19` F6 — toy SOC avalanche scaling (`experiment_F6_soc_avalanches.py`)
+- `T20` EIB-synth — local synthetic Einstein-in-a-box closure (`experiment_scale_gravity_einstein_box.py`)
 
 ### ATMOSPHERE_DATA block
 
@@ -61,6 +62,7 @@ Legacy `1-20` numbering is deprecated. The canonical map is now split by data do
 - `A12` M6 — strict halo-boundary core-closure with adjacent bath context (`experiment_M_halo_boundary_strict.py`)
 - `A13` M7 — preregistered halo-width scan (`w=0,4,6,8,10`) under fixed core (`experiment_M_halo_boundary_strict.py`)
 - `A14` M8 — halo-physics falsification (`local` vs `remote` vs `misaligned`) (`experiment_M_halo_boundary_strict.py`)
+- `A15` EIB-ERA — Einstein-in-the-atmospheric-column box test on ERA5 (`experiment_scale_gravity_einstein_box_era.py`)
 
 ### A05 Scale-Space Continuation (P1/P2, ATMOSPHERE_EXTENSION)
 
@@ -82,7 +84,7 @@ Program-level finalization artifact:
 - `clean_experiments/results/experiment_P2_memory_geo_viz/report.md`
 - `clean_experiments/results/experiment_P2_memory_gksl_cptp/report.md`
 
-### Atmosphere extensions (outside canonical A01-A14 block)
+### Atmosphere extensions (outside canonical A01-A15 block)
 
 - N moisture-budget follow-up branch:
   - `experiment_N_navier_stokes_budget.py`
@@ -119,7 +121,7 @@ Program-level finalization artifact:
 
 Numbering policy:
 
-- Canonical codes are fixed at `T01..T19` and `A01..A14`.
+- Canonical codes are fixed at `T01..T20` and `A01..A15`.
 - Continuation runs are logged via run-level IDs in `ветка` (for example `A05.R*`, `A07.R*`, `A11.E*`) under `ATMOSPHERE_EXTENSION`.
 
 ### M-realpilot prereg (frozen v1)

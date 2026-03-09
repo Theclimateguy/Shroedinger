@@ -5,8 +5,8 @@ Heavy generated outputs (CSV/JSON/PNG/NPZ) are produced locally and are not vers
 
 Canonical numbering is alphanumeric and split by domain:
 
-- `TOY_MODEL`: `T01 ... T19`
-- `ATMOSPHERE_DATA`: `A01 ... A14`
+- `TOY_MODEL`: `T01 ... T20`
+- `ATMOSPHERE_DATA`: `A01 ... A15`
 
 ## Cross-Experiment Checks
 
@@ -59,6 +59,8 @@ Canonical numbering is alphanumeric and split by domain:
   - Holonomy/path-ordering encoder with independent ablation finalization.
 - `[T19]` `experiment_F6_soc_avalanches/`, `experiment_F6_soc_robustness/`
   - SOC avalanche signature and robustness diagnostics.
+- `[T20]` `experiment_scale_gravity_einstein_box/`
+  - Local synthetic Einstein-in-a-box closure check (`Lambda ~ Pi`) in forcing/inertial/dissipation zones.
 
 ## ATMOSPHERE_DATA Block
 
@@ -101,9 +103,13 @@ Canonical numbering is alphanumeric and split by domain:
   - Preregistered halo-width scan under fixed-core strict protocol.
 - `[A14]` `experiment_M_halo_boundary_falsify_remote_w4_causal2019_train2019_test2020_ext2021/`, `experiment_M_halo_boundary_falsify_misaligned_w4_causal2019_train2019_test2020_ext2021/`
   - Halo-physics falsification controls (`local` vs `remote` vs `misaligned`).
+- `[A15]` `experiment_scale_gravity_einstein_box_era/`
+  - Local ERA5 atmospheric-column Einstein-box test (`Lambda ~ Pi`) with inertial pass criteria.
 
-## Atmosphere Extensions Outside Canonical A01-A14
+## Atmosphere Extensions Outside Canonical A01-A15
 
+- `experiment_scale_gravity_einstein_box_era_window_scan/`
+  - Time-window sensitivity scan for the ERA5 box closure relation.
 - `experiment_N_navier_stokes_budget/`
   - Navier-Stokes moisture-budget closure with blocked-CV and out-of-time checks.
 - `experiment_N_followup/`

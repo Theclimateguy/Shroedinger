@@ -6,8 +6,8 @@ Legacy numeric `1-20` indexing is deprecated.
 
 Canonical blocks:
 
-- `TOY_MODEL`: `T01 ... T19`
-- `ATMOSPHERE_DATA`: `A01 ... A14`
+- `TOY_MODEL`: `T01 ... T20`
+- `ATMOSPHERE_DATA`: `A01 ... A15`
 
 Note: output folders listed below are canonical runtime locations. Heavy generated artifacts are local-only by default; this repository keeps code and lightweight documentation.
 
@@ -34,6 +34,7 @@ Note: output folders listed below are canonical runtime locations. Heavy generat
 | T17 | F3 | `clean_experiments/experiment_F3_lambda_fractal_bridge.py` | `clean_experiments/results/experiment_F3_lambda_fractal_bridge` |
 | T18 | F4_F4b | `clean_experiments/experiment_F4_holonomy_fractal_encoder.py`, `clean_experiments/experiment_F4b_independent_holonomy_ablation.py` | `clean_experiments/results/experiment_F4_holonomy_fractal_encoder`, `clean_experiments/results/experiment_F4b_independent_holonomy_ablation` |
 | T19 | F6 | `clean_experiments/experiment_F6_soc_avalanches.py` | `clean_experiments/results/experiment_F6_soc_avalanches`, `clean_experiments/results/experiment_F6_soc_robustness` |
+| T20 | EIB_synth | `clean_experiments/experiment_scale_gravity_einstein_box.py` | `clean_experiments/results/experiment_scale_gravity_einstein_box` |
 
 ## ATMOSPHERE_DATA block
 
@@ -53,6 +54,7 @@ Note: output folders listed below are canonical runtime locations. Heavy generat
 | A12 | M6_halo_boundary_strict | `clean_experiments/experiment_M_halo_boundary_strict.py` | `clean_experiments/results/experiment_M_halo_boundary_strict_causal2019_train2019_test2020_ext2021_v2` |
 | A13 | M7_halo_width_scan | `clean_experiments/experiment_M_halo_boundary_strict.py` | `clean_experiments/results/experiment_M_halo_boundary_widthscan_w0_causal2019_train2019_test2020_ext2021`, `clean_experiments/results/experiment_M_halo_boundary_widthscan_w4_causal2019_train2019_test2020_ext2021`, `clean_experiments/results/experiment_M_halo_boundary_widthscan_w6_causal2019_train2019_test2020_ext2021`, `clean_experiments/results/experiment_M_halo_boundary_widthscan_w8_causal2019_train2019_test2020_ext2021`, `clean_experiments/results/experiment_M_halo_boundary_widthscan_w10_causal2019_train2019_test2020_ext2021` |
 | A14 | M8_halo_falsification | `clean_experiments/experiment_M_halo_boundary_strict.py` | `clean_experiments/results/experiment_M_halo_boundary_falsify_remote_w4_causal2019_train2019_test2020_ext2021`, `clean_experiments/results/experiment_M_halo_boundary_falsify_misaligned_w4_causal2019_train2019_test2020_ext2021` |
+| A15 | EIB_era_box | `clean_experiments/experiment_scale_gravity_einstein_box_era.py` | `clean_experiments/results/experiment_scale_gravity_einstein_box_era` |
 
 ## A05 run-level log (scale-space count-geometry continuation)
 
@@ -96,7 +98,7 @@ with `A11.E*` run IDs.
 | `A11.E4_phi_only_strict_variants` | Additional phi-only strict variants (causal2018 locked/nested) | `clean_experiments/experiment_M_gksl_hybrid_strict.py` | `clean_experiments/results/experiment_M_phi_only_strict_causal2018_locked_raw_perm1999`, `clean_experiments/results/experiment_M_phi_only_strict_causal2018_nested_perm1999` |
 | `A12.E1_halo_boundary_prefinal_v1` | Pre-final strict halo run before corrected canonical v2 | `clean_experiments/experiment_M_halo_boundary_strict.py` | `clean_experiments/results/experiment_M_halo_boundary_strict_causal2019_train2019_test2020_ext2021` |
 
-## Atmosphere extensions (outside canonical A01-A14)
+## Atmosphere extensions (outside canonical A01-A15)
 
 - N moisture-budget branch:
   - `clean_experiments/experiment_N_navier_stokes_budget.py`

@@ -7,8 +7,8 @@ Generated artifacts under `clean_experiments/results/...` are local-only and are
 
 Canonical mapping is defined in `research_programm_summary.csv` and split into two blocks:
 
-- `TOY_MODEL`: `T01 ... T19`
-- `ATMOSPHERE_DATA`: `A01 ... A14`
+- `TOY_MODEL`: `T01 ... T20`
+- `ATMOSPHERE_DATA`: `A01 ... A15`
 
 ### TOY_MODEL
 
@@ -50,6 +50,8 @@ Canonical mapping is defined in `research_programm_summary.csv` and split into t
   - Holonomy/path-ordering encoding with independent ablations.
 - `T19` **F6**: `experiment_F6_soc_avalanches.py`
   - Toy SOC avalanche heavy-tail diagnostics.
+- `T20` **EIB-synth**: `experiment_scale_gravity_einstein_box.py`
+  - Local synthetic Einstein-in-a-box closure test (`Lambda ~ Pi`) by scale regimes.
 
 ### ATMOSPHERE_DATA
 
@@ -82,6 +84,8 @@ Canonical mapping is defined in `research_programm_summary.csv` and split into t
   - Preregistered halo-width scan (`w=0,4,6,8,10`) under fixed core protocol.
 - `A14` **M8**: `experiment_M_halo_boundary_strict.py`
   - Halo-physics falsification (`local` vs `remote` vs `misaligned` context).
+- `A15` **EIB-ERA**: `experiment_scale_gravity_einstein_box_era.py`
+  - Einstein-in-the-atmospheric-column box test on ERA5 (`Lambda ~ Pi`) with inertial pass criteria.
 
 ### A05 run-level log (scale-space count-geometry continuation, ATMOSPHERE_EXTENSION)
 
@@ -106,7 +110,7 @@ Canonical mapping is defined in `research_programm_summary.csv` and split into t
   - Full effective GKSL/CPTP memory model on dense panel (`rho_t = Reset o GAD o Dephase o U(rho_{t-1})`).
   - Finalization report: `clean_experiments/results/experiment_P2_memory_gksl_cptp/report.md`.
 
-Atmosphere extensions outside canonical `A01-A14`:
+Atmosphere extensions outside canonical `A01-A15`:
 
 - `experiment_N_navier_stokes_budget.py`
 - `experiment_N_followup_dual.py`
@@ -146,7 +150,7 @@ Canonical Group A runbook is in `clean_experiments/EXPERIMENT_A_ATMOSPHERE_PIPEL
 
 Numbering policy:
 
-- Canonical experiment codes are locked to `T01..T19` and `A01..A14`.
+- Canonical experiment codes are locked to `T01..T20` and `A01..A15`.
 - Continuation runs are logged as run-level IDs in `ветка` (for example `A05.R*`, `A07.R*`, `A11.E*`) under `ATMOSPHERE_EXTENSION`.
 
 ## M-realpilot v1 (frozen prereg protocol)
