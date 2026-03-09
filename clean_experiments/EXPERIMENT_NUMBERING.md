@@ -9,7 +9,11 @@ Canonical blocks:
 - `TOY_MODEL`: `T01 ... T20`
 - `ATMOSPHERE_DATA`: `A01 ... A15`
 
-Note: output folders listed below are canonical runtime locations. Heavy generated artifacts are local-only by default; this repository keeps code and lightweight documentation.
+Note: output folders listed below are canonical runtime locations. Heavy generated artifacts are local-only by default.
+
+v1.0 release note:
+- this repository keeps only the canonical core scripts (`T01..T20`, `A01..A15`) and minimal runtime dependencies;
+- continuation/auxiliary branches remain documented here as historical records, even if their scripts are not included in this compact release.
 
 ## TOY_MODEL block
 
