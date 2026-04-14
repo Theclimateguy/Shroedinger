@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this repository or the accompanying manuscript, please cite it using the metadata below."
+title: "Scale Geometry of Complex Systems: Repository and Manuscript Artifacts"
+version: "2.2"
+type: software
+license: "MIT"
+repository-code: "https://github.com/Theclimateguy/Shroedinger"
+url: "https://github.com/Theclimateguy/Shroedinger"
+date-released: 2026-04-14
+authors:
+  - family-names: "Sotiriadi"
+    given-names: "N."
+abstract: >-
+  Repository accompanying the manuscript "Scale Geometry of Complex Systems:
+  Formalism and Empirical Verification of Local Lambda_b--Pi_b Closure in
+  Atmospheric Data". The work introduces a gauge-invariant functional
+  Lambda_matter and tests the local Lambda_b ~ Pi_b closure in controlled toy
+  models and ERA5 atmospheric data, with the main atmospheric result
+  R^2_binned = 0.520 in the inertial range. The manuscript was originally
+  written in Russian and is distributed here together with its English
+  translation.
+keywords:
+  - scale geometry
+  - multiscale systems
+  - atmospheric dynamics
+  - ERA5
+  - renormalization group
+  - gauge invariance
+  - Hilbert bundle
+  - climate
+preferred-citation:
+  type: article
+  title: "Scale Geometry of Complex Systems: Formalism and Empirical Verification of Local Lambda_b--Pi_b Closure in Atmospheric Data"
+  authors:
+    - family-names: "Sotiriadi"
+      given-names: "N."
+  year: 2026
+  language: en
+  notes: "Original manuscript written in Russian; English translation included in repository release 2.2."

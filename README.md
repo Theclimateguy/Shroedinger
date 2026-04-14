@@ -1,30 +1,59 @@
-# Shroedinger v2.0 — Full Experiments Release
+# Shroedinger v2.0
 
-This release keeps the full cleaned research program and its markdown result reports.
+This repository accompanies the manuscript *Scale Geometry of Complex Systems: Formalism and Empirical Verification of Local Lambda_b--Pi_b Closure in Atmospheric Data*.
 
-Canonical experiment blocks:
-- `TOY_MODEL`: `T01 ... T20`
-- `ATMOSPHERE_DATA`: `A01 ... A15`
+The manuscript was originally written in Russian and then translated into English. Both PDF versions are included in this repository.
 
-Canonical numbering/history source:
-- `clean_experiments/EXPERIMENT_NUMBERING.md`
+## Paper Summary
 
-## Repository scope (v2.0)
+### Goal
+The paper tests the hypothesis that scale in complex systems can be treated as a bona fide coordinate of description, with interscale transfer represented as geometrically organized dynamics rather than simple averaging.
+
+### Method
+The work introduces a gauge-invariant functional Lambda_matter, computed from the curvature of the connection and the state, and studies its band-resolved counterpart Lambda_b in the operational closure relation Lambda_b ~ Pi_b, where Pi_b is the spectral energy flux in a given scale band.
+
+The empirical program combines:
+- toy-model and internal validation blocks `T01 ... T20`
+- atmospheric and process-resolved blocks `A01 ... A15`
+- reproducible code in `clean_experiments/`
+- consolidated experiment metadata in `research_programm_summary.csv`
+
+### Main Results
+- Synthetic local-cell test `T20`: stable quasi-linear Lambda_b ~ Pi_b relation in the inertial range with `R^2_binned = 0.727`
+- ERA5 atmospheric local-cell test `A15`: positive inertial-range relation with `R^2_binned = 0.520` and `p = 0.008`
+- Process-resolved branch `A05`: memory is required at the finest scale, and the stronger GKSL/CPTP branch confirms that the restoration is not a numerical artifact
+
+## Repository Contents
+
 Included:
-- Full `clean_experiments/` codebase (`*.py`) and experiment documentation (`*.md`, `*.tex`)
-- Canonical numbering/history and program manifests
-- Markdown reports under `clean_experiments/results/**`
-- Root program index: `research_programm_summary.csv`
+- `README.md`
+- `LICENSE`
+- `.gitignore`
+- `CITATION.cff`
+- `main.pdf`
+- `main_ru.pdf`
+- `clean_experiments/`
+- `research_programm_summary.csv`
 
-Not versioned in Git:
-- Local manuscript workspace (`manuscript/`)
-- Heavy generated artifacts (`csv/png/npz/json`) except curated markdown reports
+Main code and documentation:
+- `clean_experiments/EXPERIMENT_NUMBERING.md`: canonical numbering and experiment history
+- `clean_experiments/results/**/*.md`: curated experiment reports
+- `research_programm_summary.csv`: top-level program index
+
+## Manuscript Artifact
+
+The current manuscript PDFs are available directly at:
+
+- [`main.pdf`](./main.pdf)
+- [`main_ru.pdf`](./main_ru.pdf)
 
 ## Environment
+
 Recommended:
 - Python `>=3.9`
 
-Install:
+Minimal setup:
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
@@ -33,11 +62,13 @@ pip install numpy pandas scipy matplotlib xarray netCDF4 global-land-mask
 ```
 
 ## Reproducibility
+
 1. Use canonical mapping from `clean_experiments/EXPERIMENT_NUMBERING.md`.
 2. Run scripts with explicit `--outdir`.
 3. For atmospheric experiments (`A*`), provide local ERA5/NetCDF-like inputs.
 
 Examples:
+
 ```bash
 python clean_experiments/experiment_A.py --outdir out/experiment_A
 python clean_experiments/experiment_scale_gravity_einstein_box.py --outdir out/experiment_scale_gravity_einstein_box
@@ -45,11 +76,8 @@ python clean_experiments/experiment_M_cosmo_flow.py --input /path/to/data.nc --o
 python clean_experiments/experiment_scale_gravity_einstein_box_era.py --input /path/to/era_patch.nc --outdir out/experiment_scale_gravity_einstein_box_era
 ```
 
-Use `--help` per script for full CLI parameters.
+Use `--help` for script-specific CLI options.
 
-## Research program structure and results
-- `T01 ... T20`: toy-model ladder from gauge/noncommutativity checks to fractal/holonomy bridges and synthetic Einstein-in-a-box closure (`T20`).
-- `A01 ... A15`: atmospheric ladder from closure detectability and falsification blocks to strict transfer/halo tests and ERA Einstein-in-a-box closure (`A15`).
-- Run-level atmospheric extensions (`A05.R*`, `A07.R*`, `A11.E*`) and consolidated markdown reports are included in `clean_experiments/results/` and linked manifests.
+## License
 
-This v2.0 release is prepared as the full-code, full-report archival line from `main_gen2`.
+This repository is distributed under the MIT License. See [`LICENSE`](./LICENSE).
