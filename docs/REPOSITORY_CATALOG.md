@@ -16,16 +16,23 @@ The scientific body of work is not fragmented across branches. The branch fragme
 
 | Branch | Status | Practical meaning | Recommendation |
 |---|---|---|---|
-| `main_gen2` | current `origin/HEAD`, tag `v2.2` | fullest and most up-to-date research corpus; includes canonical `T01..T20`, `A01..A15`, continuation logs, reports, citation files, and root PDFs | use as the canonical base for consolidation |
-| `main` | older tracked branch | transitional documentation-clean snapshot before the later `A11..A15` and release finalization work landed | fold into canonical `main`; no need to keep as a separate scientific line |
-| `main_gen3` | trimmed release branch, tag `v1.0` | minimal Zenodo-style code release with many docs/results removed; this is a packaging variant, not a distinct research generation | preserve via tag/history only; not needed as a long-lived branch |
+| `gen1` | historical branch | earlier documentation-clean snapshot before the later `A11..A15` and release finalization work landed | preserve as historical generation only |
+| `gen2` | current `origin/HEAD`, tag lineage `v2.2` | fullest and most up-to-date research corpus; includes canonical `T01..T20`, `A01..A15`, continuation logs, reports, citation files, and root PDFs | current canonical working generation |
+| `gen3` | historical branch, tag lineage `v1.0` | trimmed Zenodo-style release branch with many docs/results removed; this is a packaging variant, not a distinct research generation | preserve as historical generation only |
+| `gen4` | newer remote snapshot | branch carrying the repository-catalog / branch-restructuring step before the Zenodo README update landed on `gen2` | preserve if needed for branch-history bookkeeping |
 | `codex/main_gen2-cleanup-backup` | local helper branch | local cleanup snapshot | archive locally if needed, otherwise not part of final branch model |
 | `codex/repack-clean-main` | local helper branch | local repack snapshot | archive locally if needed, otherwise not part of final branch model |
 
+Legacy alias map:
+
+- `main` -> `gen1`
+- `main_gen2` -> `gen2`
+- `main_gen3` -> `gen3`
+
 Consolidation note:
 
-- the only meaningful code delta found in `main_gen3` was the optional causal mode-selection parameter `mode_select_end_year` in `clean_experiments/experiment_M_cosmo_flow.py`
-- that patch has been merged into the current working tree, so `main_gen3` no longer appears to contain unique scientific logic
+- the only meaningful code delta found in legacy `main_gen3` / current `gen3` was the optional causal mode-selection parameter `mode_select_end_year` in `clean_experiments/experiment_M_cosmo_flow.py`
+- that patch has been merged into the full working line, so `gen3` does not need to be treated as a separate source of scientific logic
 
 ## 3. Research-program structure already present
 
@@ -115,10 +122,11 @@ Shroedinger/
 
 Recommended branch model:
 
-1. `main` = full canonical research branch
-2. keep `v1.0`, `v2.0`, `v2.1`, `v2.2` as historical release markers
-3. remove long-lived packaging branches after `main` is aligned and remote references are updated
-4. if a compact Zenodo release is needed again, create it from tags/releases, not as a persistent parallel branch
+1. use generational names `genN` for long-lived public branches
+2. current canonical working branch is `gen2`
+3. preserve release tags such as `v1.0`, `v2.0`, `v2.1`, `v2.2`, `v3.0` as archival markers
+4. if a new long-lived branch is needed, name it `gen(N+1)` relative to the highest existing generation
+5. if a compact Zenodo release is needed again, prefer tags/releases over creating a separate packaging-only branch unless the branch itself is part of the archival logic
 
 ## 7. Immediate local cleanup policy
 
@@ -137,49 +145,35 @@ Not to move yet without explicit scientific review:
 
 ## 8. Next actions
 
-1. Keep `main_gen2` content as the effective canonical baseline
-2. Add `legacy/` to `.gitignore`
-3. Move obvious local-only artifacts into `legacy/`
-4. Update root navigation so the branch policy and local-vs-tracked split are explicit
-5. Prepare a safe GitHub consolidation path:
-   - fast-forward or replace `main` with the `main_gen2` content
-   - repoint default branch
-   - only then retire `main_gen2` and `main_gen3`
+1. keep `gen2` as the local working branch unless a new generation is intentionally created
+2. keep local/remote naming synchronized with the public `genN` scheme
+3. create the next long-lived branch only as `gen(N+1)`
+4. keep manuscript, runtime caches, and temporary parking in local-only ignored paths
+5. treat `gen1`, `gen3`, and `gen4` as historical reference branches unless there is an explicit need to reopen them
 
-## 9. Safe Git consolidation sequence
+## 9. Local alignment status
 
-Recommended order:
+Current local Git alignment:
 
-1. commit the current cleanup on top of the `main_gen2` line
-2. verify that `main_gen3` contributes no remaining unique scientific logic beyond the already merged `mode_select_end_year` patch
-3. update `main` so it points to the full canonical commit
-4. switch GitHub default branch from `main_gen2` to `main`
-5. only after validation, retire `main_gen2` and `main_gen3` as long-lived branches while keeping release tags
+- local current branch renamed from `main_gen2` to `gen2`
+- local historical branches renamed from `main` / `main_gen3` to `gen1` / `gen3`
+- local `gen2` tracks `origin/gen2`
+- local `gen1` tracks `origin/gen1`
+- local `gen3` tracks `origin/gen3`
+- local `gen4` tracks `origin/gen4`
+- `origin/HEAD` now points to `origin/gen2`
 
-Suggested command sequence after review:
-
-```bash
-git checkout main_gen2
-git checkout -b codex/repo-consolidation-main
-git add .gitignore README.md docs/REPOSITORY_CATALOG.md clean_experiments/experiment_M_cosmo_flow.py
-git commit -m "Catalog repository and prepare mainline consolidation"
-
-git branch -f main HEAD
-git checkout main
-git push origin main
-```
-
-Then on GitHub:
-
-1. set `main` as the default branch
-2. confirm CI / release assets / Zenodo expectations
-3. optionally delete remote `main_gen2` and `main_gen3`
-
-Local cleanup after remote confirmation:
+Reference commands used for local alignment:
 
 ```bash
-git branch -d main_gen3
-git branch -d main_gen2
+git fetch origin --prune
+git branch -m main_gen2 gen2
+git branch -m main gen1
+git branch -m main_gen3 gen3
+git branch --set-upstream-to=origin/gen2 gen2
+git branch --set-upstream-to=origin/gen1 gen1
+git branch --set-upstream-to=origin/gen3 gen3
+git branch --track gen4 origin/gen4
 git remote set-head origin -a
 ```
 
