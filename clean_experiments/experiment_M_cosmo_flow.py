@@ -1226,6 +1226,7 @@ def run_experiment(
     level_index: int,
     feature_set: str,
     var_overrides: dict[str, str | None],
+    mode_select_end_year: int | None = None,
     verbose: bool = True,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     loaded = _load_data(
@@ -1314,8 +1315,22 @@ def run_experiment(
         "vorticity": vorticity,
     }
 
+    mode_select_mask = np.ones(nt, dtype=bool)
+    if mode_select_end_year is not None:
+        t_year = pd.to_datetime(time, errors="coerce", utc=True).year.to_numpy(dtype=float)
+        mode_select_mask = np.isfinite(t_year) & (t_year <= float(mode_select_end_year))
+        n_mode_fit = int(np.sum(mode_select_mask))
+        if n_mode_fit < max(120, window * 3):
+            raise ValueError(
+                f"Too few points for mode selection with mode_select_end_year={mode_select_end_year}: {n_mode_fit}"
+            )
+        if verbose:
+            print(f"[M] mode selection window: <= {mode_select_end_year} (n={n_mode_fit})")
+
+    mode_fields_select = {k: v[mode_select_mask] for k, v in mode_fields.items()}
+
     selected, mode_meta = _select_mode_indices(
-        mode_fields=mode_fields,
+        mode_fields=mode_fields_select,
         masks=masks,
         n_modes_per_var=n_modes_per_var,
         wavelength_km=wavelength_km,
@@ -1509,6 +1524,8 @@ def run_experiment(
                 "coherence_floor": float(coherence_floor),
                 "coherence_power": float(coherence_power),
                 "coherence_blend": float(coherence_blend),
+                "mode_select_end_year": int(mode_select_end_year) if mode_select_end_year is not None else np.nan,
+                "mode_select_n_time": int(np.sum(mode_select_mask)),
                 "n_folds": int(n_folds),
                 "n_perm": int(n_perm),
                 "perm_block": int(perm_block),
@@ -1696,6 +1713,15 @@ def main() -> None:
     parser.add_argument("--lat-stride", type=int, default=1)
     parser.add_argument("--lon-stride", type=int, default=1)
     parser.add_argument("--max-time", type=int, default=None)
+    parser.add_argument(
+        "--mode-select-end-year",
+        type=int,
+        default=None,
+        help=(
+            "If set, select Fourier mode indices using only samples with year <= this value, "
+            "then apply fixed indices to full timeline (causal mode-selection)."
+        ),
+    )
 
     parser.add_argument("--level-dim", default=None)
     parser.add_argument("--level-index", type=int, default=0)
@@ -1768,6 +1794,7 @@ def main() -> None:
         lat_stride=args.lat_stride,
         lon_stride=args.lon_stride,
         max_time=args.max_time,
+        mode_select_end_year=args.mode_select_end_year,
         level_dim=args.level_dim,
         level_index=args.level_index,
         feature_set=args.feature_set,

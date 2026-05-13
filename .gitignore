@@ -8,6 +8,7 @@ manuscript/
 # Local environment and data artifacts
 .venv/
 data/
+legacy/
 
 # Legacy/original scripts are not part of the clean repository scope
 experiments/

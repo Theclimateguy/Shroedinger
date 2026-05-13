@@ -39,6 +39,7 @@ Main code and documentation:
 - `clean_experiments/EXPERIMENT_NUMBERING.md`: canonical numbering and experiment history
 - `clean_experiments/results/**/*.md`: curated experiment reports
 - `research_programm_summary.csv`: top-level program index
+- `docs/REPOSITORY_CATALOG.md`: branch audit and repository consolidation plan
 
 ## Manuscript Artifact
 
@@ -46,6 +47,9 @@ The current manuscript PDFs are available directly at:
 
 - [`main.pdf`](./main.pdf)
 - [`main_ru.pdf`](./main_ru.pdf)
+
+Local editable manuscript sources are kept in `manuscript/` as a local-only workspace and are not part of the tracked repository scope.
+Local runtime/build parking lives in `legacy/`, which is also local-only and ignored by Git.
 
 ## Environment
 
