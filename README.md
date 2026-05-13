@@ -2,7 +2,14 @@
 
 This repository accompanies the manuscript *Scale Geometry of Complex Systems: Formalism and Empirical Verification of Local Lambda_b--Pi_b Closure in Atmospheric Data*.
 
-The manuscript was originally written in Russian and then translated into English. Both PDF versions are included in this repository.
+The manuscript was originally written in Russian and then translated into English. Both PDF versions are included in this repository. The GitHub repository is the active research/development tree; immutable archival records for both the manuscript and the repository snapshot are published on Zenodo.
+
+## Archival Links
+
+- Manuscript record on Zenodo: [Scale Geometry of Complex Systems](https://zenodo.org/records/19565805)
+- Repository archive on Zenodo: [Shroedinger repository snapshot](https://zenodo.org/records/19565770)
+- Active GitHub repository: [Theclimateguy/Shroedinger](https://github.com/Theclimateguy/Shroedinger)
+- Citation metadata in this repository: [`CITATION.cff`](./CITATION.cff)
 
 ## Paper Summary
 
@@ -43,13 +50,22 @@ Main code and documentation:
 
 ## Manuscript Artifact
 
-The current manuscript PDFs are available directly at:
+The current manuscript PDFs are available directly in this repository and are also archived in the Zenodo manuscript record:
 
 - [`main.pdf`](./main.pdf)
 - [`main_ru.pdf`](./main_ru.pdf)
+- [Zenodo manuscript record](https://zenodo.org/records/19565805)
 
 Local editable manuscript sources are kept in `manuscript/` as a local-only workspace and are not part of the tracked repository scope.
 Local runtime/build parking lives in `legacy/`, which is also local-only and ignored by Git.
+
+## Citation and Versioning
+
+For citation metadata, use [`CITATION.cff`](./CITATION.cff).
+
+- Use the Zenodo manuscript record when you want a stable public reference to the paper text.
+- Use the Zenodo repository record when you want a stable public reference to the archived code snapshot.
+- Use the GitHub repository when you want the current working tree and ongoing repository history.
 
 ## Environment
 
