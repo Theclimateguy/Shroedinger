@@ -30,6 +30,11 @@ The empirical program combines:
 - ERA5 atmospheric local-cell test `A15`: positive inertial-range relation with `R^2_binned = 0.520` and `p = 0.008`
 - Process-resolved branch `A05`: memory is required at the finest scale, and the stronger GKSL/CPTP branch confirms that the restoration is not a numerical artifact
 
+### Current Theory Status
+- The local internal scale cell can be closed as a variational CP1/O(3)-type model: `S_cell -> n_* -> P_* -> A_i, F_ij -> Tr(rho F)`.
+- This does not close a full action-to-spacetime-stress theory, does not fix the absolute KMS relaxation scale, and does not define a unique real-source map.
+- See [`docs/THEORY_SCALE_CELL_VARIATIONAL_ADDENDUM.md`](./docs/THEORY_SCALE_CELL_VARIATIONAL_ADDENDUM.md) for the precise status and limitations.
+
 ## Repository Contents
 
 Included:
@@ -39,6 +44,7 @@ Included:
 - `CITATION.cff`
 - `main.pdf`
 - `main_ru.pdf`
+- `manuscript/`
 - `clean_experiments/`
 - `research_programm_summary.csv`
 
@@ -47,6 +53,7 @@ Main code and documentation:
 - `clean_experiments/results/**/*.md`: curated experiment reports
 - `research_programm_summary.csv`: top-level program index
 - `docs/REPOSITORY_CATALOG.md`: branch audit and repository consolidation plan
+- `docs/THEORY_SCALE_CELL_VARIATIONAL_ADDENDUM.md`: local scale-cell variational closure status
 
 ## Manuscript Artifact
 
@@ -56,7 +63,14 @@ The current manuscript PDFs are available directly in this repository and are al
 - [`main_ru.pdf`](./main_ru.pdf)
 - [Zenodo manuscript record](https://zenodo.org/records/19565805)
 
-Local editable manuscript sources are kept in `manuscript/` as a local-only workspace and are not part of the tracked repository scope.
+Editable manuscript source snapshots are tracked in `manuscript/`:
+
+- [`manuscript/main_eng.tex`](./manuscript/main_eng.tex)
+- [`manuscript/main.tex`](./manuscript/main.tex)
+- `manuscript/references*.bib`
+- `manuscript/figures/*.png`
+
+LaTeX build products inside `manuscript/` remain ignored; the root PDFs are the tracked publication artifacts.
 Local runtime/build parking lives in `legacy/`, which is also local-only and ignored by Git.
 
 ## Citation and Versioning
@@ -92,7 +106,6 @@ Examples:
 ```bash
 python clean_experiments/experiment_A.py --outdir out/experiment_A
 python clean_experiments/experiment_scale_gravity_einstein_box.py --outdir out/experiment_scale_gravity_einstein_box
-python clean_experiments/experiment_M_cosmo_flow.py --input /path/to/data.nc --outdir out/experiment_M_cosmo_flow
 python clean_experiments/experiment_scale_gravity_einstein_box_era.py --input /path/to/era_patch.nc --outdir out/experiment_scale_gravity_einstein_box_era
 ```
 

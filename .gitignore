@@ -2,8 +2,8 @@
 __pycache__/
 *.py[cod]
 
-# Local manuscript is maintained and published separately
-manuscript/
+# Tracked manuscript source snapshot lives in manuscript/.
+# Local LaTeX build outputs remain ignored by the rules below.
 
 # Local environment and data artifacts
 .venv/
@@ -34,3 +34,5 @@ clean_experiments/results/**
 *.out
 *.run.xml
 *.synctex.gz
+*.toc
+manuscript/*.pdf

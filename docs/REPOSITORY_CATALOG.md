@@ -1,6 +1,6 @@
 # Repository Catalog and Consolidation Plan
 
-Last audited: 2026-05-13
+Last audited: 2026-05-24
 
 ## 1. Working conclusion
 
@@ -8,7 +8,7 @@ The repository currently mixes three different concerns:
 
 1. Canonical research program code and lightweight reports in `clean_experiments/`
 2. Publishable manuscript artifacts at the repository root (`main.pdf`, `main_ru.pdf`)
-3. Local manuscript workspace and build byproducts in `manuscript/` and other local-only folders
+3. Tracked manuscript source snapshot in `manuscript/`, with LaTeX build byproducts ignored
 
 The scientific body of work is not fragmented across branches. The branch fragmentation is mostly a packaging problem.
 
@@ -64,18 +64,20 @@ Should remain in the GitHub-facing canonical branch:
 - `CITATION.cff`
 - `main.pdf`
 - `main_ru.pdf`
+- `manuscript/main.tex`
+- `manuscript/main_eng.tex`
+- `manuscript/references*.bib`
+- `manuscript/figures/*.png`
 - `research_programm_summary.csv`
 - `clean_experiments/`
 - `docs/`
 
-### 4.2 Local manuscript workspace
+Theory-status addition:
 
-Currently local-only and already ignored by Git:
+- `docs/THEORY_SCALE_CELL_VARIATIONAL_ADDENDUM.md` records the current minimal theoretical closure:
+  local internal scale cell closed; full action-to-spacetime-stress theory and real source map not closed.
 
-- `manuscript/main.tex`
-- `manuscript/main_eng.tex`
-- `manuscript/references*.bib`
-- `manuscript/figures/*`
+### 4.2 Manuscript source snapshot
 
 Important duplication:
 
@@ -85,7 +87,8 @@ Important duplication:
 Interpretation:
 
 - root PDFs are the tracked publication artifacts
-- `manuscript/` is the local editable source workspace
+- `manuscript/` contains the tracked source snapshot needed to reproduce the current PDFs
+- generated PDFs and auxiliary LaTeX files inside `manuscript/` remain local-only build outputs
 
 ### 4.3 Local generated/runtime artifacts
 
@@ -95,6 +98,7 @@ These are not part of the scientific source tree and should stay outside the can
 - `clean_experiments/__pycache__/`
 - TeX build byproducts from `manuscript/`
 - future temporary parking under `legacy/`
+- unconfirmed speculative cosmology/lensing/galaxy extrapolations
 
 ## 5. Target repository model
 
@@ -109,12 +113,13 @@ Shroedinger/
 ├── main_ru.pdf
 ├── research_programm_summary.csv
 ├── docs/
-│   └── REPOSITORY_CATALOG.md
+│   ├── REPOSITORY_CATALOG.md
+│   └── THEORY_SCALE_CELL_VARIATIONAL_ADDENDUM.md
 ├── clean_experiments/
 │   ├── canonical scripts
 │   ├── experiment manifests
 │   └── markdown reports
-├── manuscript/          # local-only source workspace, gitignored
+├── manuscript/          # tracked source snapshot; generated build outputs ignored
 └── legacy/              # local-only parking for noncanonical local artifacts, gitignored
 ```
 
@@ -135,6 +140,7 @@ Safe to move into `legacy/` immediately:
 - runtime caches
 - TeX build byproducts
 - other non-source local artifacts
+- speculative cosmology/lensing/galaxy experiments that are not part of the confirmed gen2 manuscript result
 
 Not to move yet without explicit scientific review:
 
