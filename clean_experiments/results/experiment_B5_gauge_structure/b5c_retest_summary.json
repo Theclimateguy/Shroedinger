@@ -1,0 +1,20 @@
+{
+  "null": "per-mode temporal phase randomization (spectrum-preserving)",
+  "n_region_windows": 48,
+  "rw_pass_count": 7,
+  "C5c_retest_pass": false,
+  "median_d_real": [
+    0.4383146210792252,
+    0.44321955732174556,
+    0.4181906029304847,
+    0.3834519869808063,
+    0.3853561450806079
+  ],
+  "median_d_null": [
+    0.44177140840543794,
+    0.44796282560248557,
+    0.4166752005084001,
+    0.39426332813607434,
+    0.3894762572874407
+  ]
+}

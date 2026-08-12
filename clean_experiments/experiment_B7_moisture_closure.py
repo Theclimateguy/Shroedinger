@@ -114,8 +114,22 @@ def fnorm_series(u, v, lat, lon) -> np.ndarray:
     return np.log(fn / cnt + 1e-12)
 
 
+def _open_budget_dataset(path: Path) -> xr.Dataset:
+    """CDS packs mixed instant+accum variables as a zip of two NetCDFs."""
+    import zipfile
+    if not zipfile.is_zipfile(path):
+        return xr.open_dataset(path)
+    extract_dir = path.parent / "extracted" / path.stem
+    if not extract_dir.exists() or not list(extract_dir.glob("*.nc")):
+        extract_dir.mkdir(parents=True, exist_ok=True)
+        with zipfile.ZipFile(path) as zf:
+            zf.extractall(extract_dir)
+    parts = [xr.open_dataset(f) for f in sorted(extract_dir.glob("*.nc"))]
+    return xr.merge(parts, compat="override", join="inner")
+
+
 def _budget_fields(path: Path):
-    ds = xr.open_dataset(path)
+    ds = _open_budget_dataset(path)
     names = {n.lower(): n for n in ds.data_vars}
     w_name = names.get("tcwv") or next(n for n in ds.data_vars if "tcwv" in n.lower() or "water_vapour" in n.lower())
     e_name = names.get("e") or next(n for n in ds.data_vars if n.lower() in ("e", "evap") or "evapo" in n.lower())

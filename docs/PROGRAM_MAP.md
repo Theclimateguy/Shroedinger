@@ -96,3 +96,14 @@ Beny-Osborne CPTP-RG, Nakajima-Mori-Zwanzig, holographic RG); the validated
 contribution is the pair of compact atmospheric invariants + their
 falsification-grade validation, in the Puzachenko hierarchical-organization
 tradition (co-cite Krenke et al. 2019).
+
+## Post-audit reconciliation (2026-08-13)
+
+An independent red-team audit plus remediation computations updated the
+verdicts; see docs/RECONCILIATION.md for the authoritative final scoreboard.
+Headline changes: 5c "integrability" RETRACTED (temporal-null retest 7/48);
+H4c demoted to descriptive ocean/land contrast; charge-discharge dynamics
+not established (estimator-memory null); B7 moisture closure NEGATIVE;
+N2 IVT normalization sharpens rather than collapses the signature;
+anchored (surrogate-excess) profiles adopted as primary objects — the
+anchored profile is non-monotone with an interior maximum.
