@@ -1,0 +1,20 @@
+{
+  "C1_pass_count": 16,
+  "C1_ok": true,
+  "C2": {
+    "acc_spec": 1.0,
+    "acc_spec_plus_irr": 1.0,
+    "gain": 0.0,
+    "p": 0.005,
+    "pass": false
+  },
+  "C3": {
+    "median_within": 0.9999999999999999,
+    "median_between": 0.9999999999999999,
+    "diff": 0.0,
+    "p": 1.0,
+    "pass": false
+  },
+  "PHASE2_VERDICT": "NEGATIVE",
+  "n_region_windows": 16
+}

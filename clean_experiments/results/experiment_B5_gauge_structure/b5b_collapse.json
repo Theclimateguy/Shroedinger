@@ -1,0 +1,23 @@
+{
+  "pooled_R2": 0.5842841193848142,
+  "alpha_cape": 0.30437410268187626,
+  "beta_land": -1.4235819083826813,
+  "gamma_orog": -0.02266431524268279,
+  "raw_clustering": {
+    "median_within": 1.080436474354259,
+    "median_between": 2.433376135348322,
+    "diff": 1.352939660994063,
+    "p": 0.001,
+    "pass": true
+  },
+  "residual_clustering": {
+    "median_within": 1.4951389334264338,
+    "median_between": 2.7361268988184824,
+    "diff": 1.2409879653920486,
+    "p": 0.001,
+    "pass": true
+  },
+  "shrinkage_ok": false,
+  "C5b_pass": false,
+  "n_profiles": 96
+}
