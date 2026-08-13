@@ -138,3 +138,13 @@ explicitly.
 - [ ] Anchored (surrogate-excess) profiles as primary objects, incl. Fnorm
 - [ ] Remove/reframe all geometry, irreversibility, charge-discharge and
       integrability language per this document
+
+## Addendum (2026-08-13, post-reconciliation controls)
+
+- Box-geometry control EXECUTED: adding [abs lat, dx, domain width] to the
+  residualization collapses P's beyond-spectrum residual clustering
+  (+0.454 p=0.003 -> +0.216 p=0.100) — P's beyond-spectrum claim is now
+  CONDITIONAL (substantially geometry-explained). ||F|| survives unchanged
+  (+0.767 -> +0.754, p=0.001) and is the program's primary object.
+- Phase 8 (MERRA-2 cross-reanalysis replication) protocol frozen; downloader
+  ready; blocked on user's Earthdata credentials (~/.netrc).
