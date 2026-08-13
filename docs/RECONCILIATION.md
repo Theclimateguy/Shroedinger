@@ -148,3 +148,11 @@ explicitly.
   (+0.767 -> +0.754, p=0.001) and is the program's primary object.
 - Phase 8 (MERRA-2 cross-reanalysis replication) protocol frozen; downloader
   ready; blocked on user's Earthdata credentials (~/.netrc).
+- Phase 8 EXECUTED (2026-08-14): MERRA-2 cross-reanalysis replication
+  VERDICT REPLICATED. H8a Fnorm signature on MERRA-2 diff=+1.119 p=0.001;
+  P signature +1.151 p=0.001 (descriptive); H8b cross-reanalysis regional
+  geography Spearman rho=+0.930 p<1e-4 (12 regions). The transfer-asymmetry
+  invariant is not an ERA5-system artifact. Shared-observations caveat
+  remains stated. Pre-publication checklist: MERRA-2 [x], geometry [x];
+  EDA-spread correlation and anchored-Fnorm residualization remain optional
+  strengthening controls.

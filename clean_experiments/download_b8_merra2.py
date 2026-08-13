@@ -82,25 +82,39 @@ def main() -> None:
 
         for d in _days(window):
             key = d.isoformat()
-            if ledger.get(key):
+            if ledger.get(key) == "done" or ledger.get(key) == "missing":
                 continue
-            results = earthaccess.search_data(
-                short_name=SHORT_NAME, temporal=(key, key))
-            if not results:
-                print(f"[{window}] {key}: no granule", flush=True)
-                ledger[key] = "missing"
-                ledger_path.write_text(json.dumps(ledger))
-                continue
-            files = earthaccess.open(results)
-            ds = xr.open_dataset(files[0], engine="h5netcdf")
-            slab = ds[["U", "V"]].sel(lev=850.0).load()
-            ds.close()
-            for region, area in REGIONS_ALL.items():
-                sub = _region_slice(slab, area)
-                sub.to_netcdf(part_dir / f"{region}__{key}.nc")
-            ledger[key] = "done"
+            ok = False
+            for attempt in range(1, 5):
+                try:
+                    results = earthaccess.search_data(
+                        short_name=SHORT_NAME, temporal=(key, key))
+                    if not results:
+                        print(f"[{window}] {key}: no granule", flush=True)
+                        ledger[key] = "missing"
+                        ok = True
+                        break
+                    files = earthaccess.open(results)
+                    ds = xr.open_dataset(files[0], engine="h5netcdf")
+                    slab = ds[["U", "V"]].sel(lev=850.0).load()
+                    ds.close()
+                    for region, area in REGIONS_ALL.items():
+                        sub = _region_slice(slab, area)
+                        sub.to_netcdf(part_dir / f"{region}__{key}.nc")
+                    ledger[key] = "done"
+                    ok = True
+                    break
+                except Exception as exc:  # noqa: BLE001 - network retry
+                    print(f"[{window}] {key}: attempt {attempt} failed "
+                          f"({type(exc).__name__})", flush=True)
+                    import time as _t
+                    _t.sleep(60 * attempt)
+            if not ok:
+                ledger[key] = "error"
+                print(f"[{window}] {key}: ERROR after retries", flush=True)
             ledger_path.write_text(json.dumps(ledger))
-            print(f"[{window}] {key}: done", flush=True)
+            if ok and ledger[key] == "done":
+                print(f"[{window}] {key}: done", flush=True)
 
         # assemble per-region files
         for region in REGIONS_ALL:
