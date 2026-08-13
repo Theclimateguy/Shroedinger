@@ -62,9 +62,16 @@ def main() -> None:
     args.out_dir.mkdir(parents=True, exist_ok=True)
 
     import earthaccess
-    auth = earthaccess.login(strategy="netrc")
+    auth = None
+    for strategy in ("environment", "netrc"):
+        try:
+            auth = earthaccess.login(strategy=strategy)
+            if auth and auth.authenticated:
+                break
+        except Exception:
+            continue
     if not auth or not auth.authenticated:
-        raise SystemExit("Earthdata login failed: create ~/.netrc first")
+        raise SystemExit("Earthdata login failed: set EARTHDATA_TOKEN or ~/.netrc")
 
     for window in args.windows.split(","):
         ledger_path = args.out_dir / f"ledger_{window}.json"
@@ -85,7 +92,7 @@ def main() -> None:
                 ledger_path.write_text(json.dumps(ledger))
                 continue
             files = earthaccess.open(results)
-            ds = xr.open_dataset(files[0])
+            ds = xr.open_dataset(files[0], engine="h5netcdf")
             slab = ds[["U", "V"]].sel(lev=850.0).load()
             ds.close()
             for region, area in REGIONS_ALL.items():
