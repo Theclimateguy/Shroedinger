@@ -1,0 +1,24 @@
+{
+  "C5c_integrability": {
+    "pass": true,
+    "rw_pass": "48/48"
+  },
+  "C5b_collapse": {
+    "pass": false,
+    "R2": 0.584,
+    "raw_diff": 1.353,
+    "resid_diff": 1.241
+  },
+  "C5a_source": {
+    "pass": false,
+    "rw_pass": "0/32",
+    "median_spearman": -0.043
+  },
+  "C5d_level500": {
+    "pass": false,
+    "signature_p": 0.183,
+    "cross_level_spearman": 0.427,
+    "cross_level_p": 0.167
+  },
+  "PHASE5_VERDICT": "VOCABULARY"
+}

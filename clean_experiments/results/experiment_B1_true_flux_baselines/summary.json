@@ -1,0 +1,55 @@
+{
+  "per_band": {
+    "1": {
+      "median_r2": {
+        "B1_smag": 0.47075882317645557,
+        "B2_a15proxy": 0.01009034036801995,
+        "B3_enstrophy": 0.2306150272893159,
+        "B4_gradient": 0.33147390376780084,
+        "lambda": 0.0033630407353234045
+      },
+      "sign_stability": "5/8",
+      "surrogate_pass_count": 2,
+      "lambda_oos_r2_median": -0.06869641562413176,
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false
+    },
+    "2": {
+      "median_r2": {
+        "B1_smag": 0.4213461638995853,
+        "B2_a15proxy": 0.0222495607341261,
+        "B3_enstrophy": 0.1795280187990383,
+        "B4_gradient": 0.31251120989649595,
+        "lambda": 0.0066086965646609255
+      },
+      "sign_stability": "5/8",
+      "surrogate_pass_count": 1,
+      "lambda_oos_r2_median": -0.02364630824428282,
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false
+    },
+    "3": {
+      "median_r2": {
+        "B1_smag": 0.3509875029084647,
+        "B2_a15proxy": 0.021148431485262242,
+        "B3_enstrophy": 0.2238310555839672,
+        "B4_gradient": 0.3061784086450139,
+        "lambda": 0.0023110395735065755
+      },
+      "sign_stability": "5/8",
+      "surrogate_pass_count": 1,
+      "lambda_oos_r2_median": -0.03428784784705985,
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false
+    }
+  },
+  "bands_passing_all": [],
+  "PHASE1_VERDICT": "NEGATIVE",
+  "n_region_windows": 8
+}
