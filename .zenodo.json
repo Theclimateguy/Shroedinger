@@ -1,0 +1,24 @@
+{
+  "title": "Cross-scale organization of the atmospheric circulation: a falsification-grade research program (Shroedinger, gen3)",
+  "upload_type": "software",
+  "version": "4.0",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Sotiriadi, N."
+    }
+  ],
+  "description": "<p>Code, frozen protocols and numerical results of a preregistered research program on the cross-scale organization of the atmospheric circulation, computed from the ERA5 and MERRA-2 reanalyses.</p><p><strong>Objects.</strong> Two descriptors of the 850 hPa relative vorticity field are introduced and tested: the cross-scale <em>envelope-coupling profile P</em> (spatial rank correlation of the activity maps of adjacent octave levels) and the <em>transfer-asymmetry index A</em> (norm of the commutator of the estimated aggregation and detailing operators, i.e. a measure of how irreversible the transition between levels of description is).</p><p><strong>Main results.</strong> Both descriptors form stable regional signatures across seasons, years and ENSO phases (p = 0.001 on held-out samples). The index A carries information beyond the power spectrum, beyond the profile P and beyond semi-fractal level characteristics, is robust to controls for domain geometry and for the effective resolution of the reanalysis, and its regional geography replicates in an independent reanalysis (ERA5 vs MERRA-2, Spearman rho = 0.93, p &lt; 1e-4). Maxima occur over moist-convective oceanic regimes, minima over arid continental ones.</p><p><strong>Contents.</strong> Eight frozen preregistered protocols with deviation logs; an independent methodological audit and the remediation computations it prompted; a complete catalogue of the program's negative results (no relation to the cross-scale energy flux, no universal covariate law, no instantaneous local source, no vertical universality, no information on the reanalysis moisture-budget residual); per-region-window numerical results and figures; downloaders and a resumable pipeline; a table of all 73 experiments across three generations of the program.</p><p><strong>Note on earlier versions.</strong> This release supersedes the earlier snapshots of this repository. The empirical claim advertised by those snapshots (a local Lambda_b ~ Pi_b closure) was tested under the present program and not confirmed; see <code>docs/RECONCILIATION.md</code> for the authoritative scoreboard and <code>docs/RESEARCH_PROGRAM_FULL.csv</code> for the per-experiment status.</p>",
+  "keywords": [
+    "hierarchical organization of geosystems",
+    "scale invariants",
+    "atmospheric circulation",
+    "cross-scale coupling",
+    "ERA5",
+    "MERRA-2",
+    "reanalysis",
+    "reproducible research",
+    "preregistration"
+  ],
+  "access_right": "open"
+}

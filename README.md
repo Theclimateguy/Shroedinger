@@ -45,7 +45,8 @@ credentials. All experiments are resumable via per-region-window caches.
 
 ## Provenance
 
-- v1 manuscript (superseded; central claim retracted by Phase B1):
-  [Zenodo 19565805](https://zenodo.org/records/19565805) — `main.pdf`,
-  `main_ru.pdf`, `manuscript/` are kept for the record.
-- Citation metadata: `CITATION.cff`.
+- The earlier manuscript of this project is preserved for the record under
+  `legacy_manuscript_v1/` (see the note there) and archived separately as
+  [Zenodo 19565805](https://zenodo.org/records/19565805). Its central
+  empirical claim was re-tested here and not confirmed.
+- Citation metadata: `CITATION.cff`; Zenodo record metadata: `.zenodo.json`.

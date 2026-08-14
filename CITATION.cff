@@ -1,39 +1,37 @@
 cff-version: 1.2.0
-message: "If you use this repository or the accompanying manuscript, please cite it using the metadata below."
-title: "Scale Geometry of Complex Systems: Repository and Manuscript Artifacts"
-version: "2.2"
+message: "If you use this repository, please cite it using the metadata below."
+title: "Cross-scale organization of the atmospheric circulation: a falsification-grade research program (Shroedinger, gen3)"
+version: "4.0"
 type: software
 license: "MIT"
 repository-code: "https://github.com/Theclimateguy/Shroedinger"
 url: "https://github.com/Theclimateguy/Shroedinger"
-date-released: 2026-04-14
+date-released: 2026-08-14
 authors:
   - family-names: "Sotiriadi"
     given-names: "N."
 abstract: >-
-  Repository accompanying the manuscript "Scale Geometry of Complex Systems:
-  Formalism and Empirical Verification of Local Lambda_b--Pi_b Closure in
-  Atmospheric Data". The work introduces a gauge-invariant functional
-  Lambda_matter and tests the local Lambda_b ~ Pi_b closure in controlled toy
-  models and ERA5 atmospheric data, with the main atmospheric result
-  R^2_binned = 0.520 in the inertial range. The manuscript was originally
-  written in Russian and is distributed here together with its English
-  translation.
+  Code, frozen protocols and results of a preregistered research program on
+  the cross-scale organization of the atmospheric circulation, computed from
+  ERA5 and MERRA-2 reanalyses. Two descriptors of the 850 hPa relative
+  vorticity field are introduced and tested: the cross-scale envelope-coupling
+  profile P (spatial rank correlation of activity maps of adjacent octave
+  levels) and the transfer-asymmetry index A (norm of the commutator of the
+  estimated aggregation and detailing operators). Both form stable regional
+  signatures across seasons, years and ENSO phases; the index A additionally
+  carries information beyond the power spectrum, beyond P and beyond
+  semi-fractal level characteristics, and its regional geography replicates
+  across reanalyses (ERA5 vs MERRA-2, Spearman rho = 0.93). The release
+  contains eight frozen protocols with deviation logs, an independent
+  methodological audit and its remediation, a full catalogue of the program's
+  negative results, per-region-window numerical results and figures, and a
+  table of all 73 experiments across three generations of the program.
 keywords:
-  - scale geometry
-  - multiscale systems
-  - atmospheric dynamics
+  - hierarchical organization of geosystems
+  - scale invariants
+  - atmospheric circulation
+  - cross-scale coupling
   - ERA5
-  - renormalization group
-  - gauge invariance
-  - Hilbert bundle
-  - climate
-preferred-citation:
-  type: article
-  title: "Scale Geometry of Complex Systems: Formalism and Empirical Verification of Local Lambda_b--Pi_b Closure in Atmospheric Data"
-  authors:
-    - family-names: "Sotiriadi"
-      given-names: "N."
-  year: 2026
-  language: en
-  notes: "Original manuscript written in Russian; English translation included in repository release 2.2."
+  - MERRA-2
+  - reanalysis
+  - reproducible research
