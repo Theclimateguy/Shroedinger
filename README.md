@@ -1,116 +1,51 @@
-# Shroedinger v2.0
+# Shroedinger — gen3
 
-This repository accompanies the manuscript *Scale Geometry of Complex Systems: Formalism and Empirical Verification of Local Lambda_b--Pi_b Closure in Atmospheric Data*.
+Falsification-grade research program on cross-scale organization of the
+atmospheric circulation (ERA5 / MERRA-2). This branch supersedes the gen1/gen2
+program and **retracts the central empirical claim of the v1 manuscript**
+(the A15 "Lambda_b ~ Pi_b closure"): see `docs/RECONCILIATION.md`.
 
-The manuscript was originally written in Russian and then translated into English. Both PDF versions are included in this repository. The GitHub repository is the active research/development tree; immutable archival records for both the manuscript and the repository snapshot are published on Zenodo.
+## What stands (preregistered, held-out, audited)
 
-## Archival Links
+- **Transfer-asymmetry index ||F||** — a regional invariant of the 850 hPa
+  circulation (beyond spectrum, beyond envelope coupling, robust to geometry
+  controls), **replicated across reanalyses** (ERA5 vs MERRA-2, regional
+  geography Spearman rho = 0.93).
+- **Cross-scale envelope-coupling profile P** — a season-stable regional
+  signature (its "beyond-spectrum" component is conditional after geometry
+  control).
+- A complete catalogue of negative results (flux closure, universal laws,
+  local sources, level invariance, moisture-budget information content).
 
-- Manuscript record on Zenodo: [Scale Geometry of Complex Systems](https://zenodo.org/records/19565805)
-- Repository archive on Zenodo: [Shroedinger repository snapshot](https://zenodo.org/records/19565770)
-- Active GitHub repository: [Theclimateguy/Shroedinger](https://github.com/Theclimateguy/Shroedinger)
-- Citation metadata in this repository: [`CITATION.cff`](./CITATION.cff)
+## Repository map
 
-## Paper Summary
+- `docs/RESEARCH_PROGRAM_FULL.csv` — all 73 experiments (gen1-2 + gen3) with
+  final reconciliation statuses.
+- `docs/PROTOCOL_PHASE1..8_*.md` — frozen preregistered protocols with
+  deviation logs.
+- `docs/RECONCILIATION.md` — authoritative final scoreboard, audit findings,
+  retractions. `docs/PROGRAM_MAP.md` — narrative program map.
+- `clean_experiments/experiment_B*.py` — gen3 experiments (B1-B8);
+  `download_b*.py` — data downloaders (CDS API / NASA Earthdata).
+- `clean_experiments/results/` — per-region-window JSON results, reports,
+  figures (`results/figures/`).
+- `run_phase67_pipeline.sh` — resumable download+experiment pipeline.
+- Legacy gen1-2 scripts (T/A series) are retained for provenance;
+  their statuses are in the CSV.
 
-### Goal
-The paper tests the hypothesis that scale in complex systems can be treated as a bona fide coordinate of description, with interscale transfer represented as geometrically organized dynamics rather than simple averaging.
-
-### Method
-The work introduces a gauge-invariant functional Lambda_matter, computed from the curvature of the connection and the state, and studies its band-resolved counterpart Lambda_b in the operational closure relation Lambda_b ~ Pi_b, where Pi_b is the spectral energy flux in a given scale band.
-
-The empirical program combines:
-- toy-model and internal validation blocks `T01 ... T20`
-- atmospheric and process-resolved blocks `A01 ... A15`
-- reproducible code in `clean_experiments/`
-- consolidated experiment metadata in `research_programm_summary.csv`
-
-### Main Results
-- Synthetic local-cell test `T20`: stable quasi-linear Lambda_b ~ Pi_b relation in the inertial range with `R^2_binned = 0.727`
-- ERA5 atmospheric local-cell test `A15`: positive inertial-range relation with `R^2_binned = 0.520` and `p = 0.008`
-- Process-resolved branch `A05`: memory is required at the finest scale, and the stronger GKSL/CPTP branch confirms that the restoration is not a numerical artifact
-
-### Current Theory Status
-- The local internal scale cell can be closed as a variational CP1/O(3)-type model: `S_cell -> n_* -> P_* -> A_i, F_ij -> Tr(rho F)`.
-- This does not close a full action-to-spacetime-stress theory, does not fix the absolute KMS relaxation scale, and does not define a unique real-source map.
-- See [`docs/THEORY_SCALE_CELL_VARIATIONAL_ADDENDUM.md`](./docs/THEORY_SCALE_CELL_VARIATIONAL_ADDENDUM.md) for the precise status and limitations.
-
-## Repository Contents
-
-Included:
-- `README.md`
-- `LICENSE`
-- `.gitignore`
-- `CITATION.cff`
-- `main.pdf`
-- `main_ru.pdf`
-- `manuscript/`
-- `clean_experiments/`
-- `research_programm_summary.csv`
-
-Main code and documentation:
-- `clean_experiments/EXPERIMENT_NUMBERING.md`: canonical numbering and experiment history
-- `clean_experiments/results/**/*.md`: curated experiment reports
-- `research_programm_summary.csv`: top-level program index
-- `docs/REPOSITORY_CATALOG.md`: branch audit and repository consolidation plan
-- `docs/THEORY_SCALE_CELL_VARIATIONAL_ADDENDUM.md`: local scale-cell variational closure status
-
-## Manuscript Artifact
-
-The current manuscript PDFs are available directly in this repository and are also archived in the Zenodo manuscript record:
-
-- [`main.pdf`](./main.pdf)
-- [`main_ru.pdf`](./main_ru.pdf)
-- [Zenodo manuscript record](https://zenodo.org/records/19565805)
-
-Editable manuscript source snapshots are tracked in `manuscript/`:
-
-- [`manuscript/main_eng.tex`](./manuscript/main_eng.tex)
-- [`manuscript/main.tex`](./manuscript/main.tex)
-- `manuscript/references*.bib`
-- `manuscript/figures/*.png`
-
-LaTeX build products inside `manuscript/` remain ignored; the root PDFs are the tracked publication artifacts.
-Local runtime/build parking lives in `legacy/`, which is also local-only and ignored by Git.
-
-## Citation and Versioning
-
-For citation metadata, use [`CITATION.cff`](./CITATION.cff).
-
-- Use the Zenodo manuscript record when you want a stable public reference to the paper text.
-- Use the Zenodo repository record when you want a stable public reference to the archived code snapshot.
-- Use the GitHub repository when you want the current working tree and ongoing repository history.
-
-## Environment
-
-Recommended:
-- Python `>=3.9`
-
-Minimal setup:
+## Reproduction
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install --upgrade pip
-pip install numpy pandas scipy matplotlib xarray netCDF4 global-land-mask
+python -m venv .venv && source .venv/bin/activate
+pip install numpy pandas scipy matplotlib xarray netCDF4 h5netcdf earthaccess cdsapi
 ```
 
-## Reproducibility
+ERA5 requires `~/.cdsapirc` (CDS API); MERRA-2 requires NASA Earthdata
+credentials. All experiments are resumable via per-region-window caches.
 
-1. Use canonical mapping from `clean_experiments/EXPERIMENT_NUMBERING.md`.
-2. Run scripts with explicit `--outdir`.
-3. For atmospheric experiments (`A*`), provide local ERA5/NetCDF-like inputs.
+## Provenance
 
-Examples:
-
-```bash
-python clean_experiments/experiment_A.py --outdir out/experiment_A
-python clean_experiments/experiment_scale_gravity_einstein_box.py --outdir out/experiment_scale_gravity_einstein_box
-python clean_experiments/experiment_scale_gravity_einstein_box_era.py --input /path/to/era_patch.nc --outdir out/experiment_scale_gravity_einstein_box_era
-```
-
-Use `--help` for script-specific CLI options.
-
-## License
-
-This repository is distributed under the MIT License. See [`LICENSE`](./LICENSE).
+- v1 manuscript (superseded; central claim retracted by Phase B1):
+  [Zenodo 19565805](https://zenodo.org/records/19565805) — `main.pdf`,
+  `main_ru.pdf`, `manuscript/` are kept for the record.
+- Citation metadata: `CITATION.cff`.
