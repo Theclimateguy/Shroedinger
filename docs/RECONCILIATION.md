@@ -222,3 +222,109 @@ the ladder at its saturated end, which u shows as well.
   p = 0.10 figure comes from the 12-region set.
 - Scattering and semi-fractal controls re-run on the 39-domain set — **not
   done**; those figures also come from the 12-region set.
+
+## Addendum, 2026-08-16 (bis): Phase 14 — the dynamics of P itself
+
+Protocol `docs/PROTOCOL_PHASE14_P_RELAXATION.md` (frozen before computation);
+code `clean_experiments/experiment_B14_p_relaxation.py`; results
+`clean_experiments/results/experiment_B14_p_relaxation/`. Tested:
+
+> dP_b/dt = -gamma_b (P_b - P_b^eq(regime)) + eta_b, regime = CAPE state,
+> on the 32 region-windows of R5-R12 x W5-W8 (6-hourly, instantaneous P,
+> no estimator window anywhere), fit R5-R8, validation R9-R12.
+
+**Verdict: FORM_REJECTED** (with the estimator itself validated). By
+component:
+
+- **Estimator gate passed.** The pipeline recovers known gamma on synthetic
+  OU ladders driven by the real CAPE series (median |log ratio| 0.25 and
+  0.08 at gamma = 0.2, 0.5), detects implanted coupling with 83% power, and
+  — the Phase-6a/12 disease control — flags coupling on Fourier
+  phase-randomized surrogates of the real P (full spectrum preserved) at
+  only 6.1% against a 5% nominal level (3200 surrogates, bound <= 10%). The
+  negatives below are therefore about the atmosphere, not the instrument.
+- **Relaxation exists but is fast and essentially memoryless.** Median
+  ACF of deseasonalized composite P: 0.61 at 6 h, 0.34 at 12 h, 0.15 at
+  24 h, ~0 beyond 48 h. Implied relaxation time ~12 h. Step-invariance of
+  gamma passes at 6-24 h (median max/min ratio 1.34 <= 2.0), but the
+  log-ACF linearity criterion fails by a hair (median R^2 0.8905 vs the
+  0.90 bar) — partly genuine multi-timescale structure in about half the
+  region-windows, partly the noise floor at lags where ACF has already
+  decayed to zero (post-hoc diagnostic `diagnostic_daily_steps.json`,
+  no criterion weight: at purely daily lags the exponential form is worse,
+  R^2 0.77, because there is no signal left beyond two days, not because a
+  slow component appears).
+- **No transferable regime coupling.** Per-region-window CAPE coefficient
+  exceeds the coherent (whole-day circular-shift) null in only 5/16 fit
+  region-windows; the sign is regionally split (R7_CONGO positive in 4/4
+  windows, R5_SPCZ negative in 4/4) so the pooled coefficient dies
+  (p = 0.13); the frozen pooled model beats a locally-fit AR(1) on held-out
+  regions in 4/16; CAPE beats the band-amplitude placebo in 8/16. On raw
+  (non-deseasonalized) series: 2/16. The regime-dependent-equilibrium
+  hypothesis, in any form that transfers across regions, is rejected.
+- **Noise term is clean.** Full-model residuals are white at daily
+  subsampling in 32/32 region-windows (Ljung-Box 10 lags, p > 0.01).
+- Descriptive only: CAPE-tercile equilibria are monotone-up in 13/32 and
+  monotone-down in 3/32 (weak, sign-inconsistent); window-median P is
+  higher in the El-Nino-side windows in 6/8 (JFM) and 7/8 (JAS) regions —
+  n = 8, season-confounded, not a claim.
+
+**What this settles.** The fluctuations of P around its regional value
+carry ~12 h of memory and no detectable regime dependence that survives the
+persistence-safe null, held-out transfer, and the amplitude placebo. Together
+with Phases 2-13 this closes the picture coherently: **P's information is its
+static regional value; its dynamics is fast, regime-blind relaxation around
+that value** — which is also why P fluctuations could never have helped the
+multi-day predictability targets of Phases 9-11. The honest equation of
+motion licensed by the data is dP/dt = -gamma (P - P^eq_region) + eta with
+gamma ~ (12 h)^-1, P^eq static per region, eta white at daily scale — a
+statement of stability, not of exploitable dynamics. Any future dynamical
+claim for the programme must look elsewhere than the time evolution of P
+(e.g. slow modulation of P^eq itself across seasons/years, which the
+92-day windows cannot resolve).
+
+## Addendum, 2026-08-16 (ter): Phase 15 — flux-derivative dynamics
+
+Author's postulation (corrected per section 9 of the frozen protocol,
+`docs/PROTOCOL_PHASE15_FLUX_DERIVATIVE.md`): the dynamical object is not
+the level of a scale-coupling descriptor but the rate of change of the
+Aluie cross-scale KE transfer itself, K_b(t) = 6-h difference of the net
+transfer into the resolved bands, predicted to correlate with the Phase-9
+error-growth rate lambda across regions. Code
+`clean_experiments/experiment_B15_flux_derivative.py`; series computed for
+all 80 region-windows with a pipeline that reproduces the frozen B1
+implementation exactly (C15-1: max relative difference 0.0).
+
+**Verdict: ESTIMATOR_INVALID.** The preregistered persistence gate C15-2
+— K evaluated on the Phase-12 synthetic generator with irrecoverability
+and temporal persistence swept independently — failed decisively before
+any forecast hypothesis was scored: Spearman(K, persistence) = -0.81
+(bar 0.5) and the persistence sweep moves K about four times more than
+the irrecoverability sweep. On the real fields the mandatory ACF report
+shows the flux series has the same fast memory as P (0.54 @ 6 h,
+0.13 @ 24 h).
+
+The failure is structural, and this is the finding of the phase: for any
+series with lag-delta autocorrelation rho(delta),
+
+    RMS(x_t - x_{t-delta}) = sd(x) * sqrt(2 (1 - rho(delta))),
+
+so ANY window-RMS summary of a finite-difference "derivative" is an exact
+function of fluctuation amplitude and persistence — precisely the two
+quantities the programme has already adjudicated (amplitude is the placebo
+that defeated A in Phases 9-11; persistence is the retracted content of
+A from Phase 12) — and carries no third degree of freedom. The
+flux-derivative family |dX/dt| summarized by magnitude cannot, in
+principle, pass the persistence gate.
+
+**The dynamical line of the programme is closed as tested three times and
+not supported**: B6a (descriptor charge-discharge: half the relaxation
+was estimator-window memory, zero held-out content), B14 (P relaxation:
+fast, regime-blind, FORM_REJECTED), B15 (flux derivative:
+persistence-inseparable by construction, ESTIMATOR_INVALID). Per the
+frozen Phase-15 rule the programme reverts to P as a static regional
+fingerprint — its validated role. Anything dynamical that remains lives
+either in slow modulation of P^eq across seasons/years (unresolvable in
+92-day windows) or in objects that are neither levels, nor lag-difference
+magnitudes, of scale statistics (e.g. signed/oriented transfer events,
+which would need a new protocol with its own persistence gate).
