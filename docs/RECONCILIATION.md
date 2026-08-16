@@ -328,3 +328,41 @@ either in slow modulation of P^eq across seasons/years (unresolvable in
 92-day windows) or in objects that are neither levels, nor lag-difference
 magnitudes, of scale statistics (e.g. signed/oriented transfer events,
 which would need a new protocol with its own persistence gate).
+
+## Addendum, 2026-08-17: Phase 16 — slow (ENSO) modulation of P^eq
+
+The one dynamical layer left open by Phases 14-15: does the static
+regional fingerprint P^eq move across years with ENSO? Hypothesis and
+direction came from the Phase-14 descriptive (window-median P higher on
+the El-Nino side in 13/16 same-season comparisons, regions R5-R12 only) —
+so the frozen design (`docs/PROTOCOL_PHASE16_PENV_SLOW_MODULATION.md`)
+made regions R1-R4, which no ENSO-flavoured look had ever touched, the
+sole confirmatory arm, with the ONI table (ERSST.v6) frozen into the
+protocol before any P was read. Inputs were the stored P values of
+Phases 2/2b/3 verbatim; the estimator gate (amplitude specificity of P on
+the Phase-12 generator) passed.
+
+**Verdict: NEGATIVE — and maximally instructive.** The fresh confirmatory
+arm is exactly flat: S = 0.000 (mean within-region-season Spearman of
+P^eq against ONI over 8 cells), p = 0.51. The replication arm — the very
+regions the hypothesis was generated on — "confirms" it at S = 0.375,
+p = 0.005. A pooled analysis (S = 0.25 over all 24 cells) would have
+cleared p < 0.05 and put an ENSO-modulation claim into the manuscript on
+the strength of the data that suggested it. The fresh-arm firewall
+existed precisely to prevent that publication. Next to a dead-flat fresh
+arm, the replication-arm significance is the textbook signature of
+hypothesis selection, not of a modulation that four independent regions
+mysteriously lack. (Declared power limit: the fresh arm could only see
+mean rho >= ~0.35, so this is a strong-effect exclusion, not proof of
+strict constancy — but the strong effect is what the descriptive had
+suggested.)
+
+**Programme status after Phases 14-16.** The stability statement is now
+final at every timescale the data resolve: within windows P relaxes in
+~12 h around P^eq (B14); P^eq shows no ENSO-scale movement detectable in
+eight years of windows (B16); and no derivative-magnitude object can
+carry dynamics at all (B15). P is a static regional fingerprint, full
+stop. The remaining open dynamical candidates are exactly two, both
+requiring new data or new objects: (i) monthly-resolved P over the full
+ERA5 period (1940-present) for a properly powered slow-modulation test;
+(ii) signed/oriented transfer events, with their own persistence gate.
