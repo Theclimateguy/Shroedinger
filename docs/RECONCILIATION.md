@@ -1,8 +1,14 @@
-# Program reconciliation (2026-08-13)
+# Program reconciliation (2026-08-13; superseded in part on 2026-08-16)
 
 Final audit-informed reconciliation of the B1-B7 program, incorporating the
 independent red-team audit, the literature positioning study, and the
 post-audit remediation computations (5c retest, B7, N2).
+
+> **Superseded in part, 2026-08-16.** Phases 9-13 changed two verdicts in the
+> scoreboard below. The interpretation of the transfer-asymmetry index
+> ||F|| (A) is **RETRACTED** (Phase 12), and the shared-observations caveat
+> attached to B8 is **CLOSED** (Phase 13). See the addendum at the end of
+> this file; where the two disagree, the addendum governs.
 
 ## Final scoreboard
 
@@ -156,3 +162,63 @@ explicitly.
   remains stated. Pre-publication checklist: MERRA-2 [x], geometry [x];
   EDA-spread correlation and anchored-Fnorm residualization remain optional
   strengthening controls.
+
+
+## Addendum (2026-08-16): Phases 9-13
+
+Five further preregistered phases, protocols in `docs/PROTOCOL_PHASE9..13_*.md`,
+results under `clean_experiments/results/experiment_B9..B13_*/`.
+
+| Phase | Question | Verdict |
+|---|---|---|
+| B9 | Does A predict the rate of ensemble forecast error growth (Sect. 6.2 hypothesis)? | **NEGATIVE** — sign opposite to prediction (-0.25 self-analysis, -0.32 ERA5); error growth is governed by baroclinicity (+0.86 with abs latitude); band-variance placebo wins (+0.81 vs 0.25) |
+| B10 | Does A predict the level of analysis-time mesoscale error? | **NEGATIVE** on 27 new lattice domains — raw +0.34/+0.40 but -0.19/-0.005 after controls; within-domain arm reverses sign; placebo -0.87 |
+| B11 | Does A predict the mesoscale deficit of ML weather models? | **NEGATIVE** for A (raw +0.59, -0.08 after controls, placebo -0.69). The mechanism ladder itself is a **positive result**: at 120 h in 200-800 km GraphCast loses 69 %, Pangu 55 %, GenCast ensemble mean 85 %, while HRES and a single GenCast sample lose ~0 % — the loss is confined to systems computing a conditional mean |
+| B12 | Is A a valid estimator of cross-level irrecoverability? | **ESTIMATOR_INVALID** — see below |
+| B13 | Do the regional geographies survive without data assimilation? | **ATMOSPHERIC** — P 0.71, A 0.90, u 0.77, persistence 0.98 (ERA5-to-ERA5 ceilings 0.93/0.90/0.81/0.98), all p=0.001 |
+
+### Two scoreboard entries above are hereby amended
+
+**B4 (transfer-asymmetry index).** The signature stands as a *statistic*; its
+*interpretation* is retracted. On synthetic fields where irrecoverability is
+known and swept over nine rungs x 20 realisations, A does not respond in
+either the spatial (rho = -0.32) or the modal (rho = -0.35) reading, and its
+across-rung spread (0.016) is smaller than the within-rung noise (0.046). It
+tracks temporal persistence instead: Spearman 1.0 on synthetic fields, +0.53
+on the 39 real domains, against +0.03 with the information measure. The cause
+is methodological and is the same defect already recorded for B6a: the
+transfer operators are fitted over a 20-step sliding window, so the more
+persistent the field, the more systematically the commutator norm is
+displaced. **A is a persistence statistic, not a measure of the
+irreversibility of generalisation.**
+
+**B8 (cross-reanalysis replication).** The stated caveat — that ERA5 and
+MERRA-2 share an observing network, so their agreement cannot separate the
+atmosphere from the observing system — is **closed** by Phase 13. The
+geographies replicate in a free-running CMIP6 HighResMIP integration
+(ECMWF-IFS-HR, `highresSST-present`) that assimilates no atmospheric
+observations. The properties belong to the atmosphere.
+
+### What this promotes
+
+**P becomes the primary object of the programme.** Phase 12 validated it
+where A failed: on the same frozen synthetic ladder P responds with
+rho = -0.883 (direction correct; the reference information measure u gives
++0.917, A gives -0.317), with a signal-to-noise ratio of 0.65 against 0.69
+for u and 0.35 for A. On real domains P agrees with u at rho = -0.93 while
+being nearly independent of band amplitude (+0.20) and of persistence (+0.02).
+Recorded honestly: -0.883 is marginally short of the |0.90| bar the protocol
+set for the reference estimator, the shortfall arising from the flattening of
+the ladder at its saturated end, which u shows as well.
+
+### Pre-publication checklist, updated
+
+- MERRA-2 replication [x]; geometry control [x]; free-running control [x]
+  (Phase 13, supersedes the "optional strengthening" line above).
+- Second free-running model (CMCC-CM2-VHR4) — declared in the Phase-13
+  protocol as required only on a negative result; the result was positive, so
+  it was not run. Available on the same ESGF node if hardening is wanted.
+- Geometry control for P re-run on the 39-domain set — **not done**; the
+  p = 0.10 figure comes from the 12-region set.
+- Scattering and semi-fractal controls re-run on the 39-domain set — **not
+  done**; those figures also come from the 12-region set.

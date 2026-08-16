@@ -139,3 +139,26 @@ protocol.
   of the W = 20 estimator window. The transfer operators are estimated over a
   20-step sliding window, so the more persistent the modal coefficients, the
   more systematically the commutator norm is displaced.
+
+- **2026-08-16, third diagnostic: the profile `P` on the same frozen ladder.**
+  Added before publication, on the observation that `A` had been dismantled
+  with an instrument that `P` itself had never been put through. The ladder
+  was replayed with the identical seed and ordering, so the numbers are
+  directly comparable with those already logged, and `P` was computed on the
+  same fields.
+
+  | estimator | Spearman vs the rung | across-rung spread / within-rung noise |
+  |---|---|---|
+  | `u` (reference) | +0.917 | 0.69 |
+  | **`P`** | **-0.883** | **0.65** |
+  | `A` | -0.317 | 0.35 |
+
+  `P` responds in the predicted direction — more independent fine-scale
+  activity means lower coupling — with a signal-to-noise ratio matching the
+  reference. Recorded exactly: -0.883 is marginally short of the |0.90| bar
+  the protocol set, the shortfall coming from the flattening of the ladder at
+  its saturated end, which `u` shows too (its top three rungs are 0.820,
+  0.818, 0.816). The discriminating comparison is not `P` against a threshold
+  but `P` and `u` against `A`: the first two respond, the third does not.
+  This is a diagnostic, added after the battery was scored, and carries no
+  criterion weight.

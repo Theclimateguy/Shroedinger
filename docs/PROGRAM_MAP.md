@@ -107,3 +107,28 @@ not established (estimator-memory null); B7 moisture closure NEGATIVE;
 N2 IVT normalization sharpens rather than collapses the signature;
 anchored (surrogate-excess) profiles adopted as primary objects — the
 anchored profile is non-monotone with an interior maximum.
+
+
+## Phases 9-13 (2026-08-16)
+
+The applied promise was tested three times and failed three times: the rate of
+ensemble forecast error growth (B9), the level of analysis-time mesoscale
+error (B10), and the mesoscale deficit of machine-learning weather models
+(B11). In each, plain band variance was a stronger predictor than the
+descriptors.
+
+B12 then asked whether the instrument measured what it was said to measure,
+and found that it did not: the transfer-asymmetry index does not respond to
+controlled irrecoverability at all, and follows temporal persistence instead.
+Its interpretation is retracted; the coupling profile P, which does respond,
+becomes the primary object.
+
+B13 closed the programme's declared decisive limitation: the regional
+geographies replicate in a free-running model that assimilates no atmospheric
+observations, so they are properties of the atmosphere and not of the
+observing network.
+
+Headline changes: A's interpretation RETRACTED; P promoted to primary and
+independently validated; observing-network confound CLOSED; applied content
+tested and not found, with the AI-blurring mechanism established as a result
+in its own right.

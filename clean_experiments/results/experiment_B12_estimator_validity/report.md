@@ -56,6 +56,18 @@ Within-rung noise is about 0.05 log units, so only the first row is a real respo
 | u vs envelope persistence | +0.04 |
 | A vs log band variance | -0.56 |
 
+## The profile P on the same ladder (added 2026-08-16)
+
+| estimator | Spearman vs the rung | across-rung spread / within-rung noise |
+|---|---|---|
+| `u` (reference) | +0.917 | 0.69 |
+| **`P`** | **-0.883** | **0.65** |
+| `A` | -0.317 | 0.35 |
+
+`P` responds in the predicted direction with a signal-to-noise ratio matching
+the reference; `A` does not respond at all. `P` had never been put through the
+instrument used to dismantle `A`, and now has been.
+
 ## Reading
 
 `A` does not measure what the manuscript says it measures. Under controlled
