@@ -1,0 +1,38 @@
+{
+  "title": "Cross-scale organisation of the atmospheric circulation: a falsification-grade research programme (Shroedinger, gen4)",
+  "version": "5.0",
+  "upload_type": "software",
+  "license": "MIT",
+  "language": "eng",
+  "creators": [
+    {
+      "name": "Sotiriadi, N."
+    }
+  ],
+  "description": "<p><strong>Falsification-grade research programme on the cross-scale organisation of the atmospheric circulation.</strong> This release supersedes v4.0 and records the outcome of five further preregistered phases (9-13), each with criteria frozen before the data were retrieved and every deviation logged.</p>\n\n<p><strong>What stands.</strong> The cross-scale envelope-coupling profile <em>P</em> - the spatial rank correlation between the activity maps of adjacent octave levels of the 850 hPa relative vorticity field - is a regional invariant: a season-, year- and ENSO-stable signature (p = 0.001 on held-out samples), not reducible to the semi-fractal level features or to symmetric cross-scale statistics. Its independence of the full power spectrum is conditional after the domain-geometry control (p = 0.10).</p>\n\n<p><strong>The observing-network confound is closed.</strong> The regional geography of <em>P</em> replicates in a free-running CMIP6 HighResMIP integration that assimilates no atmospheric observations (Spearman rho = 0.71 against an ERA5-to-ERA5 across-period ceiling of 0.93). The property belongs to the atmosphere, not to the observing system - the limitation that reanalysis-only studies cannot resolve.</p>\n\n<p><strong>What is retracted.</strong> The interpretation of the inter-level transfer asymmetry index <em>A</em>. The index remains a reproducible regional statistic (MERRA-2 rho = 0.93; free-running model rho = 0.90), but on synthetic fields where irrecoverability is known and swept it does not respond in either the spatial or the modal reading, while it tracks temporal persistence (Spearman 1.0 synthetic, +0.53 on real domains). <em>A</em> is a persistence statistic; the cause is methodological, the transfer operators being fitted over a sliding window.</p>\n\n<p><strong>Applied content: tested and not found.</strong> Three derived predictions were tested and failed - the rate of ensemble forecast error growth (NOAA GEFS), the level of analysis-time mesoscale error, and the mesoscale deficit of machine-learning weather models (WeatherBench 2). In all three, plain band variance was a stronger predictor than the descriptors. The AI-model result stands on its own: deterministic and ensemble-mean models lose 55-85 % of mesoscale variance at a five-day lead in the 200-800 km band, while a physical model and a single generative sample lose essentially none.</p>\n\n<p><strong>Contents.</strong> Fourteen frozen preregistered protocols with deviation logs; the full experiment catalogue with reconciliation statuses; per-region-window numerical results; the current manuscript (Russian) and its predecessors; and the complete catalogue of negative results.</p>",
+  "keywords": [
+    "hierarchical organisation of geosystems",
+    "invariants",
+    "scale",
+    "atmospheric circulation",
+    "reanalysis",
+    "ERA5",
+    "MERRA-2",
+    "regionalisation",
+    "generalisation",
+    "downscaling",
+    "preregistration",
+    "falsification",
+    "negative results",
+    "machine-learning weather prediction",
+    "HighResMIP"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.21940262",
+      "relation": "isNewVersionOf",
+      "scheme": "doi"
+    }
+  ],
+  "notes": "Supersedes release v4.0 (gen3). The gen3 branch is frozen; development continues on gen4."
+}

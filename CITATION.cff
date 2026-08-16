@@ -1,39 +1,39 @@
 cff-version: 1.2.0
-message: "If you use this repository or the accompanying manuscript, please cite it using the metadata below."
-title: "Scale Geometry of Complex Systems: Repository and Manuscript Artifacts"
-version: "2.2"
+message: "If you use this repository, please cite it using the metadata below."
+title: "Cross-scale organisation of the atmospheric circulation: a falsification-grade research programme (Shroedinger, gen4)"
+version: "5.0"
 type: software
 license: "MIT"
 repository-code: "https://github.com/Theclimateguy/Shroedinger"
 url: "https://github.com/Theclimateguy/Shroedinger"
-date-released: 2026-04-14
+date-released: 2026-08-16
 authors:
   - family-names: "Sotiriadi"
     given-names: "N."
 abstract: >-
-  Repository accompanying the manuscript "Scale Geometry of Complex Systems:
-  Formalism and Empirical Verification of Local Lambda_b--Pi_b Closure in
-  Atmospheric Data". The work introduces a gauge-invariant functional
-  Lambda_matter and tests the local Lambda_b ~ Pi_b closure in controlled toy
-  models and ERA5 atmospheric data, with the main atmospheric result
-  R^2_binned = 0.520 in the inertial range. The manuscript was originally
-  written in Russian and is distributed here together with its English
-  translation.
+  Preregistered research programme on the cross-scale organisation of the
+  atmospheric circulation. The surviving invariant is the envelope-coupling
+  profile P: the spatial rank correlation between activity maps of adjacent
+  octave levels of the 850 hPa relative vorticity field. P forms a season-,
+  year- and ENSO-stable regional signature (p = 0.001 on held-out samples),
+  replicates in an independent reanalysis, and - decisively - replicates in a
+  free-running CMIP6 HighResMIP integration that assimilates no atmospheric
+  observations (rho = 0.71 against an ERA5-to-ERA5 ceiling of 0.93), which
+  closes the observing-network confound. The interpretation of the
+  inter-level transfer asymmetry index A is retracted: A is a reproducible
+  regional statistic but responds to temporal persistence rather than to
+  cross-level irrecoverability. Three derived applied predictions were tested
+  and failed. The repository contains fourteen frozen protocols with
+  deviation logs, the full experiment catalogue, numerical results and the
+  complete catalogue of negative results.
 keywords:
-  - scale geometry
-  - multiscale systems
+  - hierarchical organisation of geosystems
+  - invariants
+  - scale
   - atmospheric dynamics
   - ERA5
-  - renormalization group
-  - gauge invariance
-  - Hilbert bundle
-  - climate
-preferred-citation:
-  type: article
-  title: "Scale Geometry of Complex Systems: Formalism and Empirical Verification of Local Lambda_b--Pi_b Closure in Atmospheric Data"
-  authors:
-    - family-names: "Sotiriadi"
-      given-names: "N."
-  year: 2026
-  language: en
-  notes: "Original manuscript written in Russian; English translation included in repository release 2.2."
+  - MERRA-2
+  - regionalisation
+  - downscaling
+  - preregistration
+  - negative results
