@@ -553,3 +553,34 @@ low-dimensional at this resolution. Loadings reproduce the Arm-A
 two-channel split globally (P <- eke/lat/sst/cape; spectral slope <-
 orography/land). Phase 20 closes with (Arm A, Arm B) =
 (DRIVERS_IDENTIFIED, GLOBAL_MAP_ATTRIBUTED_DIM1).
+
+## Addendum, 2026-08-18 (sexies): Phase 21 — theory-candidate tests, round 1
+
+Protocol `docs/PROTOCOL_PHASE21_QT_TESTS.md` (frozen with downloads
+launched at freeze time); code
+`clean_experiments/experiment_B21_qt_tests.py`; results
+`clean_experiments/results/experiment_B21_qt_tests/`.
+
+**Verdict: (P5_SUPPORTED, P1_UNDERPOWERED, P4_SUPPORTED).**
+
+- QT-P5 (sampling clock): SUPPORTED. tau of the P estimate scales with
+  the advective crossing time of the observation window (rho=+0.36,
+  p=0.001; 79/79 windows individually positive; log-log slope 0.32
+  [0.12, 0.62], sub-linear). Together with B19's band flatness this
+  completes the estimator-clock picture of QT-3.
+- QT-P1 (forced drift): UNDERPOWERED, right sign. Spectrum-fixed tile-P
+  trend over the top CAPE-trend tercile D_obs = -3.9e-5/yr (predicted
+  -0.74e-5/yr), p=0.081; CI covers prediction and zero. Remains open
+  with its original bar.
+- QT-P4 (tropical excess): SUPPORTED — the excess has a name. Among the
+  four indices named before consultation (PDO, AMO, DMI, IPO-TPI), the
+  Interdecadal Pacific Oscillation is coherent in two of the three
+  excess regions (R3_AMAZ T=0.45 p=0.001, R5_SPCZ T=0.60 p=0.001;
+  max-statistic over 8 index x smoothing combinations, joint
+  circular-shift null). ENSO was dead at 30x power while IPO is not:
+  the tropical interannual excess is a decadal tier-2 mode. R1_WPWP
+  stays unattributed.
+
+Candidate updated to v1.2 (E10 upgraded, E11/E12 added, predictions
+P3/P4/P5 marked scored, P1 open). Score to date: P3 PASS, P4 SUPPORTED,
+P5 SUPPORTED, P1 open (right sign), P2 untested.

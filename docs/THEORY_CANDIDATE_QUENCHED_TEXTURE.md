@@ -1,5 +1,5 @@
 # THEORY CANDIDATE: Quenched-Texture Organization of Atmospheric Scale Coupling
-## Status: CANDIDATE v1.1 (2026-08-18)
+## Status: CANDIDATE v1.2 (2026-08-18; Phase-21 round-1 test results entered)
 
 Standing rules: the candidate is falsifiable through QT-P1..QT-P5; each
 prediction names its falsification condition. Any edit that weakens a
@@ -55,30 +55,31 @@ All rows trace to frozen preregistered protocols
 | E7 | Long-record stationarity; no ENSO modulation | B16, B17, B19-C | Null at 30x Phase-16 power, on both carriers; era halves null |
 | E8 | Texture coordinates (QT-5) | B20-A | LOO-region R^2 = 0.40, p = 0.001; CAPE negative in 10/12 regions within-region (beyond-spectrum); EKE positive in 11/12 (spectrum-shared); orography loads on slope target only |
 | E9 | Co-emergence at tier 2 (QT-4) | B19-C | P vs E_syn lead-lag: peak at lag 0 (S = +0.165, null q95 = 0.04), no month-scale lead either way |
-| E10 | Known anomaly, open | B17, B19-C | Tropical interannual variance excess F = 1.5-1.8 (R1, R3, R5), carrier-robust, non-ENSO, unexplained |
+| E10 | Tropical excess attributed to a named decadal mode | B17, B19-C, B21-P4 | F = 1.5-1.8 excess (R1, R3, R5), carrier-robust, non-ENSO; associated with IPO-TPI in R3 (T=0.45, p=0.001) and R5 (T=0.60, p=0.001) under a named-before-consultation max-statistic test; R1 unattributed (p=0.155) |
+| E11 | Sampling clock (QT-3) scales with the observation window | B21-P5 | rho(ln tau, ln T_cross) = +0.36, p=0.001; 79/79 windows positive; log-log slope 0.32 CI [0.12, 0.62] (sub-linear) |
+| E12 | Global map effectively low-dimensional | B20-B | k80 = 1 (eke_syn alone = 85% of LOSO skill); QT-P3 bar was <= 3 |
 
 ## 3. Predictions and falsification conditions
 
-- QT-P1 (forced drift of theta). Where tier-1/2 fields trend
-  (convective-margin expansion, CAPE trend > 0), tile-P declines over
-  1979-2024 at fixed spectrum. Falsified if a preregistered trend
-  protocol at matched power finds no drift where the attribution of E8
-  predicts it.
+- QT-P1 (forced drift of theta). TESTED ONCE, UNDERPOWERED (Phase 21
+  Arm P1: D_obs = -3.9e-5/yr, right sign, ~5x D_pred, p=0.081, CI
+  covers prediction and zero). Remains OPEN with the original
+  falsification condition; the power route is a longer/denser carrier,
+  not a weaker bar.
 - QT-P2 (model transfer). A free-running model sharing tier-1 theta
   reproduces the global P map tile-by-tile. Falsified if a model with
   correct tier-1 fields yields a significantly different map.
-- QT-P3 (effective dimension). The global P map is predictable from
-  <= 3 independent covariate fields at out-of-block skill >= 80% of
-  the full-set skill. Falsified otherwise. (Scored: Phase 20 Arm B,
-  H-B3.)
-- QT-P4 (tropical excess). E10 reflects a slow tier-2 tropical mode
-  outside ONI; candidate predictors must be named in a frozen protocol
-  before consultation. Falsified if no named slow mode accounts for it
-  at matched power (E10 then stands as an anomaly against QT-1).
-- QT-P5 (sampling clock). tau of P-estimate fluctuations scales with
-  the advective crossing time of the observation window, not with band
-  scale. Falsified if tau varies with band scale at fixed window, or
-  fails to scale with window size.
+- QT-P3 (effective dimension). SCORED: PASS (Phase 20 Arm B, H-B3:
+  k80 = 1 against the bar <= 3). See E12.
+- QT-P4 (tropical excess). SCORED: SUPPORTED in the named-predictor
+  form (Phase 21 Arm P4: IPO-TPI coherent in R3+R5 at p=0.001, joint
+  circular-shift max-statistic null). Residual: R1_WPWP unattributed.
+  See E10.
+- QT-P5 (sampling clock). SCORED: SUPPORTED (Phase 21 Arm P5: positive
+  window-size scaling of tau, 79/79 windows, p=0.001; band-scale
+  flatness at fixed window from B19). Sub-linear slope 0.32
+  [0.12, 0.62]: the clock mixes pattern residence with pattern
+  lifetime. See E11.
 
 ## 4. Scope fence
 

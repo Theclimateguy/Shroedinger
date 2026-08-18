@@ -1,0 +1,83 @@
+{
+  "seed": 20260818,
+  "protocol": "docs/PROTOCOL_PHASE21_QT_TESTS.md",
+  "ARM_P5": {
+    "n_pairs": 318,
+    "H21_P5a": {
+      "rho": 0.35616946222226287,
+      "p": 0.001,
+      "pass": true
+    },
+    "H21_P5b": {
+      "frac_within_rw_positive": 1.0,
+      "n_rw": 79,
+      "pass": true
+    },
+    "slope_loglog": {
+      "point": 0.3206064711738078,
+      "ci95": [
+        0.12094209540056407,
+        0.6202777408197606
+      ]
+    },
+    "VERDICT_P5": "P5_SUPPORTED"
+  },
+  "ARM_P1": {
+    "n_tiles": 144,
+    "beta_cape_z": -0.005555500713245585,
+    "beta_cape_phys_per_Jkg": -2.667950414444271e-05,
+    "cape_trend_top_tercile_mean_Jkg_per_yr": 0.2770440369816915,
+    "D_pred_per_yr": -7.391397532846178e-06,
+    "H21_P1a": {
+      "D_obs_per_yr": -3.918600038487844e-05,
+      "p": 0.081,
+      "pass": false
+    },
+    "H21_P1b": {
+      "ci95": [
+        -0.00010365931502014237,
+        2.858365372450515e-05
+      ],
+      "covers_pred": true,
+      "covers_zero": true
+    },
+    "VERDICT_P1": "P1_UNDERPOWERED"
+  },
+  "ARM_P4": {
+    "named_indices": [
+      "pdo",
+      "amo",
+      "dmi",
+      "ipo_tpi"
+    ],
+    "per_region": {
+      "R1_WPWP": {
+        "T": 0.31122994652406416,
+        "best_index": "pdo_5yr",
+        "p": 0.155,
+        "null_q95": 0.3345004923952292,
+        "significant": false
+      },
+      "R3_AMAZ": {
+        "T": 0.4526753474121895,
+        "best_index": "ipo_tpi_annual",
+        "p": 0.001,
+        "null_q95": 0.41848739495798315,
+        "significant": true
+      },
+      "R5_SPCZ": {
+        "T": 0.6021446547762337,
+        "best_index": "ipo_tpi_annual",
+        "p": 0.001,
+        "null_q95": 0.3590108326950432,
+        "significant": true
+      }
+    },
+    "VERDICT_P4": "P4_SUPPORTED"
+  },
+  "PHASE21_VERDICT": [
+    "P5_SUPPORTED",
+    "P1_UNDERPOWERED",
+    "P4_SUPPORTED"
+  ]
+}
