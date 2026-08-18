@@ -1,0 +1,218 @@
+{
+  "seed": 20260818,
+  "protocol": "docs/PROTOCOL_PHASE20_P_GEOGRAPHY.md",
+  "n_tiles": 144,
+  "C20_1": {
+    "rho": 0.8741258741258742,
+    "pass": true,
+    "box_ref": {
+      "R10_INDO": 0.2599004780252775,
+      "R11_EURO": 0.28907211124897003,
+      "R12_SAM": 0.2782269616921743,
+      "R1_WPWP": 0.30630020052194595,
+      "R2_NATL": 0.36198312789201736,
+      "R3_AMAZ": 0.24384028216203052,
+      "R4_CASIA": 0.306317538022995,
+      "R5_SPCZ": 0.2869938711325328,
+      "R6_SATL": 0.35415182014306384,
+      "R7_CONGO": 0.33511153360207874,
+      "R8_AUS": 0.28589803228775656,
+      "R9_NPAC": 0.3730537220835686
+    },
+    "tile_med": {
+      "R10_INDO": 0.23014815151691437,
+      "R11_EURO": 0.23998140543699265,
+      "R12_SAM": 0.256084181368351,
+      "R1_WPWP": 0.23681055878599483,
+      "R2_NATL": 0.316874281813701,
+      "R3_AMAZ": 0.19784802322586376,
+      "R4_CASIA": 0.27167599772413575,
+      "R5_SPCZ": 0.24512448906898499,
+      "R6_SATL": 0.3048380662997564,
+      "R7_CONGO": 0.264356375982364,
+      "R8_AUS": 0.23835439731677371,
+      "R9_NPAC": 0.32804807648062706
+    }
+  },
+  "H20a": {
+    "loo_region_r2": 0.40373686764459993,
+    "p": 0.001,
+    "pass": true,
+    "perm_q95": -0.007078325501347041
+  },
+  "H20b": {
+    "orog_std": {
+      "ablation_drop_r2": 0.025444062115357324,
+      "spearman": -0.2506510730648662,
+      "p_block": 0.208,
+      "significant": false
+    },
+    "land_frac": {
+      "ablation_drop_r2": 0.04888062362367451,
+      "spearman": -0.3940291662909802,
+      "p_block": 0.059,
+      "significant": false
+    },
+    "coast_var": {
+      "ablation_drop_r2": -0.017298755819543876,
+      "spearman": -0.25115156042075315,
+      "p_block": 0.159,
+      "significant": false
+    },
+    "cape_mean": {
+      "ablation_drop_r2": 0.002285270234599124,
+      "spearman": -0.6138172172654931,
+      "p_block": 0.002,
+      "significant": true
+    },
+    "eke_syn": {
+      "ablation_drop_r2": 0.15963600772096265,
+      "spearman": 0.5909090909090909,
+      "p_block": 0.002,
+      "significant": true
+    }
+  },
+  "H20c": {
+    "orog_std": {
+      "per_region_rho": {
+        "R10_INDO": 0.06293706293706294,
+        "R11_EURO": -0.2377622377622378,
+        "R12_SAM": -0.1258741258741259,
+        "R1_WPWP": 0.14685314685314685,
+        "R2_NATL": 0.22377622377622378,
+        "R3_AMAZ": -0.44055944055944063,
+        "R4_CASIA": -0.2447552447552448,
+        "R5_SPCZ": 0.16783216783216784,
+        "R6_SATL": -0.2937062937062937,
+        "R7_CONGO": 0.5454545454545455,
+        "R8_AUS": -0.034965034965034975,
+        "R9_NPAC": 0.5384615384615385
+      },
+      "mean_rho": 0.025641025641025633,
+      "n_pos": 6,
+      "n_regions": 12,
+      "sign_consistent": false,
+      "p_within_perm": 0.764
+    },
+    "land_frac": {
+      "per_region_rho": {
+        "R10_INDO": 0.29632388416997957,
+        "R11_EURO": 0.034965034965034975,
+        "R12_SAM": -0.287215852018722,
+        "R1_WPWP": 0.19718798825711964,
+        "R2_NATL": -0.178899758494197,
+        "R3_AMAZ": -0.7132867132867133,
+        "R4_CASIA": 0.22377622377622378,
+        "R5_SPCZ": 0.5507369124043173,
+        "R6_SATL": -0.4803844614152615,
+        "R7_CONGO": -0.5104895104895105,
+        "R8_AUS": -0.2867132867132868,
+        "R9_NPAC": 0.5214300219176456
+      },
+      "mean_rho": -0.05271412641061419,
+      "n_pos": 6,
+      "n_regions": 12,
+      "sign_consistent": false,
+      "p_within_perm": 0.549
+    },
+    "coast_var": {
+      "per_region_rho": {
+        "R10_INDO": 0.29632388416997957,
+        "R11_EURO": 0.08391608391608392,
+        "R12_SAM": -0.2241684698682708,
+        "R1_WPWP": 0.09155156597651984,
+        "R2_NATL": -0.178899758494197,
+        "R3_AMAZ": 0.6643356643356644,
+        "R4_CASIA": -0.49650349650349657,
+        "R5_SPCZ": 0.5507369124043173,
+        "R6_SATL": -0.4803844614152615,
+        "R7_CONGO": 0.43356643356643365,
+        "R8_AUS": 0.23076923076923078,
+        "R9_NPAC": 0.5214300219176456
+      },
+      "mean_rho": 0.12438946756455409,
+      "n_pos": 8,
+      "n_regions": 12,
+      "sign_consistent": false,
+      "p_within_perm": 0.143
+    },
+    "cape_mean": {
+      "per_region_rho": {
+        "R10_INDO": -0.02097902097902098,
+        "R11_EURO": -0.5244755244755246,
+        "R12_SAM": -0.5594405594405596,
+        "R1_WPWP": 0.04195804195804196,
+        "R2_NATL": -0.7132867132867133,
+        "R3_AMAZ": -0.16783216783216784,
+        "R4_CASIA": -0.013986013986013986,
+        "R5_SPCZ": 0.2797202797202798,
+        "R6_SATL": -0.9440559440559443,
+        "R7_CONGO": -0.5174825174825175,
+        "R8_AUS": -0.46153846153846156,
+        "R9_NPAC": -0.7482517482517484
+      },
+      "mean_rho": -0.3624708624708626,
+      "n_pos": 2,
+      "n_regions": 12,
+      "sign_consistent": true,
+      "p_within_perm": 0.001
+    },
+    "eke_syn": {
+      "per_region_rho": {
+        "R10_INDO": 0.6223776223776225,
+        "R11_EURO": 0.6013986013986015,
+        "R12_SAM": 0.20979020979020982,
+        "R1_WPWP": 0.16083916083916086,
+        "R2_NATL": 0.6643356643356644,
+        "R3_AMAZ": -0.16783216783216784,
+        "R4_CASIA": 0.11188811188811189,
+        "R5_SPCZ": 0.1398601398601399,
+        "R6_SATL": 0.8111888111888113,
+        "R7_CONGO": 0.3636363636363637,
+        "R8_AUS": 0.41958041958041964,
+        "R9_NPAC": 0.7552447552447553
+      },
+      "mean_rho": 0.391025641025641,
+      "n_pos": 11,
+      "n_regions": 12,
+      "sign_consistent": true,
+      "p_within_perm": 0.001
+    }
+  },
+  "C20_2": {
+    "slope_target": {
+      "loo_region_r2": 0.3103115709990234,
+      "p": 0.004
+    },
+    "raw_P_spectrum_residualized": {
+      "loo_region_r2": -0.045819077371931805,
+      "p": 0.16
+    }
+  },
+  "PHASE20_VERDICT": "DRIVERS_IDENTIFIED",
+  "POSTHOC_mediation_descriptive": {
+    "label": "post-hoc descriptive, seed 20260818+400, computed after C20-2 readout",
+    "slope_target_loadings_spearman": {
+      "orog_std": 0.82,
+      "land_frac": 0.672,
+      "coast_var": 0.604,
+      "cape_mean": 0.145,
+      "eke_syn": -0.231
+    },
+    "anchored_residualized_on_tile_spectra": {
+      "loo_region_r2": -0.055,
+      "p": 0.146,
+      "within_region_cape": {
+        "n_pos": 2,
+        "n_regions": 12,
+        "mean_rho": -0.342
+      },
+      "within_region_eke": {
+        "n_pos": 8,
+        "n_regions": 12,
+        "mean_rho": 0.027
+      }
+    },
+    "reading": "C20-2 rule not triggered (loadings differ: slope target is orography/land-driven, anchored target is CAPE/EKE-driven). Mediation split: the EKE association is shared with the tile spectrum; the negative CAPE association survives spectrum residualization within regions (10/12)."
+  }
+}

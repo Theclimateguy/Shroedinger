@@ -478,3 +478,33 @@ a static regional value, and this is now known on both the degree and
 the equal-km territory. Open dynamical candidates remain exactly two:
 the deferred km-crop of the Phase-17 long record (Arm C, waits for
 b17daily), and signed/oriented transfer events (new protocol, own gate).
+
+## Addendum, 2026-08-18 (ter): Phase 20 Arm A — the geography of P
+
+Protocol `docs/PROTOCOL_PHASE20_P_GEOGRAPHY.md` (frozen 2026-08-18); code
+`clean_experiments/experiment_B20_p_geography.py`; results and tile maps
+`clean_experiments/results/experiment_B20_p_geography/`. After B6b's
+n=12 attribution failure, the phase changed the data carrier: anchored
+fine-P (50-400 km) as a map of 144 tiles inside the equal-km boxes,
+with leave-one-region-out prediction and region-block permutation nulls.
+
+**Verdict: DRIVERS_IDENTIFIED** — the first positive attribution of P in
+the program. Tiles reproduce the box signature (rho=0.874); the five
+on-disk covariates predict tile anchored P out-of-region (LOO R^2=0.40,
+p=0.001). Two drivers survive every control including the within-region
+test that no between-region confound can produce: convective regime
+(cape_mean, NEGATIVE, 10/12 regions, p=0.001) and storm-track activity
+(eke_syn, POSITIVE, 11/12, p=0.001). Orography, land fraction and
+coastlines show nothing at tile scale (orography instead drives the
+spectral slope — the C20-2 placebo has different loadings, so the
+spectrum-mediation clause is not triggered).
+
+Mediation (post-hoc, labeled): the EKE association is shared with the
+tile spectrum; the negative CAPE association survives spectrum
+residualization within regions. One-line physics: organized baroclinic
+cascades couple adjacent scales; intermittent deep convection decouples
+them beyond what the spectrum records. This is the program's first
+mechanism-level statement about what the P regionalization measures.
+Arm B (global sliding-window map; external covariates with anthropogenic
+and biological fields as pre-declared negative controls) is the frozen
+next step.
