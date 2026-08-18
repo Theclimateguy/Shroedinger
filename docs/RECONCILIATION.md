@@ -508,3 +508,24 @@ mechanism-level statement about what the P regionalization measures.
 Arm B (global sliding-window map; external covariates with anthropogenic
 and biological fields as pre-declared negative controls) is the frozen
 next step.
+
+## Addendum, 2026-08-18 (quater): Phase 19 Arm C — long record on the km carrier
+
+Spec frozen inside `docs/PROTOCOL_PHASE19_KM_DYNAMICS.md` after b17daily
+completed (552/552) and before any computation; code
+`clean_experiments/experiment_B19_armC_km_longrecord.py`.
+
+**Verdict: (a_ENSO_STAYS_NULL, a_EXCESS_CARRIER_ROBUST).** The ENSO
+negative survives the km carrier (pooled S=0.030, p=0.077, two-sided) —
+with the honest nuance that the statistic triples relative to degrees
+and is carried almost entirely by R5_SPCZ (rho=+0.32), which stays the
+programme's single preregisterable ENSO target (now with 1979-2016 km
+SPCZ consulted, so any future SPCZ protocol must use other data or
+declare the consultation). The tropical interannual variance excess is
+retained 3/3 (R1 1.79, R3 1.50, R5 1.76 vs q95~1.43): carrier-robust,
+non-ENSO, unexplained — the geometry alternative for both long-record
+findings is closed. The declared lead-lag probe (P vs E_syn, 46 years)
+shows a sharp contemporaneous peak (S=+0.165, null q95=0.04) with no
+month-scale lead either way: synoptic activity and cross-band coupling
+covary as facets of one organization, supporting the co-emergence
+framing over any directional "centers of action drive P" reading.

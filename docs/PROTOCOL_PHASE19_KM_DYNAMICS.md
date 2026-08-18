@@ -137,3 +137,29 @@ as ell^alpha" — no irreversibility or causality language.
 ## Deviations
 
 - (none yet)
+
+## Arm C execution spec (frozen 2026-08-18, before any Arm-C computation;
+## data/b17daily complete at 552/552 at freeze time)
+
+- Series: the 552 region-year daily files km-cropped with the Phase-18
+  region table; daily P = envelope_rho_profile bands (3,4) composite,
+  daily V as in B17; monthly medians with the B17 MIN_DAYS=20 rule.
+  Additionally a monthly synoptic-activity proxy E_syn: interior mean of
+  the across-days variance of u and v within the month (daily 00Z
+  sampling; this is a proxy, not the 6-h EKE of Phase 20).
+- H-C1 (confirmatory): the B17 pooled ENSO statistic S on km monthly
+  anomalies, identical circular-shift null (999), CONF_YEARS 1979-2016,
+  two-sided. Registered both ways: (a) stays null -> the degree-box
+  ENSO negative is not a dilution artefact; (b) becomes significant ->
+  dilution found, ENSO reopens on the km carrier.
+- H-C2 (confirmatory): the B17 C17-0 interannual variance F-ratio per
+  region on km anomalies. Question: do the three degree-box excess
+  regions (R1_WPWP F=1.75, R3_AMAZ 2.24, R5_SPCZ 2.07) retain
+  F > null q95? (a) >=2 of 3 retained -> the tropical excess is
+  carrier-robust (physical, still unexplained); (b) <=1 retained ->
+  reported as substantially a degree-box geometry artefact.
+- Secondary (descriptive, the emergence-order probe): pooled lead-lag
+  Spearman S(lag) between monthly P anomalies and E_syn anomalies,
+  lags -6..+6 months, circular-shift null band; reported whatever it
+  shows, no scoring, no causal vocabulary beyond lead/lag asymmetry.
+- Seeds: 20260818. Verdicts: ARM_C = (ENSO leg a/b, excess leg a/b).
