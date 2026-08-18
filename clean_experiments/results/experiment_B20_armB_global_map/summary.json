@@ -1,0 +1,101 @@
+{
+  "seed": 20260818,
+  "protocol": "docs/PROTOCOL_PHASE20_P_GEOGRAPHY.md (Arm B spec)",
+  "n_tiles_total": 936,
+  "n_tiles_excluded_orog": 34,
+  "H_B0": {
+    "n_pairs": 133,
+    "rho": 0.8395840109295649,
+    "pass": true
+  },
+  "H_B1": {
+    "loso_r2": 0.5357542841968607,
+    "p_rot": 0.001,
+    "null_q95": 0.4551341872674083,
+    "pass": true
+  },
+  "H_B2": {
+    "tier1_r2": 0.48230746346653863,
+    "tier1_p": 0.002,
+    "tier2_increment": 0.05344682073032203
+  },
+  "H_B3": {
+    "forward_curve": [
+      {
+        "k": 1,
+        "added": "eke_syn",
+        "loso_r2": 0.45601689123967437
+      },
+      {
+        "k": 2,
+        "added": "abs_lat",
+        "loso_r2": 0.47723393428096816
+      },
+      {
+        "k": 3,
+        "added": "land_frac",
+        "loso_r2": 0.5080454345953012
+      },
+      {
+        "k": 4,
+        "added": "orog_std",
+        "loso_r2": 0.5370607509007934
+      },
+      {
+        "k": 5,
+        "added": "coast_var",
+        "loso_r2": 0.5377603001371329
+      },
+      {
+        "k": 6,
+        "added": "sst_grad",
+        "loso_r2": 0.5420422359031862
+      },
+      {
+        "k": 7,
+        "added": "cape_mean",
+        "loso_r2": 0.5395422809117009
+      },
+      {
+        "k": 8,
+        "added": "orog_mean",
+        "loso_r2": 0.5357542841968606
+      }
+    ],
+    "k80": 1,
+    "pass_theory_P3": true
+  },
+  "H_B4": {
+    "slope_loso_r2": 0.5695592729961121,
+    "loadings_slope": {
+      "orog_mean": 0.6518097200731923,
+      "orog_std": 0.7436664803093861,
+      "land_frac": 0.6724965220156269,
+      "coast_var": 0.6344056748702624,
+      "abs_lat": -0.05490108688016494,
+      "sst_grad": -0.2724857915444175,
+      "cape_mean": 0.2174538466494905,
+      "eke_syn": -0.11684284271495936
+    },
+    "loadings_anchP": {
+      "orog_mean": -0.111192963947482,
+      "orog_std": -0.14142656777644183,
+      "land_frac": -0.17016094897399447,
+      "coast_var": -0.0450037487244035,
+      "abs_lat": 0.6568844977075498,
+      "sst_grad": 0.5471441503741807,
+      "cape_mean": -0.517063603368415,
+      "eke_syn": 0.6624793822789621
+    }
+  },
+  "H_B5": {
+    "lai_gain": -0.0044834278547061235,
+    "p_rot": 0.832,
+    "confound_flag": false
+  },
+  "season_contrast": {
+    "median_abs": 0.016016699373722076,
+    "q90_abs": 0.04844057957331337
+  },
+  "ARM_B_VERDICT": "GLOBAL_MAP_ATTRIBUTED_DIM1"
+}

@@ -529,3 +529,27 @@ shows a sharp contemporaneous peak (S=+0.165, null q95=0.04) with no
 month-scale lead either way: synoptic activity and cross-band coupling
 covary as facets of one organization, supporting the co-emergence
 framing over any directional "centers of action drive P" reading.
+
+## Addendum, 2026-08-18 (quinquies): Phase 20 Arm B — the global map
+
+Spec frozen in `docs/PROTOCOL_PHASE20_P_GEOGRAPHY.md` before computation
+(one implementation deviation logged); code
+`clean_experiments/experiment_B20_armB_global_map.py`; results and maps
+`clean_experiments/results/experiment_B20_armB_global_map/`.
+
+**Verdict: GLOBAL_MAP_ATTRIBUTED_DIM1.** 936 global tiles (60S-60N,
+JFM+JAS 2023, 34 excluded for orography): the map is consistent with the
+Arm-A boxes (rho=0.840 over 133 overlapping tiles), season-stable
+(median seasonal contrast 0.016), and attributed at LOSO R^2=0.536
+against a conservative rotation null that certifies the non-zonal
+component specifically (p=0.001). The LAI biological negative control is
+clean (gain -0.004, p=0.83). The planet's P maxima are the Southern
+Ocean storm-track ring and the N Pacific / N Atlantic storm tracks; the
+minima are the deep convective cores (Amazon, Congo, Maritime
+Continent). Forward selection: eke_syn alone carries 85% of the full
+skill (k80=1) — the first scored test of a theory-candidate prediction
+(QT-P3, bar <=3) PASSES: the quenched constraint field is effectively
+low-dimensional at this resolution. Loadings reproduce the Arm-A
+two-channel split globally (P <- eke/lat/sst/cape; spectral slope <-
+orography/land). Phase 20 closes with (Arm A, Arm B) =
+(DRIVERS_IDENTIFIED, GLOBAL_MAP_ATTRIBUTED_DIM1).

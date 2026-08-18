@@ -285,12 +285,21 @@ def loso_r2(X: np.ndarray, y: np.ndarray, sector: np.ndarray) -> float:
 
 def rotate_cov(X: np.ndarray, tiles: list[dict], offset_deg: float,
                tid_index: dict[str, int]) -> np.ndarray:
+    """Rotate covariate rows in longitude within the ring of KEPT tiles of
+    each latitude row (excluded tiles leave gaps; rotation acts on the
+    ordered list of surviving tiles, shift = offset in that row's tile
+    widths)."""
     Xr = np.empty_like(X)
+    rows: dict[int, list[dict]] = {}
     for t in tiles:
-        shift = int(round(offset_deg / t["dlon"]))
-        src_col = (t["col"] + shift) % t["n_lon_row"]
-        src_tid = f"t{t['row']:02d}_{src_col:03d}"
-        Xr[tid_index[t["tid"]]] = X[tid_index[src_tid]]
+        rows.setdefault(t["row"], []).append(t)
+    for row_tiles in rows.values():
+        row_tiles = sorted(row_tiles, key=lambda t: t["col"])
+        n = len(row_tiles)
+        shift = int(round(offset_deg / row_tiles[0]["dlon"])) % max(n, 1)
+        for j, t in enumerate(row_tiles):
+            src = row_tiles[(j + shift) % n]
+            Xr[tid_index[t["tid"]]] = X[tid_index[src["tid"]]]
     return Xr
 
 

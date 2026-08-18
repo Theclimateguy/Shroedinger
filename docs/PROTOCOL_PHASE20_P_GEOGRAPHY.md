@@ -200,3 +200,15 @@ clean_experiments/experiment_B20_armB_global_map.py
 (stages: tiles / tests), results under
 clean_experiments/results/experiment_B20_armB_global_map/.
 Seed 20260818. Figures: visualize_B20_armB_global.py (THE map).
+
+## Deviations (Arm B)
+
+- 2026-08-18 (implementation, logged at first tests run): the longitude
+  rotation of the covariate map operates within the ring of surviving
+  (non-excluded) tiles of each latitude row — excluded high-orography
+  tiles leave gaps, and rotating "through" them would demand covariate
+  values for unscored tiles. Shift = offset expressed in that row's tile
+  widths. Note: abs_lat is invariant under any longitude rotation, so
+  the null retains the full zonal-structure skill; the H-B1 test is
+  therefore a test of the NON-ZONAL attribution specifically
+  (conservative).
