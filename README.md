@@ -81,9 +81,9 @@ atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and *
   deviation logs.
 - `docs/RECONCILIATION.md` — authoritative final scoreboard, audit findings,
   retractions. `docs/PROGRAM_MAP.md` — narrative program map (through
-  Phase 20). `research_programm_summary.csv` — canonical experiment table
+  Phase 21). `research_programm_summary.csv` — canonical experiment table
   (TOY_MODEL / ATMOSPHERE_* / CLEAN_PHASES blocks).
-- `docs/THEORY_CANDIDATE_QUENCHED_TEXTURE.md` — theory candidate v1.1
+- `docs/THEORY_CANDIDATE_QUENCHED_TEXTURE.md` — theory candidate v1.2
   (seed note kept as `docs/THEORY_NOTE_QUENCHED_TEXTURE.md`).
 - `clean_experiments/experiment_B*.py` — gen3/gen4 experiments (B1-B21);
   `download_b*.py` — data downloaders (CDS API, NASA Earthdata, NOAA GEFS on
