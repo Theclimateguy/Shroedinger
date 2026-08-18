@@ -47,7 +47,7 @@ class Job:
         return f"{self.region}_{self.year}"
 
 
-def run_job(job: Job, max_retries: int = 5) -> str:
+def run_job(job: Job, max_retries: int = 12) -> str:
     if job.target.exists() and job.target.stat().st_size > 5_000_000:
         return f"SKIP {job.tag}"
     request = {
@@ -74,7 +74,7 @@ def run_job(job: Job, max_retries: int = 5) -> str:
         except Exception as exc:  # noqa: BLE001
             last_err = exc
             print(f"RETRYABLE {job.tag} attempt {attempt}: {exc}", flush=True)
-            time.sleep(60 * attempt)
+            time.sleep(min(90 * attempt, 600))
     return f"FAIL {job.tag}: {last_err}"
 
 

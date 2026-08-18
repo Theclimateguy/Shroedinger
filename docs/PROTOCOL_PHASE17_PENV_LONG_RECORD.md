@@ -154,4 +154,32 @@ would show); lag structure of the pooled cross-correlation P~ x ONI
 
 ## Deviations
 
-- (none yet)
+- **2026-08-17, download logistics (no analysis impact).** The CDS queue
+  rejected the initial 4-worker submission ("number of queued requests
+  temporarily limited"); the downloader was rerun with 2 workers, retry
+  cap raised 5 -> 12, backoff capped at 600 s, and an outer retry loop.
+  An early launch also wrote to a cwd-relative path and was restarted
+  from the project root; the frozen ONI file was re-fetched afterwards
+  and its sha256 prefix matched the one recorded in section 2
+  (e9359c8c6b7f89af). All 552 files arrived; every series had >= 360
+  daily steps (0 SHORT).
+- **2026-08-18, run record.** All 12 regions x 552 months complete.
+  **C17-0**: excess interannual variance in exactly 3 regions —
+  R3_AMAZ (F = 2.24 vs q95 = 1.42), R5_SPCZ (2.07), R1_WPWP (1.75); the
+  other nine sit at F ~= 0.7-1.35, consistent with no interannual
+  structure. **H17a FAILED decisively**: pooled S = 0.009, two-sided
+  p = 0.71, null SD 0.017 — the long record detects pooled |S| >= ~0.03
+  and finds nothing; the Phase-16 fresh-arm null is confirmed at ~30x
+  the power. C17-1 placebo moot (S_V = 0.058, itself null-consistent).
+  C17-2 era halves: -0.012 / +0.038, both null-scale. **H17b: the
+  2017-2024 check era alone shows S = +0.14 — the very anomaly that
+  spawned the hypothesis, now visible as an outlier against 38 flat
+  years rather than as a law.** Verdict **VARIANCE_WITHOUT_ENSO** (the
+  n >= 3 threshold is met exactly). Descriptive notes: largest
+  single-region ONI correlation is R5_SPCZ at rho = +0.35 (physically
+  plausible — SPCZ displacement is ENSO-tied — but post-hoc: with a
+  x12 selection correction it is not claimable and is left as a
+  candidate for a future single-region preregistered test); periodogram
+  of the 12-region mean has no dominant peak (top: ~4.7-yr period at
+  power 0.60 against a ~0.5 noise floor); decadal trends are <= 0.009
+  per decade in correlation units.
