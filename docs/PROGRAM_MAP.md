@@ -194,3 +194,19 @@ spectrum-shared), and it must drift with anthropogenic movement of theta
 (prediction QT-P1). Predictions QT-P1..P5 carry named falsification
 conditions. The retired vocabularies (Lambda, A-as-irreversibility) are
 not part of the candidate.
+
+## Phase 21 (2026-08-18) — theory-candidate tests, round 1 (B21) — (P5_SUPPORTED, P1_UNDERPOWERED, P4_SUPPORTED)
+
+First scored round of the quenched-texture predictions.
+- QT-P5 (sampling clock): SUPPORTED — tau of the P estimate scales with
+  the window's advective crossing time (rho=+0.36 p=0.001, 79/79
+  windows positive, slope 0.32 [0.12, 0.62]); with B19's band flatness
+  the estimator-clock reading of QT-3 is complete.
+- QT-P4 (tropical excess): SUPPORTED — among four indices named before
+  consultation, IPO-TPI is coherent in R3_AMAZ and R5_SPCZ (both
+  p=0.001): the carrier-robust excess is a decadal mode invisible to
+  ONI. R1_WPWP unattributed.
+- QT-P1 (forced drift): UNDERPOWERED — D_obs = -3.9e-5/yr, right sign,
+  ~5x prediction, p=0.081; open at its original bar.
+Candidate updated to v1.2; score: P3 PASS, P4+P5 SUPPORTED, P1 open,
+P2 untested. `PROTOCOL_PHASE21_QT_TESTS.md`
