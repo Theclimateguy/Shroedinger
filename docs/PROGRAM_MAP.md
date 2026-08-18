@@ -132,3 +132,65 @@ Headline changes: A's interpretation RETRACTED; P promoted to primary and
 independently validated; observing-network confound CLOSED; applied content
 tested and not found, with the AI-blurring mechanism established as a result
 in its own right.
+
+## Phases 14-17 (2026-08-16 .. 2026-08-18) — the dynamics and slow-modulation sweep
+
+- Phase 14 (B14) — P relaxation — **FORM_REJECTED**. tau ~ 12 h,
+  memoryless; CAPE regime coupling fails pooled null with an R7/R5 sign
+  split. `PROTOCOL_PHASE14_P_RELAXATION.md`
+- Phase 15 (B15) — flux-derivative dynamics — **ESTIMATOR_INVALID**.
+  RMS(dX/dt) = amplitude x persistence by identity; the derivative
+  estimator class is closed. `PROTOCOL_PHASE15_FLUX_DERIVATIVE.md`
+- Phase 16 (B16) — ENSO modulation of P^eq — **NEGATIVE** (fresh
+  confirmatory arm flat; multiplicity trap caught and documented).
+  `PROTOCOL_PHASE16_PENV_SLOW_MODULATION.md`
+- Phase 17 (B17) — long record 1979-2024 — **VARIANCE_WITHOUT_ENSO**.
+  ENSO dead at 30x power; tropical interannual excess F~2 in R1/R3/R5,
+  unexplained. `PROTOCOL_PHASE17_PENV_LONG_RECORD.md`
+
+## Phase 18 (2026-08-18) — equal-km design control (B18) — CONFIRMED_PHYSICAL
+
+Regions re-cut as 2000x2800 km boxes (same centres, index masks, no
+reprojection). All scored hypotheses passed; beyond-spectrum residual
+clustering significant on km (p=0.033 anchored / 0.007 raw) where the
+degree-box statistical control had left it at p=0.10. The box-geometry
+confound is closed BY DESIGN; the 2026-08-13 CONDITIONAL flag on P's
+beyond-spectrum claim is lifted. `PROTOCOL_PHASE18_EQUAL_KM_REGIONS.md`
+
+## Phase 19 (2026-08-18) — dynamics re-asked on km territory (B19) — NEGATIVE_TERRITORY_ROBUST
+
+Arm A: frozen B14 pipeline verbatim on km-cropped fields: FORM_REJECTED
+reproduces, R7 +4/4 / R5 -4/4 sign split survives the territory change —
+the territory-composition alternative is excluded; the dynamical
+negative is final for this data class. Arm B: tau_b(ell) — gate failed
+(spurious |alpha|=0.18) and the real data are flat anyway (~9-11 h at
+all scales 71-1131 km). Arm C (long record on km): ENSO stays null
+(S x3 but p=0.077, carried by SPCZ rho=+0.32 — the one preregisterable
+target); tropical excess retained 3/3; lead-lag P vs E_syn peaks
+sharply at lag 0 with no lead either way (co-emergence).
+`PROTOCOL_PHASE19_KM_DYNAMICS.md`
+
+## Phase 20 (2026-08-18) — the geography of P (B20) — DRIVERS_IDENTIFIED (Arm A)
+
+Carrier change: anchored fine-P (50-400 km) as a 144-tile map inside the
+km boxes. LOO-region R^2 = 0.40 (block-perm p = 0.001). Two drivers pass
+the within-region control: convective regime (CAPE, NEGATIVE, 10/12,
+beyond-spectrum) and storm-track activity (EKE, POSITIVE, 11/12,
+spectrum-shared). Orography moves the spectral slope, not P. Arm B
+(global ~936-tile map, two-tier covariates, longitude-rotation nulls) is
+frozen and computing at the time of this entry.
+`PROTOCOL_PHASE20_P_GEOGRAPHY.md`
+
+## Theory status (2026-08-18)
+
+The results of Phases 1-20 are consolidated into a falsifiable candidate:
+**Quenched-Texture Organization** (`THEORY_CANDIDATE_QUENCHED_TEXTURE.md`,
+v1.0; seed note v0.1 retained). One sentence: P is a functional of the
+local invariant measure of a fast ergodic layer over a quenched
+constraint field theta (boundary conditions + pinned circulation
+regimes); it has geography and no dynamics, its texture coordinates are
+convection (decouples, beyond-spectrum) and storm tracks (couples,
+spectrum-shared), and it must drift with anthropogenic movement of theta
+(prediction QT-P1). Predictions QT-P1..P5 carry named falsification
+conditions. The retired vocabularies (Lambda, A-as-irreversibility) are
+not part of the candidate.

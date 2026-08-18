@@ -1,5 +1,7 @@
 # Theory note: P as a functional of a quenched measure
 ## (interpretive framework v0.1 — not a protocol; dated 2026-08-18)
+## SUPERSEDED by THEORY_CANDIDATE_QUENCHED_TEXTURE.md (v1.0, same date);
+## retained as the seed-idea record.
 
 Author's seed idea (2026-08-18, paraphrased): there exists a
 multidimensional macroscopic vector in the atmosphere that conditions

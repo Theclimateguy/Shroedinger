@@ -131,3 +131,72 @@ reports.
 ## Deviations
 
 - (none yet)
+
+## Arm B execution spec (frozen 2026-08-18, after the Arm-A verdict and
+## the theory note, BEFORE any Arm-B computation; data/b20global complete)
+
+### Carrier
+
+Global tile grid, 60S-60N: latitude rows of 6 deg (~667 km); per row,
+longitude tiles of 700 km at the row centre, n_lon = floor(360/dlon),
+dlon = 360/n_lon (exact ring tiling). ~900 tiles. Two seasons computed
+independently (JFM 2023 = 202301-03, JAS 2023 = 202307-09, 6-hourly);
+the scored value per tile is the two-season mean; the seasonal contrast
+is descriptive. Tiles with tile-mean surface elevation > 1200 m are
+excluded from scoring (850 hPa below ground); count logged.
+Per tile-season: anchored fine-P exactly as Arm A (ELLS_FINE
+50-400 km, interior mask, 99 phase surrogates, seed scheme salted
+"glob_<tile>_<season>"), fine spectral features, eke_syn (variance about
+the 5-day running mean, tile interior).
+
+### Covariates, two tiers (the causality structure fixed by the author)
+
+- Tier-1 exogenous boundary fields: orog_mean, orog_std, land_frac,
+  coast_var, abs_lat, sst_grad (mean |grad SST| of the 2021-2024
+  climatology over ocean pixels; 0 where ocean fraction < 0.3).
+  Directional ("conditions") language permitted.
+- Tier-2 co-emergent state: cape_mean (2021-2024 global monthly
+  climatology), eke_syn. Organization language only; no direction.
+- Declared negative control: lai_mean (lai_lv + lai_hv climatology,
+  biological): expected to add nothing beyond [land_frac, cape, eke];
+  a significant increment flags a confound, not a discovery.
+  Anthropogenic control (nightlights): UNAVAILABLE offline — logged as
+  a deviation; deferred.
+
+### Statistics
+
+- Null model for everything: circular longitude rotation of the full
+  covariate map relative to the P map by a uniform random offset
+  >= 30 deg (999 draws, seed 20260818) — preserves all spatial
+  autocorrelation of both maps.
+- Cross-validation: leave-one-longitude-sector-out (6 sectors of
+  60 deg), R^2 pooled over held-out tiles.
+- H-B0 (sanity): within the 12 programme boxes, global-map tile values
+  must correlate with the Arm-A tile values at Spearman rho >= 0.7
+  (pooled over the overlapping tiles). Failure -> MAP_INCONSISTENT,
+  no scoring.
+- H-B1 (primary, ONE scalar): LOSO R^2 of tier-1 + tier-2 (8
+  covariates) predicting tile anchored fine-P; rotation-null p < 0.05
+  AND R^2 > 0.
+- H-B2 (tier separation): R^2(tier-1 only) and increment from tier-2;
+  both against the rotation null; descriptive.
+- H-B3 (effective dimension, theory P-3): greedy forward-selection
+  R^2(k) curve, k = 1..8; the theory expects <= 3 covariates to reach
+  >= 80% of the full R^2; scored as stated.
+- H-B4 (spectral placebo): H-B1 with the fine spectral slope as
+  target; report loadings comparison as in Arm A.
+- H-B5 (negative control): LAI increment over [land_frac, cape_mean,
+  eke_syn] via LOSO R^2 gain + rotation null; expected null.
+
+### Verdict
+
+MAP_INCONSISTENT (H-B0 fails) / GLOBAL_MAP_ATTRIBUTED (H-B1 passes;
+H-B3 outcome appended as _DIM<k80>) / GLOBAL_MAP_UNATTRIBUTED (H-B1
+fails). H-B5 failure appends _CONFOUND_FLAG whatever the rest says.
+
+### Compute
+
+clean_experiments/experiment_B20_armB_global_map.py
+(stages: tiles / tests), results under
+clean_experiments/results/experiment_B20_armB_global_map/.
+Seed 20260818. Figures: visualize_B20_armB_global.py (THE map).
