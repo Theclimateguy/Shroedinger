@@ -443,3 +443,38 @@ as on degree boxes — P's claim remains "beyond spectrum", not "strongest
 clustering". A remains a persistence statistic (Phase 12); Phase 18 scores
 it only as a geometry-robust negative control.
 
+
+## Addendum, 2026-08-18 (bis): Phase 19 — dynamics re-asked on the km territory
+
+Protocol `docs/PROTOCOL_PHASE19_KM_DYNAMICS.md` (frozen 2026-08-18); code
+`clean_experiments/experiment_B19_km_dynamics.py`; results
+`clean_experiments/results/experiment_B19_km_dynamics/`. Motivated by the
+author's objection that the dynamical negatives of B14 were obtained on
+degree boxes and might reflect territory composition rather than the
+atmosphere. Estimator-class deaths (B15, half of B6a) were declared
+non-re-askable in the frozen protocol; only the atmosphere-answer
+negative of B14 was re-asked, once, on the Phase-18 equal-km territory.
+
+**Verdict: (NEGATIVE_TERRITORY_ROBUST, ESTIMATOR_INVALID).**
+
+- Arm A: the frozen B14 pipeline on km-cropped fields returns
+  FORM_REJECTED again, every component at least as negative (per-rw
+  coupling 1/16 vs 5/16; pooled p=0.074; held-out 4/16), and the
+  R7_CONGO +4/4 / R5_SPCZ -4/4 CAPE-coefficient sign split reproduces
+  window-by-window on substantially different territory (sanity: km/deg
+  series correlation median 0.801, inside the informative window). The
+  territory-composition explanation is excluded; the B14 negative is
+  final for this data class.
+- Arm B: the new object tau_b(ell) — the scale hierarchy of coupling-
+  fluctuation timescales — failed its own preregistered estimator gate
+  (single-timescale synthetics yield spurious median |alpha|=0.178 >
+  0.15), and the real data show no hierarchy anyway: median alpha
+  0.000, CI [-0.08, +0.11], tau_b flat at ~9-11 h from 71 to 1131 km,
+  where eddy-turnover would give ~6x and sweeping ~11x spread.
+
+The stability statement of Phases 14-17 is thereby hardened: P's
+dynamics is fast, regime-blind, scale-undifferentiated relaxation around
+a static regional value, and this is now known on both the degree and
+the equal-km territory. Open dynamical candidates remain exactly two:
+the deferred km-crop of the Phase-17 long record (Arm C, waits for
+b17daily), and signed/oriented transfer events (new protocol, own gate).
