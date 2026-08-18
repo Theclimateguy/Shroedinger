@@ -9,8 +9,29 @@ atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and *
 - **Cross-scale envelope-coupling profile P** — a regional invariant of the
   850 hPa circulation: a season-, year- and ENSO-stable signature (p = 0.001
   on held-out samples), beyond the semi-fractal level features and beyond
-  symmetric cross-scale statistics. Its "beyond full power spectrum"
-  component is conditional after the geometry control (p = 0.10).
+  symmetric cross-scale statistics. Its beyond-spectrum component is
+  **physical, not cartographic**: the equal-km design control (Phase 18)
+  removed the box-geometry confound by construction and the beyond-spectrum
+  residual clustering survived (p = 0.033 anchored / 0.007 raw), lifting
+  the former conditional verdict.
+- **P has no accessible dynamics of its own** (Phases 14, 15, 19). Fast
+  (~10 h), memoryless relaxation to a static regional value; no regime
+  coupling on either grid (the R7/R5 sign split reproduces on equal-km
+  territory); no scale hierarchy of fluctuation timescales (tau flat
+  9-11 h over 71-1131 km); the derivative-estimator class is invalid by
+  identity. No ENSO modulation at 30x power over 1979-2024, on both
+  carriers (Phases 16, 17, 19C). One open anomaly: a tropical interannual
+  variance excess (F = 1.5-1.8 in R1/R3/R5), carrier-robust, non-ENSO.
+- **P's geography is attributable** (Phase 20, Arm A). As a 144-tile map,
+  out-of-region R^2 = 0.40 (p = 0.001): convective regime lowers P beyond
+  the spectrum (10/12 regions within-region), storm-track activity raises
+  it through the spectrum (11/12); orography acts on the spectral slope,
+  not on P. P and synoptic activity covary at lag 0 with no lead either
+  way (co-emergence, Phase 19C).
+- **Theory candidate**: `docs/THEORY_CANDIDATE_QUENCHED_TEXTURE.md` —
+  quenched-texture organization (P as a functional of the local invariant
+  measure over a quenched constraint field), postulates QT-1..5, evidence
+  map E1-E10, falsifiable predictions QT-P1..P5.
 - **The observing-network confound is closed** (Phase 13). The regional
   geography of P replicates in a free-running CMIP6 HighResMIP integration
   that assimilates no atmospheric observations (rho = 0.71 against an
@@ -46,11 +67,15 @@ atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and *
 
 - `docs/RESEARCH_PROGRAM_FULL.csv` — all 73 experiments (gen1-2 + gen3) with
   final reconciliation statuses.
-- `docs/PROTOCOL_PHASE1..13_*.md` — frozen preregistered protocols with
+- `docs/PROTOCOL_PHASE1..20_*.md` — frozen preregistered protocols with
   deviation logs.
 - `docs/RECONCILIATION.md` — authoritative final scoreboard, audit findings,
-  retractions. `docs/PROGRAM_MAP.md` — narrative program map.
-- `clean_experiments/experiment_B*.py` — gen3 experiments (B1-B13);
+  retractions. `docs/PROGRAM_MAP.md` — narrative program map (through
+  Phase 20). `research_programm_summary.csv` — canonical experiment table
+  (TOY_MODEL / ATMOSPHERE_* / CLEAN_PHASES blocks).
+- `docs/THEORY_CANDIDATE_QUENCHED_TEXTURE.md` — theory candidate v1.1
+  (seed note kept as `docs/THEORY_NOTE_QUENCHED_TEXTURE.md`).
+- `clean_experiments/experiment_B*.py` — gen3/gen4 experiments (B1-B20);
   `download_b*.py` — data downloaders (CDS API, NASA Earthdata, NOAA GEFS on
   AWS Open Data, WeatherBench 2, ESGF).
 - `clean_experiments/results/` — per-region-window JSON results, reports,
