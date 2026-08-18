@@ -1,0 +1,52 @@
+{
+  "seed": 20260818,
+  "protocol": "docs/PROTOCOL_PHASE22_QT_ROUND2.md",
+  "ARM_P2": {
+    "n_tiles": 902,
+    "rho_ceiling_e025_vs_e05": 0.8966570514609894,
+    "rho_model_vs_e05": 0.8690804048806521,
+    "rho_model_vs_e025": 0.8104008653304896,
+    "bars": {
+      "abs": 0.5,
+      "ceil_frac": 0.6,
+      "kill": 0.3
+    },
+    "model_map_loadings": {
+      "orog_std": -0.04649445903149863,
+      "land_frac": -0.04441953703895931,
+      "abs_lat": 0.7020687412175278,
+      "sst_grad": 0.5101634755210561,
+      "cape_mean": -0.4985926769853894,
+      "eke_syn_model": 0.6796448498569023
+    },
+    "VERDICT_P2": "P2_SUPPORTED"
+  },
+  "ARM_P1s": {
+    "n_tile_season_types": 288,
+    "beta_CS_per_Jkg": -2.667950414444271e-05,
+    "beta_T_per_Jkg": -6.763737267666612e-06,
+    "beta_ratio_T_over_CS": 0.25351810254972396,
+    "cape_trend_top_tercile_mean": 0.4259593961539141,
+    "D_pred_CS_per_yr": -1.1364385475052665e-05,
+    "D_pred_T_per_yr": -2.881077442278995e-06,
+    "H22_P1a": {
+      "D_obs_per_yr": -8.464882705124428e-05,
+      "p": 0.025,
+      "pass": true
+    },
+    "H22_P1b": {
+      "ci95": [
+        -0.000153339874586739,
+        -1.1535691813004782e-05
+      ],
+      "covers_pred_CS": false,
+      "covers_pred_T": false,
+      "covers_zero": false
+    },
+    "VERDICT_P1s": "P1_MIXED"
+  },
+  "PHASE22_VERDICT": [
+    "P2_SUPPORTED",
+    "P1_MIXED"
+  ]
+}

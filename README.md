@@ -37,11 +37,11 @@ atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and *
 - **Theory candidate** (v1.2): `docs/THEORY_CANDIDATE_QUENCHED_TEXTURE.md` —
   quenched-texture organization (P as a functional of the local invariant
   measure over a quenched constraint field), postulates QT-1..5, evidence
-  map E1-E12, predictions QT-P1..P5. Round-1 score (Phase 21): **P3 PASS
+  map E1-E12, predictions QT-P1..P5. Rounds 1-2 score (Phases 21-22): **P2 SUPPORTED (free-running model reproduces the global map at 97% of the resolution ceiling), P3 PASS
   (k80 = 1), P5 SUPPORTED (sampling clock), P4 SUPPORTED — the tropical
   interannual excess is coherent with the IPO** (named before
   consultation; ENSO null at 30x power), P1 open (right sign,
-  underpowered), P2 untested.
+  underpowered in round 1; round 2 detected the drift at p = 0.025 with the CI excluding zero — magnitude open, timescale-dependent response).
 - **The observing-network confound is closed** (Phase 13). The regional
   geography of P replicates in a free-running CMIP6 HighResMIP integration
   that assimilates no atmospheric observations (rho = 0.71 against an
@@ -77,15 +77,15 @@ atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and *
 
 - `docs/RESEARCH_PROGRAM_FULL.csv` — all 73 experiments (gen1-2 + gen3) with
   final reconciliation statuses.
-- `docs/PROTOCOL_PHASE1..21_*.md` — frozen preregistered protocols with
+- `docs/PROTOCOL_PHASE1..22_*.md` — frozen preregistered protocols with
   deviation logs.
 - `docs/RECONCILIATION.md` — authoritative final scoreboard, audit findings,
   retractions. `docs/PROGRAM_MAP.md` — narrative program map (through
   Phase 21). `research_programm_summary.csv` — canonical experiment table
   (TOY_MODEL / ATMOSPHERE_* / CLEAN_PHASES blocks).
-- `docs/THEORY_CANDIDATE_QUENCHED_TEXTURE.md` — theory candidate v1.2
+- `docs/THEORY_CANDIDATE_QUENCHED_TEXTURE.md` — theory candidate v1.3
   (seed note kept as `docs/THEORY_NOTE_QUENCHED_TEXTURE.md`).
-- `clean_experiments/experiment_B*.py` — gen3/gen4 experiments (B1-B21);
+- `clean_experiments/experiment_B*.py` — gen3/gen4 experiments (B1-B22);
   `download_b*.py` — data downloaders (CDS API, NASA Earthdata, NOAA GEFS on
   AWS Open Data, WeatherBench 2, ESGF).
 - `clean_experiments/results/` — per-region-window JSON results, reports,

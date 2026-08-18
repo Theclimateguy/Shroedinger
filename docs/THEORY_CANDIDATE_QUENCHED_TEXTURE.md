@@ -1,5 +1,5 @@
 # THEORY CANDIDATE: Quenched-Texture Organization of Atmospheric Scale Coupling
-## Status: CANDIDATE v1.2 (2026-08-18; Phase-21 round-1 test results entered)
+## Status: CANDIDATE v1.3 (2026-08-18; Phase-22 round-2 results entered)
 
 Standing rules: the candidate is falsifiable through QT-P1..QT-P5; each
 prediction names its falsification condition. Any edit that weakens a
@@ -58,17 +58,23 @@ All rows trace to frozen preregistered protocols
 | E10 | Tropical excess attributed to a named decadal mode | B17, B19-C, B21-P4 | F = 1.5-1.8 excess (R1, R3, R5), carrier-robust, non-ENSO; associated with IPO-TPI in R3 (T=0.45, p=0.001) and R5 (T=0.60, p=0.001) under a named-before-consultation max-statistic test; R1 unattributed (p=0.155) |
 | E11 | Sampling clock (QT-3) scales with the observation window | B21-P5 | rho(ln tau, ln T_cross) = +0.36, p=0.001; 79/79 windows positive; log-log slope 0.32 CI [0.12, 0.62] (sub-linear) |
 | E12 | Global map effectively low-dimensional | B20-B | k80 = 1 (eke_syn alone = 85% of LOSO skill); QT-P3 bar was <= 3 |
+| E13 | A free-running model reproduces the global map tile-by-tile | B22-P2 | rho(model, ERA5) = 0.869 at a resolution ceiling of 0.897 (97%); loadings mirror ERA5; different year, no assimilation |
+| E14 | A negative spectrum-fixed P drift exists in top-CAPE-trend tiles | B22-P1s | D_obs = -8.5e-5/yr, p = 0.025, CI [-1.53e-4, -1.15e-5] excludes 0; magnitude exceeds both linear calibrations (beta_T/beta_CS = 0.25, timescale-dependent response); ERA5-internal until a transient free-running control |
 
 ## 3. Predictions and falsification conditions
 
-- QT-P1 (forced drift of theta). TESTED ONCE, UNDERPOWERED (Phase 21
-  Arm P1: D_obs = -3.9e-5/yr, right sign, ~5x D_pred, p=0.081, CI
-  covers prediction and zero). Remains OPEN with the original
-  falsification condition; the power route is a longer/denser carrier,
-  not a weaker bar.
-- QT-P2 (model transfer). A free-running model sharing tier-1 theta
-  reproduces the global P map tile-by-tile. Falsified if a model with
-  correct tier-1 fields yields a significantly different map.
+- QT-P1 (forced drift of theta). STATUS: DRIFT_DETECTED_MAGNITUDE_OPEN
+  (Phase 22 Arm P1s, seasonal carrier): the sign leg is supported
+  (D_obs = -8.5e-5/yr, p = 0.025, CI excludes zero — see E14); the
+  magnitude leg is open — the drift exceeds the cross-sectional
+  calibration ~7x and the interannual calibration ~30x
+  (beta_T/beta_CS = 0.25: the response is timescale-dependent).
+  Completion requires (i) a transient free-running control for the
+  reanalysis-trend caveat and (ii) a calibration model that carries a
+  decadal response coefficient; both belong to a future protocol.
+- QT-P2 (model transfer). SCORED: SUPPORTED (Phase 22 Arm P2:
+  rho = 0.869 vs a 0.897 resolution ceiling, 902 tiles,
+  resolution-matched; bars 0.5 abs / 0.6 x ceiling). See E13.
 - QT-P3 (effective dimension). SCORED: PASS (Phase 20 Arm B, H-B3:
   k80 = 1 against the bar <= 3). See E12.
 - QT-P4 (tropical excess). SCORED: SUPPORTED in the named-predictor

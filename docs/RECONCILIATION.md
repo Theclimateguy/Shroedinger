@@ -584,3 +584,34 @@ launched at freeze time); code
 Candidate updated to v1.2 (E10 upgraded, E11/E12 added, predictions
 P3/P4/P5 marked scored, P1 open). Score to date: P3 PASS, P4 SUPPORTED,
 P5 SUPPORTED, P1 open (right sign), P2 untested.
+
+## Addendum, 2026-08-18 (septies): Phase 22 — theory-candidate tests, round 2
+
+Protocol `docs/PROTOCOL_PHASE22_QT_ROUND2.md` (frozen with the beta_T
+calibration amendment logged pre-computation); code
+`clean_experiments/experiment_B22_qt_round2.py`; results
+`clean_experiments/results/experiment_B22_qt_round2/`. No new data.
+
+**Verdict: (P2_SUPPORTED, P1_MIXED).**
+
+- QT-P2: SUPPORTED near the ceiling. On 902 resolution-matched tiles the
+  free-running ECMWF-IFS-HR integration (2014, no assimilation)
+  reproduces the ERA5 (2023) global texture map at rho = 0.869 against a
+  same-atmosphere resolution ceiling of 0.897 — 97% of the attainable
+  agreement; covariate loadings mirror ERA5. The map is a property of
+  the physics given tier-1 boundary conditions.
+- QT-P1 (seasonal carrier): the drift EXISTS — D_obs = -8.5e-5/yr in the
+  top-CAPE-trend tercile, p = 0.025, CI excluding zero (Phase 21's
+  annual carrier had the same sign at p = 0.081). The magnitude exceeds
+  the cross-sectional calibration ~7x and the detrended interannual
+  calibration ~30x (beta_T/beta_CS = 0.25): the response is
+  timescale-dependent, and space-for-time UNDERSTATES the decadal
+  response. By the frozen ladder this is P1_MIXED
+  (DRIFT_DETECTED_MAGNITUDE_OPEN in the candidate). Mandatory caveat:
+  observing-system changes make any ERA5 trend ERA5-internal until a
+  transient free-running control is scored — the named next protocol,
+  together with a decadal-response calibration model.
+
+Candidate updated to v1.3 (E13, E14). Prediction scoreboard: P2, P3,
+P4, P5 supported/passed; P1 sign-supported with magnitude open. The
+candidate has survived its first two adversarial rounds intact.

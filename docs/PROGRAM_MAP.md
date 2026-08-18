@@ -210,3 +210,15 @@ First scored round of the quenched-texture predictions.
   ~5x prediction, p=0.081; open at its original bar.
 Candidate updated to v1.2; score: P3 PASS, P4+P5 SUPPORTED, P1 open,
 P2 untested. `PROTOCOL_PHASE21_QT_TESTS.md`
+
+## Phase 22 (2026-08-18) — theory-candidate tests, round 2 (B22) — (P2_SUPPORTED, P1_MIXED)
+
+QT-P2: the free-running ECMWF-IFS-HR global map matches ERA5 at
+rho = 0.869 vs a 0.897 resolution ceiling (97%; 902 tiles, loadings
+mirrored) — the strongest confirmation of the candidate to date.
+QT-P1 on the seasonal carrier: the negative spectrum-fixed drift in
+top-CAPE-trend tiles is now detected (D_obs = -8.5e-5/yr, p = 0.025,
+CI excludes zero) but exceeds both linear calibrations
+(beta_T/beta_CS = 0.25 — timescale-dependent response); ERA5-internal
+until a transient free-running control. Candidate v1.3.
+`PROTOCOL_PHASE22_QT_ROUND2.md`
