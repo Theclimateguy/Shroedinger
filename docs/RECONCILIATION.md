@@ -367,40 +367,6 @@ requiring new data or new objects: (i) monthly-resolved P over the full
 ERA5 period (1940-present) for a properly powered slow-modulation test;
 (ii) signed/oriented transfer events, with their own persistence gate.
 
-## Addendum, 2026-08-18: Phase 18 — equal-km regionalization (design control)
-
-Protocol `docs/PROTOCOL_PHASE18_EQUAL_KM_REGIONS.md` (frozen 2026-08-17;
-zonal extent 2800 km, renumbering and further deviations logged there);
-code `clean_experiments/experiment_B18_equal_km_regions.py`; results and
-figures `clean_experiments/results/experiment_B18_equal_km_regions/`.
-
-The box-geometry item of this document ("Where the data may be
-non-representative", item 3) is now closed by DESIGN rather than by
-regression: the 12 regions were re-cut as 2000 x 2800 km boxes (same
-centres, native grid, index masks only) and the frozen Phase-2/3/4
-machinery re-run on the 48 primary and 32 held-out region-windows, with
-phase surrogates regenerated per km window.
-
-**Verdict: CONFIRMED_PHYSICAL.** All scored hypotheses passed: A negative
-control rho(deg,km)=0.972 with km signature p=0.001; anchored-P clustering
-on km boxes +1.256 p=0.001 (held-out 2021-22: +1.564 p=0.001); geography
-preserved (pooled rho 0.926); Congo-Amazon anchored rho_5 contrast keeps
-sign at 56% magnitude; extent sensitivity all-region rho >= 0.93; the
-deformation-radius-scaled reading agrees (p=0.001).
-
-The decisive number: LOO beyond-spectrum residual clustering of anchored P
-on equal-km boxes is +0.218 p=0.033 (raw P: +0.347 p=0.007), where the
-degree-box statistical control had left it at p=0.10. The 2026-08-13
-"collapse" under [abs lat, dx, domain width] regression is therefore best
-read as covariates absorbing latitude-correlated physical signal, not as
-evidence that the beyond-spectrum component was cartographic. P's
-beyond-spectrum claim is UNCONDITIONAL under the design control; the
-CONDITIONAL flag from the addendum of 2026-08-13 is lifted. The spectral
-placebo still clusters more strongly than P on km boxes (+2.538 p=0.001),
-as on degree boxes — P's claim remains "beyond spectrum", not "strongest
-clustering". A remains a persistence statistic (Phase 12); Phase 18 scores
-it only as a geometry-robust negative control.
-
 ## Addendum, 2026-08-18: Phase 17 — P^eq over the long record (1979-2024)
 
 The properly powered version of the Phase-16 question, on new data:
@@ -442,3 +408,38 @@ non-ENSO, and unexplained. The slow-modulation line is closed as tested
 (B16 -> B17); what remains of it is exactly one preregisterable
 question (SPCZ) and one open descriptive fact (the tropical F ~= 2
 excess), neither of which licenses any dynamical language for P.
+
+## Addendum, 2026-08-18: Phase 18 — equal-km regionalization (design control)
+
+Protocol `docs/PROTOCOL_PHASE18_EQUAL_KM_REGIONS.md` (frozen 2026-08-17;
+zonal extent 2800 km, renumbering and further deviations logged there);
+code `clean_experiments/experiment_B18_equal_km_regions.py`; results and
+figures `clean_experiments/results/experiment_B18_equal_km_regions/`.
+
+The box-geometry item of this document ("Where the data may be
+non-representative", item 3) is now closed by DESIGN rather than by
+regression: the 12 regions were re-cut as 2000 x 2800 km boxes (same
+centres, native grid, index masks only) and the frozen Phase-2/3/4
+machinery re-run on the 48 primary and 32 held-out region-windows, with
+phase surrogates regenerated per km window.
+
+**Verdict: CONFIRMED_PHYSICAL.** All scored hypotheses passed: A negative
+control rho(deg,km)=0.972 with km signature p=0.001; anchored-P clustering
+on km boxes +1.256 p=0.001 (held-out 2021-22: +1.564 p=0.001); geography
+preserved (pooled rho 0.926); Congo-Amazon anchored rho_5 contrast keeps
+sign at 56% magnitude; extent sensitivity all-region rho >= 0.93; the
+deformation-radius-scaled reading agrees (p=0.001).
+
+The decisive number: LOO beyond-spectrum residual clustering of anchored P
+on equal-km boxes is +0.218 p=0.033 (raw P: +0.347 p=0.007), where the
+degree-box statistical control had left it at p=0.10. The 2026-08-13
+"collapse" under [abs lat, dx, domain width] regression is therefore best
+read as covariates absorbing latitude-correlated physical signal, not as
+evidence that the beyond-spectrum component was cartographic. P's
+beyond-spectrum claim is UNCONDITIONAL under the design control; the
+CONDITIONAL flag from the addendum of 2026-08-13 is lifted. The spectral
+placebo still clusters more strongly than P on km boxes (+2.538 p=0.001),
+as on degree boxes — P's claim remains "beyond spectrum", not "strongest
+clustering". A remains a persistence statistic (Phase 12); Phase 18 scores
+it only as a geometry-robust negative control.
+
