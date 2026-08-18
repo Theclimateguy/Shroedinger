@@ -1,119 +1,92 @@
 # THEORY CANDIDATE: Quenched-Texture Organization of Atmospheric Scale Coupling
-## Status: CANDIDATE v1.0 (2026-08-18). Successor of THEORY_NOTE_QUENCHED_TEXTURE.md (v0.1).
+## Status: CANDIDATE v1.1 (2026-08-18)
 
-Rules of standing: this candidate is falsifiable through predictions
-QT-P1..QT-P5 below; each prediction names its falsification condition.
-It replaces — it does not rescue — the retired flux/irreversibility
-vocabulary (Lambda: Phase 1; A-as-irreversibility: Phase 12). Any future
-edit that weakens a falsification condition demotes the document back to
-note status. The manuscript is NOT updated from this document yet
-(author's decision, 2026-08-18).
-
----
+Standing rules: the candidate is falsifiable through QT-P1..QT-P5; each
+prediction names its falsification condition. Any edit that weakens a
+falsification condition demotes this document to note status. The
+retired vocabularies (Lambda as flux, A as irreversibility) are not
+part of the candidate.
 
 ## 1. Postulates
 
 - QT-1 (two layers). The resolved atmospheric state evolves as a fast
   stochastic process with spatially varying parameters,
-  d omega = F_theta(x)(omega) dt + noise, with mixing time T_fast of
-  hours, while the constraint field theta(x) — exogenous boundary
-  conditions (orography, land-sea geometry, insolation, SST
-  distribution) together with the stationary circulation organization
-  they pin (storm tracks, convective zones) — is quenched on the
-  observation window: T_theta >> decades.
-- QT-2 (the object). Locally the fast layer is ergodic on an invariant
-  measure mu_theta(x). The programme's validated observable is
+      d omega = F_theta(x)(omega) dt + noise,
+  mixing time T_fast ~ hours. The constraint field theta(x) —
+  exogenous boundary conditions (orography, land-sea geometry,
+  insolation, SST distribution) together with the stationary
+  circulation organization they pin (storm tracks, convective zones) —
+  is quenched on the observation window: T_theta >> 46 yr (measured
+  lower bound).
+- QT-2 (the observable). Locally the fast layer is ergodic on an
+  invariant measure mu_theta(x). The validated observable is
       P(x) = Phi[mu_theta(x)],
-  where Phi extracts the rank-dependence (copula) between adjacent
-  scale-band envelopes of 850 hPa vorticity — the component of mu not
-  fixed by second moments (beyond spectrum) nor by scattering-moment
-  hierarchies. Short name: the SCALE-COUPLING TEXTURE.
-- QT-3 (no functional dynamics). Functionals of a stationary measure
-  have no dynamics; only their sample estimates fluctuate, and those
-  fluctuations decorrelate on the mixing time of the sampled weather
-  patterns — one clock, common to all resolved scales, ~10 h at the
-  programme's domain sizes.
-- QT-4 (two-tier causal structure). Directional ("conditions",
-  "sets") language applies only to tier-1 exogenous components of
-  theta. Tier-2 components (synoptic activity, convective regime) are
-  co-emergent facets of the same organization as P: covariation
-  without direction, per the author's emergence thesis.
+  where Phi is the rank-dependence (copula) between adjacent
+  scale-band envelopes of 850 hPa vorticity: the component of
+  mu_theta not fixed by second moments nor by scattering-moment
+  hierarchies (the scale-coupling texture).
+- QT-3 (no functional dynamics). A functional of a stationary measure
+  has no dynamics; only its sample estimates fluctuate, decorrelating
+  on the mixing time of the sampled weather patterns — one clock,
+  common to all resolved scales (~10 h at the programme's domain
+  sizes).
+- QT-4 (two-tier causality). Directional language applies only to
+  tier-1 exogenous components of theta. Tier-2 state components
+  (synoptic activity, convective regime) are co-emergent with P:
+  covariation without direction.
+- QT-5 (texture coordinates). Two tier-2 coordinates set the texture:
+  convective regime lowers P beyond the spectrum; synoptic
+  (storm-track) activity raises P through the spectrum. Tier-1 relief
+  acts on the spectral slope, not on P.
 
-## 2. Evidence map (claims traceable to frozen-protocol results)
+## 2. Evidence
 
-| Postulate element | Supporting phase(s) | Result |
-|---|---|---|
-| P physical, geometry-free | B18 (design control) | CONFIRMED_PHYSICAL; beyond-spectrum residual p=0.033/0.007 on km |
-| P beyond spectrum / scattering | B2b, B3 | H2 positive; PHASE3 NOVEL |
-| Instrument-independent | B8, B13 | REPLICATED (MERRA-2); ATMOSPHERIC (free-running model) |
-| No level dynamics | B14, B19 Arm A | FORM_REJECTED; territory-robust (sign split reproduces window-by-window) |
-| No derivative observable | B15 | ESTIMATOR_INVALID by identity RMS = amp x persistence |
-| One clock, no scale hierarchy | B19 Arm B | tau_b flat 9-11 h over 71-1131 km (gate failed AND alpha ~ 0) |
-| Long-record stationarity | B16, B17, B19 Arm C | ENSO null at 30x power, both carriers; era halves null |
-| Tier-2 texture coordinates | B20 Arm A | CAPE negative beyond-spectrum (10/12 within-region), EKE positive spectrum-shared (11/12) |
-| Co-emergence (no direction) | B19 Arm C lead-lag | lag-0 peak S=+0.165, no month-scale lead either way |
-| Known anomaly (open) | B17, B19 Arm C | tropical interannual F~1.5-1.8 excess, carrier-robust, non-ENSO, unexplained |
+All rows trace to frozen preregistered protocols
+(docs/PROTOCOL_PHASE*.md) and committed results.
 
-## 3. Corrections absorbed from the author's seed idea
+| # | Claim | Phase(s) | Result |
+|---|---|---|---|
+| E1 | P is physical, not box-geometry | B18 | CONFIRMED_PHYSICAL (design control); beyond-spectrum residual clustering on equal-km boxes p=0.033 (anchored), p=0.007 (raw) |
+| E2 | P is beyond spectrum and beyond scattering statistics | B2b, B3 | H2 positive; PHASE3_VERDICT = NOVEL |
+| E3 | P is instrument-independent | B8, B13 | REPLICATED (MERRA-2); ATMOSPHERIC (free-running model, no assimilation) |
+| E4 | P has no level dynamics | B14, B19-A | FORM_REJECTED; reproduced on km territory incl. exact R7/R5 sign split (territory-robust) |
+| E5 | No valid derivative observable exists | B15 | ESTIMATOR_INVALID: RMS(Delta X) = sd * sqrt(2(1-rho)) identity |
+| E6 | One clock, no scale hierarchy | B19-B | tau_b = 9-11 h flat over 71-1131 km; alpha = 0.000, CI [-0.08, +0.11] |
+| E7 | Long-record stationarity; no ENSO modulation | B16, B17, B19-C | Null at 30x Phase-16 power, on both carriers; era halves null |
+| E8 | Texture coordinates (QT-5) | B20-A | LOO-region R^2 = 0.40, p = 0.001; CAPE negative in 10/12 regions within-region (beyond-spectrum); EKE positive in 11/12 (spectrum-shared); orography loads on slope target only |
+| E9 | Co-emergence at tier 2 (QT-4) | B19-C | P vs E_syn lead-lag: peak at lag 0 (S = +0.165, null q95 = 0.04), no month-scale lead either way |
+| E10 | Known anomaly, open | B17, B19-C | Tropical interannual variance excess F = 1.5-1.8 (R1, R3, R5), carrier-robust, non-ENSO, unexplained |
 
-1. Timescale of theta: measured content is T_theta >> 46 yr only; the
-   geological claim is an inference from the identification of theta.
-   Anthropogenic forcing moves parts of theta (SST, convective margins)
-   on decades — the source of QT-P1.
-2. Conditioning: restricted to tier-1 (QT-4); inside the organization
-   the data show lag-0 co-emergence.
-3. Dimensionality: an empirical parameter, currently small (two
-   coordinates carry the tile attribution); measured by QT-P3.
+## 3. Predictions and falsification conditions
 
-## 4. Falsifiable predictions
-
-- QT-P1 (warming drift). Along convective-margin expansion zones
-  (CAPE-trend positive), tile-P declines over 1979-2024 at fixed
-  spectrum. FALSIFIED IF a preregistered trend protocol at matched
-  power finds no drift where tier-2 attribution predicts it.
-- QT-P2 (model transfer). Any free-running model sharing tier-1 theta
-  reproduces the GLOBAL P map tile-by-tile (beyond B13's 12-region
-  ranking). FALSIFIED IF a model with correct tier-1 fields produces a
-  significantly different map.
+- QT-P1 (forced drift of theta). Where tier-1/2 fields trend
+  (convective-margin expansion, CAPE trend > 0), tile-P declines over
+  1979-2024 at fixed spectrum. Falsified if a preregistered trend
+  protocol at matched power finds no drift where the attribution of E8
+  predicts it.
+- QT-P2 (model transfer). A free-running model sharing tier-1 theta
+  reproduces the global P map tile-by-tile. Falsified if a model with
+  correct tier-1 fields yields a significantly different map.
 - QT-P3 (effective dimension). The global P map is predictable from
-  <= 3 independent covariate fields at out-of-block skill within 80%
-  of the full-set skill. FALSIFIED IF many more fields are required.
-  (Scored in Phase 20 Arm B, H-B3.)
-- QT-P4 (tropical excess). The F~1.6 excess reflects a slow tier-2
-  tropical mode outside ONI; a frozen protocol naming candidate
-  predictors (decadal SST patterns) before consultation must find it.
-  FALSIFIED IF no named slow mode accounts for it at matched power
-  (the excess then stands as an anomaly against QT-1 stationarity).
+  <= 3 independent covariate fields at out-of-block skill >= 80% of
+  the full-set skill. Falsified otherwise. (Scored: Phase 20 Arm B,
+  H-B3.)
+- QT-P4 (tropical excess). E10 reflects a slow tier-2 tropical mode
+  outside ONI; candidate predictors must be named in a frozen protocol
+  before consultation. Falsified if no named slow mode accounts for it
+  at matched power (E10 then stands as an anomaly against QT-1).
 - QT-P5 (sampling clock). tau of P-estimate fluctuations scales with
-  the domain-crossing (advective) time of the OBSERVATION window, not
-  with band scale. FALSIFIED IF tau varies with band scale at fixed
-  window, or fails to scale with window size. (Testable on existing
-  data by varying tile size.)
+  the advective crossing time of the observation window, not with band
+  scale. Falsified if tau varies with band scale at fixed window, or
+  fails to scale with window size.
 
-## 5. Non-claims (scope fence)
+## 4. Scope fence
 
-- No irreversibility, entropy-production, or information-flux claim is
-  made or implied. Those vocabularies are retired (Phases 1, 12, 15).
-- No skill claim: P carries no demonstrated predictive content for
-  weather or extremes (Phases 9-11 negative).
-- No novelty claim about the existence of storm tracks or convective
-  regimes; the claim is that ONE scalar texture functional of the
-  measure (i) is beyond-spectrum, (ii) is instrument-independent,
-  (iii) has a readable, attributable global geography, and (iv) has
-  strictly no accessible dynamics of its own — the combination, not
-  the ingredients, is the contribution.
-
-## 6. Naturalistic statement
-
-Weather is water; theta is the riverbed. The bed does not move while
-you watch the water — twenty phases looked for the bed answering the
-water and found silence at every power we could buy. But the bed
-decides, at every point, how the water is allowed to swirl: over the
-deep organized reaches (storm tracks) eddies of different sizes move
-together, braided; over the boiling shallows (deep convection) each
-eddy churns alone and the braiding tears. P is the braiding, measured.
-Not a flow, not a flux, not a memory — the local texture of the river's
-turbulence, and its map is a rubbing of the riverbed. The map can be
-read, it is the same in every honest instrument, and it will move only
-as fast as the riverbed itself — which is now being recarved on a human
-clock, and prediction QT-P1 says the rubbing must show it.
+- No irreversibility, entropy-production, or information-flux claims
+  (retired: Phases 1, 12, 15).
+- No predictive-skill claims (Phases 9-11 negative).
+- No novelty claim for storm tracks or convective regimes per se. The
+  contribution is the conjunction: one scalar functional of the local
+  measure that is (i) beyond-spectrum, (ii) instrument-independent,
+  (iii) globally mappable and attributable, (iv) strictly without
+  accessible dynamics of its own.
