@@ -344,6 +344,12 @@ def _model_series_one(args_t) -> str:
     months = np.asarray(du[tname].dt.month.values, dtype=int)
     du.close()
     dv.close()
+    # model lon is 0..359.5; the region boxes use -180..180
+    lon180 = ((lon + 180.0) % 360.0) - 180.0
+    order = np.argsort(lon180)
+    lon = lon180[order]
+    u = u[:, :, order]
+    v = v[:, :, order]
     out: dict = {"year": int(year), "regions": {}}
     for region in REGIONS:
         la, lo, uu, vv = km_crop(lat, lon, u, v, region, 1.0)

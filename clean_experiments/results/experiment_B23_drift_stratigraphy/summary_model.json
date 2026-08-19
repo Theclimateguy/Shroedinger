@@ -1,0 +1,17 @@
+{
+  "n_selected_units": 96,
+  "E_model_per_yr": -2.2994489104934522e-05,
+  "p": 0.221,
+  "ci95": [
+    -6.77805078905365e-05,
+    2.7751415346029955e-05
+  ],
+  "E_era5_per_yr": -8.464882705124428e-05,
+  "ci95_era5": [
+    -0.000153339874586739,
+    -1.1535691813004782e-05
+  ],
+  "ci_overlap_with_era5": true,
+  "physical_share_model_over_era5": 0.27164569086130674,
+  "VERDICT_H23a": "DRIFT_NOT_CONFIRMED_IN_MODEL"
+}

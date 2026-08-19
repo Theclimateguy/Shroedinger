@@ -1,5 +1,5 @@
 # THEORY CANDIDATE: Quenched-Texture Organization of Atmospheric Scale Coupling
-## Status: CANDIDATE v1.3 (2026-08-18; Phase-22 round-2 results entered)
+## Status: CANDIDATE v1.4 (2026-08-19; Phase-23 results entered; v2.0 blocked by the open QT-P1 magnitude/physicality leg)
 
 Standing rules: the candidate is falsifiable through QT-P1..QT-P5; each
 prediction names its falsification condition. Any edit that weakens a
@@ -59,7 +59,8 @@ All rows trace to frozen preregistered protocols
 | E11 | Sampling clock (QT-3) scales with the observation window | B21-P5 | rho(ln tau, ln T_cross) = +0.36, p=0.001; 79/79 windows positive; log-log slope 0.32 CI [0.12, 0.62] (sub-linear) |
 | E12 | Global map effectively low-dimensional | B20-B | k80 = 1 (eke_syn alone = 85% of LOSO skill); QT-P3 bar was <= 3 |
 | E13 | A free-running model reproduces the global map tile-by-tile | B22-P2 | rho(model, ERA5) = 0.869 at a resolution ceiling of 0.897 (97%); loadings mirror ERA5; different year, no assimilation |
-| E14 | A negative spectrum-fixed P drift exists in top-CAPE-trend tiles | B22-P1s | D_obs = -8.5e-5/yr, p = 0.025, CI [-1.53e-4, -1.15e-5] excludes 0; magnitude exceeds both linear calibrations (beta_T/beta_CS = 0.25, timescale-dependent response); ERA5-internal until a transient free-running control |
+| E14 | A negative spectrum-fixed P drift exists in top-CAPE-trend tiles | B22-P1s, B23-H23a | D_obs = -8.5e-5/yr, p = 0.025, CI excludes 0 (ERA5); one free-running transient member shows the right sign at ~27% magnitude but is null-consistent (E_model = -2.3e-5/yr, p = 0.22) — physicality UNRESOLVED, ERA5-internal suspicion stands |
+| E15 | P is not an early or sensitive reorganization indicator | B23-H23c/d | At the 1998/99 IPO transition P's step statistic loses to CAPE/E_syn/slope (25/47/42% vs 60% bar); trend SNR ranks LAST (0.67 vs CAPE 2.39). P is an architecture registrar, not an early-warning variable |
 
 ## 3. Predictions and falsification conditions
 
@@ -86,6 +87,12 @@ All rows trace to frozen preregistered protocols
   flatness at fixed window from B19). Sub-linear slope 0.32
   [0.12, 0.62]: the clock mixes pattern residence with pattern
   lifetime. See E11.
+- QT-P6 (stratigraphic indicator, strong form; entered and scored in
+  Phase 23). CLAIM: P'_texture marks atmospheric reorganization earlier
+  or more sensitively than mean-field indicators. SCORED: FAILED
+  (H23c: loses to CAPE/E_syn/slope at the 1998/99 IPO transition;
+  H23d: last in trend SNR). The claim is retired in its strong form;
+  no weak form is entered without a new frozen protocol. See E15.
 
 ## 4. Scope fence
 

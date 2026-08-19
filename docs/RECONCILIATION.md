@@ -615,3 +615,27 @@ calibration amendment logged pre-computation); code
 Candidate updated to v1.3 (E13, E14). Prediction scoreboard: P2, P3,
 P4, P5 supported/passed; P1 sign-supported with magnitude open. The
 candidate has survived its first two adversarial rounds intact.
+
+## Addendum, 2026-08-19: Phase 23 — drift physicality and stratigraphy
+
+Protocol `docs/PROTOCOL_PHASE23_DRIFT_STRATIGRAPHY.md`; code
+`clean_experiments/experiment_B23_drift_stratigraphy.py`; results
+`clean_experiments/results/experiment_B23_drift_stratigraphy/`.
+
+**Verdict: (DRIFT_NOT_CONFIRMED_IN_MODEL, STRATIGRAPHY_FAILED,
+SENSITIVITY_RANKED_ONLY).** One free-running transient member
+(ECMWF-IFS-HR highresSST-present r1, epochs 1979-86 vs 2007-14, the
+frozen ERA5 tile selection) shows the ERA5 drift's sign at ~27%
+magnitude but is null-consistent (p=0.22): the ERA5-internal suspicion
+stands, QT-P1 stays open, member escalation is blocked by the frozen
+no-member-shopping rule, and candidate v2.0 is NOT declared. The
+stratigraphic hypothesis fails both on-disk arms: at the 1998/99 IPO
+transition P transitions neither earlier nor sharper than CAPE, E_syn
+or the spectral slope (25/47/42% vs the 60% bar), and P ranks LAST in
+trend SNR (0.67 vs CAPE 2.39). The reorganization-detection question is
+answered NO on this record; P's established value — the only
+beyond-spectrum, instrument-independent, model-transferable structural
+map — is an architecture registrar, not an early-warning variable.
+Candidate updated to v1.4 (E14 annotated, E15 and QT-P6 FAILED entered).
+The only path to closing QT-P1: a new preregistered multi-member power
+protocol (~3 members resolve 3.5e-5/yr at this variance).

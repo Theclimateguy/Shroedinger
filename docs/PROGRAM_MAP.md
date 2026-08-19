@@ -222,3 +222,12 @@ CI excludes zero) but exceeds both linear calibrations
 (beta_T/beta_CS = 0.25 — timescale-dependent response); ERA5-internal
 until a transient free-running control. Candidate v1.3.
 `PROTOCOL_PHASE22_QT_ROUND2.md`
+
+## Phase 23 (2026-08-19) — drift physicality and stratigraphy (B23) — negatives with structure
+
+H23a: one transient free-running member reproduces the ERA5 drift's
+sign at ~27% magnitude but cannot reject zero (p=0.22) — QT-P1 stays
+open, v2.0 blocked, escalation gated off after the null. H23c/H23d: the
+stratigraphic hypothesis fails — P is neither an earlier nor a more
+sensitive reorganization indicator than CAPE/E_syn/slope (trend SNR
+last: 0.67 vs 2.39). Candidate v1.4. `PROTOCOL_PHASE23_DRIFT_STRATIGRAPHY.md`
