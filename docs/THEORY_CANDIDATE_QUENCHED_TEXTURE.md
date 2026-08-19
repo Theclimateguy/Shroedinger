@@ -1,7 +1,7 @@
 # THEORY CANDIDATE: Quenched-Texture Organization of Atmospheric Scale Coupling
 ## Status: CANDIDATE v1.4 (2026-08-19; Phase-23 results entered; v2.0 blocked by the open QT-P1 magnitude/physicality leg)
 
-Standing rules: the candidate is falsifiable through QT-P1..QT-P5; each
+Standing rules: the candidate is falsifiable through QT-P1..QT-P6; each
 prediction names its falsification condition. Any edit that weakens a
 falsification condition demotes this document to note status. The
 retired vocabularies (Lambda as flux, A as irreversibility) are not
