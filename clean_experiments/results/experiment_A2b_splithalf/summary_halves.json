@@ -1,0 +1,91 @@
+{
+ "protocol": "docs/PROTOCOL_AUDIT2B_SPLITHALF_DECONTAMINATION.md",
+ "version": "a2b_v1",
+ "seed": 20260818,
+ "n_common": 936,
+ "n_kept": 902,
+ "B1": {
+  "JFM": {
+   "r_half": 0.9234564354850177,
+   "spearman_half": 0.9026923281413314,
+   "r_full_spearman_brown": 0.9602051998148421,
+   "R2_ceiling_full_sample": 0.9219940257514608
+  },
+  "JAS": {
+   "r_half": 0.9092264633297409,
+   "spearman_half": 0.8839392168780389,
+   "r_full_spearman_brown": 0.9524553328723783,
+   "R2_ceiling_full_sample": 0.9071711611170329
+  },
+  "mean_R2_ceiling": 0.9145825934342469,
+  "cross_season_ceiling_used_before": 0.603
+ },
+ "B2": {
+  "JFM_Podd_INTeven": {
+   "r2_base": 0.48101340753195787,
+   "r2_full": 0.6871739516903097,
+   "increment": 0.20616054415835183,
+   "p_rot": 0.001,
+   "null_q95": 0.0005370265035063992
+  },
+  "JFM_Peven_INTodd": {
+   "r2_base": 0.46431330774279933,
+   "r2_full": 0.6678014114554848,
+   "increment": 0.20348810371268544,
+   "p_rot": 0.001,
+   "null_q95": 0.002496325177461012
+  },
+  "JAS_Podd_INTeven": {
+   "r2_base": 0.43443923423158226,
+   "r2_full": 0.6491174962197779,
+   "increment": 0.21467826198819562,
+   "p_rot": 0.001,
+   "null_q95": 0.002566079315537734
+  },
+  "JAS_Peven_INTodd": {
+   "r2_base": 0.4245612286004231,
+   "r2_full": 0.6301433987188503,
+   "increment": 0.20558217011842717,
+   "p_rot": 0.001,
+   "null_q95": 0.001843023548053171
+  },
+  "mean_increment": 0.20747726999441501,
+  "max_p": 0.001,
+  "verdict": "INTERMITTENCY_ADDS"
+ },
+ "B3": {
+  "same_half_increment_mean": 0.26131161372261236,
+  "decontaminated_increment_mean": 0.20747726999441501,
+  "shared_noise_share": 0.20601588640198598,
+  "split_half_reliability_of_block": {
+   "P_cascade": 0.8889064140578056,
+   "INT_sig2": 0.9305445438024347,
+   "INT_flat": 0.924136716875481,
+   "INT_mu": 0.9109413535831024
+  },
+  "attenuation_corrected_increment_mean": 0.20747726999441501
+ },
+ "B4": {
+  "rho_P_vs_R_AM_cyc_cross_half": 0.14510784422327846,
+  "rho_P_vs_R_AM_cyc_cross_half_range": [
+   0.12807047302468347,
+   0.1780787261223381
+  ],
+  "rho_P_vs_P_lin_cross_half": 0.8933615858067356,
+  "rho_P_vs_P_lin_cross_half_range": [
+   0.8825038998124553,
+   0.9014818302141961
+  ],
+  "rho_P_vs_P_cascade_cross_half": -0.2869541144530867,
+  "rho_P_vs_P_cascade_cross_half_range": [
+   -0.31189039382683176,
+   -0.26067277106741044
+  ],
+  "rho_P_vs_INT_sig2_cross_half": 0.5998096902477427,
+  "rho_P_vs_INT_sig2_cross_half_range": [
+   0.5900735736123781,
+   0.6136235459694678
+  ]
+ },
+ "VERDICT": "INTERMITTENCY_ADDS"
+}

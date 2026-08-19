@@ -143,15 +143,42 @@ Second prior-art claimant tested: the intermittent-cascade literature
 - A2c: the intermittency family loads like the Phase-20 SPECTRAL SLOPE
   target (orography/land), P loads like storm tracks + convection —
   different physics, reported side by side.
-- **A2d: +0.08, not +0.22.** The scored increment of the intermittency
-  battery over the frozen covariates was +0.225 (p = 0.001), passing
-  its bar; the post-hoc cross-season control shows ~70% of it is shared
-  sampling noise between P and the intermittency statistics computed on
-  the same sample. Signal-level increment +0.077 / +0.081 in the two
-  directions. The papers quote +0.08.
+- **A2d: superseded by AUDIT-2b — the number of record is +0.21.** The
+  scored increment was +0.225 (p = 0.001) but both it and its bar were
+  contaminated (shared sampling noise; a cross-season ceiling). See
+  Sect. 8.
 
 Net after two audits: the estimator is neither the amplitude-modulation
 coefficient (AUDIT-1) nor a cascade/intermittency statistic (AUDIT-2);
 its rank construction is decoration (AUDIT-1); its nearest live relative
 is the local log-envelope variance (rho = +0.69), which is cited, and
 which does not reproduce either its geography or its attribution.
+
+## 8. AUDIT-2b outcome (2026-08-19, frozen protocol
+`docs/PROTOCOL_AUDIT2B_SPLITHALF_DECONTAMINATION.md`)
+
+Split-half decontamination: P and the comparators computed on disjoint
+time-parity halves of the same tile-season. Results in
+`clean_experiments/results/experiment_A2b_splithalf/report_halves.md`.
+
+- **B1 — the ceiling was wrong, and it was wrong in the direction that
+  flattered the programme's competitors.** Within-season split-half
+  reliability of the anchored P map is 0.916, i.e. R^2 = **0.914** after
+  the Spearman-Brown correction. The 0.603 used before was the
+  cross-season figure, which charges real seasonal change to noise.
+  Restated: Phase-20's attribution explains **59%** of the reproducible
+  variance of the map, not 89%; covariates plus intermittency reach 83%.
+  About 40% of the map's reproducible variance is still unexplained.
+- **B2 (scored): INTERMITTENCY_ADDS, +0.207** (four combinations,
+  +0.203 to +0.215, all p = 0.001).
+- **B3:** the same-half increment is +0.261, so the shared-noise share
+  is 21%, not the ~70% the quick cross-season control suggested; that
+  control was biased low because the intermittency statistics are
+  themselves season-dependent.
+- **B4:** every earlier verdict survives a noise-immune recomputation —
+  P vs R_AM_cyc +0.145, P vs P_cascade -0.287, P vs P_lin +0.893
+  (~0.98 disattenuated), P vs INT_sig2 +0.600 (~0.65 disattenuated).
+- **Correction to AUDIT-1:** R_AM_cyc has within-season reliability 0.90
+  — it is not "nearly signal-free", it is season-dependent. P's map is
+  season-stable; the amplitude-modulation map is not. That is the
+  sharper claim and the one the papers carry.

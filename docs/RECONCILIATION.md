@@ -712,18 +712,61 @@ mask, band ladder and 99 surrogate realisations as Phase-20 Arm B.
   rho(P, INT_mu) = +0.100.
 - A2c (reported): the intermittency family loads on orography/land, the
   loading pattern of the Phase-20 spectral-slope target; P loads on
-  abs_lat/eke_syn/cape. Different physical targets.
+  abs_lat/eke_syn/cape. Different physical targets. (The "share of own
+  ceiling" figures in the A2c table use cross-season reliabilities and
+  are superseded by AUDIT-2b.)
 - A2d (scored secondary): the intermittency battery adds +0.225 LOSO
-  R^2 over the frozen covariates (p = 0.001), passing its bar — but the
-  bar was contaminated, because P and the intermittency statistics share
-  the sampling noise of the same tile-season sample while the ceiling
-  was estimated across seasons. The post-hoc cross-season control
-  (predict one season's P from the other season's intermittency) gives
-  +0.077 / +0.081. **The papers quote +0.08.** The contaminated number
-  is reported beside it; no bar was changed after the fact.
+  R^2 over the frozen covariates (p = 0.001), passing its bar — but both
+  the increment and the bar were contaminated (shared sampling noise;
+  a cross-season ceiling). **A2d is superseded by AUDIT-2b below: the
+  number of record is +0.207.**
 
 Standing after two audits: the estimator is not the amplitude-modulation
 coefficient, not the cascade correlation, not the intermittency
 exponent; its rank construction is decoration; its nearest live relative
 is the local log-envelope variance, cited, and not a substitute for
 either the map or its attribution.
+
+## Addendum, 2026-08-19 (quater): AUDIT-2b — split-half decontamination
+## and the correction of the map's reliability ceiling
+
+Protocol frozen before computation
+`docs/PROTOCOL_AUDIT2B_SPLITHALF_DECONTAMINATION.md`; code
+`clean_experiments/experiment_A2b_splithalf.py`; results
+`clean_experiments/results/experiment_A2b_splithalf/`. Each tile-season
+sample split by time parity into two disjoint halves; every AUDIT-1 and
+AUDIT-2 statistic recomputed per half with its own 99 surrogates. No new
+data. **This addendum supersedes A2d and every "share of ceiling"
+statement made before it.**
+
+**Verdict: INTERMITTENCY_ADDS (+0.207), and the map's R^2 ceiling is
+0.914, not 0.603.**
+
+- B1 (ceiling): within-season split-half reliability of the anchored P
+  map is r = 0.916 (JFM 0.924, JAS 0.909); Spearman-Brown to the full
+  sample gives r = 0.956, **R^2 ceiling 0.914**. The 0.603 used until
+  now was the CROSS-SEASON figure and charged real seasonal change to
+  noise. Restated: **Phase-20 Arm B explains 59% of the reproducible
+  variance of the global map, not 89%**; covariates + intermittency
+  reach 83%. The map is not nearly saturated; ~40% of its reproducible
+  variance is unattributed.
+- B2 (scored primary): with P and the intermittency block on disjoint
+  halves, the increment over the eight frozen covariates is **+0.207**
+  (JFM +0.206/+0.203, JAS +0.215/+0.206; all p = 0.001 against the
+  999-rotation null).
+- B3: the same-half increment is +0.261, so 21% of it was shared
+  sampling noise — not the ~70% the quick cross-season control in
+  AUDIT-2 suggested. That control was biased low because the
+  intermittency statistics are themselves season-dependent. The
+  protocol's attenuation correction is a no-op by construction (column
+  scaling does not change an OLS fit) and is reported as such.
+- B4 (noise-immune recomputation of the earlier primaries): P vs
+  R_AM_cyc +0.145 [0.128, 0.178]; P vs P_cascade -0.287 [-0.312,
+  -0.261]; P vs P_lin +0.893 (~0.98 disattenuated); P vs INT_sig2
+  +0.600 (~0.65 disattenuated). **All AUDIT-1 and AUDIT-2 verdicts
+  survive.**
+- Correction to AUDIT-1: R_AM_cyc's within-season split-half reliability
+  is 0.896 — as precise as P (0.916). It is not "nearly signal-free";
+  it is strongly SEASON-DEPENDENT, which is why its season-mean map is
+  weak. P's map is season-stable, the amplitude-modulation map is not;
+  that is the sharper claim and the one the papers carry.

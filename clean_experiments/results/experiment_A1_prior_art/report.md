@@ -43,16 +43,25 @@ papers must cite as prior art for the form.
 | R_AM_cyc | +0.062 | 0.049 | 0.256 | 0.95 |
 | R_AM_raw | +0.025 | 0.806 | 0.644 | 0.06 |
 
+(The "share of own ceiling" column uses CROSS-SEASON reliabilities and
+is superseded by AUDIT-2b, which measures the within-season ceiling:
+R^2 = 0.914 for P, so the Phase-20 attribution is 59% of attainable,
+not 91%.)
+
 Loadings for P and P_lin are identical to two decimals (abs_lat +0.66/
 +0.67, eke_syn +0.66/+0.67, cape_mean -0.52/-0.52, sst_grad +0.55/+0.54);
 R_AM_cyc's loading pattern is different and weak (orography-leaning,
 |rho| <= 0.29).
 
-Honest reading of the R_AM_cyc row: its low R^2 is NOT evidence that the
-amplitude-modulation coefficient is unattributable. It reaches 95% of
-its own reliability ceiling (0.256^2 = 0.066). The statistic simply has
-almost no reproducible tile-level signal to attribute — reliability 0.26
-against P's 0.77. The reproducible geography lives in the
+Reading of the R_AM_cyc row, CORRECTED BY AUDIT-2b: the reliability
+column above is CROSS-SEASON. Within a season the amplitude-modulation
+coefficient is estimated as precisely as P (split-half reliability 0.90
+vs P's 0.92, AUDIT-2b B1). It is therefore not a noisy statistic — it is
+a strongly SEASON-DEPENDENT one: its map changes between JFM and JAS
+while P's does not. Season-averaging, which is the Arm-B target
+construction, cancels most of it, which is why its season-mean map is
+both weakly reliable and weakly attributable. The correct statement for
+the papers: the reproducible, season-stable geography lives in the
 envelope-envelope form, not in the signal-envelope form.
 
 ## Consequences for the three papers

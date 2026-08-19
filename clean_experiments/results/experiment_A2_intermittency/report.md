@@ -66,32 +66,31 @@ statistics load on orography/land (INT_flat: orog_std +0.52, land_frac
 target of Phase 20, not of P (abs_lat +0.66, eke_syn +0.66, cape -0.52).
 The two families are attributed to different physics.
 
-## A2d (scored secondary) — increment over the frozen covariates
+## A2d (scored secondary) — SUPERSEDED BY AUDIT-2b
 
-- R^2 (8 Phase-20 covariates) = 0.536
-- R^2 (covariates + 4 intermittency statistics) = **0.761**,
-  increment **+0.225**, p = 0.001 (rotation null q95 = 0.003)
-- Frozen bar: R^2 >= 0.9 x 0.603 -> **map declared jointly explained**.
+As frozen, A2d gave R^2(covariates) = 0.536 -> R^2(covariates +
+intermittency) = 0.761, increment +0.225, p = 0.001, and passed its bar.
+Both the increment and the bar were contaminated: P and the
+intermittency statistics were computed from the SAME tile-season sample
+(shared sampling noise), while the ceiling 0.603 was estimated ACROSS
+seasons (which charges real seasonal change to noise).
 
-**Post-hoc decontamination (reported, not scored; see the protocol's
-deviation log).** The frozen bar is contaminated: P and the
-intermittency statistics are computed from the SAME tile-season sample,
-so they share sampling noise, and the ceiling 0.603 was estimated from
-cross-season agreement, which does not contain that shared noise.
-Predicting one season's P from the OTHER season's intermittency
-statistics removes the shared noise:
+AUDIT-2b (`docs/PROTOCOL_AUDIT2B_SPLITHALF_DECONTAMINATION.md`,
+`../experiment_A2b_splithalf/report_halves.md`) repeats the test with P
+and the intermittency block computed on disjoint time-parity halves of
+the same season, and measures the true within-season ceiling.
 
-| target | covariates | + intermittency of the other season | + intermittency of the same season |
-|---|---|---|---|
-| P (JAS) | +0.450 | +0.531 (increment **+0.081**) | +0.715 (increment +0.265) |
-| P (JFM) | +0.491 | +0.568 (increment **+0.077**) | +0.748 (increment +0.257) |
+**Numbers of record, from AUDIT-2b:**
 
-About 70% of the scored increment is shared estimation noise. The
-signal-level increment is **+0.08**, real and reproducible in both
-directions, but far below the "jointly explained" reading that the
-contaminated bar produced. The papers must quote +0.08, with the
-contaminated +0.225 shown as the naive number and this control beside
-it.
+- ceiling: R^2 = **0.914** (within-season split-half, Spearman-Brown),
+  not 0.603;
+- intermittency increment over the frozen covariates: **+0.207**
+  (four combinations, +0.203 to +0.215, all p = 0.001);
+- Phase-20 covariates alone explain **59%** of the reproducible variance
+  of the map, covariates + intermittency **83%**.
+
+The contaminated +0.225 and the quick cross-season estimate +0.08 quoted
+in the first version of this report are both retired.
 
 ## Consequences for the papers
 
@@ -101,8 +100,10 @@ it.
 2. The local intermittency parameter (log-envelope variance) is a
    substantial relative (rho = +0.69) and must be cited and reported,
    not hidden.
-3. Intermittency statistics add +0.08 LOSO R^2 to P's attribution after
-   noise decontamination; the geography of P is not reducible to them.
+3. Intermittency statistics add +0.21 LOSO R^2 to P's attribution
+   (AUDIT-2b, decontaminated); together with the covariates they reach
+   83% of the map's reproducible variance, so the geography of P is
+   substantially but not fully accounted for by them.
 4. The intermittency family loads like the spectral slope
    (orography/land), P loads like the storm-track/convection pair.
    Reporting this side by side is the cleanest way to show that P is a

@@ -30,8 +30,11 @@ atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and *
   prediction rho = -0.42 (CASCADE_DISTINCT) — the cascade prediction has
   no beyond-spectrum component at all (anchored 0.010 vs P's 0.256) —
   while the local intermittency parameter is a substantial relative
-  (rho = +0.69) that adds only +0.08 LOSO R^2 after cross-season noise
-  decontamination.
+  (rho = +0.69) that adds +0.21 LOSO R^2 (AUDIT-2b, split-half
+  decontaminated). AUDIT-2b also corrects the map's reliability ceiling:
+  within-season split-half gives R^2 = 0.914, so the Phase-20
+  attribution explains 59% of the reproducible variance, not 89% — the
+  global map is NOT nearly saturated.
 
 - **P has no accessible dynamics of its own** (Phases 14, 15, 19). Fast
   (~10 h), memoryless relaxation to a static regional value; no regime

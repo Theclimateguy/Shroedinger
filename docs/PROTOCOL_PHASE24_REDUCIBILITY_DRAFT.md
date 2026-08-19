@@ -34,14 +34,16 @@ global attractor dimension is estimated anywhere in this phase.
 
 ## 2. Scoping (pre-freeze, not scored)
 
-- Reliability ceiling of the anchored tile-P map: cross-season
-  (JFM 2023 vs JAS 2023) Pearson r = 0.776 over 936 tiles, i.e. an
-  R^2 ceiling of 0.603 (lower bound: real seasonal change is charged
-  to noise).
-- Phase-20 Arm B attribution reached LOSO R^2 = 0.536 = **89% of that
-  ceiling**. Headroom for ANY new tile-level variable is ~0.07 R^2.
-  Consequence: the map arm can strongly support H_B but can only
-  weakly support H_A. This is pre-registered as a power limit.
+- Reliability ceiling of the anchored tile-P map: **R^2 = 0.914**
+  (AUDIT-2b, within-season split-half 0.916 with the Spearman-Brown
+  correction). The earlier cross-season figure (r = 0.776, R^2 = 0.603)
+  understated it by charging real seasonal change to noise.
+- Phase-20 Arm B attribution reached LOSO R^2 = 0.536 = **59% of that
+  ceiling**; covariates plus the AUDIT-2 intermittency block reach 83%.
+  Headroom for a new tile-level variable is therefore ~0.38 R^2 before
+  the intermittency block and ~0.15 R^2 after it — the map arm is NOT
+  power-limited in the way the first scoping claimed, and the earlier
+  "the map arm can only weakly support H_A" caveat is withdrawn.
 - Residual after removing eke_syn + the four band log-variances +
   slope still reproduces across seasons at Spearman 0.56 — reliable
   structure exists in the residual, so the arm is not vacuous.

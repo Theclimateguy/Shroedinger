@@ -101,9 +101,16 @@ Results in `clean_experiments/results/experiment_A2_intermittency/`.
    excludes by construction. The scored result stands as computed
    (increment +0.225, p = 0.001, bar passed); a post-hoc control
    predicting one season's P from the other season's intermittency
-   statistics gives the signal-level increment +0.077 / +0.081. Both
-   numbers are reported; the papers quote the decontaminated one. No
-   bar was changed after seeing the result.
+   statistics gave +0.077 / +0.081. BOTH numbers are now superseded by
+   AUDIT-2b (`docs/PROTOCOL_AUDIT2B_SPLITHALF_DECONTAMINATION.md`),
+   which repeats the test on disjoint time-parity halves of the same
+   season: the increment is +0.207 (four combinations, all p = 0.001),
+   the shared-noise share is 21% (not ~70%), and the true within-season
+   ceiling is R^2 = 0.914 (not 0.603). The cross-season control was
+   itself biased low because the intermittency statistics are
+   season-dependent. The scored A2d result stands in the record as
+   computed; the number of record is AUDIT-2b's +0.207. No bar was
+   changed after seeing a result.
 2. `P_cascade` was computed without clipping the variance ratio, exactly
    as specified in Sect. 3 (an early implementation clipped it at 1.0;
    the clip was removed before any production run).
