@@ -14,6 +14,19 @@ atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and *
   removed the box-geometry confound by construction and the beyond-spectrum
   residual clustering survived (p = 0.033 anchored / 0.007 raw), lifting
   the former conditional verdict.
+- **The estimator is not a re-labelling of the nearest prior art**
+  (AUDIT-1, `docs/PROTOCOL_AUDIT1_PRIOR_ART_HEADTOHEAD.md`). On the same
+  902 tiles, anchored P vs the Mathis-Hutchins-Marusic
+  amplitude-modulation coefficient: rho = +0.14 (ESTIMATOR_DISTINCT);
+  the AM form carries almost no reproducible tile-level signal
+  (cross-season reliability 0.26 vs P's 0.77) and does not reproduce the
+  map (LOSO R^2 = 0.06). But P vs its Pearson twin: rho = +0.99 — the
+  rank/copula construction is decoration and is dropped from the papers;
+  the nearest prior art for the FORM is the amplitude-amplitude coupling
+  of cross-frequency analysis, cited as such. The attribution is
+  invariant to the estimator convention (R^2 0.536 vs 0.546, identical
+  loadings).
+
 - **P has no accessible dynamics of its own** (Phases 14, 15, 19). Fast
   (~10 h), memoryless relaxation to a static regional value; no regime
   coupling on either grid (the R7/R5 sign split reproduces on equal-km
@@ -83,7 +96,9 @@ atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and *
 - `docs/RESEARCH_PROGRAM_FULL.csv` — all 73 experiments (gen1-2 + gen3) with
   final reconciliation statuses.
 - `docs/PROTOCOL_PHASE1..23_*.md` — frozen preregistered protocols with
-  deviation logs.
+  deviation logs. `docs/PRIOR_ART_AUDIT_P.md` +
+  `docs/PROTOCOL_AUDIT1_PRIOR_ART_HEADTOHEAD.md` — the estimator's
+  prior-art audit and its frozen head-to-head test.
 - `docs/RECONCILIATION.md` — authoritative final scoreboard, audit findings,
   retractions. `docs/PROGRAM_MAP.md` — narrative program map (through
   Phase 23). `research_programm_summary.csv` — canonical experiment table

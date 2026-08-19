@@ -639,3 +639,49 @@ map — is an architecture registrar, not an early-warning variable.
 Candidate updated to v1.4 (E14 annotated, E15 and QT-P6 FAILED entered).
 The only path to closing QT-P1: a new preregistered multi-member power
 protocol (~3 members resolve 3.5e-5/yr at this variance).
+
+## Addendum, 2026-08-19 (bis): AUDIT-1 — prior-art head-to-head for the estimator
+
+Not a programme phase: a methods audit run because three papers are in
+preparation and the estimator's novelty had never been tested against
+the two literatures that own its form. Prior-art survey
+`docs/PRIOR_ART_AUDIT_P.md`; protocol frozen before computation
+`docs/PROTOCOL_AUDIT1_PRIOR_ART_HEADTOHEAD.md`; code
+`clean_experiments/experiment_A1_prior_art_headtohead.py`; results
+`clean_experiments/results/experiment_A1_prior_art/`. No new data:
+the Phase-20 Arm-B sample, mask, band ladder and the SAME 99
+phase-surrogate realisations.
+
+**Verdict: ESTIMATOR_DISTINCT, COPULA_DROPPED.**
+
+- C-A1-0 (pipeline identity) PASS: the recomputed anchored P reproduces
+  the committed Arm-B map at rho = 1.000, max raw difference 3.0e-8.
+- A1a (scored primary): rho(P, R_AM_cyc) = +0.143, rho(P, R_AM_raw)
+  = -0.062, against bars 0.90 (identity) and 0.60 (relatedness).
+  **P is not the amplitude-modulation coefficient of wall turbulence.**
+- A1c: rho(P, P_lin) = +0.992. By the frozen bar (0.95) the
+  rank/copula language is retired from all three papers as decoration;
+  the nearest prior art for the form is the amplitude-amplitude
+  coupling of cross-frequency analysis and must be cited as such.
+- A1b: LOSO-sector R^2 — P 0.536 (p = 0.001), P_lin 0.546 (p = 0.001,
+  identical loadings), R_AM_cyc 0.062 (p = 0.049), R_AM_raw 0.025
+  (p = 0.81). R_AM_cyc reaches 95% of its OWN reliability ceiling
+  (cross-season r = 0.256 vs P's 0.766): the amplitude-modulation form
+  is not unattributable, it is nearly signal-free at tile level. The
+  reproducible geography belongs to the envelope-envelope form.
+- Post-hoc (reported, not scored): P_real vs P_surrogate_median across
+  tiles rho = -0.019 — the raw and the spectral maps are orthogonal;
+  the surrogate anchoring is neither cosmetic nor dominant.
+
+Consequences carried into the papers: novelty is claimed for the object
+and its geography, never for the statistic; Mathis et al. (2009) and the
+cross-frequency-coupling literature are cited as prior art for the form;
+the invariance of the attribution to the Pearson/Spearman choice is
+reported as a strengthening of the physical claim; the failure of the
+signal-envelope (turbulence AM) reading to reproduce the map is reported
+as a new negative result.
+
+The attractor-reducibility programme (local dimension, extremal index,
+transfer-operator observables) stays DEFERRED with its draft protocol
+`docs/PROTOCOL_PHASE24_REDUCIBILITY_DRAFT.md` — doctoral-stage material,
+not needed for the three papers.
