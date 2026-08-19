@@ -39,7 +39,13 @@ atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and *
   2 windows, bands to 1600 km) reproduces both verdicts off the tile
   grid (AM +0.39, cascade +0.04, P_lin +0.98) and carries one open item:
   the tie to the intermittency parameter strengthens with scale
-  (rho = +0.92 at box scale vs +0.69 at tile scale).
+  (rho = +0.92 at box scale vs +0.69 at tile scale). AUDIT-4
+  characterises what is left: after the covariates (59% of the
+  reproducible variance) and the intermittency block (83%), the
+  remainder is itself reproducible (split-half r_full = 0.64), not
+  spectral, and geographically organised on monsoon margins, orography
+  flanks and deep-convective cores. Its drivers are named future work;
+  the analysis programme for the papers closes there.
 
 - **P has no accessible dynamics of its own** (Phases 14, 15, 19). Fast
   (~10 h), memoryless relaxation to a static regional value; no regime

@@ -1,0 +1,345 @@
+{
+ "protocol": "docs/PROTOCOL_AUDIT4_RESIDUAL_STRUCTURE.md",
+ "n_tiles": 902,
+ "R1": {
+  "JFM": {
+   "residual_after_covariates": {
+    "r_half": 0.8390157048896505,
+    "r_full_spearman_brown": 0.9124617072696455
+   },
+   "residual_after_covariates_and_intermittency": {
+    "r_half": 0.4641795153063312,
+    "r_full_spearman_brown": 0.6340472741953598
+   }
+  },
+  "JAS": {
+   "residual_after_covariates": {
+    "r_half": 0.8165088771338174,
+    "r_full_spearman_brown": 0.8989869385302952
+   },
+   "residual_after_covariates_and_intermittency": {
+    "r_half": 0.478448004626066,
+    "r_full_spearman_brown": 0.6472300725206453
+   }
+  },
+  "mean_r_full_after_intermittency": 0.6406386733580025,
+  "mean_r_full_after_covariates": 0.9057243228999703
+ },
+ "VERDICT": "RESIDUAL_IS_PHYSICAL",
+ "R2": {
+  "season_agreement_of_residual": 0.40574899115702395,
+  "top_negative": [
+   {
+    "tid": "t07_045",
+    "lat_c": -15.0,
+    "lon_c": 297.8,
+    "residual": -0.12737
+   },
+   {
+    "tid": "t14_016",
+    "lat_c": 27.0,
+    "lon_c": 118.8,
+    "residual": -0.12642
+   },
+   {
+    "tid": "t13_005",
+    "lat_c": 21.0,
+    "lon_c": 37.4,
+    "residual": -0.11285
+   },
+   {
+    "tid": "t14_015",
+    "lat_c": 27.0,
+    "lon_c": 111.6,
+    "residual": -0.10054
+   },
+   {
+    "tid": "t14_034",
+    "lat_c": 27.0,
+    "lon_c": 248.4,
+    "residual": -0.08124
+   },
+   {
+    "tid": "t16_002",
+    "lat_c": 39.0,
+    "lon_c": 20.5,
+    "residual": -0.08092
+   },
+   {
+    "tid": "t06_042",
+    "lat_c": -21.0,
+    "lon_c": 288.7,
+    "residual": -0.07695
+   },
+   {
+    "tid": "t15_007",
+    "lat_c": 33.0,
+    "lon_c": 57.4,
+    "residual": -0.07105
+   },
+   {
+    "tid": "t10_005",
+    "lat_c": 3.0,
+    "lon_c": 34.7,
+    "residual": -0.06858
+   },
+   {
+    "tid": "t03_035",
+    "lat_c": -39.0,
+    "lon_c": 290.5,
+    "residual": -0.06772
+   },
+   {
+    "tid": "t11_019",
+    "lat_c": 9.0,
+    "lon_c": 125.4,
+    "residual": -0.06423
+   },
+   {
+    "tid": "t16_003",
+    "lat_c": 39.0,
+    "lon_c": 28.6,
+    "residual": -0.05989
+   },
+   {
+    "tid": "t08_017",
+    "lat_c": -9.0,
+    "lon_c": 112.5,
+    "residual": -0.0544
+   },
+   {
+    "tid": "t15_004",
+    "lat_c": 33.0,
+    "lon_c": 34.5,
+    "residual": -0.05198
+   },
+   {
+    "tid": "t13_029",
+    "lat_c": 21.0,
+    "lon_c": 200.4,
+    "residual": -0.05061
+   },
+   {
+    "tid": "t09_018",
+    "lat_c": -3.0,
+    "lon_c": 116.8,
+    "residual": -0.04903
+   },
+   {
+    "tid": "t10_046",
+    "lat_c": 3.0,
+    "lon_c": 293.7,
+    "residual": -0.04351
+   },
+   {
+    "tid": "t17_002",
+    "lat_c": 45.0,
+    "lon_c": 22.5,
+    "residual": -0.04062
+   },
+   {
+    "tid": "t11_018",
+    "lat_c": 9.0,
+    "lon_c": 118.9,
+    "residual": -0.04007
+   },
+   {
+    "tid": "t13_030",
+    "lat_c": 21.0,
+    "lon_c": 207.2,
+    "residual": -0.0394
+   }
+  ],
+  "top_positive": [
+   {
+    "tid": "t14_011",
+    "lat_c": 27.0,
+    "lon_c": 82.8,
+    "residual": 0.07095
+   },
+   {
+    "tid": "t19_025",
+    "lat_c": 57.0,
+    "lon_c": 296.1,
+    "residual": 0.06201
+   },
+   {
+    "tid": "t10_045",
+    "lat_c": 3.0,
+    "lon_c": 287.4,
+    "residual": 0.05897
+   },
+   {
+    "tid": "t11_005",
+    "lat_c": 9.0,
+    "lon_c": 35.4,
+    "residual": 0.05816
+   },
+   {
+    "tid": "t11_042",
+    "lat_c": 9.0,
+    "lon_c": 273.2,
+    "residual": 0.05753
+   },
+   {
+    "tid": "t10_004",
+    "lat_c": 3.0,
+    "lon_c": 28.4,
+    "residual": 0.05619
+   },
+   {
+    "tid": "t00_017",
+    "lat_c": -57.0,
+    "lon_c": 203.2,
+    "residual": 0.05336
+   },
+   {
+    "tid": "t08_022",
+    "lat_c": -9.0,
+    "lon_c": 144.6,
+    "residual": 0.05209
+   },
+   {
+    "tid": "t09_021",
+    "lat_c": -3.0,
+    "lon_c": 135.8,
+    "residual": 0.05142
+   },
+   {
+    "tid": "t19_023",
+    "lat_c": 57.0,
+    "lon_c": 272.9,
+    "residual": 0.04936
+   },
+   {
+    "tid": "t08_044",
+    "lat_c": -9.0,
+    "lon_c": 286.1,
+    "residual": 0.04524
+   },
+   {
+    "tid": "t07_043",
+    "lat_c": -15.0,
+    "lon_c": 284.7,
+    "residual": 0.04517
+   },
+   {
+    "tid": "t11_045",
+    "lat_c": 9.0,
+    "lon_c": 292.5,
+    "residual": 0.04449
+   },
+   {
+    "tid": "t10_017",
+    "lat_c": 3.0,
+    "lon_c": 110.5,
+    "residual": 0.04401
+   },
+   {
+    "tid": "t19_006",
+    "lat_c": 57.0,
+    "lon_c": 75.5,
+    "residual": 0.04394
+   },
+   {
+    "tid": "t19_000",
+    "lat_c": 57.0,
+    "lon_c": 5.8,
+    "residual": 0.04378
+   },
+   {
+    "tid": "t19_003",
+    "lat_c": 57.0,
+    "lon_c": 40.6,
+    "residual": 0.04341
+   },
+   {
+    "tid": "t14_008",
+    "lat_c": 27.0,
+    "lon_c": 61.2,
+    "residual": 0.04282
+   },
+   {
+    "tid": "t19_002",
+    "lat_c": 57.0,
+    "lon_c": 29.0,
+    "residual": 0.04268
+   },
+   {
+    "tid": "t16_015",
+    "lat_c": 39.0,
+    "lon_c": 126.8,
+    "residual": 0.04246
+   }
+  ],
+  "zonal_profile": [
+   {
+    "lat_band": "-60..-50",
+    "mean_residual": 0.01109,
+    "n": 66
+   },
+   {
+    "lat_band": "-50..-40",
+    "mean_residual": -0.0038,
+    "n": 40
+   },
+   {
+    "lat_band": "-40..-30",
+    "mean_residual": -0.01132,
+    "n": 91
+   },
+   {
+    "lat_band": "-30..-20",
+    "mean_residual": -0.00736,
+    "n": 100
+   },
+   {
+    "lat_band": "-20..-10",
+    "mean_residual": 0.00041,
+    "n": 53
+   },
+   {
+    "lat_band": "-10..0",
+    "mean_residual": 0.00621,
+    "n": 112
+   },
+   {
+    "lat_band": "0..10",
+    "mean_residual": 0.00669,
+    "n": 113
+   },
+   {
+    "lat_band": "10..20",
+    "mean_residual": -0.00013,
+    "n": 55
+   },
+   {
+    "lat_band": "20..30",
+    "mean_residual": -0.00396,
+    "n": 99
+   },
+   {
+    "lat_band": "30..40",
+    "mean_residual": -0.01075,
+    "n": 74
+   },
+   {
+    "lat_band": "40..50",
+    "mean_residual": -0.00016,
+    "n": 36
+   },
+   {
+    "lat_band": "50..60",
+    "mean_residual": 0.01452,
+    "n": 63
+   }
+  ]
+ },
+ "R3": {
+  "slope": 0.05874898213907684,
+  "logvar_0": -0.12067521678699276,
+  "logvar_1": -0.12096815699102942,
+  "logvar_2": -0.11560758835640278,
+  "logvar_3": -0.09849397748706704
+ }
+}

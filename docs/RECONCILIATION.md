@@ -798,3 +798,38 @@ ladder (50-1600 km), 99 surrogates per unit. No new data.
   intermittency battery. The papers state the relationship as
   scale-dependent; a scored box-scale test of P vs INT_sig2 is the next
   audit if a box-scale novelty claim is to be made.
+
+## Addendum, 2026-08-19 (sexies): AUDIT-4 — the map's residual is physical;
+## the analysis programme for the papers closes here
+
+Protocol frozen before computation with a binding decision rule and a
+scope fence `docs/PROTOCOL_AUDIT4_RESIDUAL_STRUCTURE.md`; code
+`clean_experiments/experiment_A4_residual_structure.py`; results
+`clean_experiments/results/experiment_A4_residual/`. No new data.
+
+**Verdict: RESIDUAL_IS_PHYSICAL.**
+
+- R1 (primary): residuals formed with the regression fitted on the other
+  time-parity half (no shared sampling noise). Residual after the eight
+  frozen covariates reproduces at r_full = 0.906; after covariates plus
+  the AUDIT-2 intermittency block, r_full = 0.641. Bar was 0.30.
+- R2: season agreement of the residual 0.406. Negative lobes on monsoon
+  margins and plateau/orography flanks (SE China, Bolivian and Argentine
+  forelands, Mexican plateau, western Arabia, Iran, Adriatic); positive
+  lobes over deep-convective cores and high-latitude land margins
+  (Congo, NW Amazon, New Guinea, Ganges plain, Labrador, Hudson Bay).
+  Zonally negative in both subtropical belts, positive in the deep
+  tropics and at 50-60N. Tiles above 1200 m mean orography are excluded
+  by the frozen Phase-20 rule, so an unresolved orographic term is the
+  natural first hypothesis — named as future work, not tested.
+- R3: not spectral (residual vs slope +0.06, vs band log-variances
+  -0.10 to -0.12).
+
+**Programme status.** With AUDIT-1..4 the estimator's novelty question
+is settled and the map's remainder is characterised. Per the AUDIT-4
+scope fence the analysis programme for the three papers ENDS HERE; the
+next work item is writing. Named future work (not scheduled): the
+drivers of the residual; a scored box-scale test of P vs the
+intermittency parameter (AUDIT-3 open item); the deferred
+attractor-reducibility programme
+(`docs/PROTOCOL_PHASE24_REDUCIBILITY_DRAFT.md`).
