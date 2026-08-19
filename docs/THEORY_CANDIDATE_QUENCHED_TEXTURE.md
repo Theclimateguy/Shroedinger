@@ -70,9 +70,12 @@ All rows trace to frozen preregistered protocols
   magnitude leg is open — the drift exceeds the cross-sectional
   calibration ~7x and the interannual calibration ~30x
   (beta_T/beta_CS = 0.25: the response is timescale-dependent).
-  Completion requires (i) a transient free-running control for the
-  reanalysis-trend caveat and (ii) a calibration model that carries a
-  decadal response coefficient; both belong to a future protocol.
+  First transient free-running control (Phase 23 H23a, one member,
+  8+8 epochs): right sign at ~27% magnitude, null-consistent (p=0.22) —
+  physicality UNRESOLVED, escalation gated off after the null.
+  Completion requires a NEW preregistered multi-member power protocol
+  (~3 members resolve 3.5e-5/yr at the measured variance) and a
+  calibration model carrying a decadal response coefficient.
 - QT-P2 (model transfer). SCORED: SUPPORTED (Phase 22 Arm P2:
   rho = 0.869 vs a 0.897 resolution ceiling, 902 tiles,
   resolution-matched; bars 0.5 abs / 0.6 x ceiling). See E13.

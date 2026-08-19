@@ -34,14 +34,19 @@ atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and *
   consistent with the box-level results (rho = 0.84), attributed at
   LOSO R^2 = 0.54 (p = 0.001, non-zonal component certified), and
   effectively one-dimensional (synoptic activity alone = 85% of skill).
-- **Theory candidate** (v1.2): `docs/THEORY_CANDIDATE_QUENCHED_TEXTURE.md` —
+- **Theory candidate** (v1.4): `docs/THEORY_CANDIDATE_QUENCHED_TEXTURE.md` —
   quenched-texture organization (P as a functional of the local invariant
   measure over a quenched constraint field), postulates QT-1..5, evidence
-  map E1-E12, predictions QT-P1..P5. Rounds 1-2 score (Phases 21-22): **P2 SUPPORTED (free-running model reproduces the global map at 97% of the resolution ceiling), P3 PASS
-  (k80 = 1), P5 SUPPORTED (sampling clock), P4 SUPPORTED — the tropical
-  interannual excess is coherent with the IPO** (named before
-  consultation; ENSO null at 30x power), P1 open (right sign,
-  underpowered in round 1; round 2 detected the drift at p = 0.025 with the CI excluding zero — magnitude open, timescale-dependent response).
+  map E1-E15, predictions QT-P1..P6. Score after three rounds (Phases
+  21-23): **P2 SUPPORTED (free-running model reproduces the global map at
+  97% of the resolution ceiling), P3 PASS (k80 = 1), P4 SUPPORTED (the
+  tropical excess is coherent with the IPO), P5 SUPPORTED (sampling
+  clock)**; P1 open — the ERA5 drift is detected (p = 0.025, CI excludes
+  zero) but one transient free-running member cannot confirm it
+  (right sign, ~27% magnitude, null-consistent), so the reanalysis-trend
+  caveat stands; **P6 (stratigraphic/early-warning form) FAILED** — P is
+  an architecture registrar, not a sensitive reorganization indicator
+  (trend SNR ranks last, behind CAPE by 3.6x).
 - **The observing-network confound is closed** (Phase 13). The regional
   geography of P replicates in a free-running CMIP6 HighResMIP integration
   that assimilates no atmospheric observations (rho = 0.71 against an
@@ -81,7 +86,7 @@ atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and *
   deviation logs.
 - `docs/RECONCILIATION.md` — authoritative final scoreboard, audit findings,
   retractions. `docs/PROGRAM_MAP.md` — narrative program map (through
-  Phase 21). `research_programm_summary.csv` — canonical experiment table
+  Phase 23). `research_programm_summary.csv` — canonical experiment table
   (TOY_MODEL / ATMOSPHERE_* / CLEAN_PHASES blocks).
 - `docs/THEORY_CANDIDATE_QUENCHED_TEXTURE.md` — theory candidate v1.4
   (seed note kept as `docs/THEORY_NOTE_QUENCHED_TEXTURE.md`).
