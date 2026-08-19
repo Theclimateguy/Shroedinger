@@ -1,30 +1,35 @@
 cff-version: 1.2.0
 message: "If you use this repository, please cite it using the metadata below."
 title: "Cross-scale organisation of the atmospheric circulation: a falsification-grade research programme (Shroedinger, gen4)"
-version: "5.0"
+version: "6.0"
 type: software
 license: "MIT"
 repository-code: "https://github.com/Theclimateguy/Shroedinger"
 url: "https://github.com/Theclimateguy/Shroedinger"
-date-released: 2026-08-16
+date-released: 2026-08-19
 authors:
   - family-names: "Sotiriadi"
     given-names: "N."
 abstract: >-
   Preregistered research programme on the cross-scale organisation of the
-  atmospheric circulation. The surviving invariant is the envelope-coupling
-  profile P: the spatial rank correlation between activity maps of adjacent
-  octave levels of the 850 hPa relative vorticity field. P forms a season-,
-  year- and ENSO-stable regional signature (p = 0.001 on held-out samples),
-  replicates in an independent reanalysis, and - decisively - replicates in a
-  free-running CMIP6 HighResMIP integration that assimilates no atmospheric
-  observations (rho = 0.71 against an ERA5-to-ERA5 ceiling of 0.93), which
-  closes the observing-network confound. The interpretation of the
-  inter-level transfer asymmetry index A is retracted: A is a reproducible
-  regional statistic but responds to temporal persistence rather than to
-  cross-level irrecoverability. Three derived applied predictions were tested
-  and failed. The repository contains fourteen frozen protocols with
-  deviation logs, the full experiment catalogue, numerical results and the
+  atmospheric circulation. The surviving invariant is P: the
+  surrogate-anchored coupling between the spatial envelopes of adjacent
+  scale bands of the 850 hPa relative vorticity field. P is a season-,
+  year- and ENSO-stable regional signature, replicated in an independent
+  reanalysis and in a free-running CMIP6 HighResMIP integration that
+  assimilates no atmospheric observations, mapped globally over 936 tiles
+  and attributed to convective regime and storm-track activity, while
+  having no accessible dynamics of its own. A theory candidate
+  (quenched-texture organisation) carries five scored predictions, four
+  supported and one failed. Four methods audits establish that the
+  estimator is neither the amplitude-modulation coefficient of wall
+  turbulence nor a cascade/intermittency statistic, that its rank
+  construction is decoration, and that the map's reliability ceiling is
+  R^2 = 0.914 rather than the cross-season 0.603 used earlier - so the
+  attribution explains 59 per cent of the reproducible variance and the
+  remainder is a reproducible, non-spectral field whose drivers are named
+  as future work. The repository contains all frozen protocols with
+  deviation logs, the reconciliation scoreboard, numerical results and the
   complete catalogue of negative results.
 keywords:
   - hierarchical organisation of geosystems
