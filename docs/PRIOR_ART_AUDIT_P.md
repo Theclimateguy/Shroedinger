@@ -182,3 +182,30 @@ time-parity halves of the same tile-season. Results in
   — it is not "nearly signal-free", it is season-dependent. P's map is
   season-stable; the amplitude-modulation map is not. That is the
   sharper claim and the one the papers carry.
+
+## 9. AUDIT-3 outcome (2026-08-19, reduced form, frozen protocol
+`docs/PROTOCOL_AUDIT3_SCALE_YEAR_ROBUSTNESS.md`)
+
+24 units: 12 equal-km Phase-18 boxes (~11x a tile) x 2 windows
+(2023 JFM, 2024 JAS), full band ladder to 1600 km, 99 surrogates each.
+Report: `clean_experiments/results/experiment_A3_robustness/report.md`.
+
+- **A3a: AM_DISTINCT_ROBUST.** rho(P, R_AM_cyc) = +0.386.
+- **A3b: CASCADE_DISTINCT_ROBUST.** rho(P, P_cascade) = +0.036; the
+  cascade prediction is again spectrum-level (real 0.738, anchored
+  -0.028) at box scale with bands to 1600 km.
+- A3c (reported): rho(P, P_lin) = +0.982 — the copula-decoration
+  finding holds at box scale.
+- **Open item: rho(P, INT_sig2) = +0.923 at box scale** against +0.692
+  at tile scale (+0.600 noise-immune). The relationship with the
+  intermittency parameter STRENGTHENS with box size and band range and
+  now sits at the identity bar. It was a reported quantity here, not a
+  scored primary (n = 24, SE ~ 0.2). The papers must state this
+  relationship as scale-dependent; a dedicated scored test at box scale
+  is required before any box-scale novelty claim.
+
+Net after three audits: the estimator is not the amplitude-modulation
+coefficient and not a cascade statistic at either scale; the rank
+construction is decoration at both scales; the live relative is the
+local log-envelope variance, weakly at tile scale and strongly at box
+scale.

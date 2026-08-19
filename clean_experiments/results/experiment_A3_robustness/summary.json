@@ -1,0 +1,60 @@
+{
+ "protocol": "docs/PROTOCOL_AUDIT3_SCALE_YEAR_ROBUSTNESS.md",
+ "version": "a3_v1",
+ "n_units": 24,
+ "ells_km": [
+  50.0,
+  100.0,
+  200.0,
+  400.0,
+  800.0,
+  1600.0
+ ],
+ "windows": [
+  "W9_2023JFM",
+  "W12_2024JAS"
+ ],
+ "A3a": {
+  "rho_P_vs_R_AM_cyc": 0.38608695652173913,
+  "verdict": "AM_DISTINCT_ROBUST"
+ },
+ "A3b": {
+  "rho_P_vs_P_cascade": 0.03565217391304347,
+  "verdict": "CASCADE_DISTINCT_ROBUST"
+ },
+ "A3c": {
+  "rho_P_vs_P_lin": 0.9817391304347826,
+  "rho_P_vs_INT_sig2": 0.9226086956521738,
+  "rho_P_vs_INT_flat": 0.7713043478260868,
+  "rho_P_vs_INT_mu": 0.7556521739130433
+ },
+ "per_window": {
+  "W9_2023JFM": {
+   "R_AM_cyc": 0.4265734265734266,
+   "P_cascade": -0.20979020979020982,
+   "P_lin": 0.965034965034965,
+   "INT_sig2": 0.8881118881118882
+  },
+  "W12_2024JAS": {
+   "R_AM_cyc": 0.3846153846153847,
+   "P_cascade": 0.2867132867132868,
+   "P_lin": 0.9860139860139862,
+   "INT_sig2": 0.9230769230769231
+  }
+ },
+ "medians_real_vs_anchored": {
+  "P": {
+   "real": 0.7277314901351929,
+   "anchored": 0.2824655443429947
+  },
+  "P_cascade": {
+   "real": 0.7381037689769847,
+   "anchored": -0.027786476127533166
+  },
+  "R_AM_cyc": {
+   "real": 0.07328213714063167,
+   "anchored": 0.07428334993310273
+  }
+ },
+ "VERDICT": "AM_DISTINCT_ROBUST + CASCADE_DISTINCT_ROBUST"
+}

@@ -770,3 +770,31 @@ statement made before it.**
   it is strongly SEASON-DEPENDENT, which is why its season-mean map is
   weak. P's map is season-stable, the amplitude-modulation map is not;
   that is the sharper claim and the one the papers carry.
+
+## Addendum, 2026-08-19 (quinquies): AUDIT-3 (reduced) — scale, year and
+## season robustness
+
+Protocol frozen before computation
+`docs/PROTOCOL_AUDIT3_SCALE_YEAR_ROBUSTNESS.md`; code
+`clean_experiments/experiment_A3_scale_year_robustness.py`; results
+`clean_experiments/results/experiment_A3_robustness/`. 24 units:
+12 equal-km Phase-18 boxes x {W9_2023JFM, W12_2024JAS}, full ELLS_KM
+ladder (50-1600 km), 99 surrogates per unit. No new data.
+
+**Verdict: AM_DISTINCT_ROBUST + CASCADE_DISTINCT_ROBUST.**
+
+- A3a: rho(P, R_AM_cyc) = +0.386 over 24 units (per window +0.427 /
+  +0.385), clear of the 0.60 bar and of the frozen INCONCLUSIVE band.
+- A3b: rho(P, P_cascade) = +0.036. The cascade prediction is again a
+  spectrum-level quantity at box scale (real 0.738, anchored -0.028).
+- A3c (reported): rho(P, P_lin) = +0.982 — the rank construction is
+  decoration at box scale too.
+- **Open item carried forward: rho(P, INT_sig2) = +0.923 at box scale**
+  versus +0.692 at tile scale. The tie to the intermittency parameter
+  strengthens with box size and band range and reaches the identity bar.
+  Not scored here (reported quantity, n = 24, SE ~ 0.2) and it overturns
+  nothing already scored — AUDIT-2b still leaves ~0.15 R^2 of the
+  tile map's reproducible variance unexplained by covariates plus the
+  intermittency battery. The papers state the relationship as
+  scale-dependent; a scored box-scale test of P vs INT_sig2 is the next
+  audit if a box-scale novelty claim is to be made.
