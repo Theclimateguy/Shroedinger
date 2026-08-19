@@ -121,3 +121,37 @@ Net: the novelty verdict of Sect. 3 stands, with one correction — the
 nearest prior art is the cross-frequency amplitude-amplitude coupling,
 not the turbulence amplitude-modulation coefficient, and the rank
 construction must no longer be presented as an ingredient.
+
+## 7. AUDIT-2 outcome (2026-08-19, frozen protocol
+`docs/PROTOCOL_AUDIT2_INTERMITTENCY_HEADTOHEAD.md`)
+
+Second prior-art claimant tested: the intermittent-cascade literature
+(KO62 log-normal cascade, multifractal formalism). Results in
+`clean_experiments/results/experiment_A2_intermittency/`.
+
+- C-A2-0 PASS (rho = 1.000, max raw difference 3.0e-8).
+- **A2a: CASCADE_DISTINCT.** Spearman(P, P_cascade) = -0.417 against a
+  0.90 identity bar. Decisive diagnostic: the cascade prediction is a
+  spectrum-level quantity — real 0.666 vs phase-surrogate 0.650, i.e.
+  anchored 0.010 — while P is real 0.770 vs surrogate 0.512, anchored
+  0.256. The observed envelope coupling EXCEEDS the log-normal cascade
+  prediction, and the excess is the programme's observable.
+- **A2b (reported): the intermittency parameter is a substantial
+  relative.** rho(P, INT_sig2) = +0.692 (log-envelope variance);
+  rho(P, INT_flat) = -0.223; rho(P, INT_mu) = +0.100. This must be
+  conceded and cited in the papers.
+- A2c: the intermittency family loads like the Phase-20 SPECTRAL SLOPE
+  target (orography/land), P loads like storm tracks + convection —
+  different physics, reported side by side.
+- **A2d: +0.08, not +0.22.** The scored increment of the intermittency
+  battery over the frozen covariates was +0.225 (p = 0.001), passing
+  its bar; the post-hoc cross-season control shows ~70% of it is shared
+  sampling noise between P and the intermittency statistics computed on
+  the same sample. Signal-level increment +0.077 / +0.081 in the two
+  directions. The papers quote +0.08.
+
+Net after two audits: the estimator is neither the amplitude-modulation
+coefficient (AUDIT-1) nor a cascade/intermittency statistic (AUDIT-2);
+its rank construction is decoration (AUDIT-1); its nearest live relative
+is the local log-envelope variance (rho = +0.69), which is cited, and
+which does not reproduce either its geography or its attribution.

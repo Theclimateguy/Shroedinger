@@ -685,3 +685,45 @@ The attractor-reducibility programme (local dimension, extremal index,
 transfer-operator observables) stays DEFERRED with its draft protocol
 `docs/PROTOCOL_PHASE24_REDUCIBILITY_DRAFT.md` — doctoral-stage material,
 not needed for the three papers.
+
+## Addendum, 2026-08-19 (ter): AUDIT-2 — is P an intermittency measure?
+
+Second methods audit before the papers. Protocol frozen before
+computation `docs/PROTOCOL_AUDIT2_INTERMITTENCY_HEADTOHEAD.md` (two
+deviations logged there); code
+`clean_experiments/experiment_A2_intermittency_headtohead.py`; results
+`clean_experiments/results/experiment_A2_intermittency/`. Same sample,
+mask, band ladder and 99 surrogate realisations as Phase-20 Arm B.
+
+**Verdict: CASCADE_DISTINCT.**
+
+- C-A2-0 PASS (rho = 1.000 vs the committed map, max raw difference
+  3.0e-8).
+- A2a (scored primary): Spearman(P, P_cascade) = -0.417 against a 0.90
+  identity bar. The Kolmogorov-Obukhov log-normal cascade predicts the
+  envelope-envelope correlation from the log-envelope variances alone;
+  that prediction is a spectrum-level quantity (real 0.666, phase
+  surrogate 0.650, anchored 0.010) while P is real 0.770, surrogate
+  0.512, anchored 0.256. The atmosphere's envelope coupling EXCEEDS the
+  cascade prediction and the excess is what the programme measures.
+- A2b (reported): rho(P, INT_sig2) = +0.692 — the local log-envelope
+  variance (the KO62 intermittency parameter) is a substantial relative
+  and is conceded in print. rho(P, INT_flat) = -0.223,
+  rho(P, INT_mu) = +0.100.
+- A2c (reported): the intermittency family loads on orography/land, the
+  loading pattern of the Phase-20 spectral-slope target; P loads on
+  abs_lat/eke_syn/cape. Different physical targets.
+- A2d (scored secondary): the intermittency battery adds +0.225 LOSO
+  R^2 over the frozen covariates (p = 0.001), passing its bar — but the
+  bar was contaminated, because P and the intermittency statistics share
+  the sampling noise of the same tile-season sample while the ceiling
+  was estimated across seasons. The post-hoc cross-season control
+  (predict one season's P from the other season's intermittency) gives
+  +0.077 / +0.081. **The papers quote +0.08.** The contaminated number
+  is reported beside it; no bar was changed after the fact.
+
+Standing after two audits: the estimator is not the amplitude-modulation
+coefficient, not the cascade correlation, not the intermittency
+exponent; its rank construction is decoration; its nearest live relative
+is the local log-envelope variance, cited, and not a substitute for
+either the map or its attribution.

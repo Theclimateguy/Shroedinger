@@ -25,7 +25,13 @@ atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and *
   the nearest prior art for the FORM is the amplitude-amplitude coupling
   of cross-frequency analysis, cited as such. The attribution is
   invariant to the estimator convention (R^2 0.536 vs 0.546, identical
-  loadings).
+  loadings). AUDIT-2 (`docs/PROTOCOL_AUDIT2_INTERMITTENCY_HEADTOHEAD.md`)
+  retires the second claimant: P vs the Kolmogorov-Obukhov cascade
+  prediction rho = -0.42 (CASCADE_DISTINCT) — the cascade prediction has
+  no beyond-spectrum component at all (anchored 0.010 vs P's 0.256) —
+  while the local intermittency parameter is a substantial relative
+  (rho = +0.69) that adds only +0.08 LOSO R^2 after cross-season noise
+  decontamination.
 
 - **P has no accessible dynamics of its own** (Phases 14, 15, 19). Fast
   (~10 h), memoryless relaxation to a static regional value; no regime

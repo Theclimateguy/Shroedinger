@@ -1,0 +1,113 @@
+{
+ "protocol": "docs/PROTOCOL_AUDIT2_INTERMITTENCY_HEADTOHEAD.md",
+ "version": "a2_v1",
+ "seed": 20260818,
+ "n_common": 936,
+ "C_A2_0": {
+  "rho_vs_armB": 1.0,
+  "max_abs_diff_raw": 2.9802322387695312e-08,
+  "pass": true
+ },
+ "n_kept": 902,
+ "A2a": {
+  "rho_P_vs_P_cascade": -0.41668948610627454,
+  "verdict": "CASCADE_DISTINCT"
+ },
+ "A2b": {
+  "rho_P_vs_INT_sig2": 0.6918368798733654,
+  "rho_P_vs_INT_flat": -0.22332584652953463,
+  "rho_P_vs_INT_mu": 0.10008409583155738
+ },
+ "A2c": {
+  "P": {
+   "loso_r2": 0.5357542966069805,
+   "p_rot": 0.001,
+   "reliability_cross_season": 0.7655974432475093,
+   "share_of_own_ceiling": 0.9140389732840206,
+   "loadings": {
+    "orog_mean": -0.111192963947482,
+    "orog_std": -0.14142656777644183,
+    "land_frac": -0.17016094897399447,
+    "coast_var": -0.0450037487244035,
+    "abs_lat": 0.6568844977075498,
+    "sst_grad": 0.5471441503741807,
+    "cape_mean": -0.517063603368415,
+    "eke_syn": 0.6624793822789621
+   }
+  },
+  "P_cascade": {
+   "loso_r2": 0.2549199623084353,
+   "p_rot": 1.0,
+   "reliability_cross_season": 0.6006697089956547,
+   "share_of_own_ceiling": 0.7065328880673166,
+   "loadings": {
+    "orog_mean": -0.03771675847953357,
+    "orog_std": 0.03643019257421355,
+    "land_frac": -0.02312417110025041,
+    "coast_var": -0.03893845429565266,
+    "abs_lat": -0.6330471074426057,
+    "sst_grad": -0.3408330004694644,
+    "cape_mean": 0.5023153436135042,
+    "eke_syn": -0.5437853258967128
+   }
+  },
+  "INT_sig2": {
+   "loso_r2": 0.29603593383003324,
+   "p_rot": 0.001,
+   "reliability_cross_season": 0.7460478512726751,
+   "share_of_own_ceiling": 0.531876818898283,
+   "loadings": {
+    "orog_mean": 0.045384776958002145,
+    "orog_std": 0.019039895062817853,
+    "land_frac": -0.02195647770769994,
+    "coast_var": 0.11898322305791581,
+    "abs_lat": 0.32749992076605594,
+    "sst_grad": 0.4514230612165405,
+    "cape_mean": -0.2429892553735539,
+    "eke_syn": 0.34914198811689656
+   }
+  },
+  "INT_flat": {
+   "loso_r2": 0.3833705472501703,
+   "p_rot": 0.001,
+   "reliability_cross_season": 0.7677717329672543,
+   "share_of_own_ceiling": 0.6503610259167152,
+   "loadings": {
+    "orog_mean": 0.4809600272667401,
+    "orog_std": 0.5178714413723349,
+    "land_frac": 0.486663757338922,
+    "coast_var": 0.4959313929173414,
+    "abs_lat": -0.4219951489773247,
+    "sst_grad": -0.3027519329926745,
+    "cape_mean": 0.4420613290552345,
+    "eke_syn": -0.4147627522418122
+   }
+  },
+  "INT_mu": {
+   "loso_r2": 0.35877377136926325,
+   "p_rot": 0.001,
+   "reliability_cross_season": 0.788043126926845,
+   "share_of_own_ceiling": 0.577724405906342,
+   "loadings": {
+    "orog_mean": 0.35907657725918524,
+    "orog_std": 0.37481203650828,
+    "land_frac": 0.3276478226017766,
+    "coast_var": 0.4084616635382728,
+    "abs_lat": -0.02658062180637988,
+    "sst_grad": 0.07271609076232201,
+    "cape_mean": 0.07855200155870679,
+    "eke_syn": -0.035868594399073236
+   }
+  }
+ },
+ "A2d": {
+  "r2_covariates": 0.5357542966069805,
+  "r2_covariates_plus_intermittency": 0.7607139136863242,
+  "increment": 0.22495961707934375,
+  "p_rot": 0.001,
+  "null_q95": 0.002792648231917272,
+  "ceiling_r2": 0.603,
+  "map_jointly_explained": true
+ },
+ "VERDICT": "CASCADE_DISTINCT"
+}
