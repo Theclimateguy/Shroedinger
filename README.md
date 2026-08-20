@@ -144,6 +144,23 @@ pip install numpy pandas scipy matplotlib xarray netCDF4 h5netcdf earthaccess cd
 ERA5 requires `~/.cdsapirc` (CDS API); MERRA-2 requires NASA Earthdata
 credentials. All experiments are resumable via per-region-window caches.
 
+**Per-paper reproduction.** Each paper of the series has a dedicated route
+(data -> computations -> artifact check) that names the exact 8-12 files
+behind its tables and figures, so a reviewer never has to guess which parts
+of this repository a given paper uses:
+
+- Paper 1 (regional invariant): [`reproducibility/article1_README.md`](reproducibility/article1_README.md)
+  — one-command orchestrator `reproducibility/reproduce_article1.py`
+  (`--stage download|compute|check`), pinned environment
+  `reproducibility/requirements_article1.txt`, SHA-256 of every expected
+  artifact, and a smoke test that verifies the computational chain on a
+  single region-window without bulk downloads.
+- Papers 2-3: routes will be added alongside their submissions.
+
+Raw ERA5 / MERRA-2 / HighResMIP fields are deliberately **not** stored in
+the repository (large externally licensed products); the exact download
+scripts and all derived tables behind the papers' statistics are.
+
 ## Branches
 
 - **`gen4`** — current line of work (this branch).
