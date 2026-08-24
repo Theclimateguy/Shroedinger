@@ -155,7 +155,13 @@ of this repository a given paper uses:
   `reproducibility/requirements_article1.txt`, SHA-256 of every expected
   artifact, and a smoke test that verifies the computational chain on a
   single region-window without bulk downloads.
-- Papers 2-3: routes will be added alongside their submissions.
+- Paper 2 (global geography and attribution): [`reproducibility/article2_README.md`](reproducibility/article2_README.md)
+  — orchestrator `reproducibility/reproduce_article2.py`
+  (`--stage download|compute|figures|check`) over the seven analyses behind
+  the paper (Phase-20 arms A/B, AUDIT-2b/4, Phases 21-23), including
+  regeneration of the manuscript's map figures; shared pinned environment
+  `reproducibility/requirements.txt`; SHA-256 of every expected artifact.
+- Paper 3: route will be added alongside its submission.
 
 Raw ERA5 / MERRA-2 / HighResMIP fields are deliberately **not** stored in
 the repository (large externally licensed products); the exact download
