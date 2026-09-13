@@ -1,0 +1,180 @@
+{
+  "note": "descriptive readouts quoted in article 1; no thresholds, no null models -- recomputation aid only",
+  "D1_resolved_steps45_ordering": {
+    "per_region": {
+      "R1_WPWP": {
+        "n_windows": 8,
+        "median_mean_steps45": 0.7250656336545944,
+        "median_step5": 0.6751679033041
+      },
+      "R3_AMAZ": {
+        "n_windows": 8,
+        "median_mean_steps45": 0.5190971754491329,
+        "median_step5": 0.4231646731495857
+      },
+      "R4_CASIA": {
+        "n_windows": 8,
+        "median_mean_steps45": 0.5522975698113441,
+        "median_step5": 0.5289697796106339
+      },
+      "R2_NATL": {
+        "n_windows": 8,
+        "median_mean_steps45": 0.6899127066135406,
+        "median_step5": 0.6840643435716629
+      },
+      "R8_AUS": {
+        "n_windows": 8,
+        "median_mean_steps45": 0.5707331374287605,
+        "median_step5": 0.5153759568929672
+      },
+      "R5_SPCZ": {
+        "n_windows": 8,
+        "median_mean_steps45": 0.5624468848109245,
+        "median_step5": 0.5301950871944427
+      },
+      "R10_INDO": {
+        "n_windows": 8,
+        "median_mean_steps45": 0.5910997353494167,
+        "median_step5": 0.5269077271223068
+      },
+      "R11_EURO": {
+        "n_windows": 8,
+        "median_mean_steps45": 0.5443635359406471,
+        "median_step5": 0.46171828359365463
+      },
+      "R6_SATL": {
+        "n_windows": 8,
+        "median_mean_steps45": 0.6679456010460854,
+        "median_step5": 0.680669441819191
+      },
+      "R9_NPAC": {
+        "n_windows": 8,
+        "median_mean_steps45": 0.6542380824685097,
+        "median_step5": 0.63910973072052
+      },
+      "R12_SAM": {
+        "n_windows": 8,
+        "median_mean_steps45": 0.5963659808039665,
+        "median_step5": 0.5567675530910492
+      },
+      "R7_CONGO": {
+        "n_windows": 8,
+        "median_mean_steps45": 0.6903640776872635,
+        "median_step5": 0.704351007938385
+      }
+    },
+    "descending_order": [
+      "R1_WPWP",
+      "R7_CONGO",
+      "R2_NATL",
+      "R6_SATL",
+      "R9_NPAC",
+      "R12_SAM",
+      "R10_INDO",
+      "R8_AUS",
+      "R5_SPCZ",
+      "R4_CASIA",
+      "R11_EURO",
+      "R3_AMAZ"
+    ]
+  },
+  "D2_fine_anchored_ordering": {
+    "per_region_median": {
+      "R4_CASIA": 0.306317538022995,
+      "R10_INDO": 0.2599004780252775,
+      "R8_AUS": 0.28589803228775656,
+      "R6_SATL": 0.35415182014306384,
+      "R2_NATL": 0.36198312789201736,
+      "R5_SPCZ": 0.2869938711325328,
+      "R9_NPAC": 0.3730537220835686,
+      "R1_WPWP": 0.30630020052194595,
+      "R3_AMAZ": 0.24384028216203052,
+      "R11_EURO": 0.28907211124897003,
+      "R7_CONGO": 0.33511153360207874,
+      "R12_SAM": 0.2782269616921743
+    },
+    "descending_order": [
+      "R9_NPAC",
+      "R2_NATL",
+      "R6_SATL",
+      "R7_CONGO",
+      "R4_CASIA",
+      "R1_WPWP",
+      "R11_EURO",
+      "R5_SPCZ",
+      "R8_AUS",
+      "R12_SAM",
+      "R10_INDO",
+      "R3_AMAZ"
+    ]
+  },
+  "D3_congo_amazon_step5": {
+    "R7_CONGO": {
+      "n_windows": 8,
+      "median_step5": 0.704351007938385,
+      "min": 0.5675425231456757,
+      "max": 0.810748428106308
+    },
+    "R3_AMAZ": {
+      "n_windows": 8,
+      "median_step5": 0.4231646731495857,
+      "min": 0.35850414633750916,
+      "max": 0.5347324311733246
+    },
+    "tropical_oceanic_step5_range": [
+      0.5269077271223068,
+      0.6751679033041
+    ],
+    "contrast_step5": 0.2811863347887993
+  },
+  "D4_content_checks": {
+    "n_domains": 39,
+    "rho_P_vs_irrecoverability_u": -0.9329959514170041,
+    "rho_P_vs_envelope_persistence": 0.013157894736842106,
+    "n_regions_amplitude": 12,
+    "rho_P_vs_log_band_variance": 0.2797202797202798
+  },
+  "D5_cross_reanalysis_profile": {
+    "note": "H8a/H8b in experiment_B8 summary.json refer to the curvature profile ||F||; the profile P entered Phase 8 descriptively only",
+    "n_regions": 12,
+    "n_region_windows": 48,
+    "steps_compared": "MERRA-2 steps 2-3 vs ERA5 steps 4-5 (200-1600 km)",
+    "rho_P_era5_vs_merra2": 0.8601398601398602,
+    "p_two_sided_asym": 0.00033166833912692107,
+    "era5_median_steps45_by_region": {
+      "R10_INDO": 0.5976820439100266,
+      "R11_EURO": 0.5576669238507748,
+      "R12_SAM": 0.5977753847837448,
+      "R1_WPWP": 0.7268265634775162,
+      "R2_NATL": 0.7059450522065163,
+      "R3_AMAZ": 0.5278911963105202,
+      "R4_CASIA": 0.5490996204316616,
+      "R5_SPCZ": 0.5532624907791615,
+      "R6_SATL": 0.670901469886303,
+      "R7_CONGO": 0.6946791708469391,
+      "R8_AUS": 0.574003204703331,
+      "R9_NPAC": 0.624552421271801
+    },
+    "merra2_median_steps23_by_region": {
+      "R10_INDO": 0.648231640458107,
+      "R11_EURO": 0.5850782729685307,
+      "R12_SAM": 0.6040079295635223,
+      "R1_WPWP": 0.7267322763800621,
+      "R2_NATL": 0.7374663352966309,
+      "R3_AMAZ": 0.4591046907007694,
+      "R4_CASIA": 0.5064768828451633,
+      "R5_SPCZ": 0.6710906326770782,
+      "R6_SATL": 0.724042221903801,
+      "R7_CONGO": 0.7191950231790543,
+      "R8_AUS": 0.614309050142765,
+      "R9_NPAC": 0.6697127744555473
+    },
+    "P_signature_merra2_raw_descriptive": {
+      "median_within": 0.8867510674276273,
+      "median_between": 2.037924419687381,
+      "diff": 1.1511733522597538,
+      "p": 0.001,
+      "pass": true
+    }
+  }
+}

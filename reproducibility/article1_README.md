@@ -1,7 +1,7 @@
 # Воспроизведение статьи 1 серии
 
 **«Сопряжённость иерархических уровней атмосферной циркуляции как региональный
-инвариант»** (рукопись `manuscript_v2/article1_v5.tex`).
+инвариант»** (рукопись `manuscript_v2/article1_v6.tex`).
 
 Этот файл — полный маршрут от первичных данных до каждого числа таблицы 2 и
 каждого рисунка статьи. Репозиторий содержит много линий исследовательской
@@ -11,8 +11,12 @@
 
 ## 1. Версия
 
-- Тег: `v6.1` (первый тег, содержащий каталог `reproducibility/`;
+- Тег: `v6.2` (маршруты обеих статей серии; численные результаты статьи 1
+  идентичны `v6.0`/`v6.1`; тег `v6.1` — первый с каталогом `reproducibility/`;
   численные результаты идентичны `v6.0`, commit `4e22bd4`).
+- После v6.2 (не выпущено): в `verify_article1_descriptives.py` добавлен блок D5
+  (география P ERA5–MERRA-2), атрибуция строки 4 исправлена — Δ=+1,12 / ρ=0,93
+  из Phase 8 относятся к ‖F‖/A, для P: Δ=+1,15 (описательно), ρ=0,86.
 - Архив версий: Zenodo, концепт-DOI **10.5281/zenodo.19565769**
   (разрешается в последнюю версию).
 
@@ -40,12 +44,13 @@
 | Строка 1 (сигнатура на отложенных окнах, Δ=+1,12) и строка 3 (сверх спектра, Δ=+0,34) | ERA5 `data/b2b` | `download_b2b_era5_wind.py` | `experiment_B2b_heldout_invariants.py` | `results/experiment_B2b_heldout_invariants/summary.json` (H1, H2) |
 | Строка 2 (сверх полуфрактальных, Δ=+0,65; сверх скаттеринг-статистик, Δ=+0,30) | ERA5 `data/b3` | `download_b3_era5_wind.py` | `experiment_B3_scattering_benchmark.py` | `results/experiment_B3_scattering_benchmark/e1_semifractal.json`, `summary.json` (H3a) |
 | Строки 5–6 (контроль равновеликими областями; рис. 3) | ERA5 `data/b3`, `data/b2b` | те же | `experiment_B18_equal_km_regions.py` | `results/experiment_B18_equal_km_regions/summary.json` + `fig2_anchored_profiles.png` |
-| Строка 4 (MERRA-2: Δ=+1,15; география ρ=0,93) | MERRA-2 `data/b8merra2` | `download_b8_merra2.py` | `experiment_B8_cross_reanalysis.py` | `results/experiment_B8_cross_reanalysis/summary.json` |
+| Строка 4 (MERRA-2: сигнатура P Δ=+1,15 — `P_signature_merra2_descriptive`; география P ρ=0,86 — блок D5 в `verify_article1_descriptives/summary.json`). Внимание: `H8a`/`H8b` в summary.json B8 (Δ=+1,12; ρ=0,93) относятся к профилю кривизны ‖F‖ / индексу A, не к P | MERRA-2 `data/b8merra2` + ERA5 `data/b3` | `download_b8_merra2.py` | `experiment_B8_cross_reanalysis.py`, затем `verify_article1_descriptives.py` | `results/experiment_B8_cross_reanalysis/summary.json`, `results/verify_article1_descriptives/summary.json` |
 | Строка 8 и рис. 4 (свободный расчёт: ρ=0,71/0,93) | HighResMIP `data/b13hrmip` + ERA5-наборы выше | `download_b13_highresmip.py` | `experiment_B13_free_running.py` | `results/experiment_B13_free_running/summary.json` |
 | Мера невосстановимости (форм. 5, ρ=−0,93); проверка содержания индекса A | синтетика + ERA5 выше | — | `experiment_B12_estimator_validity.py` | `results/experiment_B12_estimator_validity/summary.json` |
 | Табл. 3: ошибка ансамблевого прогноза | GEFS `data/b9gefs` | `download_b9_gefs.py` | `experiment_B9_predictability.py` | `results/experiment_B9_predictability/summary.json` |
 | Табл. 3: мезомасштабная ошибка анализа (27 контрольных областей) | ERA5 `data/b10era5` | `download_b10_era5.py` | `experiment_B10_irrecoverability.py` | `results/experiment_B10_irrecoverability/summary.json` |
 | Табл. 3: потеря мезомасштаба в ML-моделях | WeatherBench 2 `data/b11wb2` | `download_b11_wb2.py` | `experiment_B11_learned_refinement.py` | `results/experiment_B11_learned_refinement/summary.json` |
+| Описательные величины текста (региональные порядки на разрешённых и тонких ступенях; контраст Конго—Амазония 0,70/0,42; корреляции проверки содержания −0,93 / +0,28 / +0,01; география P ERA5–MERRA-2 ρ=0,86, блок D5) | тайловые и региональные таблицы выше | — | `verify_article1_descriptives.py` | `results/verify_article1_descriptives/summary.json` |
 
 Замороженные протоколы проверок: `docs/PROTOCOL_PHASE2_*.md`,
 `PHASE2B`, `PHASE3`, `PHASE8`, `PHASE9`, `PHASE10`, `PHASE11`, `PHASE12`,
@@ -78,6 +83,7 @@ pip install -r reproducibility/requirements_article1.txt
 | `results/experiment_B9_predictability/summary.json` | `c74270d55879e7966ac55f9f2c48ae0f76d5d816eb5b68965c2d614e0aafe342` |
 | `results/experiment_B10_irrecoverability/summary.json` | `cf5b15a4c5c0016e401a05e08c6cab53e3b8de43340d8479e5c73a76bb358caa` |
 | `results/experiment_B11_learned_refinement/summary.json` | `5ae51f5634943596359175745ad338f60796ed005b964f9f69c7b432df22013c` |
+| `results/verify_article1_descriptives/summary.json` | `d792a1dcdb75cf70c575688b90e84f8d02d49338308549d847f16f4a956fca8d` (с блоком D5; до него — `fd59a071…`) |
 
 Оговорка о битовой воспроизводимости: перестановочные и суррогатные ансамбли
 используют фиксированные зёрна, поэтому статистики воспроизводятся точно на

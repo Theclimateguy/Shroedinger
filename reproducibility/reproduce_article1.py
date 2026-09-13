@@ -76,6 +76,8 @@ EXPERIMENTS = [
      "experiment_B13_free_running/summary.json"),
     ("B18", "experiment_B18_equal_km_regions.py",
      "experiment_B18_equal_km_regions/summary.json"),
+    ("descriptives", "verify_article1_descriptives.py",
+     "verify_article1_descriptives/summary.json"),
 ]
 
 EXPECTED = [e[2] for e in EXPERIMENTS] + [
