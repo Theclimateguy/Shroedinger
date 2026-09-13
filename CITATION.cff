@@ -1,12 +1,12 @@
 cff-version: 1.2.0
 message: "If you use this repository, please cite it using the metadata below."
 title: "Cross-scale organisation of the atmospheric circulation: a falsification-grade research programme (Shroedinger, gen4)"
-version: "6.1"
+version: "6.2"
 type: software
 license: "MIT"
 repository-code: "https://github.com/Theclimateguy/Shroedinger"
 url: "https://github.com/Theclimateguy/Shroedinger"
-date-released: 2026-08-19
+date-released: 2026-09-14
 authors:
   - family-names: "Sotiriadi"
     given-names: "N."

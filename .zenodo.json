@@ -1,6 +1,6 @@
 {
   "title": "Cross-scale organisation of the atmospheric circulation: a falsification-grade research programme (Shroedinger, gen4)",
-  "version": "6.1",
+  "version": "6.2",
   "upload_type": "software",
   "license": "MIT",
   "language": "eng",
@@ -9,7 +9,7 @@
       "name": "Sotiriadi, N."
     }
   ],
-  "description": "<p><strong>v6.1 — reproducibility release for the manuscripts.</strong> Numerical results are identical to v6.0; this release adds the per-paper reproduction infrastructure and the journal-ready manuscript of paper 1 of the series.</p><ul><li><code>reproducibility/article1_README.md</code> — the complete route from primary data to every table row and figure of paper 1 (regional invariant): version pin, primary-source table (ERA5 / MERRA-2 / HighResMIP / GEFS / WeatherBench 2), a result-to-script mapping over the ten experiments behind the paper, pinned environment, SHA-256 of all expected artifacts, access caveats, and a single-region-window smoke test that avoids bulk downloads.</li><li><code>reproducibility/reproduce_article1.py</code> — one-command orchestrator (--stage download | compute | check); the artifact check verifies 12/12 stored results.</li><li><code>manuscript_v2/article1_v5.tex</code> — the journal-ready manuscript (Izvestia RAN, GOST bibliography, dual-engine preamble), revised through three external review rounds; its Data Availability Statement points to this release.</li></ul><p>Raw ERA5 / MERRA-2 / HighResMIP fields are deliberately not stored (large externally licensed products); the exact download scripts and all derived tables behind the papers’ statistics are included. For the full scientific record of the programme (Phases 1–23, AUDIT-1..4, verdicts and retractions) see the v6.0 release notes and <code>docs/RECONCILIATION.md</code>.</p>",
+  "description": "<p><strong>v6.2 — reproducibility routes for papers 1–2; article 1 manuscript v6.</strong> Numerical results of all frozen experiments are identical to v6.0.</p><ul><li><code>reproducibility/article1_README.md</code> + <code>reproduce_article1.py</code> (artifact check 13/13) and <code>article2_README.md</code> + <code>reproduce_article2.py</code> — complete routes from primary data to every table row and figure of papers 1 and 2.</li><li><code>manuscript_v2/article1_v6.tex</code> — rewritten manuscript of paper 1 (GOST bibliography, <code>references_article1.bib</code>).</li><li>Correction of the v6.1 text: the MERRA-2 row of table 3 quoted Phase-8 statistics that belong to the curvature profile ||F|| / index A (Δ=+1.12, ρ=0.93). For the profile P the numbers are Δ=+1.15 (descriptive clustering, raw profile) and ρ=0.86 (p=3.3e-4, 12 regions), now computed by block D5 of <code>clean_experiments/verify_article1_descriptives.py</code> from the stored per-window profiles. Amazon step-5 range 0.36–0.53; Farge (1992) pp. 395–457.</li></ul><p>Raw ERA5 / MERRA-2 / HighResMIP fields are deliberately not stored; the exact download scripts and all derived tables are included.</p>",
   "keywords": [
     "hierarchical organisation of geosystems",
     "invariants",
@@ -36,10 +36,10 @@
   ],
   "related_identifiers": [
     {
-      "identifier": "10.5281/zenodo.21940262",
+      "identifier": "10.5281/zenodo.22738064",
       "relation": "isNewVersionOf",
       "scheme": "doi"
     }
   ],
-  "notes": "Supersedes release v5.0. Adds Phases 14-23, the theory candidate with scored predictions, and the four methods audits (AUDIT-1..4) that settle the estimator's novelty against prior art and correct the map's reliability ceiling from 0.603 to 0.914. The analysis programme closes with this release."
+  "notes": "Supersedes release v6.1. Adds the per-paper reproducibility route for paper 2, the v6 manuscript of paper 1, and the correction of the MERRA-2 attribution in paper 1 (block D5). Frozen numerical results unchanged since v6.0."
 }
