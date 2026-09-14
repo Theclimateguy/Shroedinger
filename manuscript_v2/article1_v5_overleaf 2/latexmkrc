@@ -1,0 +1,3 @@
+# Overleaf: compile with XeLaTeX (Menu -> Compiler -> XeLaTeX).
+$pdf_mode = 5;   # xelatex -> xdvipdfmx
+$bibtex_use = 2; # run biber automatically

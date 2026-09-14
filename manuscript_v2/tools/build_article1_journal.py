@@ -82,7 +82,7 @@ def parse_bib(path: Path) -> dict[str, dict]:
 
 LATEX_ACCENTS = {r"{\'e}": "é", r"{\'a}": "á", r"{\'i}": "í", r"{\'o}": "ó", r"{\'u}": "ú",
                  r"\'e": "é", r"\'a": "á", r"\'i": "í", r"{\v{c}}": "č", r"\v{c}": "č",
-                 r"{\c{c}}": "ç"}
+                 r"{\c{c}}": "ç", r"{\~n}": "ñ", r"\~n": "ñ"}
 
 
 def clean(s: str) -> str:
@@ -174,7 +174,7 @@ JOURNAL_ABBR = {
 # Sentence-case titles where the bib carries Title Case; English titles of Russian sources.
 TITLE_OVERRIDE = {
     "Simon1962": "The architecture of complexity",
-    "Levin1992": "The problem of pattern and scale in ecology",
+    "Levin1992": "The problem of pattern and scale in ecology: The Robert H. MacArthur Award Lecture",
     "WuLoucks1995": "From balance of nature to hierarchical patch dynamics: A paradigm shift in ecology",
     "NastromGage1985": "A climatology of atmospheric wavenumber spectra of wind and temperature observed by commercial aircraft",
     "Skinner2025": "Characterizing ocean flows with the scattering transform",
@@ -188,7 +188,7 @@ EN_TITLE = {  # English titles / translations for Cyrillic sources (References l
     "Puzachenko1986": "Spatio-temporal hierarchy of geosystems from the standpoint of oscillation theory",
     "Puzachenko2004": "Mathematical Methods in Ecological and Geographical Research",
     "Puzachenko2010": "Invariants of a dynamic geosystem",
-    "Krenke2019": "Spatial organization of the regional mesoclimate",
+    "Krenke2019": "Spatial organization of regional mesoclimate",
 }
 EN_BOOKTITLE = {
     "Puzachenko1986": ("Voprosy geografii. Sb. 127: Modelirovanie geosistem",
@@ -200,7 +200,7 @@ PUBL_EN = {"Мысль": "Mysl’ Publ.", "Издательский центр �
            "Наука, Сибирское отделение": "Nauka Publ.", "Cambridge University Press": "CUP"}
 PUBL_RU = {"Издательский центр «Академия»": "Академия", "Наука, Сибирское отделение": "Наука",
            "Cambridge University Press": "Cambridge Univ. Press"}
-MAX_ALL_AUTHORS = 6  # more than this -> first three + et al.
+MAX_ALL_AUTHORS = 15  # journal rule: all authors, or the first three if more than 15
 
 
 def authors_str(auth, etal, lang, sep=", "):
@@ -249,7 +249,7 @@ def gost_entry(key, e):
         if vol:
             bits.append(("Т. " if ru else "Vol. ") + vol + ".")
         if num:
-            bits.append("№ " + num + ".")
+            bits.append("№ " + num.replace("-", "–") + ".")
         if pg:
             bits.append(("С. " if ru else ("P. " if "–" in pg else "Art. ")) + pg + ".")
         return f"\\textit{{{a}}} {t} // " + " ".join(bits) + doi_ru(e)
@@ -287,7 +287,7 @@ def refs_entry(key, e):
         if e.get("volume"):
             bits.append("vol. " + e["volume"])
         if e.get("number"):
-            bits.append("no. " + e["number"])
+            bits.append("no. " + e["number"].replace("-", "–"))
         pg = clean(e.get("pages", ""))
         if pg:
             bits.append(("pp. " if "–" in pg else "art. ") + pg)
