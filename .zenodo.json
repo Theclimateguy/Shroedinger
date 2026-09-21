@@ -1,6 +1,6 @@
 {
   "title": "Cross-scale organisation of the atmospheric circulation: a falsification-grade research programme (Shroedinger, gen4)",
-  "version": "6.2",
+  "version": "6.3",
   "upload_type": "software",
   "license": "MIT",
   "language": "eng",
@@ -9,7 +9,7 @@
       "name": "Sotiriadi, N."
     }
   ],
-  "description": "<p><strong>v6.2 — reproducibility routes for papers 1–2; article 1 manuscript v6.</strong> Numerical results of all frozen experiments are identical to v6.0.</p><ul><li><code>reproducibility/article1_README.md</code> + <code>reproduce_article1.py</code> (artifact check 13/13) and <code>article2_README.md</code> + <code>reproduce_article2.py</code> — complete routes from primary data to every table row and figure of papers 1 and 2.</li><li><code>manuscript_v2/article1_v6.tex</code> — rewritten manuscript of paper 1 (GOST bibliography, <code>references_article1.bib</code>).</li><li>Correction of the v6.1 text: the MERRA-2 row of table 3 quoted Phase-8 statistics that belong to the curvature profile ||F|| / index A (Δ=+1.12, ρ=0.93). For the profile P the numbers are Δ=+1.15 (descriptive clustering, raw profile) and ρ=0.86 (p=3.3e-4, 12 regions), now computed by block D5 of <code>clean_experiments/verify_article1_descriptives.py</code> from the stored per-window profiles. Amazon step-5 range 0.36–0.53; Farge (1992) pp. 395–457.</li></ul><p>Raw ERA5 / MERRA-2 / HighResMIP fields are deliberately not stored; the exact download scripts and all derived tables are included.</p>",
+  "description": "<p><strong>v6.3 — paper 2 of the series: journal-format manuscript and a single reproduction script.</strong> Numerical results of all frozen experiments are identical to v6.0.</p><ul><li><code>manuscript_v2/article2/article2_v4.pdf</code> (source <code>article2_v4_src.tex</code>) — paper 2, “Geography of the coupling between hierarchical levels of the atmospheric circulation: a planetary map, its controls and a regionalisation” (in Russian, journal format): the planetary map of scale coupling on 936 cells, its provinces, latitudinal structure, land–ocean and seasonal contrasts, the controls of its geography, the unexplained part, reproduction by a free-running model, and a typology of territories proposed as a regionalisation layer.</li><li><code>reproducibility/reproduce_article2.py</code> — the single entry point for paper 2 (<code>--stage download | compute | figures | manuscript | check | all</code>): 9 resumable downloaders, 20 computation steps, the descriptive layer, Russian-label 300-dpi figures, the journal-format manuscript build, and a check of 16 artifacts against SHA-256; route per table and figure in <code>reproducibility/article2_README.md</code>.</li><li>New code: <code>describe_B20_geography.py</code> (descriptive layer with a gazetteer tying every place name to a cell id), <code>visualize_article2_ru.py</code>, <code>verify_article2_descriptives.py</code> (D1–D4), Phase 25 (hydroclimatic candidates for the unexplained part of the map — NEGATIVE by the frozen ladder; vertical wind shear named as the single candidate).</li><li><code>manuscript_v2/</code> is reorganised into <code>article1/</code>, <code>article2/</code>, <code>article3/</code>; paper 1 submission package with 300-dpi figures.</li><li>Phase 26 (coupling map vs the geography of precipitation extremes): protocol frozen and code committed; verdict pending, not part of paper 2.</li></ul><p>Raw ERA5 / MERRA-2 / HighResMIP fields are deliberately not stored; the exact download scripts and all derived tables are included. Author rules of the target journal are referenced, not redistributed (<code>docs/journal/README.md</code>).</p>",
   "keywords": [
     "hierarchical organisation of geosystems",
     "invariants",
@@ -36,10 +36,10 @@
   ],
   "related_identifiers": [
     {
-      "identifier": "10.5281/zenodo.22738064",
+      "identifier": "10.5281/zenodo.22738086",
       "relation": "isNewVersionOf",
       "scheme": "doi"
     }
   ],
-  "notes": "Supersedes release v6.1. Adds the per-paper reproducibility route for paper 2, the v6 manuscript of paper 1, and the correction of the MERRA-2 attribution in paper 1 (block D5). Frozen numerical results unchanged since v6.0."
+  "notes": "Supersedes release v6.2. Adds paper 2 (journal-format manuscript v4), its single reproduction script, the descriptive layer and Phase 25; repository manuscripts reorganised per article. Frozen numerical results unchanged since v6.0."
 }
