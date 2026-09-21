@@ -2,7 +2,7 @@
 """Reproduce paper 1 of the series end to end.
 
 Paper: "Coupling of hierarchical levels of the atmospheric circulation as a
-regional invariant" (manuscript_v2/article1_v5.tex). Route and per-result
+regional invariant" (manuscript_v2/article1/article1_v7_src.tex). Route and per-result
 mapping: reproducibility/article1_README.md.
 
 Stages
