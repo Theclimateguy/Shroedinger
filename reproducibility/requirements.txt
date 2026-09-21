@@ -11,3 +11,5 @@ cdsapi==0.7.7
 earthaccess==0.18.0
 requests==2.32.5
 Pillow==11.3.0
+# journal-format manuscript build (stage `manuscript`); external tools: pandoc, latexmk (XeLaTeX)
+python-docx==1.2.0

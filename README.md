@@ -155,12 +155,22 @@ of this repository a given paper uses:
   `reproducibility/requirements_article1.txt`, SHA-256 of every expected
   artifact, and a smoke test that verifies the computational chain on a
   single region-window without bulk downloads.
-- Paper 2 (global geography and attribution): [`reproducibility/article2_README.md`](reproducibility/article2_README.md)
-  — orchestrator `reproducibility/reproduce_article2.py`
-  (`--stage download|compute|figures|check`) over the seven analyses behind
-  the paper (Phase-20 arms A/B, AUDIT-2b/4, Phases 21-23), including
-  regeneration of the manuscript's map figures; shared pinned environment
-  `reproducibility/requirements.txt`; SHA-256 of every expected artifact.
+- Paper 2 (planetary map of coupling, its controls and a regionalisation):
+  [`reproducibility/article2_README.md`](reproducibility/article2_README.md)
+  — **single entry point** `reproducibility/reproduce_article2.py`
+  (`--stage download|compute|figures|manuscript|check|all`). One script goes
+  from the primary fields to the manuscript files: 9 resumable downloaders;
+  20 computation steps in dependency order (Phase-20 arms A/B, AUDIT-2/2b/4,
+  Phases 17, 21-23, 25, descriptive readouts); the descriptive layer of the
+  paper (zonal profiles, typology and regionalisation map, map of the
+  unexplained part, per-cell table and a gazetteer that ties every place
+  name in the text to a cell id); Russian-label 300-dpi journal figures; and
+  the journal-format manuscript build (author-year citations, GOST list +
+  References, typography checks, character count; author rules of the target
+  journal are kept in `docs/journal/`). `--stage check` verifies 16 artifacts
+  against the SHA-256 list; `check` and `figures` need no downloads because
+  all derived tables are committed. Shared pinned environment:
+  `reproducibility/requirements.txt`.
 - Paper 3: route will be added alongside its submission.
 
 Raw ERA5 / MERRA-2 / HighResMIP fields are deliberately **not** stored in
@@ -177,7 +187,7 @@ scripts and all derived tables behind the papers' statistics are.
 
 ## Provenance
 
-- Current manuscript: `manuscript_v2/article_v3.tex`.
+- Manuscripts: `manuscript_v2/article1/` (article 1, submitted to Izvestiya RAN Ser. Geogr., source `article1_v7_src.tex`), `manuscript_v2/article2/` (article 2, `article2_v1.tex`), `manuscript_v2/article3/` (article 3, `article3_v1.tex`); shared bibliography `manuscript_v2/references_v2.bib`. See `manuscript_v2/README.md`.
 - v1 manuscript (superseded; central claim retracted by Phase B1):
   [Zenodo 19565805](https://zenodo.org/records/19565805) — `main.pdf`,
   `main_ru.pdf`, `manuscript/` are kept for the record.

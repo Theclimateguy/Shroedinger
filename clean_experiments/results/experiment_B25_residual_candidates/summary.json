@@ -1,0 +1,43 @@
+{
+ "seed": 20260824,
+ "protocol": "docs/PROTOCOL_PHASE25_RESIDUAL_CANDIDATES.md",
+ "n_tiles": 902,
+ "C25_1_target_vs_committed_map_rho": 0.9977009058605546,
+ "H25a": {
+  "r2_base": 0.7625719117824526,
+  "r2_full": 0.7867946929912003,
+  "increment": 0.024222781208747657,
+  "p_rotation": 0.011,
+  "null_q95": 0.023260989535745513,
+  "verdict": "NEGATIVE"
+ },
+ "H25b": {
+  "monsoon_amp": {
+   "rho_residual": 0.036584879391416275,
+   "p_rotation_two_sided": 0.816
+  },
+  "conv_frac": {
+   "rho_residual": -0.03718642470127396,
+   "p_rotation_two_sided": 0.371
+  },
+  "shear": {
+   "rho_residual": -0.38067097140238915,
+   "p_rotation_two_sided": 0.001
+  },
+  "pw": {
+   "rho_residual": 0.049509093782079676,
+   "p_rotation_two_sided": 0.858
+  }
+ },
+ "C25_2_slope_placebo": {
+  "r2_base": 0.5934873338675399,
+  "r2_full": 0.6017855775590729,
+  "increment": 0.00829824369153298
+ },
+ "candidate_loadings_vs_P": {
+  "monsoon_amp": -0.2946203465113884,
+  "conv_frac": -0.6086622361102787,
+  "shear": 0.17397524132839973,
+  "pw": -0.5589808365844069
+ }
+}

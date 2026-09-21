@@ -1,0 +1,41 @@
+{
+  "note": "descriptive readouts quoted in article 2; no thresholds, no null models -- recomputation aid only",
+  "covariates_armA": [
+    "orog_std",
+    "land_frac",
+    "coast_var",
+    "cape_mean",
+    "eke_syn"
+  ],
+  "D1_armA_variance_decomposition": {
+    "n_tiles": 144,
+    "n_regions": 12,
+    "between_region_share": 0.5136325112529981,
+    "within_region_share": 0.48636748874700186
+  },
+  "D2_armB_variance_decomposition": {
+    "n_tiles": 902,
+    "band_share": 0.509514012991626,
+    "sector_within_band_share": 0.10352304174321514,
+    "within_cell_share": 0.38696294526515884
+  },
+  "D3_congo_amazon_holdout": {
+    "heldout_regions": [
+      "R7_CONGO",
+      "R3_AMAZ"
+    ],
+    "n_heldout_tiles": 24,
+    "rho_obs_vs_pred_within_heldout": 0.5939130434782608,
+    "observed_congo_minus_amazon": 0.051459631986088245,
+    "predicted_congo_minus_amazon": 0.004250061317238513
+  },
+  "D4_orography_distance_candidate": {
+    "n_tiles": 902,
+    "status": "exploratory, not preregistered",
+    "median_distance_km": 1667.9911994857823,
+    "rho_distance_vs_audit4_residual": -0.0865930449985975,
+    "loso_r2_base": 0.7625719117824526,
+    "loso_r2_with_distance": 0.7617459439148346,
+    "loso_increment": -0.000825967867618016
+  }
+}

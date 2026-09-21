@@ -38,3 +38,14 @@ clean_experiments/results/**
 *.synctex.gz
 *.toc
 manuscript/*.pdf
+
+# Word lock files
+~$*
+
+# Third-party journal rule files (not redistributed; see docs/journal/README.md)
+docs/journal/*.pdf
+docs/journal/*.txt
+
+# Bulky duplicates of the paper-1 submission figures
+manuscript_v2/article1/journal_package/article1_figures_300dpi/
+manuscript_v2/article1/journal_package/article1_figures_300dpi.zip

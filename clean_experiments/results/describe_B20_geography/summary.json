@@ -1,0 +1,1911 @@
+{
+ "note": "DESCRIPTIVE - no protocol, no decision rule",
+ "named_cells": [
+  {
+   "tid": "t02_018",
+   "lat": -45.0,
+   "lon": 166.5,
+   "P": 0.4131,
+   "land": 0.17,
+   "eke": 33.4,
+   "cape": 14.0,
+   "organizer": "storm",
+   "coupling": "high",
+   "orog_adj": false,
+   "name_ru": "Южнее Новой Зеландии"
+  },
+  {
+   "tid": "t18_022",
+   "lat": 51.0,
+   "lon": 231.42857142857144,
+   "P": 0.3738,
+   "land": 0.39,
+   "eke": 23.4,
+   "cape": 11.0,
+   "organizer": "storm",
+   "coupling": "high",
+   "orog_adj": true,
+   "name_ru": "Залив Аляска"
+  },
+  {
+   "tid": "t19_025",
+   "lat": 57.0,
+   "lon": 296.1290322580645,
+   "P": 0.3561,
+   "land": 0.55,
+   "eke": 26.3,
+   "cape": 6.0,
+   "organizer": "storm",
+   "coupling": "high",
+   "orog_adj": false,
+   "name_ru": "Море Лабрадор"
+  },
+  {
+   "tid": "t19_023",
+   "lat": 57.0,
+   "lon": 272.90322580645164,
+   "P": 0.3528,
+   "land": 0.33,
+   "eke": 24.1,
+   "cape": 10.0,
+   "organizer": "storm",
+   "coupling": "high",
+   "orog_adj": false,
+   "name_ru": "Гудзонов залив"
+  },
+  {
+   "tid": "t19_000",
+   "lat": 57.0,
+   "lon": 5.806451612903226,
+   "P": 0.3545,
+   "land": 0.21,
+   "eke": 28.6,
+   "cape": 17.0,
+   "organizer": "storm",
+   "coupling": "high",
+   "orog_adj": false,
+   "name_ru": "Норвежское море"
+  },
+  {
+   "tid": "t15_031",
+   "lat": 33.0,
+   "lon": 241.27659574468086,
+   "P": 0.3607,
+   "land": 0.41,
+   "eke": 12.8,
+   "cape": 17.0,
+   "organizer": "none",
+   "coupling": "high",
+   "orog_adj": true,
+   "name_ru": "Побережье Калифорнии"
+  },
+  {
+   "tid": "t04_037",
+   "lat": -33.0,
+   "lon": 287.2340425531915,
+   "P": 0.3598,
+   "land": 0.38,
+   "eke": 7.9,
+   "cape": 12.0,
+   "organizer": "none",
+   "coupling": "high",
+   "orog_adj": true,
+   "name_ru": "Побережье центрального Чили"
+  },
+  {
+   "tid": "t14_047",
+   "lat": 27.0,
+   "lon": 342.0,
+   "P": 0.3025,
+   "land": 0.04,
+   "eke": 7.1,
+   "cape": 51.0,
+   "organizer": "none",
+   "coupling": "high",
+   "orog_adj": false,
+   "name_ru": "Канарское побережье"
+  },
+  {
+   "tid": "t15_045",
+   "lat": 33.0,
+   "lon": 348.51063829787233,
+   "P": 0.3005,
+   "land": 0.13,
+   "eke": 8.5,
+   "cape": 48.0,
+   "organizer": "none",
+   "coupling": "high",
+   "orog_adj": false,
+   "name_ru": "Португальское побережье"
+  },
+  {
+   "tid": "t06_016",
+   "lat": -21.0,
+   "lon": 112.0754716981132,
+   "P": 0.3043,
+   "land": 0.09,
+   "eke": 9.0,
+   "cape": 185.0,
+   "organizer": "none",
+   "coupling": "high",
+   "orog_adj": false,
+   "name_ru": "Запад Австралии"
+  },
+  {
+   "tid": "t08_017",
+   "lat": -9.0,
+   "lon": 112.5,
+   "P": 0.3752,
+   "land": 0.17,
+   "eke": 3.2,
+   "cape": 396.0,
+   "organizer": "conv",
+   "coupling": "high",
+   "orog_adj": false,
+   "name_ru": "Акватория к югу от Явы"
+  },
+  {
+   "tid": "t12_040",
+   "lat": 15.0,
+   "lon": 265.0909090909091,
+   "P": 0.3583,
+   "land": 0.39,
+   "eke": 9.4,
+   "cape": 587.0,
+   "organizer": "conv",
+   "coupling": "high",
+   "orog_adj": false,
+   "name_ru": "Тихоокеанское побережье Центральной Америки"
+  },
+  {
+   "tid": "t09_045",
+   "lat": -3.0,
+   "lon": 287.36842105263156,
+   "P": 0.1649,
+   "land": 0.99,
+   "eke": 2.7,
+   "cape": 856.0,
+   "organizer": "conv",
+   "coupling": "low",
+   "orog_adj": false,
+   "name_ru": "Запад Амазонии (1)"
+  },
+  {
+   "tid": "t09_044",
+   "lat": -3.0,
+   "lon": 281.0526315789474,
+   "P": 0.1776,
+   "land": 0.77,
+   "eke": 1.3,
+   "cape": 275.0,
+   "organizer": "conv",
+   "coupling": "low",
+   "orog_adj": false,
+   "name_ru": "Запад Амазонии (2)"
+  },
+  {
+   "tid": "t09_002",
+   "lat": -3.0,
+   "lon": 15.789473684210527,
+   "P": 0.1757,
+   "land": 0.98,
+   "eke": 3.5,
+   "cape": 688.0,
+   "organizer": "conv",
+   "coupling": "low",
+   "orog_adj": false,
+   "name_ru": "Бассейн Конго"
+  },
+  {
+   "tid": "t09_018",
+   "lat": -3.0,
+   "lon": 116.84210526315789,
+   "P": 0.1547,
+   "land": 0.38,
+   "eke": 3.0,
+   "cape": 612.0,
+   "organizer": "conv",
+   "coupling": "low",
+   "orog_adj": false,
+   "name_ru": "Калимантан"
+  },
+  {
+   "tid": "t14_016",
+   "lat": 27.0,
+   "lon": 118.8,
+   "P": 0.1032,
+   "land": 0.72,
+   "eke": 9.5,
+   "cape": 290.0,
+   "organizer": "conv",
+   "coupling": "low",
+   "orog_adj": false,
+   "name_ru": "Южный Китай (1)"
+  },
+  {
+   "tid": "t14_015",
+   "lat": 27.0,
+   "lon": 111.60000000000001,
+   "P": 0.1486,
+   "land": 0.99,
+   "eke": 13.5,
+   "cape": 205.0,
+   "organizer": "conv",
+   "coupling": "low",
+   "orog_adj": true,
+   "name_ru": "Южный Китай (2)"
+  },
+  {
+   "tid": "t13_005",
+   "lat": 21.0,
+   "lon": 37.35849056603774,
+   "P": 0.1392,
+   "land": 0.6,
+   "eke": 7.5,
+   "cape": 766.0,
+   "organizer": "conv",
+   "coupling": "low",
+   "orog_adj": false,
+   "name_ru": "Побережье Красного моря"
+  },
+  {
+   "tid": "t12_006",
+   "lat": 15.0,
+   "lon": 42.54545454545455,
+   "P": 0.1773,
+   "land": 0.63,
+   "eke": 4.9,
+   "cape": 1029.0,
+   "organizer": "conv",
+   "coupling": "low",
+   "orog_adj": false,
+   "name_ru": "Аравийский полуостров"
+  },
+  {
+   "tid": "t07_045",
+   "lat": -15.0,
+   "lon": 297.8181818181818,
+   "P": 0.1143,
+   "land": 0.99,
+   "eke": 8.7,
+   "cape": 376.0,
+   "organizer": "conv",
+   "coupling": "low",
+   "orog_adj": true,
+   "name_ru": "Гран-Чако"
+  },
+  {
+   "tid": "t06_042",
+   "lat": -21.0,
+   "lon": 288.6792452830189,
+   "P": 0.2633,
+   "land": 0.36,
+   "eke": 2.9,
+   "cape": 6.0,
+   "organizer": "none",
+   "coupling": "mid",
+   "orog_adj": true,
+   "name_ru": "Предгорья Анд"
+  },
+  {
+   "tid": "t14_034",
+   "lat": 27.0,
+   "lon": 248.4,
+   "P": 0.1396,
+   "land": 0.49,
+   "eke": 7.8,
+   "cape": 273.0,
+   "organizer": "conv",
+   "coupling": "low",
+   "orog_adj": true,
+   "name_ru": "Окраина Мексиканского нагорья"
+  },
+  {
+   "tid": "t15_007",
+   "lat": 33.0,
+   "lon": 57.4468085106383,
+   "P": 0.1431,
+   "land": 1.0,
+   "eke": 8.7,
+   "cape": 5.0,
+   "organizer": "none",
+   "coupling": "low",
+   "orog_adj": true,
+   "name_ru": "Иранское нагорье"
+  },
+  {
+   "tid": "t16_003",
+   "lat": 39.0,
+   "lon": 28.636363636363637,
+   "P": 0.149,
+   "land": 0.62,
+   "eke": 10.4,
+   "cape": 120.0,
+   "organizer": "none",
+   "coupling": "low",
+   "orog_adj": false,
+   "name_ru": "Запад Малой Азии"
+  },
+  {
+   "tid": "t03_035",
+   "lat": -39.0,
+   "lon": 290.45454545454544,
+   "P": 0.1769,
+   "land": 0.95,
+   "eke": 21.8,
+   "cape": 17.0,
+   "organizer": "storm",
+   "coupling": "low",
+   "orog_adj": false,
+   "name_ru": "Патагония"
+  },
+  {
+   "tid": "t17_039",
+   "lat": 45.0,
+   "lon": 355.5,
+   "P": 0.3077,
+   "land": 0.39,
+   "eke": 16.6,
+   "cape": 41.0,
+   "organizer": "none",
+   "coupling": "high",
+   "orog_adj": false,
+   "name_ru": "Бискайский залив"
+  },
+  {
+   "tid": "t04_039",
+   "lat": -33.0,
+   "lon": 302.5531914893617,
+   "P": 0.2418,
+   "land": 0.86,
+   "eke": 25.9,
+   "cape": 101.0,
+   "organizer": "storm",
+   "coupling": "low",
+   "orog_adj": false,
+   "name_ru": "Пампа"
+  },
+  {
+   "tid": "t04_018",
+   "lat": -33.0,
+   "lon": 141.70212765957447,
+   "P": 0.224,
+   "land": 0.96,
+   "eke": 18.6,
+   "cape": 19.0,
+   "organizer": "storm",
+   "coupling": "low",
+   "orog_adj": false,
+   "name_ru": "Юг Австралии"
+  },
+  {
+   "tid": "t08_022",
+   "lat": -9.0,
+   "lon": 144.64285714285714,
+   "P": 0.3173,
+   "land": 0.44,
+   "eke": 4.1,
+   "cape": 433.0,
+   "organizer": "conv",
+   "coupling": "high",
+   "orog_adj": false,
+   "name_ru": "Новая Гвинея"
+  },
+  {
+   "tid": "t14_011",
+   "lat": 27.0,
+   "lon": 82.8,
+   "P": 0.3378,
+   "land": 0.99,
+   "eke": 5.1,
+   "cape": 264.0,
+   "organizer": "conv",
+   "coupling": "high",
+   "orog_adj": true,
+   "name_ru": "Гангская равнина"
+  },
+  {
+   "tid": "t13_013",
+   "lat": 21.0,
+   "lon": 91.69811320754718,
+   "P": 0.3362,
+   "land": 0.51,
+   "eke": 5.8,
+   "cape": 673.0,
+   "organizer": "conv",
+   "coupling": "high",
+   "orog_adj": true,
+   "name_ru": "Бенгальский залив"
+  },
+  {
+   "tid": "t19_005",
+   "lat": 57.0,
+   "lon": 63.87096774193549,
+   "P": 0.315,
+   "land": 0.97,
+   "eke": 18.0,
+   "cape": 23.0,
+   "organizer": "none",
+   "coupling": "high",
+   "orog_adj": false,
+   "name_ru": "Север внутренней Евразии (1)"
+  },
+  {
+   "tid": "t19_009",
+   "lat": 57.0,
+   "lon": 110.3225806451613,
+   "P": 0.3257,
+   "land": 0.97,
+   "eke": 9.2,
+   "cape": 21.0,
+   "organizer": "none",
+   "coupling": "high",
+   "orog_adj": true,
+   "name_ru": "Север внутренней Евразии (2)"
+  }
+ ],
+ "n_tiles": 902,
+ "n_excluded_orog": 34,
+ "global": {
+  "mean": 0.26328544884352933,
+  "sd": 0.041670042588077695,
+  "min": 0.10316668699185053,
+  "max": 0.4131463368733724,
+  "q_terciles": [
+   0.2438963908288214,
+   0.27342659814490217
+  ]
+ },
+ "zonal_share_of_variance": 0.509514012991626,
+ "zonal_profile": [
+  {
+   "lat_c": -57.0,
+   "n": 31,
+   "P": 0.34841973206368826,
+   "P_ocean": 0.34841973206368826,
+   "n_ocean": 31,
+   "P_land": null,
+   "n_land": 0,
+   "P_JFM": 0.3518889799553861,
+   "P_JAS": 0.3449504841719904,
+   "residual": 0.01772740656839605
+  },
+  {
+   "lat_c": -51.0,
+   "n": 35,
+   "P": 0.32431800088712154,
+   "P_ocean": 0.32431800088712154,
+   "n_ocean": 35,
+   "P_land": null,
+   "n_land": 0,
+   "P_JFM": 0.32668608427047724,
+   "P_JAS": 0.32194991750376567,
+   "residual": 0.005203653444106431
+  },
+  {
+   "lat_c": -45.0,
+   "n": 40,
+   "P": 0.30413688092182084,
+   "P_ocean": 0.3064895445465023,
+   "n_ocean": 39,
+   "P_land": 0.21238299955924353,
+   "n_land": 1,
+   "P_JFM": 0.30542813017964365,
+   "P_JAS": 0.3028456316639979,
+   "residual": -0.003798984909800484
+  },
+  {
+   "lat_c": -39.0,
+   "n": 44,
+   "P": 0.2742129219413707,
+   "P_ocean": 0.27666480549507666,
+   "n_ocean": 42,
+   "P_land": 0.22272336731354395,
+   "n_land": 2,
+   "P_JFM": 0.27472922194636235,
+   "P_JAS": 0.27369662193637906,
+   "residual": -0.011315790897664673
+  },
+  {
+   "lat_c": -33.0,
+   "n": 47,
+   "P": 0.26747315672906574,
+   "P_ocean": 0.2689528863846771,
+   "n_ocean": 41,
+   "P_land": 0.25736167074905497,
+   "n_land": 6,
+   "P_JFM": 0.26841971859441577,
+   "P_JAS": 0.26652659486371577,
+   "residual": -0.011319486862255144
+  },
+  {
+   "lat_c": -27.0,
+   "n": 48,
+   "P": 0.2520934902648959,
+   "P_ocean": 0.2546488943899799,
+   "n_ocean": 39,
+   "P_land": 0.24102007238953205,
+   "n_land": 9,
+   "P_JFM": 0.25527131536768544,
+   "P_JAS": 0.24891566516210636,
+   "residual": -0.006987907561536198
+  },
+  {
+   "lat_c": -21.0,
+   "n": 52,
+   "P": 0.24377612650203398,
+   "P_ocean": 0.2459762582555413,
+   "n_ocean": 40,
+   "P_land": 0.23644235399034286,
+   "n_land": 12,
+   "P_JFM": 0.24497456476092339,
+   "P_JAS": 0.24257768824314466,
+   "residual": -0.007712856687654827
+  },
+  {
+   "lat_c": -15.0,
+   "n": 53,
+   "P": 0.24244581870500395,
+   "P_ocean": 0.24819340827790173,
+   "n_ocean": 44,
+   "P_land": 0.21434649190417043,
+   "n_land": 9,
+   "P_JFM": 0.244699350786659,
+   "P_JAS": 0.24019228662334896,
+   "residual": 0.00041029653555386475
+  },
+  {
+   "lat_c": -9.0,
+   "n": 56,
+   "P": 0.24452686886347474,
+   "P_ocean": 0.25023830638847494,
+   "n_ocean": 46,
+   "P_land": 0.2182542562484741,
+   "n_land": 10,
+   "P_JFM": 0.23915958351322583,
+   "P_JAS": 0.24989415421372366,
+   "residual": 0.005344313462762153
+  },
+  {
+   "lat_c": -3.0,
+   "n": 56,
+   "P": 0.23259446530469827,
+   "P_ocean": 0.2375882626683624,
+   "n_ocean": 45,
+   "P_land": 0.2121652942715269,
+   "n_land": 11,
+   "P_JFM": 0.22854457263435637,
+   "P_JAS": 0.23664435797504016,
+   "residual": 0.007068320957229625
+  },
+  {
+   "lat_c": 3.0,
+   "n": 57,
+   "P": 0.23404725255411968,
+   "P_ocean": 0.2376984864797281,
+   "n_ocean": 46,
+   "P_land": 0.21877845613793898,
+   "n_land": 11,
+   "P_JFM": 0.23840465583996467,
+   "P_JAS": 0.2296898492682747,
+   "residual": 0.008124141006501275
+  },
+  {
+   "lat_c": 9.0,
+   "n": 56,
+   "P": 0.2467764787198532,
+   "P_ocean": 0.2462974004158678,
+   "n_ocean": 43,
+   "P_land": 0.24836112234072807,
+   "n_land": 13,
+   "P_JFM": 0.2502764016389847,
+   "P_JAS": 0.24327655580072174,
+   "residual": 0.005227894496602611
+  },
+  {
+   "lat_c": 15.0,
+   "n": 55,
+   "P": 0.24384369543104462,
+   "P_ocean": 0.24842871415118378,
+   "n_ocean": 40,
+   "P_land": 0.23161697884400687,
+   "n_land": 15,
+   "P_JFM": 0.2458887102025928,
+   "P_JAS": 0.24179868065949642,
+   "residual": -0.00013302875756103025
+  },
+  {
+   "lat_c": 21.0,
+   "n": 53,
+   "P": 0.24867353115066795,
+   "P_ocean": 0.2529589638113976,
+   "n_ocean": 35,
+   "P_land": 0.24034074542147144,
+   "n_land": 18,
+   "P_JFM": 0.2449708526614327,
+   "P_JAS": 0.25237620963990315,
+   "residual": -0.003027469929767828
+  },
+  {
+   "lat_c": 27.0,
+   "n": 46,
+   "P": 0.24896288549770484,
+   "P_ocean": 0.25330745274650635,
+   "n_ocean": 29,
+   "P_land": 0.24155156489680796,
+   "n_land": 17,
+   "P_JFM": 0.24858951514613795,
+   "P_JAS": 0.24933625584927163,
+   "residual": -0.00503700687269264
+  },
+  {
+   "lat_c": 33.0,
+   "n": 40,
+   "P": 0.25971656640370683,
+   "P_ocean": 0.2720559252265059,
+   "n_ocean": 27,
+   "P_land": 0.2340886673102012,
+   "n_land": 13,
+   "P_JFM": 0.25751655325293543,
+   "P_JAS": 0.26191657955447833,
+   "residual": -0.01174612308124254
+  },
+  {
+   "lat_c": 39.0,
+   "n": 34,
+   "P": 0.2635474916474492,
+   "P_ocean": 0.27465632940746015,
+   "n_ocean": 24,
+   "P_land": 0.23688628102342285,
+   "n_land": 10,
+   "P_JFM": 0.26722591414171104,
+   "P_JAS": 0.2598690691531873,
+   "residual": -0.009582574827315749
+  },
+  {
+   "lat_c": 45.0,
+   "n": 36,
+   "P": 0.2880943021564572,
+   "P_ocean": 0.30450658199557085,
+   "n_ocean": 19,
+   "P_land": 0.2697511658656831,
+   "n_land": 17,
+   "P_JFM": 0.29448046742214096,
+   "P_JAS": 0.2817081368907735,
+   "residual": -0.00015582174070691483
+  },
+  {
+   "lat_c": 51.0,
+   "n": 32,
+   "P": 0.2951459416653961,
+   "P_ocean": 0.3243144578403897,
+   "n_ocean": 15,
+   "P_land": 0.26940901562863706,
+   "n_land": 17,
+   "P_JFM": 0.2992142871953547,
+   "P_JAS": 0.2910775961354375,
+   "residual": 0.007776414176587042
+  },
+  {
+   "lat_c": 57.0,
+   "n": 31,
+   "P": 0.31661516219697977,
+   "P_ocean": 0.33252186907662284,
+   "n_ocean": 15,
+   "P_land": 0.3017026244973143,
+   "n_land": 16,
+   "P_JFM": 0.32468521723183247,
+   "P_JAS": 0.3085451071621269,
+   "residual": 0.021480030398689353
+  }
+ ],
+ "hemispheric_mirror": [
+  {
+   "abs_lat": 3.0,
+   "P_NH": 0.23404725255411968,
+   "P_SH": 0.23259446530469827,
+   "n_NH": 57,
+   "n_SH": 56,
+   "P_NH_ocean": 0.2376984864797281,
+   "P_SH_ocean": 0.2375882626683624
+  },
+  {
+   "abs_lat": 9.0,
+   "P_NH": 0.2467764787198532,
+   "P_SH": 0.24452686886347474,
+   "n_NH": 56,
+   "n_SH": 56,
+   "P_NH_ocean": 0.2462974004158678,
+   "P_SH_ocean": 0.25023830638847494
+  },
+  {
+   "abs_lat": 15.0,
+   "P_NH": 0.24384369543104462,
+   "P_SH": 0.24244581870500395,
+   "n_NH": 55,
+   "n_SH": 53,
+   "P_NH_ocean": 0.24842871415118378,
+   "P_SH_ocean": 0.24819340827790173
+  },
+  {
+   "abs_lat": 21.0,
+   "P_NH": 0.24867353115066795,
+   "P_SH": 0.24377612650203398,
+   "n_NH": 53,
+   "n_SH": 52,
+   "P_NH_ocean": 0.2529589638113976,
+   "P_SH_ocean": 0.2459762582555413
+  },
+  {
+   "abs_lat": 27.0,
+   "P_NH": 0.24896288549770484,
+   "P_SH": 0.2520934902648959,
+   "n_NH": 46,
+   "n_SH": 48,
+   "P_NH_ocean": 0.25330745274650635,
+   "P_SH_ocean": 0.2546488943899799
+  },
+  {
+   "abs_lat": 33.0,
+   "P_NH": 0.25971656640370683,
+   "P_SH": 0.26747315672906574,
+   "n_NH": 40,
+   "n_SH": 47,
+   "P_NH_ocean": 0.2720559252265059,
+   "P_SH_ocean": 0.2689528863846771
+  },
+  {
+   "abs_lat": 39.0,
+   "P_NH": 0.2635474916474492,
+   "P_SH": 0.2742129219413707,
+   "n_NH": 34,
+   "n_SH": 44,
+   "P_NH_ocean": 0.27465632940746015,
+   "P_SH_ocean": 0.27666480549507666
+  },
+  {
+   "abs_lat": 45.0,
+   "P_NH": 0.2880943021564572,
+   "P_SH": 0.30413688092182084,
+   "n_NH": 36,
+   "n_SH": 40,
+   "P_NH_ocean": 0.30450658199557085,
+   "P_SH_ocean": 0.3064895445465023
+  },
+  {
+   "abs_lat": 51.0,
+   "P_NH": 0.2951459416653961,
+   "P_SH": 0.32431800088712154,
+   "n_NH": 32,
+   "n_SH": 35,
+   "P_NH_ocean": 0.3243144578403897,
+   "P_SH_ocean": 0.32431800088712154
+  },
+  {
+   "abs_lat": 57.0,
+   "P_NH": 0.31661516219697977,
+   "P_SH": 0.34841973206368826,
+   "n_NH": 31,
+   "n_SH": 31,
+   "P_NH_ocean": 0.33252186907662284,
+   "P_SH_ocean": 0.34841973206368826
+  }
+ ],
+ "land_ocean": {
+  "tropics": {
+   "ocean": {
+    "n": 180,
+    "P": 0.24292973616608865
+   },
+   "land": {
+    "n": 45,
+    "P": 0.2255915201648518
+   }
+  },
+  "subtropics": {
+   "ocean": {
+    "n": 295,
+    "P": 0.25491550483946074
+   },
+   "land": {
+    "n": 99,
+    "P": 0.2366635831267344
+   }
+  },
+  "midlat": {
+   "ocean": {
+    "n": 220,
+    "P": 0.3088867166390022
+   },
+   "land": {
+    "n": 63,
+    "P": 0.2701532955838259
+   }
+  },
+  "all": {
+   "ocean": {
+    "n": 695,
+    "P": 0.2688956893498091
+   },
+   "land": {
+    "n": 207,
+    "P": 0.24444913410022254
+   }
+  }
+ },
+ "season": {
+  "median_abs_diff": 0.016016699373722076,
+  "q90_abs_diff": 0.04844057957331337,
+  "NH_midlat_JFM_minus_JAS": 0.011057550036220026,
+  "SH_midlat_JFM_minus_JAS": 0.003530623647901748,
+  "tropics_JFM_minus_JAS": -0.0007377270967872033,
+  "NH_tropical_land_JFM_minus_JAS": 0.01705327390404473,
+  "SH_tropical_land_JFM_minus_JAS": -0.011975051036902834
+ },
+ "extremes": {
+  "lowest": [
+   {
+    "tid": "t14_016",
+    "lat": 27.0,
+    "lon": 118.8,
+    "P": 0.1032,
+    "land": 0.72,
+    "eke": 9.5,
+    "cape": 290.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": false
+   },
+   {
+    "tid": "t10_005",
+    "lat": 3.0,
+    "lon": 34.73684210526316,
+    "P": 0.1079,
+    "land": 0.96,
+    "eke": 5.5,
+    "cape": 183.0,
+    "organizer": "none",
+    "coupling": "low",
+    "orog_adj": true
+   },
+   {
+    "tid": "t07_045",
+    "lat": -15.0,
+    "lon": 297.8181818181818,
+    "P": 0.1143,
+    "land": 0.99,
+    "eke": 8.7,
+    "cape": 376.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": true
+   },
+   {
+    "tid": "t13_005",
+    "lat": 21.0,
+    "lon": 37.35849056603774,
+    "P": 0.1392,
+    "land": 0.6,
+    "eke": 7.5,
+    "cape": 766.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": false
+   },
+   {
+    "tid": "t14_034",
+    "lat": 27.0,
+    "lon": 248.4,
+    "P": 0.1396,
+    "land": 0.49,
+    "eke": 7.8,
+    "cape": 273.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": true
+   },
+   {
+    "tid": "t15_007",
+    "lat": 33.0,
+    "lon": 57.4468085106383,
+    "P": 0.1431,
+    "land": 1.0,
+    "eke": 8.7,
+    "cape": 5.0,
+    "organizer": "none",
+    "coupling": "low",
+    "orog_adj": true
+   },
+   {
+    "tid": "t14_015",
+    "lat": 27.0,
+    "lon": 111.60000000000001,
+    "P": 0.1486,
+    "land": 0.99,
+    "eke": 13.5,
+    "cape": 205.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": true
+   },
+   {
+    "tid": "t16_003",
+    "lat": 39.0,
+    "lon": 28.636363636363637,
+    "P": 0.149,
+    "land": 0.62,
+    "eke": 10.4,
+    "cape": 120.0,
+    "organizer": "none",
+    "coupling": "low",
+    "orog_adj": false
+   },
+   {
+    "tid": "t09_018",
+    "lat": -3.0,
+    "lon": 116.84210526315789,
+    "P": 0.1547,
+    "land": 0.38,
+    "eke": 3.0,
+    "cape": 612.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": false
+   },
+   {
+    "tid": "t10_046",
+    "lat": 3.0,
+    "lon": 293.6842105263158,
+    "P": 0.1608,
+    "land": 0.99,
+    "eke": 2.4,
+    "cape": 668.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": false
+   },
+   {
+    "tid": "t09_045",
+    "lat": -3.0,
+    "lon": 287.36842105263156,
+    "P": 0.1649,
+    "land": 0.99,
+    "eke": 2.7,
+    "cape": 856.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": false
+   },
+   {
+    "tid": "t15_032",
+    "lat": 33.0,
+    "lon": 248.93617021276597,
+    "P": 0.173,
+    "land": 0.94,
+    "eke": 8.1,
+    "cape": 105.0,
+    "organizer": "none",
+    "coupling": "low",
+    "orog_adj": true
+   },
+   {
+    "tid": "t09_002",
+    "lat": -3.0,
+    "lon": 15.789473684210527,
+    "P": 0.1757,
+    "land": 0.98,
+    "eke": 3.5,
+    "cape": 688.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": false
+   },
+   {
+    "tid": "t03_035",
+    "lat": -39.0,
+    "lon": 290.45454545454544,
+    "P": 0.1769,
+    "land": 0.95,
+    "eke": 21.8,
+    "cape": 17.0,
+    "organizer": "storm",
+    "coupling": "low",
+    "orog_adj": false
+   },
+   {
+    "tid": "t12_006",
+    "lat": 15.0,
+    "lon": 42.54545454545455,
+    "P": 0.1773,
+    "land": 0.63,
+    "eke": 4.9,
+    "cape": 1029.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": false
+   },
+   {
+    "tid": "t09_044",
+    "lat": -3.0,
+    "lon": 281.0526315789474,
+    "P": 0.1776,
+    "land": 0.77,
+    "eke": 1.3,
+    "cape": 275.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": false
+   },
+   {
+    "tid": "t11_044",
+    "lat": 9.0,
+    "lon": 286.07142857142856,
+    "P": 0.1785,
+    "land": 0.73,
+    "eke": 2.4,
+    "cape": 673.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": false
+   },
+   {
+    "tid": "t09_043",
+    "lat": -3.0,
+    "lon": 274.7368421052632,
+    "P": 0.1791,
+    "land": 0.0,
+    "eke": 3.9,
+    "cape": 26.0,
+    "organizer": "none",
+    "coupling": "low",
+    "orog_adj": false
+   },
+   {
+    "tid": "t15_014",
+    "lat": 33.0,
+    "lon": 111.06382978723404,
+    "P": 0.1793,
+    "land": 0.99,
+    "eke": 9.5,
+    "cape": 150.0,
+    "organizer": "none",
+    "coupling": "low",
+    "orog_adj": true
+   },
+   {
+    "tid": "t09_046",
+    "lat": -3.0,
+    "lon": 293.6842105263158,
+    "P": 0.1794,
+    "land": 0.97,
+    "eke": 3.0,
+    "cape": 799.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": false
+   }
+  ],
+  "highest": [
+   {
+    "tid": "t02_018",
+    "lat": -45.0,
+    "lon": 166.5,
+    "P": 0.4131,
+    "land": 0.17,
+    "eke": 33.4,
+    "cape": 14.0,
+    "organizer": "storm",
+    "coupling": "high",
+    "orog_adj": false
+   },
+   {
+    "tid": "t08_017",
+    "lat": -9.0,
+    "lon": 112.5,
+    "P": 0.3752,
+    "land": 0.17,
+    "eke": 3.2,
+    "cape": 396.0,
+    "organizer": "conv",
+    "coupling": "high",
+    "orog_adj": false
+   },
+   {
+    "tid": "t18_022",
+    "lat": 51.0,
+    "lon": 231.42857142857144,
+    "P": 0.3738,
+    "land": 0.39,
+    "eke": 23.4,
+    "cape": 11.0,
+    "organizer": "storm",
+    "coupling": "high",
+    "orog_adj": true
+   },
+   {
+    "tid": "t00_027",
+    "lat": -57.0,
+    "lon": 319.35483870967744,
+    "P": 0.3707,
+    "land": 0.01,
+    "eke": 52.5,
+    "cape": 6.0,
+    "organizer": "storm",
+    "coupling": "high",
+    "orog_adj": false
+   },
+   {
+    "tid": "t00_017",
+    "lat": -57.0,
+    "lon": 203.2258064516129,
+    "P": 0.367,
+    "land": 0.0,
+    "eke": 35.1,
+    "cape": 7.0,
+    "organizer": "storm",
+    "coupling": "high",
+    "orog_adj": false
+   },
+   {
+    "tid": "t00_012",
+    "lat": -57.0,
+    "lon": 145.16129032258064,
+    "P": 0.3649,
+    "land": 0.0,
+    "eke": 50.6,
+    "cape": 6.0,
+    "organizer": "storm",
+    "coupling": "high",
+    "orog_adj": false
+   },
+   {
+    "tid": "t17_004",
+    "lat": 45.0,
+    "lon": 40.5,
+    "P": 0.3626,
+    "land": 0.7,
+    "eke": 14.5,
+    "cape": 96.0,
+    "organizer": "none",
+    "coupling": "high",
+    "orog_adj": true
+   },
+   {
+    "tid": "t00_028",
+    "lat": -57.0,
+    "lon": 330.9677419354839,
+    "P": 0.3609,
+    "land": 0.0,
+    "eke": 54.7,
+    "cape": 7.0,
+    "organizer": "storm",
+    "coupling": "high",
+    "orog_adj": false
+   },
+   {
+    "tid": "t15_031",
+    "lat": 33.0,
+    "lon": 241.27659574468086,
+    "P": 0.3607,
+    "land": 0.41,
+    "eke": 12.8,
+    "cape": 17.0,
+    "organizer": "none",
+    "coupling": "high",
+    "orog_adj": true
+   },
+   {
+    "tid": "t19_027",
+    "lat": 57.0,
+    "lon": 319.35483870967744,
+    "P": 0.36,
+    "land": 0.0,
+    "eke": 45.6,
+    "cape": 7.0,
+    "organizer": "storm",
+    "coupling": "high",
+    "orog_adj": false
+   },
+   {
+    "tid": "t04_037",
+    "lat": -33.0,
+    "lon": 287.2340425531915,
+    "P": 0.3598,
+    "land": 0.38,
+    "eke": 7.9,
+    "cape": 12.0,
+    "organizer": "none",
+    "coupling": "high",
+    "orog_adj": true
+   },
+   {
+    "tid": "t12_040",
+    "lat": 15.0,
+    "lon": 265.0909090909091,
+    "P": 0.3583,
+    "land": 0.39,
+    "eke": 9.4,
+    "cape": 587.0,
+    "organizer": "conv",
+    "coupling": "high",
+    "orog_adj": false
+   },
+   {
+    "tid": "t10_045",
+    "lat": 3.0,
+    "lon": 287.36842105263156,
+    "P": 0.3577,
+    "land": 0.99,
+    "eke": 2.3,
+    "cape": 481.0,
+    "organizer": "conv",
+    "coupling": "high",
+    "orog_adj": false
+   },
+   {
+    "tid": "t19_025",
+    "lat": 57.0,
+    "lon": 296.1290322580645,
+    "P": 0.3561,
+    "land": 0.55,
+    "eke": 26.3,
+    "cape": 6.0,
+    "organizer": "storm",
+    "coupling": "high",
+    "orog_adj": false
+   },
+   {
+    "tid": "t00_030",
+    "lat": -57.0,
+    "lon": 354.19354838709677,
+    "P": 0.3551,
+    "land": 0.0,
+    "eke": 56.8,
+    "cape": 8.0,
+    "organizer": "storm",
+    "coupling": "high",
+    "orog_adj": false
+   },
+   {
+    "tid": "t00_013",
+    "lat": -57.0,
+    "lon": 156.7741935483871,
+    "P": 0.3549,
+    "land": 0.0,
+    "eke": 48.0,
+    "cape": 6.0,
+    "organizer": "storm",
+    "coupling": "high",
+    "orog_adj": false
+   },
+   {
+    "tid": "t19_000",
+    "lat": 57.0,
+    "lon": 5.806451612903226,
+    "P": 0.3545,
+    "land": 0.21,
+    "eke": 28.6,
+    "cape": 17.0,
+    "organizer": "storm",
+    "coupling": "high",
+    "orog_adj": false
+   },
+   {
+    "tid": "t00_026",
+    "lat": -57.0,
+    "lon": 307.741935483871,
+    "P": 0.3544,
+    "land": 0.0,
+    "eke": 45.4,
+    "cape": 6.0,
+    "organizer": "storm",
+    "coupling": "high",
+    "orog_adj": false
+   },
+   {
+    "tid": "t00_025",
+    "lat": -57.0,
+    "lon": 296.1290322580645,
+    "P": 0.3536,
+    "land": 0.06,
+    "eke": 34.1,
+    "cape": 5.0,
+    "organizer": "storm",
+    "coupling": "high",
+    "orog_adj": false
+   },
+   {
+    "tid": "t19_023",
+    "lat": 57.0,
+    "lon": 272.90322580645164,
+    "P": 0.3528,
+    "land": 0.33,
+    "eke": 24.1,
+    "cape": 10.0,
+    "organizer": "storm",
+    "coupling": "high",
+    "orog_adj": false
+   }
+  ],
+  "JFM_gt_JAS": [
+   {
+    "tid": "t10_046",
+    "lat": 3.0,
+    "lon": 293.6842105263158,
+    "P": 0.1608,
+    "land": 0.99,
+    "eke": 2.4,
+    "cape": 668.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": false,
+    "d": 0.1779
+   },
+   {
+    "tid": "t12_005",
+    "lat": 15.0,
+    "lon": 36.0,
+    "P": 0.2956,
+    "land": 0.98,
+    "eke": 6.4,
+    "cape": 137.0,
+    "organizer": "none",
+    "coupling": "high",
+    "orog_adj": false,
+    "d": 0.126
+   },
+   {
+    "tid": "t11_011",
+    "lat": 9.0,
+    "lon": 73.92857142857143,
+    "P": 0.2165,
+    "land": 0.09,
+    "eke": 2.9,
+    "cape": 586.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": false,
+    "d": 0.1161
+   },
+   {
+    "tid": "t10_001",
+    "lat": 3.0,
+    "lon": 9.473684210526315,
+    "P": 0.2676,
+    "land": 0.62,
+    "eke": 3.0,
+    "cape": 524.0,
+    "organizer": "conv",
+    "coupling": "mid",
+    "orog_adj": false,
+    "d": 0.1096
+   },
+   {
+    "tid": "t11_054",
+    "lat": 9.0,
+    "lon": 350.3571428571429,
+    "P": 0.2416,
+    "land": 0.93,
+    "eke": 5.7,
+    "cape": 423.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": false,
+    "d": 0.1067
+   },
+   {
+    "tid": "t12_007",
+    "lat": 15.0,
+    "lon": 49.09090909090909,
+    "P": 0.2515,
+    "land": 0.59,
+    "eke": 6.3,
+    "cape": 552.0,
+    "organizer": "conv",
+    "coupling": "mid",
+    "orog_adj": false,
+    "d": 0.1051
+   },
+   {
+    "tid": "t17_008",
+    "lat": 45.0,
+    "lon": 76.5,
+    "P": 0.2911,
+    "land": 0.95,
+    "eke": 12.8,
+    "cape": 33.0,
+    "organizer": "none",
+    "coupling": "high",
+    "orog_adj": true,
+    "d": 0.1046
+   },
+   {
+    "tid": "t11_019",
+    "lat": 9.0,
+    "lon": 125.35714285714286,
+    "P": 0.3142,
+    "land": 0.29,
+    "eke": 4.3,
+    "cape": 621.0,
+    "organizer": "conv",
+    "coupling": "high",
+    "orog_adj": false,
+    "d": 0.1035
+   },
+   {
+    "tid": "t16_015",
+    "lat": 39.0,
+    "lon": 126.81818181818181,
+    "P": 0.3251,
+    "land": 0.52,
+    "eke": 16.6,
+    "cape": 93.0,
+    "organizer": "none",
+    "coupling": "high",
+    "orog_adj": false,
+    "d": 0.099
+   },
+   {
+    "tid": "t13_008",
+    "lat": 21.0,
+    "lon": 57.735849056603776,
+    "P": 0.2685,
+    "land": 0.58,
+    "eke": 5.3,
+    "cape": 389.0,
+    "organizer": "conv",
+    "coupling": "mid",
+    "orog_adj": false,
+    "d": 0.0926
+   },
+   {
+    "tid": "t19_025",
+    "lat": 57.0,
+    "lon": 296.1290322580645,
+    "P": 0.3561,
+    "land": 0.55,
+    "eke": 26.3,
+    "cape": 6.0,
+    "organizer": "storm",
+    "coupling": "high",
+    "orog_adj": false,
+    "d": 0.0926
+   },
+   {
+    "tid": "t11_016",
+    "lat": 9.0,
+    "lon": 106.07142857142857,
+    "P": 0.2712,
+    "land": 0.28,
+    "eke": 4.3,
+    "cape": 714.0,
+    "organizer": "conv",
+    "coupling": "mid",
+    "orog_adj": false,
+    "d": 0.0908
+   }
+  ],
+  "JAS_gt_JFM": [
+   {
+    "tid": "t12_004",
+    "lat": 15.0,
+    "lon": 29.454545454545457,
+    "P": 0.1975,
+    "land": 1.0,
+    "eke": 5.9,
+    "cape": 58.0,
+    "organizer": "none",
+    "coupling": "low",
+    "orog_adj": false,
+    "d": -0.1086
+   },
+   {
+    "tid": "t09_023",
+    "lat": -3.0,
+    "lon": 148.42105263157896,
+    "P": 0.2344,
+    "land": 0.1,
+    "eke": 4.1,
+    "cape": 422.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": false,
+    "d": -0.1024
+   },
+   {
+    "tid": "t15_017",
+    "lat": 33.0,
+    "lon": 134.04255319148936,
+    "P": 0.2668,
+    "land": 0.28,
+    "eke": 16.5,
+    "cape": 203.0,
+    "organizer": "conv",
+    "coupling": "mid",
+    "orog_adj": false,
+    "d": -0.1018
+   },
+   {
+    "tid": "t10_019",
+    "lat": 3.0,
+    "lon": 123.15789473684211,
+    "P": 0.2674,
+    "land": 0.09,
+    "eke": 3.7,
+    "cape": 610.0,
+    "organizer": "conv",
+    "coupling": "mid",
+    "orog_adj": false,
+    "d": -0.1003
+   },
+   {
+    "tid": "t08_005",
+    "lat": -9.0,
+    "lon": 35.35714285714286,
+    "P": 0.2733,
+    "land": 0.96,
+    "eke": 2.7,
+    "cape": 165.0,
+    "organizer": "none",
+    "coupling": "mid",
+    "orog_adj": true,
+    "d": -0.0983
+   },
+   {
+    "tid": "t08_019",
+    "lat": -9.0,
+    "lon": 125.35714285714286,
+    "P": 0.2878,
+    "land": 0.08,
+    "eke": 3.4,
+    "cape": 523.0,
+    "organizer": "conv",
+    "coupling": "high",
+    "orog_adj": false,
+    "d": -0.0938
+   },
+   {
+    "tid": "t09_004",
+    "lat": -3.0,
+    "lon": 28.42105263157895,
+    "P": 0.222,
+    "land": 0.95,
+    "eke": 2.1,
+    "cape": 481.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": true,
+    "d": -0.0915
+   },
+   {
+    "tid": "t15_000",
+    "lat": 33.0,
+    "lon": 3.8297872340425534,
+    "P": 0.2823,
+    "land": 1.0,
+    "eke": 12.0,
+    "cape": 19.0,
+    "organizer": "none",
+    "coupling": "high",
+    "orog_adj": false,
+    "d": -0.0858
+   },
+   {
+    "tid": "t06_042",
+    "lat": -21.0,
+    "lon": 288.6792452830189,
+    "P": 0.2633,
+    "land": 0.36,
+    "eke": 2.9,
+    "cape": 6.0,
+    "organizer": "none",
+    "coupling": "mid",
+    "orog_adj": true,
+    "d": -0.0845
+   },
+   {
+    "tid": "t07_043",
+    "lat": -15.0,
+    "lon": 284.72727272727275,
+    "P": 0.2868,
+    "land": 0.42,
+    "eke": 2.5,
+    "cape": 35.0,
+    "organizer": "none",
+    "coupling": "high",
+    "orog_adj": true,
+    "d": -0.0805
+   },
+   {
+    "tid": "t13_010",
+    "lat": 21.0,
+    "lon": 71.32075471698113,
+    "P": 0.2694,
+    "land": 0.52,
+    "eke": 4.0,
+    "cape": 415.0,
+    "organizer": "conv",
+    "coupling": "mid",
+    "orog_adj": false,
+    "d": -0.075
+   },
+   {
+    "tid": "t10_054",
+    "lat": 3.0,
+    "lon": 344.2105263157895,
+    "P": 0.242,
+    "land": 0.0,
+    "eke": 3.6,
+    "cape": 265.0,
+    "organizer": "conv",
+    "coupling": "low",
+    "orog_adj": false,
+    "d": -0.0746
+   }
+  ]
+ },
+ "typology_terciles": {
+  "eke_q67": 18.12626075744629,
+  "cape_q67": 185.24388631184897
+ },
+ "typology_table": {
+  "storm": {
+   "high": {
+    "n": 229,
+    "P": 0.31238602901086365,
+    "ocean_share": 0.8995633187772926,
+    "orog_adj_share": 0.0611353711790393
+   },
+   "mid": {
+    "n": 56,
+    "P": 0.26364768549267736,
+    "ocean_share": 0.8035714285714286,
+    "orog_adj_share": 0.08928571428571429
+   },
+   "low": {
+    "n": 9,
+    "P": 0.21706295123806707,
+    "ocean_share": 0.1111111111111111,
+    "orog_adj_share": 0.1111111111111111
+   }
+  },
+  "none": {
+   "high": {
+    "n": 38,
+    "P": 0.29773063559019775,
+    "ocean_share": 0.5,
+    "orog_adj_share": 0.3157894736842105
+   },
+   "mid": {
+    "n": 139,
+    "P": 0.25592227063948014,
+    "ocean_share": 0.8561151079136691,
+    "orog_adj_share": 0.08633093525179857
+   },
+   "low": {
+    "n": 135,
+    "P": 0.22732738228859725,
+    "ocean_share": 0.6518518518518519,
+    "orog_adj_share": 0.1259259259259259
+   }
+  },
+  "conv": {
+   "high": {
+    "n": 34,
+    "P": 0.30745393198494814,
+    "ocean_share": 0.6764705882352942,
+    "orog_adj_share": 0.14705882352941177
+   },
+   "mid": {
+    "n": 105,
+    "P": 0.2555218663007494,
+    "ocean_share": 0.8571428571428571,
+    "orog_adj_share": 0.0380952380952381
+   },
+   "low": {
+    "n": 157,
+    "P": 0.21891624990637135,
+    "ocean_share": 0.6624203821656051,
+    "orog_adj_share": 0.1337579617834395
+   }
+  }
+ },
+ "organizer_summary": {
+  "storm": {
+   "n": 294,
+   "P": 0.30018448160619154,
+   "P_sd": 0.03356331991222325
+  },
+  "none": {
+   "n": 312,
+   "P": 0.24864152685985863,
+   "P_sd": 0.028151908766757588
+  },
+  "conv": {
+   "n": 296,
+   "P": 0.24207121920394334,
+   "P_sd": 0.03617500512827354
+  }
+ },
+ "orography_adjacent": {
+  "n_adjacent": 91,
+  "P_adjacent": 0.253045213446294,
+  "P_not_adjacent": 0.2644344764898282,
+  "share_of_lowest_decile_adjacent": 0.25555555555555554
+ },
+ "programme_regions": {
+  "R1_WPWP": {
+   "name_ru": "Тёплый бассейн зап. Пацифики",
+   "n_tiles": 24,
+   "P": 0.25160293974396253,
+   "P_min": 0.19860960294802982,
+   "P_max": 0.31730783979098004,
+   "dominant_organizer": "conv",
+   "coupling_high_share": 0.20833333333333334,
+   "coupling_low_share": 0.4583333333333333
+  },
+  "R2_NATL": {
+   "name_ru": "Сев. Атлантика",
+   "n_tiles": 14,
+   "P": 0.3050721115654423,
+   "P_min": 0.2702283586064974,
+   "P_max": 0.3390796631574631,
+   "dominant_organizer": "storm",
+   "coupling_high_share": 0.9285714285714286,
+   "coupling_low_share": 0.0
+  },
+  "R3_AMAZ": {
+   "name_ru": "Амазония",
+   "n_tiles": 24,
+   "P": 0.2165097171544201,
+   "P_min": 0.11434816072384517,
+   "P_max": 0.3577434147397677,
+   "dominant_organizer": "conv",
+   "coupling_high_share": 0.08333333333333333,
+   "coupling_low_share": 0.8333333333333334
+  },
+  "R4_CASIA": {
+   "name_ru": "Центральная Азия",
+   "n_tiles": 5,
+   "P": 0.27084539383649825,
+   "P_min": 0.2378649910291036,
+   "P_max": 0.2943563411633174,
+   "dominant_organizer": "none",
+   "coupling_high_share": 0.6,
+   "coupling_low_share": 0.2
+  },
+  "R5_SPCZ": {
+   "name_ru": "Юж.-Тихоокеанская зона конвергенции",
+   "n_tiles": 20,
+   "P": 0.24462413775424166,
+   "P_min": 0.22627830753723782,
+   "P_max": 0.25812013198932016,
+   "dominant_organizer": "conv",
+   "coupling_high_share": 0.0,
+   "coupling_low_share": 0.45
+  },
+  "R6_SATL": {
+   "name_ru": "Юж. Атлантика",
+   "n_tiles": 14,
+   "P": 0.3028015206967081,
+   "P_min": 0.2685609459877014,
+   "P_max": 0.3379430895050367,
+   "dominant_organizer": "storm",
+   "coupling_high_share": 0.9285714285714286,
+   "coupling_low_share": 0.0
+  },
+  "R7_CONGO": {
+   "name_ru": "Бассейн Конго",
+   "n_tiles": 22,
+   "P": 0.2202757639866887,
+   "P_min": 0.10794382790724437,
+   "P_max": 0.2812378828724226,
+   "dominant_organizer": "conv",
+   "coupling_high_share": 0.09090909090909091,
+   "coupling_low_share": 0.7272727272727273
+  },
+  "R8_AUS": {
+   "name_ru": "Австралия",
+   "n_tiles": 23,
+   "P": 0.24530426369629044,
+   "P_min": 0.21049299339453378,
+   "P_max": 0.2799938718477885,
+   "dominant_organizer": "none",
+   "coupling_high_share": 0.13043478260869565,
+   "coupling_low_share": 0.4782608695652174
+  },
+  "R9_NPAC": {
+   "name_ru": "Сев. Пацифика",
+   "n_tiles": 13,
+   "P": 0.3109151633122028,
+   "P_min": 0.28145085771878564,
+   "P_max": 0.33727384110291797,
+   "dominant_organizer": "storm",
+   "coupling_high_share": 1.0,
+   "coupling_low_share": 0.0
+  },
+  "R10_INDO": {
+   "name_ru": "Тропическая часть Индийского океана",
+   "n_tiles": 28,
+   "P": 0.23078558824601628,
+   "P_min": 0.1924293264746666,
+   "P_max": 0.2822697932521502,
+   "dominant_organizer": "conv",
+   "coupling_high_share": 0.03571428571428571,
+   "coupling_low_share": 0.7857142857142857
+  },
+  "R11_EURO": {
+   "name_ru": "Европа",
+   "n_tiles": 13,
+   "P": 0.24317340782055488,
+   "P_min": 0.14897194256385168,
+   "P_max": 0.3076825936635335,
+   "dominant_organizer": "none",
+   "coupling_high_share": 0.3076923076923077,
+   "coupling_low_share": 0.46153846153846156
+  },
+  "R12_SAM": {
+   "name_ru": "Юж. Америка (субтропики)",
+   "n_tiles": 19,
+   "P": 0.2547088098107723,
+   "P_min": 0.1769399071733157,
+   "P_max": 0.35979506373405457,
+   "dominant_organizer": "storm",
+   "coupling_high_share": 0.21052631578947367,
+   "coupling_low_share": 0.3684210526315789
+  }
+ },
+ "residual": {
+  "n": 902,
+  "zonal_profile_10deg": [
+   {
+    "lat_band": "-60..-50",
+    "mean_residual": 0.011086022335818223
+   },
+   {
+    "lat_band": "-50..-40",
+    "mean_residual": -0.003798984909800484
+   },
+   {
+    "lat_band": "-40..-30",
+    "mean_residual": -0.011317699802453155
+   },
+   {
+    "lat_band": "-30..-20",
+    "mean_residual": -0.007364881107117884
+   },
+   {
+    "lat_band": "-20..-10",
+    "mean_residual": 0.00041029653555386475
+   },
+   {
+    "lat_band": "-10..0",
+    "mean_residual": 0.006206317209995889
+   },
+   {
+    "lat_band": "0..10",
+    "mean_residual": 0.0066888330015957434
+   },
+   {
+    "lat_band": "10..20",
+    "mean_residual": -0.00013302875756103025
+   },
+   {
+    "lat_band": "20..30",
+    "mean_residual": -0.003961194165874306
+   },
+   {
+    "lat_band": "30..40",
+    "mean_residual": -0.01075206036997888
+   },
+   {
+    "lat_band": "40..50",
+    "mean_residual": -0.00015582174070691483
+   },
+   {
+    "lat_band": "50..60",
+    "mean_residual": 0.014519463428732622
+   }
+  ]
+ }
+}
