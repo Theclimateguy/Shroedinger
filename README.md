@@ -171,7 +171,16 @@ of this repository a given paper uses:
   against the SHA-256 list; `check` and `figures` need no downloads because
   all derived tables are committed. Shared pinned environment:
   `reproducibility/requirements.txt`.
-- Paper 3: route will be added alongside its submission.
+- Paper 3 (the law of inheritance between scale levels):
+  [`reproducibility/article3_README.md`](reproducibility/article3_README.md)
+  — single entry point `reproducibility/reproduce_article3.py`
+  (`--stage download|compute|figures|manuscript|check|all`): 4 downloaders,
+  9 computation steps (Phases 27-30: all-pair envelope statistics on 48
+  regional units, 902 global tiles and the free-running IFS-HR model; law
+  form and depth; tile replicate and amplitude vs intermittency;
+  unification P <-> law), Russian-label 300-dpi figures 1-5, the
+  journal-format manuscript build, and a check of 6 artifacts against
+  SHA-256. Uses three committed artifacts of papers 1-2 as inputs.
 
 Raw ERA5 / MERRA-2 / HighResMIP fields are deliberately **not** stored in
 the repository (large externally licensed products); the exact download
