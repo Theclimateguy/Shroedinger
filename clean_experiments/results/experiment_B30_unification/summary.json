@@ -1,0 +1,116 @@
+{
+ "protocol": "docs/PROTOCOL_PHASE30_UNIFICATION.md",
+ "version": "b30_v1",
+ "seed": 20260922,
+ "protocol_sha256": "6969a243dc5f50c6d3640bf5994e857385df30fe0f1f2fb356487fc4f196cedb",
+ "C30_1_units": {
+  "n": 192,
+  "pearson_r": 0.9936265375322368,
+  "median_ratio": 1.0549417300022275,
+  "pass": true
+ },
+ "H30_1_model": {
+  "n": 96,
+  "pearson_r": 0.9894919249498692,
+  "median_ratio": 1.0922662260920004,
+  "pass": true
+ },
+ "n_kept": 902,
+ "C30_2": {
+  "max_abs_diff": 0.0,
+  "pass": true
+ },
+ "H30_1_tiles": {
+  "pearson_r": 0.9891337545034089,
+  "median_ratio": 1.0177736627045926,
+  "median_ratio_ci95": [
+   1.0177689626079451,
+   1.0348232287794792
+  ],
+  "per_step_r": {
+   "1": 0.9820394435736152,
+   "2": 0.9321802944631244
+  },
+  "per_step_ratio": {
+   "1": 1.0027374163245857,
+   "2": 1.04187521167644
+  },
+  "pass": true
+ },
+ "H30_1_pass": true,
+ "H30_2": {
+  "a": {
+   "1": {
+    "rho": 0.631641322542527,
+    "p_rot": 0.001,
+    "median_h": 0.6008638502365581,
+    "median_P": 0.30826282501220703
+   },
+   "2": {
+    "rho": 0.64439654240298,
+    "p_rot": 0.001,
+    "median_h": 0.4553699633329956,
+    "median_P": 0.276484951376915
+   }
+  },
+  "a_pass": true,
+  "b": {
+   "median_abs_err": 0.030392191071833885,
+   "slope": 0.38089957345388264,
+   "intercept": 0.17960023073339001,
+   "pearson_r": 0.7511175004858229,
+   "median_Ppred": 0.29045604123518376,
+   "median_Pobs": 0.29501572251319885,
+   "rho_bias_vs_cause": 0.7797300159527789
+  },
+  "b_pass": false,
+  "pass": false
+ },
+ "H30_3": {
+  "h": {
+   "split_half_SB_by_season": [
+    0.7029498547627795,
+    0.7253683467452349
+   ],
+   "split_half_SB_mean": 0.7141591007540071,
+   "cross_season_rho": 0.46727613054622247
+  },
+  "P": {
+   "split_half_SB_by_season": [
+    0.7043470048955764,
+    0.7373052335284439
+   ],
+   "split_half_SB_mean": 0.7208261192120102,
+   "cross_season_rho": 0.417232737705421
+  },
+  "pass": true
+ },
+ "H30_4": {
+  "split_half_SB_by_season": [
+   0.7607702816643692,
+   0.7758557229478725
+  ],
+  "split_half_SB_mean": 0.7683130023061209,
+  "cross_season_rho": 0.49059968130100706,
+  "frac_N_positive": 0.018847006651884702,
+  "median_N": -0.019492754792736378,
+  "median_V_anch_2": 0.060293739661574364,
+  "median_G_2": 0.0898166464176029,
+  "rho_N_P": -0.509561292734083,
+  "p_rot_N_P": 1.0,
+  "rho_N_cape": 0.1709301839119153,
+  "p_rot_N_cape": 0.148,
+  "rho_N_eke": -0.16933818512514398,
+  "p_rot_N_eke": 0.227,
+  "rho_N_G2": -0.8083810838265931,
+  "p_rot_N_G2": 1.0,
+  "pass": true
+ },
+ "primary_pass": {
+  "H30_1": true,
+  "H30_2": false,
+  "H30_3": true,
+  "H30_4": true
+ },
+ "VERDICT": "PARTIAL(H30_1,H30_3,H30_4)"
+}
