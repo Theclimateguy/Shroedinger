@@ -32,8 +32,15 @@
   `clean_experiments/describe_B20_geography.py`).
 - `overleaf/` — пакеты Overleaf v1.
 
-## article3/ — статья 3 (черновик)
-«Инвариант сопряжённости масштабов как проекция квазинеизменной …».
-- `article3_v1.tex`, `figures/fig3_*`.
+## article3/ — статья 3 (в работе; целевой журнал тот же)
+«Иерархия атмосферной циркуляции: закон наследования между масштабными уровнями
+и его значение для районирования» (2026-09-22, переписана вокруг закона структуры
+Phases 27–30; `article3_v1.tex` — прежняя редакция «квенчированная мера + аудит»).
+- `article3_v2_src.tex` — исходник с `\cite{}`; `tools/build_article3_journal.py` собирает
+  `article3_v2.tex` / `.pdf` / `.docx` (запуск из корня:
+  `python manuscript_v2/article3/tools/build_article3_journal.py`).
+- `figures/ru_fig1_scheme_draw.png` (схема «на пальцах», черновик для автора),
+  `ru_fig2_matrix`, `ru_fig3_decay`, `ru_fig4_tiles`, `ru_fig5_P_vs_h` —
+  `clean_experiments/visualize_article3_ru.py`, `visualize_article3_scheme_ru.py`.
 
 Сборка любой статьи: `cd manuscript_v2/articleN && latexmk -xelatex articleN_vK.tex`.
