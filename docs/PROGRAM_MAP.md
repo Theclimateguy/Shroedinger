@@ -231,3 +231,51 @@ open, v2.0 blocked, escalation gated off after the null. H23c/H23d: the
 stratigraphic hypothesis fails — P is neither an earlier nor a more
 sensitive reorganization indicator than CAPE/E_syn/slope (trend SNR
 last: 0.67 vs 2.39). Candidate v1.4. `PROTOCOL_PHASE23_DRIFT_STRATIGRAPHY.md`
+
+## AUDIT-1..4 and Phases 25-30 (2026-08-19 .. 2026-09-22)
+
+- AUDIT-1..4: P is not the amplitude-modulation coefficient nor the
+  Kolmogorov-Obukhov cascade correlation; the map's reliability ceiling is
+  0.914 (within season); the remainder after covariates and intermittency is
+  reproducible. `PROTOCOL_AUDIT*.md`
+- Phase 24: attractor-reducibility — draft only, deferred.
+  `PROTOCOL_PHASE24_REDUCIBILITY_DRAFT.md`
+- Phase 25 (B25) — hydroclimatic candidates for the residual — NEGATIVE;
+  850-500 hPa shear the one named candidate (rho = -0.38).
+- Phase 26 (B26) — precipitation extremes — protocol frozen, not computed.
+- Phase 27 (B27) — mechanism test — PARTIAL(A1): cross-level coupling +0.35;
+  deformation and fine-end CAPE consequences failed.
+- Phase 28 (B28) — structure law "coupling depends on the coarser band only"
+  confirmed (R^2 0.996 vs 0.27); depth L retracted.
+- Phase 29 (B29) — the law holds on all 902 tiles and in the free-running
+  model; amplitude ~ intermittency axis.
+- Phase 30 (B30) — P's numerator equals the law's G; the additive variance
+  budget fails.
+
+## Exploration of the physics (2026-09-29 .. 2026-09-30) — not a protocol
+
+`EXPLORATION_PHYSICS_2026-09-29.md`. Hypotheses registered before
+computation. Main outcomes:
+
+- The latitude trend of the tile map is an estimator artefact (zonal
+  oversampling of the lat-lon grid x edge leakage of FFT surrogates x the
+  sub-truncation <50 km band). Corrected estimator: isotropic grid, bands
+  50-400 km. Zonal share of map variance 0.51 -> 0.05; covariate attribution
+  0.54 -> 0.11; on the 2000-km boxes of paper 1 only the first band pair is
+  affected.
+- Beyond-spectrum values on tiles depend on the surrogate construction.
+- The structure law is reproduced by any common amplitude modulator; it is
+  not evidence of a cascade.
+- Surface and planetary-number field blocks do not explain the corrected
+  map (+0.013, +0.020 LOSO R^2).
+- Toy turbulence: coupling falls with the share of independent small-scale
+  sources (0.20 -> 0.07).
+
+## Phase 31 (2026-09-30) — the boundary template (B31) — PARTIAL(H31-1, H31-2)
+
+Frozen before the 2024 download. Surrogate-free split of the envelope
+covariance into a stationary template and a moving part. Template share
+2023 vs 2024: 0.97 over land; compensation holds on the independent year;
+one template for all levels; not the below-ground extrapolation. Failed:
+the oceanic coupling map is not geography-free (it repeats between years
+within a season, 0.31-0.39). `PROTOCOL_PHASE31_BOUNDARY_TEMPLATE.md`

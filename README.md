@@ -4,7 +4,67 @@ Falsification-grade research program on cross-scale organization of the
 atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and **retracts the central empirical claim of the v1 manuscript**
 (the A15 "Lambda_b ~ Pi_b closure"): see `docs/RECONCILIATION.md`.
 
-## What stands (preregistered, held-out, audited)
+## Status (2026-09-30): an estimator artefact and what replaced it
+
+An exploratory audit of the physics of P
+(`docs/EXPLORATION_PHYSICS_2026-09-29.md`) found that the latitude trend of
+the anchored tile map is produced by the estimator, not by the atmosphere.
+The zonal step of the lat-lon grid shrinks poleward; together with edge
+leakage in the FFT phase surrogates this lowers the surrogate level of the
+<50|50-100 km band pair with latitude. Three independent controls agree:
+
+- isotropic regridding of each tile: the ocean midlatitude-minus-tropics
+  contrast drops 0.086 -> 0.018;
+- artificial zonal oversampling of tropical tiles: P rises 0.236 -> 0.320
+  with the field unchanged;
+- mirror-extension surrogates remove the trend on the native grid.
+
+The sub-50 km band lies below the ERA5 spectral truncation (62.6 km).
+
+**What this does to the sections below.**
+
+- *Affected — 700-km tile maps (papers 2 and 3).* Zonal share of the map
+  variance 0.51 -> 0.05; covariate attribution LOSO R^2 0.54 -> 0.11
+  (synoptic activity +0.66 -> +0.14, CAPE -0.52 -> -0.06); cross-season
+  reliability 0.71 -> 0.33-0.41; model agreement "97% of the ceiling" ->
+  non-zonal part 0.62 against a 0.82 ceiling. Theory-candidate evidence
+  rows E8, E12, E13 rest on the affected map. Beyond-spectrum values on
+  tiles also depend on how the surrogate is built (FFT vs mirror: rank
+  agreement 0.54); a boundary-free null is not implemented yet.
+- *Little affected — 2000 x 2800 km boxes (paper 1).* Only the first band
+  pair carries the artefact; pairs 2-5 are unchanged (region-mean rank
+  agreement 0.97-0.99), a region is identified from its profile without the
+  first pair at 0.21 against 0.08 by chance on both grids, and Congo stays
+  above Amazon in every pair. Not upheld: "storm tracks lead on the fine
+  bands", and the claimed control of the grid geometry (it controlled the
+  size of the regions, not the grid step).
+- *Not affected.* The temporal results (no dynamics of its own, no ENSO
+  modulation) and the form of the structure law. A synthetic test shows,
+  however, that any common amplitude modulator reproduces that law
+  (R^2 0.99 vs 0.2), so the law is not evidence of a cascade.
+
+**Phase 31 — the boundary template** (frozen protocol, independent year
+2024, no surrogates; `docs/PROTOCOL_PHASE31_BOUNDARY_TEMPLATE.md`, report in
+`clean_experiments/results/experiment_B31_boundary_template/`). The spatial
+covariance of band log-envelopes splits exactly into a stationary template
+and a moving part. Verdict PARTIAL(H31-1, H31-2):
+
+- the template share is a territorial invariant: 2023 vs 2024 Spearman 0.97
+  over land, 0.84 over all tiles; ocean 0.008, flat land below 0.03, up to
+  0.75 at mountainous coasts and islands. Exploratory: seasons 0.80,
+  vorticity vs temperature 0.90, a free-running model of another year 0.90;
+- compensation: total coupling over land does not depend on the template
+  share (0.363 / 0.367 / 0.371) while the moving part falls
+  (0.362 / 0.356 / 0.307);
+- one template for all levels (0.91, 0.86 adjacent; 0.65 non-adjacent), and
+  it is not the below-ground extrapolation (5.9 x the ocean value on land
+  tiles with no below-ground point);
+- failed: "no geography without a boundary" — over open ocean the coupling
+  map repeats between years within a season (0.31-0.39).
+
+Papers 2 and 3 as released (v6.3, v6.4) predate this audit.
+
+## Results of Phases 1-30 (read with the status note above)
 
 - **Cross-scale envelope-coupling profile P** — a regional invariant of the
   850 hPa circulation: a season-, year- and ENSO-stable signature (p = 0.001
@@ -113,26 +173,28 @@ atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and *
 
 ## Repository map
 
-- `docs/RESEARCH_PROGRAM_FULL.csv` — all 73 experiments (gen1-2 + gen3) with
-  final reconciliation statuses.
-- `docs/PROTOCOL_PHASE1..23_*.md` — frozen preregistered protocols with
-  deviation logs. `docs/PRIOR_ART_AUDIT_P.md` +
-  `docs/PROTOCOL_AUDIT1_PRIOR_ART_HEADTOHEAD.md` — the estimator's
-  prior-art audit and its frozen head-to-head test.
-- `docs/RECONCILIATION.md` — authoritative final scoreboard, audit findings,
-  retractions. `docs/PROGRAM_MAP.md` — narrative program map (through
-  Phase 23). `research_programm_summary.csv` — canonical experiment table
-  (TOY_MODEL / ATMOSPHERE_* / CLEAN_PHASES blocks).
-- `docs/THEORY_CANDIDATE_QUENCHED_TEXTURE.md` — theory candidate v1.4
-  (seed note kept as `docs/THEORY_NOTE_QUENCHED_TEXTURE.md`).
-- `clean_experiments/experiment_B*.py` — gen3/gen4 experiments (B1-B23);
-  `download_b*.py` — data downloaders (CDS API, NASA Earthdata, NOAA GEFS on
-  AWS Open Data, WeatherBench 2, ESGF).
-- `clean_experiments/results/` — per-region-window JSON results, reports,
-  figures (`results/figures/`).
-- `run_phase67_pipeline.sh` — resumable download+experiment pipeline.
-- Legacy gen1-2 scripts (T/A series) are retained for provenance;
-  their statuses are in the CSV.
+- `docs/RESEARCH_PROGRAM_FULL.csv` — all 73 experiments of gen1-gen3 with
+  final reconciliation statuses (the gen1-2 scripts themselves were removed
+  from this branch on 2026-09-30; they remain in branches `gen1`-`gen3` and
+  in tags up to `v6.4`).
+- `docs/PROTOCOL_PHASE*.md`, `docs/PROTOCOL_AUDIT*.md` — frozen
+  preregistered protocols with deviation logs (Phases 1-31, AUDIT-1..4).
+- `docs/EXPLORATION_PHYSICS_2026-09-29.md` — exploratory note (not a
+  protocol): hypotheses registered before computation, the grid-anisotropy
+  artefact, the boundary-template idea.
+- `docs/RECONCILIATION.md` — authoritative scoreboard, audit findings,
+  retractions. `docs/PROGRAM_MAP.md` — narrative program map.
+- `docs/THEORY_CANDIDATE_QUENCHED_TEXTURE.md` — theory candidate v1.4 with a
+  status addendum (seed note: `docs/THEORY_NOTE_QUENCHED_TEXTURE.md`).
+- `clean_experiments/experiment_B*.py`, `experiment_A*.py` — experiments of
+  the programme (B1-B31, AUDIT-1..4); `explore_physics_*.py` — exploratory
+  scripts of 2026-09-29/30; `download_*.py` — data downloaders (CDS API,
+  NASA Earthdata, NOAA GEFS on AWS Open Data, WeatherBench 2, ESGF).
+- `clean_experiments/results/` — JSON results, reports, figures.
+- `manuscript_v2/` — current manuscripts of the three papers.
+- `reproducibility/` — per-paper reproduction routes.
+- `run_phase67_pipeline.sh` — resumable download+experiment pipeline for
+  Phases 6-7.
 
 ## Reproduction
 
@@ -196,9 +258,16 @@ scripts and all derived tables behind the papers' statistics are.
 
 ## Provenance
 
-- Manuscripts: `manuscript_v2/article1/` (article 1, submitted to Izvestiya RAN Ser. Geogr., source `article1_v7_src.tex`), `manuscript_v2/article2/` (article 2, `article2_v1.tex`), `manuscript_v2/article3/` (article 3, `article3_v1.tex`); shared bibliography `manuscript_v2/references_v2.bib`. See `manuscript_v2/README.md`.
+- Manuscripts: `manuscript_v2/article1/` (paper 1, submitted to Izvestiya
+  RAN Ser. Geogr., source `article1_v7_src.tex`), `manuscript_v2/article2/`
+  (paper 2, `article2_v4_src.tex`), `manuscript_v2/article3/` (paper 3,
+  `article3_v2_src.tex`); shared bibliography
+  `manuscript_v2/references_v2.bib`. See `manuscript_v2/README.md`.
 - v1 manuscript (superseded; central claim retracted by Phase B1):
-  [Zenodo 19565805](https://zenodo.org/records/19565805) — `main.pdf`,
-  `main_ru.pdf`, `manuscript/` are kept for the record.
+  [Zenodo 19565805](https://zenodo.org/records/19565805). Its files
+  (`main.pdf`, `main_ru.pdf`, `manuscript/`), earlier drafts of the papers
+  and the gen1-2 experiment layer were removed from this branch on
+  2026-09-30; they remain in the git history, in tags up to `v6.4` and in
+  branches `gen1`-`gen3`.
 - Release v4.0 (gen3): [Zenodo 21940262](https://zenodo.org/records/21940262).
 - Citation metadata: `CITATION.cff`; Zenodo metadata: `.zenodo.json`.

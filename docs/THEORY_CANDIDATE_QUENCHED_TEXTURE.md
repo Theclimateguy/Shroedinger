@@ -7,6 +7,18 @@ falsification condition demotes this document to note status. The
 retired vocabularies (Lambda as flux, A as irreversibility) are not
 part of the candidate.
 
+## 0. Status addendum (2026-09-30) — the candidate is NOT rescored here
+
+The exploration of 2026-09-29/30 (`EXPLORATION_PHYSICS_2026-09-29.md`)
+showed that the latitude trend of the anchored tile map is an estimator
+artefact and that beyond-spectrum values on tiles depend on the surrogate
+construction. Evidence rows E8, E12 and E13, and the scored predictions
+QT-P2 and QT-P3, rest on that map and must be re-derived with the corrected
+estimator before they are cited. Rows on the absence of dynamics (E4-E7, E9,
+E11) are not affected. No falsification condition below is changed by this
+addendum. A successor formulation in surrogate-free terms (template share,
+template coherence, moving-part coupling) is tested in Phase 31.
+
 ## 1. Postulates
 
 - QT-1 (two layers). The resolved atmospheric state evolves as a fast

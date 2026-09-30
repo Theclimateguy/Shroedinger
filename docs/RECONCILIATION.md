@@ -833,3 +833,39 @@ drivers of the residual; a scored box-scale test of P vs the
 intermittency parameter (AUDIT-3 open item); the deferred
 attractor-reducibility programme
 (`docs/PROTOCOL_PHASE24_REDUCIBILITY_DRAFT.md`).
+
+
+## Addendum 2026-09-30 — estimator artefact; Phase 31
+
+Source: `docs/EXPLORATION_PHYSICS_2026-09-29.md` (exploratory) and
+`clean_experiments/results/experiment_B31_boundary_template/report.md`
+(frozen protocol).
+
+**Finding.** The latitude trend of the anchored tile map comes from the
+surrogate level of the <50|50-100 km band pair, which falls poleward on the
+lat-lon grid (zonal oversampling x edge leakage of the FFT phase surrogate).
+Isotropic regridding: ocean midlatitude-minus-tropics contrast
+0.086 -> 0.018; oversampling tropical tiles: 0.236 -> 0.320 with the field
+unchanged; mirror surrogates: trend removed.
+
+**Scoreboard changes.**
+
+| Claim | Before | With the corrected estimator |
+|---|---|---|
+| Global tile map, zonal share of variance | 0.51 | 0.05 |
+| Phase-20 attribution, LOSO R^2 | 0.536 | 0.105 |
+| Synoptic activity / CAPE loadings | +0.66 / -0.52 | +0.14 / -0.06 |
+| Cross-season reliability of the map | 0.71 | 0.33-0.41 |
+| Free-running model vs ERA5 (QT-P2) | 0.87, 97% of ceiling | non-zonal part 0.62, ceiling 0.82 |
+| Ocean-minus-land contrast | 0.027 | 0.034 (FFT surrogates); sign reverses with mirror surrogates |
+| Phase-25 shear link | rho -0.38 | -0.13 after a convex latitude term |
+| Paper-1 regional profile, band pairs 2-5 | — | unchanged (0.97-0.99) |
+
+Status of earlier verdicts: Phase 18 controlled the size of the regions,
+not the grid step; its "box-geometry confound closed by design" does not
+cover this artefact. Phases 20 (both arms), 22 (QT-P2), 25 and AUDIT-2b/4
+need re-derivation before use. Phases 14-19 (temporal) stand.
+
+**Phase 31.** PARTIAL(H31-1, H31-2): template share 2023 vs 2024 0.97 over
+land; compensation passes; H31-3 fails (oceanic map repeats between years
+within a season); H31-4 and H31-5 pass.
