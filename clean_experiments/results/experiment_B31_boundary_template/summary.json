@@ -1,0 +1,122 @@
+{
+ "protocol": "docs/PROTOCOL_PHASE31_BOUNDARY_TEMPLATE.md",
+ "protocol_sha256": "0a9684a710fde71ab2068e94ee06635b3392343c08aeed9617cff0d813a656fc",
+ "n_tiles": 902,
+ "n_land": 168,
+ "n_ocean": 574,
+ "H31_1": {
+  "rho_land": 0.9720035837032615,
+  "rho_all": 0.8419113318975638,
+  "p_rot_all": 0.001,
+  "rho_ocean": 0.5436093055867308,
+  "median_share": {
+   "2023": {
+    "ocean": 0.007910761632672608,
+    "land": 0.09998960379192731
+   },
+   "2024": {
+    "ocean": 0.007406681349404658,
+    "land": 0.09500572365176285
+   }
+  },
+  "pass": true
+ },
+ "H31_2": {
+  "class_n": {
+   "low": 39,
+   "mid": 60,
+   "high": 69
+  },
+  "pairs": {
+   "b1|b2": {
+    "r_tot": {
+     "low": 0.7775,
+     "mid": 0.769,
+     "high": 0.7711,
+     "ocean": 0.8028
+    },
+    "r_mov": {
+     "low": 0.7771,
+     "mid": 0.7619,
+     "high": 0.7117,
+     "ocean": 0.8011
+    },
+    "rho_tot_share_land": 0.03605974863459894,
+    "rho_mov_share_land": -0.6614134368625388
+   },
+   "b2|b3": {
+    "r_tot": {
+     "low": 0.6501,
+     "mid": 0.6465,
+     "high": 0.6446,
+     "ocean": 0.6906
+    },
+    "r_mov": {
+     "low": 0.6484,
+     "mid": 0.6399,
+     "high": 0.6054,
+     "ocean": 0.6874
+    },
+    "rho_tot_share_land": 0.10315295022803085,
+    "rho_mov_share_land": -0.4026022342466378
+   },
+   "b1|b3": {
+    "r_tot": {
+     "low": 0.3631,
+     "mid": 0.3673,
+     "high": 0.3705,
+     "ocean": 0.4153
+    },
+    "r_mov": {
+     "low": 0.3616,
+     "mid": 0.3563,
+     "high": 0.3066,
+     "ocean": 0.4104
+    },
+    "rho_tot_share_land": 0.18760281634533132,
+    "rho_mov_share_land": -0.35300742555463893
+   }
+  },
+  "a": true,
+  "b": true,
+  "c": true,
+  "pass": true
+ },
+ "H31_3": {
+  "rho_ocean": 0.43219042648622963,
+  "rho_land": 0.8673042756414476,
+  "other_pairs": {
+   "b1|b2": {
+    "ocean": 0.5439555009513868,
+    "land": 0.9387556248449849
+   },
+   "b2|b3": {
+    "ocean": 0.4704728698095085,
+    "land": 0.8520583515977346
+   }
+  },
+  "pass": false
+ },
+ "H31_4": {
+  "median_r_tpl_land": {
+   "b1|b2": 0.9125747361069586,
+   "b2|b3": 0.8591494472716834,
+   "b1|b3": 0.6516025824461746
+  },
+  "n_defined_land": {
+   "b1|b2": 134,
+   "b2|b3": 134,
+   "b1|b3": 136
+  },
+  "pass": true
+ },
+ "H31_5": {
+  "n_clean_land": 113,
+  "median_share_clean_land": 0.04345891017166797,
+  "median_share_ocean": 0.007406681349404658,
+  "ratio": 5.86752799553894,
+  "rho_share_orog_std": 0.6865227227360436,
+  "pass": true
+ },
+ "VERDICT": "PARTIAL(H31-1,H31-2)"
+}
