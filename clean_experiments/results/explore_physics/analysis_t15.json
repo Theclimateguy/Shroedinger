@@ -1,0 +1,334 @@
+{
+ "vort": {
+  "template_share_by_band": {
+   "ocean_median": [
+    0.0037,
+    0.0057,
+    0.0132
+   ],
+   "land_median": [
+    0.1134,
+    0.0786,
+    0.0867
+   ],
+   "land_q90": [
+    0.481,
+    0.403,
+    0.381
+   ],
+   "cross_season_rho_land": 0.804,
+   "cross_season_rho_ocean": 0.305,
+   "rho_with": {
+    "orog_std": 0.727,
+    "land_frac": 0.678,
+    "coast_var": 0.696,
+    "cape_mean": 0.402,
+    "eke_syn": -0.409
+   }
+  },
+  "pairs": {
+   "50-100|100-200": {
+    "total": {
+     "ocean": 0.8019,
+     "land": 0.7714,
+     "ocean_minus_land": 0.0305,
+     "sd_land": 0.0433,
+     "sd_ocean": 0.0138,
+     "cross_season_land": 0.575,
+     "cross_season_ocean": 0.066
+    },
+    "moving": {
+     "ocean": 0.8005,
+     "land": 0.7435,
+     "ocean_minus_land": 0.057,
+     "sd_land": 0.0472,
+     "sd_ocean": 0.0142,
+     "cross_season_land": 0.682,
+     "cross_season_ocean": 0.117
+    },
+    "template_corr": {
+     "land_median": 0.915,
+     "land_n_defined": 137,
+     "ocean_n_defined": 113,
+     "land_frac_positive": 0.815
+    },
+    "template_contribution": {
+     "ocean": 0.0111,
+     "land": 0.1472,
+     "cross_season_land": 0.776,
+     "rho_with_total_land": 0.137,
+     "rho_moving_with_total_land": 0.57
+    },
+    "moving_loadings_land": {
+     "orog_std": -0.598,
+     "cape_mean": -0.354,
+     "eke_syn": 0.409,
+     "abs_lat": 0.224
+    },
+    "moving_vs_template_share_land": -0.662
+   },
+   "100-200|200-400": {
+    "total": {
+     "ocean": 0.6916,
+     "land": 0.6467,
+     "ocean_minus_land": 0.0449,
+     "sd_land": 0.0631,
+     "sd_ocean": 0.0202,
+     "cross_season_land": 0.395,
+     "cross_season_ocean": -0.001
+    },
+    "moving": {
+     "ocean": 0.6888,
+     "land": 0.627,
+     "ocean_minus_land": 0.0618,
+     "sd_land": 0.0416,
+     "sd_ocean": 0.0199,
+     "cross_season_land": 0.4,
+     "cross_season_ocean": 0.017
+    },
+    "template_corr": {
+     "land_median": 0.889,
+     "land_n_defined": 143,
+     "ocean_n_defined": 158,
+     "land_frac_positive": 0.839
+    },
+    "template_contribution": {
+     "ocean": 0.0162,
+     "land": 0.1112,
+     "cross_season_land": 0.602,
+     "rho_with_total_land": 0.407,
+     "rho_moving_with_total_land": 0.619
+    },
+    "moving_loadings_land": {
+     "orog_std": -0.361,
+     "cape_mean": -0.202,
+     "eke_syn": 0.227,
+     "abs_lat": 0.081
+    },
+    "moving_vs_template_share_land": -0.403
+   },
+   "50-100|200-400": {
+    "total": {
+     "ocean": 0.4154,
+     "land": 0.3674,
+     "ocean_minus_land": 0.048,
+     "sd_land": 0.0955,
+     "sd_ocean": 0.0275,
+     "cross_season_land": 0.419,
+     "cross_season_ocean": -0.004
+    },
+    "moving": {
+     "ocean": 0.4112,
+     "land": 0.3352,
+     "ocean_minus_land": 0.076,
+     "sd_land": 0.0596,
+     "sd_ocean": 0.027,
+     "cross_season_land": 0.414,
+     "cross_season_ocean": 0.032
+    },
+    "template_corr": {
+     "land_median": 0.638,
+     "land_n_defined": 137,
+     "ocean_n_defined": 109,
+     "land_frac_positive": 0.738
+    },
+    "template_contribution": {
+     "ocean": 0.0117,
+     "land": 0.0836,
+     "cross_season_land": 0.603,
+     "rho_with_total_land": 0.606,
+     "rho_moving_with_total_land": 0.588
+    },
+    "moving_loadings_land": {
+     "orog_std": -0.332,
+     "cape_mean": -0.254,
+     "eke_syn": 0.218,
+     "abs_lat": 0.095
+    },
+    "moving_vs_template_share_land": -0.373
+   }
+  }
+ },
+ "T": {
+  "template_share_by_band": {
+   "ocean_median": [
+    0.0029,
+    0.005,
+    0.0143
+   ],
+   "land_median": [
+    0.1233,
+    0.09,
+    0.0998
+   ],
+   "land_q90": [
+    0.49,
+    0.432,
+    0.338
+   ],
+   "cross_season_rho_land": 0.832,
+   "cross_season_rho_ocean": 0.182,
+   "rho_with": {
+    "orog_std": 0.671,
+    "land_frac": 0.637,
+    "coast_var": 0.623,
+    "cape_mean": 0.371,
+    "eke_syn": -0.408
+   }
+  },
+  "pairs": {
+   "50-100|100-200": {
+    "total": {
+     "ocean": 0.7688,
+     "land": 0.737,
+     "ocean_minus_land": 0.0318,
+     "sd_land": 0.05,
+     "sd_ocean": 0.0192,
+     "cross_season_land": 0.617,
+     "cross_season_ocean": 0.398
+    },
+    "moving": {
+     "ocean": 0.7683,
+     "land": 0.7031,
+     "ocean_minus_land": 0.0651,
+     "sd_land": 0.0415,
+     "sd_ocean": 0.0192,
+     "cross_season_land": 0.64,
+     "cross_season_ocean": 0.403
+    },
+    "template_corr": {
+     "land_median": 0.898,
+     "land_n_defined": 135,
+     "ocean_n_defined": 67,
+     "land_frac_positive": 0.804
+    },
+    "template_contribution": {
+     "ocean": 0.0069,
+     "land": 0.1575,
+     "cross_season_land": 0.851,
+     "rho_with_total_land": 0.367,
+     "rho_moving_with_total_land": 0.434
+    },
+    "moving_loadings_land": {
+     "orog_std": -0.527,
+     "cape_mean": -0.417,
+     "eke_syn": 0.532,
+     "abs_lat": 0.361
+    },
+    "moving_vs_template_share_land": -0.571
+   },
+   "100-200|200-400": {
+    "total": {
+     "ocean": 0.6816,
+     "land": 0.6405,
+     "ocean_minus_land": 0.0411,
+     "sd_land": 0.0543,
+     "sd_ocean": 0.0226,
+     "cross_season_land": 0.401,
+     "cross_season_ocean": 0.22
+    },
+    "moving": {
+     "ocean": 0.6797,
+     "land": 0.6092,
+     "ocean_minus_land": 0.0705,
+     "sd_land": 0.0388,
+     "sd_ocean": 0.0239,
+     "cross_season_land": 0.362,
+     "cross_season_ocean": 0.314
+    },
+    "template_corr": {
+     "land_median": 0.868,
+     "land_n_defined": 129,
+     "ocean_n_defined": 153,
+     "land_frac_positive": 0.762
+    },
+    "template_contribution": {
+     "ocean": 0.0134,
+     "land": 0.1242,
+     "cross_season_land": 0.755,
+     "rho_with_total_land": 0.539,
+     "rho_moving_with_total_land": 0.449
+    },
+    "moving_loadings_land": {
+     "orog_std": -0.142,
+     "cape_mean": -0.49,
+     "eke_syn": 0.488,
+     "abs_lat": 0.483
+    },
+    "moving_vs_template_share_land": -0.289
+   },
+   "50-100|200-400": {
+    "total": {
+     "ocean": 0.374,
+     "land": 0.3289,
+     "ocean_minus_land": 0.0451,
+     "sd_land": 0.09,
+     "sd_ocean": 0.0336,
+     "cross_season_land": 0.487,
+     "cross_season_ocean": 0.301
+    },
+    "moving": {
+     "ocean": 0.3722,
+     "land": 0.2732,
+     "ocean_minus_land": 0.099,
+     "sd_land": 0.0531,
+     "sd_ocean": 0.0348,
+     "cross_season_land": 0.412,
+     "cross_season_ocean": 0.367
+    },
+    "template_corr": {
+     "land_median": 0.68,
+     "land_n_defined": 130,
+     "ocean_n_defined": 64,
+     "land_frac_positive": 0.732
+    },
+    "template_contribution": {
+     "ocean": 0.0076,
+     "land": 0.1005,
+     "cross_season_land": 0.752,
+     "rho_with_total_land": 0.694,
+     "rho_moving_with_total_land": 0.336
+    },
+    "moving_loadings_land": {
+     "orog_std": -0.277,
+     "cape_mean": -0.491,
+     "eke_syn": 0.517,
+     "abs_lat": 0.433
+    },
+    "moving_vs_template_share_land": -0.385
+   }
+  }
+ },
+ "cross_field_T_vort": {
+  "50-100": {
+   "total": {
+    "ocean": 0.2852,
+    "land": 0.3504
+   },
+   "moving": {
+    "ocean": 0.2811,
+    "land": 0.2488
+   }
+  },
+  "100-200": {
+   "total": {
+    "ocean": 0.2692,
+    "land": 0.2969
+   },
+   "moving": {
+    "ocean": 0.2654,
+    "land": 0.2276
+   }
+  },
+  "200-400": {
+   "total": {
+    "ocean": 0.2198,
+    "land": 0.2263
+   },
+   "moving": {
+    "ocean": 0.2119,
+    "land": 0.1733
+   }
+  }
+ }
+}
