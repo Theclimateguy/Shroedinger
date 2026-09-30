@@ -1,0 +1,12 @@
+{
+ "JFM": {
+  "spearman_vs_committed": 0.9959761600960492,
+  "max_abs_diff": 0.010989494621753693,
+  "mean_diff": 4.895590108055912e-05
+ },
+ "JAS": {
+  "spearman_vs_committed": 0.9955105339882951,
+  "max_abs_diff": 0.010879854361216218,
+  "mean_diff": 1.5648834941480873e-05
+ }
+}

@@ -1,0 +1,182 @@
+{
+ "N256_s0.00_ks40": {
+  "share": 0.0,
+  "model": "2d",
+  "P_anch": 0.1998,
+  "P_anch_sd_tiles": 0.0329,
+  "P_anch_se": 0.0033,
+  "energy_slope_k8_32": -3.66,
+  "vorticity_flatness": 3.92,
+  "C_coarse2_col": [
+   0.0841,
+   0.0782
+  ],
+  "C_coarse3_col": [
+   0.0142,
+   0.017,
+   0.0199
+  ]
+ },
+ "N256_s0.10_ks40": {
+  "share": 0.1,
+  "model": "2d",
+  "P_anch": 0.1698,
+  "P_anch_sd_tiles": 0.0268,
+  "P_anch_se": 0.0027,
+  "energy_slope_k8_32": -3.31,
+  "vorticity_flatness": 2.98,
+  "C_coarse2_col": [
+   0.0585,
+   0.0526
+  ],
+  "C_coarse3_col": [
+   0.0085,
+   0.0108,
+   0.0133
+  ]
+ },
+ "N256_s0.30_ks40": {
+  "share": 0.3,
+  "model": "2d",
+  "P_anch": 0.1404,
+  "P_anch_sd_tiles": 0.0282,
+  "P_anch_se": 0.0028,
+  "energy_slope_k8_32": -3.47,
+  "vorticity_flatness": 4.21,
+  "C_coarse2_col": [
+   0.0434,
+   0.0366
+  ],
+  "C_coarse3_col": [
+   0.0041,
+   0.0056,
+   0.0067
+  ]
+ },
+ "N256_s0.50_ks40": {
+  "share": 0.5,
+  "model": "2d",
+  "P_anch": 0.1252,
+  "P_anch_sd_tiles": 0.0244,
+  "P_anch_se": 0.0024,
+  "energy_slope_k8_32": -3.08,
+  "vorticity_flatness": 3.78,
+  "C_coarse2_col": [
+   0.0395,
+   0.0312
+  ],
+  "C_coarse3_col": [
+   0.0021,
+   0.003,
+   0.0026
+  ]
+ },
+ "N256_s0.70_ks40": {
+  "share": 0.7,
+  "model": "2d",
+  "P_anch": 0.1281,
+  "P_anch_sd_tiles": 0.0284,
+  "P_anch_se": 0.0028,
+  "energy_slope_k8_32": -2.42,
+  "vorticity_flatness": 3.22,
+  "C_coarse2_col": [
+   0.0394,
+   0.0299
+  ],
+  "C_coarse3_col": [
+   0.0029,
+   0.0033,
+   0.001
+  ]
+ },
+ "N256_s0.90_ks40": {
+  "share": 0.9,
+  "model": "2d",
+  "P_anch": 0.1282,
+  "P_anch_sd_tiles": 0.0272,
+  "P_anch_se": 0.0027,
+  "energy_slope_k8_32": -1.87,
+  "vorticity_flatness": 3.12,
+  "C_coarse2_col": [
+   0.0396,
+   0.0286
+  ],
+  "C_coarse3_col": [
+   0.003,
+   0.0032,
+   0.0007
+  ]
+ },
+ "N256_s1.00_ks40": {
+  "share": 1.0,
+  "model": "2d",
+  "P_anch": 0.0703,
+  "P_anch_sd_tiles": 0.0208,
+  "P_anch_se": 0.0021,
+  "energy_slope_k8_32": -0.25,
+  "vorticity_flatness": 3.09,
+  "C_coarse2_col": [
+   0.0311,
+   0.0194
+  ],
+  "C_coarse3_col": [
+   0.0012,
+   0.0006,
+   -0.0005
+  ]
+ },
+ "sqg_N256_s0.00_ks40": {
+  "share": 0.0,
+  "model": "sqg",
+  "P_anch": 0.1617,
+  "P_anch_sd_tiles": 0.0297,
+  "P_anch_se": 0.003,
+  "energy_slope_k8_32": -1.81,
+  "vorticity_flatness": 4.77,
+  "C_coarse2_col": [
+   0.0709,
+   0.0726
+  ],
+  "C_coarse3_col": [
+   0.0181,
+   0.0199,
+   0.0227
+  ]
+ },
+ "sqg_N256_s0.50_ks40": {
+  "share": 0.5,
+  "model": "sqg",
+  "P_anch": 0.0881,
+  "P_anch_sd_tiles": 0.0295,
+  "P_anch_se": 0.0029,
+  "energy_slope_k8_32": -1.51,
+  "vorticity_flatness": 3.21,
+  "C_coarse2_col": [
+   0.0255,
+   0.0252
+  ],
+  "C_coarse3_col": [
+   0.0023,
+   0.0032,
+   0.0053
+  ]
+ },
+ "sqg_N256_s1.00_ks40": {
+  "share": 1.0,
+  "model": "sqg",
+  "P_anch": 0.0696,
+  "P_anch_sd_tiles": 0.0282,
+  "P_anch_se": 0.0028,
+  "energy_slope_k8_32": -1.12,
+  "vorticity_flatness": 6.56,
+  "C_coarse2_col": [
+   0.0236,
+   0.0255
+  ],
+  "C_coarse3_col": [
+   -0.0004,
+   0.002,
+   0.0078
+  ]
+ }
+}
