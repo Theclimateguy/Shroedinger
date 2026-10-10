@@ -28,8 +28,7 @@
   figures_v8/Fig1…Fig5 (.png, .tif)  — рисунки v8 отдельными файлами (17.5 см, 400 dpi); отчёт — figures_report_v8.txt;
                                         подписи — figure_captions_v8.txt; архив — article1_v8_figures_300dpi.zip.
   response_to_reviewer_v8.md / .docx — ответ рецензенту по пунктам.
-  Перед подачей: в сноске рукописи заменить [COMMIT] и [ZENODO-V6.5] на коммит и версионный DOI релиза v6.5;
-  проставить дату в ответе рецензенту.
+  Перед подачей: проставить дату в ответе рецензенту; релиз v6.5 (тег) должен быть опубликован на GitHub/Zenodo.
   Источник: ../article1_v8_src.tex → ARTICLE1_VERSION=v8 python manuscript_v2/article1/tools/build_article1_journal.py;
   рисунки: clean_experiments/visualize_article1_v8_method.py, visualize_article1_v8_figures.py →
   ARTICLE1_VERSION=v8 python manuscript_v2/article1/tools/build_article1_figures.py.

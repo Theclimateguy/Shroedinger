@@ -4,6 +4,19 @@ Falsification-grade research program on cross-scale organization of the
 atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and **retracts the central empirical claim of the v1 manuscript**
 (the A15 "Lambda_b ~ Pi_b closure"): see `docs/RECONCILIATION.md`.
 
+## Status (2026-10-10): article 1 revised after review (v6.5)
+
+The journal review of article 1 (accept after revision) found two things in the code: the
+vorticity was computed without the spherical metric term and no mask excluded the grid
+points where the 850 hPa surface lies below the terrain (34 % of the MERRA-2 nodes over
+Central Asia had been zero-filled). Phase 32 (`docs/PROTOCOL_PHASE32_REVIEW_CHECKS.md`)
+fixed both (definition V12), re-ran every article-1 quantity (`clean_experiments/results/*_v12/`,
+`experiment_B32_review_checks/table2_compare.md`) and added the stratified-permutation and
+variance-component checks the reviewer asked for. No qualitative conclusion changed; the
+revised manuscript is `manuscript_v2/article1/article1_v8.pdf` with its supplement and the
+reviewer response in `manuscript_v2/article1/journal_package/`. Route and hashes:
+`reproducibility/article1_README.md`, section 0.
+
 ## Status (2026-09-30): an estimator artefact and what replaced it
 
 An exploratory audit of the physics of P

@@ -1,6 +1,6 @@
 {
   "title": "Cross-scale organisation of the atmospheric circulation: a falsification-grade research programme (Shroedinger, gen4)",
-  "version": "6.4",
+  "version": "6.5",
   "upload_type": "software",
   "license": "MIT",
   "language": "eng",
@@ -9,7 +9,7 @@
       "name": "Sotiriadi, N."
     }
   ],
-  "description": "<p><strong>v6.4 — paper 3 of the series: the law of inheritance between scale levels, journal-format manuscript and a single reproduction script.</strong> Numerical results of all earlier frozen experiments are identical to v6.0.</p><ul><li><code>manuscript_v2/article3/article3_v2.pdf</code> (source <code>article3_v2_src.tex</code>) — paper 3, “Hierarchy of the atmospheric circulation: the law of inheritance between scale levels and its meaning for regionalisation” (in Russian, journal format): the beyond-spectrum covariance of log-envelopes of two scale bands depends only on the coarser band (common-ancestor structure), on 48 regional units, 902 global tiles and a free-running IFS-HR run; the adjacent-level coupling of papers 1–2 is its normalised amplitude; consequences for regionalisation.</li><li>Phases 27–30 (frozen protocols in <code>docs/PROTOCOL_PHASE27..30_*.md</code>, code <code>clean_experiments/experiment_B27..B30_*.py</code>, results and reports in <code>clean_experiments/results/</code>): mechanism test (PARTIAL), inheritance depth (law form confirmed, depth withdrawn as a ladder artefact), structure law replication and model run, unification P ↔ law.</li><li><code>reproducibility/reproduce_article3.py</code> — single entry point for paper 3 (<code>--stage download | compute | figures | manuscript | check | all</code>), route per result in <code>reproducibility/article3_README.md</code>, SHA-256 of 6 artifacts.</li><li>Literature review and adversarial prior-art search for paper 3 (<code>docs/LIT_REVIEW_ARTICLE3_MECHANISM.md</code>); 15 new verified entries in the master bibliography.</li></ul><p>Raw ERA5 / MERRA-2 / HighResMIP fields are deliberately not stored; the exact download scripts and all derived tables are included. Author rules of the target journal are referenced, not redistributed (<code>docs/journal/README.md</code>).</p>",
+  "description": "<p><strong>v6.5 — article 1 revised after peer review (Izvestiya RAN, Ser. Geogr.): spherical vorticity, 850 hPa below-surface mask, full recomputation (definition V12), manuscript v8.</strong></p><ul><li><code>manuscript_v2/article1/article1_v8.pdf</code> / <code>.docx</code> (source <code>article1_v8_src.tex</code>), supplement <code>article1_v8_supplement.pdf</code>, five new figures (<code>figures/v8/</code>), journal package with the point-by-point reviewer response.</li><li>Phase 32 (<code>docs/PROTOCOL_PHASE32_REVIEW_CHECKS.md</code>): the relative vorticity now includes the metric term u tan(phi)/a; grid points where the 850 hPa surface lies below the terrain (ERA5 surface height above 1457 m) are excluded from smoothing (normalised convolution) and from the rank correlations; MERRA-2 below-surface fill values are no longer zero-filled. Checks: steps 2–5 without the grid-artefact pair, permutations within season/year/period strata, variance components (ICC), block bootstrap over longitude sectors, bootstrap intervals (<code>experiment_B32_review_checks.py</code>, <code>experiment_B32_vorticity_mask.py</code>).</li><li>All article-1 quantities recomputed under V12 by re-running Phases 2/2b/3/13/18 through <code>experiment_B33_v12_recompute.py</code>; results in <code>clean_experiments/results/*_v12/</code>; old-vs-new table in <code>experiment_B32_review_checks/table2_compare.md</code>. No qualitative conclusion changed; two numbers of the submitted Table 2 were found wrong (row 7 referred to steps 3–5; row 2 was not reproducible) and the “beyond-spectrum” rows were dropped as unstable.</li><li><code>reproducibility/article1_README.md</code> section 0: route and SHA-256 of the v8 artifacts; <code>reproduce_article1.py --stage check</code> now fails on missing or mismatching hashes.</li></ul><p>Raw ERA5 / MERRA-2 / HighResMIP fields are not stored; download scripts and all derived tables are included.</p>",
   "keywords": [
     "hierarchical organisation of geosystems",
     "invariants",
@@ -36,10 +36,10 @@
   ],
   "related_identifiers": [
     {
-      "identifier": "10.5281/zenodo.22738086",
+      "identifier": "10.5281/zenodo.22900149",
       "relation": "isNewVersionOf",
       "scheme": "doi"
     }
   ],
-  "notes": "Supersedes release v6.2. Adds paper 2 (journal-format manuscript v4), its single reproduction script, the descriptive layer and Phase 25; repository manuscripts reorganised per article. Frozen numerical results unchanged since v6.0."
+  "notes": "Supersedes release v6.4. Article 1 revised after review: spherical vorticity, 850 hPa mask, definition V12, all article-1 numbers recomputed; papers 2–3 unchanged."
 }
