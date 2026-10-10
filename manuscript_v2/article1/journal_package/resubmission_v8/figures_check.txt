@@ -1,0 +1,14 @@
+Файл  пиксели  dpi  см (ширина x высота)  требование: >=300 dpi, не более 25 x 17.5 см
+figures/Fig1.png  2755x1196  400  17.50 x 7.60  OK
+figures/Fig1.tif  2755x1196  400  17.50 x 7.60  OK
+figures/Fig2.png  2755x1354  400  17.50 x 8.60  OK
+figures/Fig2.tif  2755x1354  400  17.50 x 8.60  OK
+figures/Fig3.png  2755x1338  400  17.50 x 8.50  OK
+figures/Fig3.tif  2755x1338  400  17.50 x 8.50  OK
+figures/Fig4.png  2755x1173  400  17.50 x 7.45  OK
+figures/Fig4.tif  2755x1173  400  17.50 x 7.45  OK
+figures/Fig5.png  2755x1417  400  17.50 x 9.00  OK
+figures/Fig5.tif  2755x1417  400  17.50 x 9.00  OK
+supplementary/FigS1.png  2755x2283  400  17.49 x 14.50  OK
+supplementary/FigS2.png  2755x1732  400  17.49 x 11.00  OK
+supplementary/FigS3.png  2755x1023  400  17.49 x 6.50  OK
