@@ -22,10 +22,12 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 MAN = HERE.parent
-SRC = MAN / "article1_v7_src.tex"
+import os as _os
+VERSION = _os.environ.get("ARTICLE1_VERSION", "v8")          # v7 = submitted, v8 = revised
+SRC = MAN / f"article1_{VERSION}_src.tex"
 BIB = MAN / "references_article1.bib"
-OUT_TEX = MAN / "article1_v7.tex"
-OUT_DOCX = MAN / "article1_v7.docx"
+OUT_TEX = MAN / f"article1_{VERSION}.tex"
+OUT_DOCX = MAN / f"article1_{VERSION}.docx"
 
 # ----------------------------------------------------------------------------- bib
 def parse_bib(path: Path) -> dict[str, dict]:
@@ -477,7 +479,7 @@ def build_pdf():
     subprocess.run(["latexmk", "-xelatex", "-interaction=nonstopmode", "-halt-on-error",
                     "-quiet", OUT_TEX.name], cwd=MAN, check=True)
     subprocess.run(["latexmk", "-c", "-quiet", OUT_TEX.name], cwd=MAN, check=False)
-    print("wrote article1_v7.pdf")
+    print(f"wrote article1_{VERSION}.pdf")
 
 
 if __name__ == "__main__":

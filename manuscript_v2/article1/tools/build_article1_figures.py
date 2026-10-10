@@ -19,8 +19,15 @@ PKG = ART / "journal_package"
 OUT = PKG / "figures"
 MAX_W_CM, MAX_H_CM, MIN_DPI = 17.5, 17.5, 300
 # журнальная нумерация -> исходный файл
-FIGS = {1: "fig1_profiles.png", 2: "fig3_geometry.png", 3: "fig4_free_running.png",
-        4: "fig2_map.png", 5: "fig5_congo_amazon.png"}
+import os as _os
+VERSION = _os.environ.get("ARTICLE1_VERSION", "v8")
+if VERSION == "v7":
+    FIGS = {1: "fig1_profiles.png", 2: "fig3_geometry.png", 3: "fig4_free_running.png",
+            4: "fig2_map.png", 5: "fig5_congo_amazon.png"}
+else:
+    FIGS = {1: "v8/fig1_method_v8.png", 2: "v8/fig2_profiles_v8.png", 3: "v8/fig3_free_run_v8.png",
+            4: "v8/fig4_map_v8.png", 5: "v8/fig5_congo_amazon_v8.png"}
+    OUT = PKG / "figures_v8"
 
 OUT.mkdir(parents=True, exist_ok=True)
 lines = ["Рисунок  пиксели      dpi   размер, см     проверка"]
@@ -42,13 +49,13 @@ for n, name in FIGS.items():
     assert ok, name
 
 report = "\n".join(lines) + "\n"
-(PKG / "figures_report.txt").write_text(report, encoding="utf-8")
+(PKG / ("figures_report.txt" if VERSION == "v7" else "figures_report_v8.txt")).write_text(report, encoding="utf-8")
 print(report)
 
-with zipfile.ZipFile(PKG / "article1_figures_300dpi.zip", "w", zipfile.ZIP_DEFLATED) as z:
+with zipfile.ZipFile(PKG / f"article1_{VERSION}_figures_300dpi.zip", "w", zipfile.ZIP_DEFLATED) as z:
     for f in sorted(OUT.glob("Fig*.*")):
         z.write(f, f"figures/{f.name}")
-    for extra in ("figures_report.txt", "figure_captions.txt"):
+    for extra in (("figures_report.txt", "figure_captions.txt") if VERSION == "v7" else ("figures_report_v8.txt", "figure_captions_v8.txt")):
         if (PKG / extra).exists():
             z.write(PKG / extra, extra)
-print("zip:", PKG / "article1_figures_300dpi.zip")
+print("zip:", PKG / f"article1_{VERSION}_figures_300dpi.zip")

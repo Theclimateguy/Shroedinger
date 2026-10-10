@@ -52,6 +52,8 @@ DOWNLOADS = [
      "NOAA GEFS ensemble (applied test: forecast error growth)"),
     ("wb2-b11", "download_b11_wb2.py", None,
      "WeatherBench 2 forecasts (applied test: ML mesoscale deficit)"),
+    ("era5-b32-orography", "download_b32_era5_orography.py", "cds",
+     "ERA5 invariant surface geopotential (850 hPa below-surface mask, revision v8)"),
 ]
 
 # name, script, produces (relative to clean_experiments/results/)
@@ -78,6 +80,25 @@ EXPERIMENTS = [
      "experiment_B18_equal_km_regions/summary.json"),
     ("descriptives", "verify_article1_descriptives.py",
      "verify_article1_descriptives/summary.json"),
+    # ---- revision v8 (Phase 32): review checks and the V12 recomputation ----
+    ("B32-checks", "experiment_B32_review_checks.py",
+     "experiment_B32_review_checks/summary.json"),
+    ("B32-era5", ["experiment_B32_vorticity_mask.py", "--stage", "era5"],
+     "experiment_B32_review_checks/era5/R4_CASIA__W9_2023JFM.json"),
+    ("B32-merra", ["experiment_B33_v12_recompute.py", "--stage", "merra"],
+     "experiment_B32_review_checks/merra/R4_CASIA__W9_2023JFM.json"),
+    ("B32-surrogates", ["experiment_B32_vorticity_mask.py", "--stage", "surrogates"],
+     "experiment_B32_review_checks/surrogates/R2_NATL__W9_2023JFM.json"),
+    ("B32-A1A2", ["experiment_B32_vorticity_mask.py", "--stage", "consolidate"],
+     "experiment_B32_review_checks/summary_A1_A2.json"),
+    ("B33-degree", ["experiment_B33_v12_recompute.py", "--stage", "degree"],
+     "experiment_B3_scattering_benchmark_v12/R12_SAM__W12_2024JAS.json"),
+    ("B33-km", ["experiment_B33_v12_recompute.py", "--stage", "km"],
+     "experiment_B18_equal_km_regions_v12/summary.json"),
+    ("B33-model", ["experiment_B33_v12_recompute.py", "--stage", "model"],
+     "experiment_B13_free_running_v12/summary.json"),
+    ("B33-table2", "experiment_B33_consolidate.py",
+     "experiment_B32_review_checks/table2_compare.json"),
 ]
 
 EXPECTED = [e[2] for e in EXPERIMENTS] + [
@@ -86,10 +107,11 @@ EXPECTED = [e[2] for e in EXPERIMENTS] + [
 ]
 
 
-def run(script: str) -> int:
-    path = CE / script
-    print(f"\n=== {script} ===", flush=True)
-    return subprocess.run([sys.executable, str(path)], cwd=REPO).returncode
+def run(script) -> int:
+    parts = [script] if isinstance(script, str) else list(script)
+    path = CE / parts[0]
+    print(f"\n=== {' '.join(parts)} ===", flush=True)
+    return subprocess.run([sys.executable, str(path), *parts[1:]], cwd=REPO).returncode
 
 
 def preflight(needed: set[str]) -> None:
@@ -137,21 +159,44 @@ def main() -> None:
 
     if args.stage in ("check", "all"):
         print("\n=== artifact check ===")
-        missing = 0
+        reference = _reference_hashes()
+        missing = mismatch = 0
         for rel in EXPECTED:
             p = CE / "results" / rel
-            if p.exists():
-                digest = hashlib.sha256(p.read_bytes()).hexdigest()
-                print(f"  OK  {rel}  sha256={digest}")
-            else:
+            if not p.exists():
                 print(f"  MISSING  {rel}")
                 missing += 1
-        print(f"\n{len(EXPECTED) - missing}/{len(EXPECTED)} artifacts present."
+                continue
+            digest = hashlib.sha256(p.read_bytes()).hexdigest()
+            ref = reference.get(rel)
+            if ref is None:
+                print(f"  OK  {rel}  sha256={digest}  (no reference hash in README)")
+            elif ref == digest:
+                print(f"  OK  {rel}  sha256={digest}  matches README")
+            else:
+                print(f"  MISMATCH  {rel}  sha256={digest}  README={ref}")
+                mismatch += 1
+        print(f"\n{len(EXPECTED) - missing}/{len(EXPECTED)} artifacts present, {mismatch} hash mismatches."
               " Reference hashes: reproducibility/article1_README.md, sect. 5.")
+        if missing or mismatch:
+            failed.append(f"artifact check ({missing} missing, {mismatch} mismatched)")
 
     if failed:
         sys.exit("Failed steps: " + ", ".join(failed))
 
+
+
+
+def _reference_hashes() -> dict[str, str]:
+    """Parse the `| path | sha256 |` table of reproducibility/article1_README.md."""
+    import re
+    readme = Path(__file__).resolve().parent / "article1_README.md"
+    out: dict[str, str] = {}
+    if not readme.exists():
+        return out
+    for m in re.finditer(r"\|\s*`results/([^`]+)`\s*\|\s*`([0-9a-f]{64})`\s*\|", readme.read_text(encoding="utf-8")):
+        out[m.group(1)] = m.group(2)
+    return out
 
 if __name__ == "__main__":
     main()

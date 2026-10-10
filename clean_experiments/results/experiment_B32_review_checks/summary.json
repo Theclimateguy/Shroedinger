@@ -1,0 +1,1250 @@
+{
+  "protocol": "docs/PROTOCOL_PHASE32_REVIEW_CHECKS.md",
+  "seed": 20261008,
+  "n_perm": 999,
+  "n_boot": 999,
+  "n_degree_windows": 96,
+  "n_km_windows": 80,
+  "A0_sanity_full_steps": {
+    "row1_heldout_raw": {
+      "diff": 1.1191,
+      "median_within": 1.6562,
+      "median_between": 2.7753,
+      "p": 0.001,
+      "pass": true,
+      "n": 32,
+      "archived_diff": 1.1191,
+      "reproduced": true
+    },
+    "row1_b3_raw_48": {
+      "diff": 1.1947,
+      "median_within": 1.4928,
+      "median_between": 2.6875,
+      "p": 0.001,
+      "pass": true,
+      "n": 48,
+      "archived_diff": null,
+      "reproduced": null
+    },
+    "row2a_beyond_semifractal_b3": {
+      "diff": 0.3322,
+      "median_within": 2.3234,
+      "median_between": 2.6556,
+      "p": 0.022,
+      "pass": true,
+      "n": 48,
+      "archived_diff": 0.6489,
+      "reproduced": false
+    },
+    "row2b_beyond_scattering_pca10_b3": {
+      "diff": 0.2979,
+      "median_within": 2.5411,
+      "median_between": 2.8389,
+      "p": 0.022,
+      "pass": true,
+      "n": 48,
+      "archived_diff": 0.2979,
+      "reproduced": true
+    },
+    "row3_beyond_spectrum_heldout": {
+      "diff": 0.3368,
+      "median_within": 2.4998,
+      "median_between": 2.8366,
+      "p": 0.03,
+      "pass": true,
+      "n": 32,
+      "archived_diff": 0.3368,
+      "reproduced": true
+    },
+    "row3_beyond_spectrum_b3_48_not_in_table": {
+      "diff": 0.0043,
+      "median_within": 2.6056,
+      "median_between": 2.6099,
+      "p": 0.481,
+      "pass": false,
+      "n": 48,
+      "archived_diff": null,
+      "reproduced": null
+    },
+    "row3_beyond_spectrum_all96_not_in_table": {
+      "diff": 0.4046,
+      "median_within": 2.1851,
+      "median_between": 2.5897,
+      "p": 0.001,
+      "pass": true,
+      "n": 96,
+      "archived_diff": null,
+      "reproduced": null
+    },
+    "row5_km_anchored_primary": {
+      "diff": 1.2559,
+      "median_within": 1.6588,
+      "median_between": 2.9147,
+      "p": 0.001,
+      "pass": true,
+      "n": 48,
+      "archived_diff": 1.2559,
+      "reproduced": true
+    },
+    "row5_km_anchored_heldout": {
+      "diff": 1.5636,
+      "median_within": 1.3898,
+      "median_between": 2.9534,
+      "p": 0.001,
+      "pass": true,
+      "n": 32,
+      "archived_diff": 1.5636,
+      "reproduced": true
+    },
+    "row6_km_anchored_beyond_spectrum": {
+      "diff": 0.2179,
+      "median_within": 2.4322,
+      "median_between": 2.6502,
+      "p": 0.037,
+      "pass": true,
+      "n": 48,
+      "archived_diff": 0.2179,
+      "reproduced": true
+    },
+    "row6_km_raw_beyond_spectrum": {
+      "diff": 0.3468,
+      "median_within": 2.2789,
+      "median_between": 2.6257,
+      "p": 0.011,
+      "pass": true,
+      "n": 48,
+      "archived_diff": 0.3468,
+      "reproduced": true
+    },
+    "all96_raw": {
+      "diff": 1.3737,
+      "median_within": 1.253,
+      "median_between": 2.6267,
+      "p": 0.001,
+      "pass": true,
+      "n": 96,
+      "archived_diff": null,
+      "reproduced": null
+    },
+    "all80_km_anchored": {
+      "diff": 1.5504,
+      "median_within": 1.3501,
+      "median_between": 2.9004,
+      "p": 0.001,
+      "pass": true,
+      "n": 80,
+      "archived_diff": null,
+      "reproduced": null
+    },
+    "fine_ordering_steps123_km_anchored": [
+      [
+        "R9_NPAC",
+        0.3699
+      ],
+      [
+        "R2_NATL",
+        0.362
+      ],
+      [
+        "R6_SATL",
+        0.3542
+      ],
+      [
+        "R7_CONGO",
+        0.3362
+      ],
+      [
+        "R1_WPWP",
+        0.3063
+      ],
+      [
+        "R4_CASIA",
+        0.3063
+      ],
+      [
+        "R11_EURO",
+        0.2902
+      ],
+      [
+        "R8_AUS",
+        0.2859
+      ],
+      [
+        "R5_SPCZ",
+        0.2858
+      ],
+      [
+        "R12_SAM",
+        0.2752
+      ],
+      [
+        "R10_INDO",
+        0.2599
+      ],
+      [
+        "R3_AMAZ",
+        0.2438
+      ]
+    ],
+    "note_row2a": "Archived +0.649 (e1_semifractal.json) is not reproduced by LOO linear residualisation on the 11 F_frac features of the Phase-3 JSONs (+0.332, p=0.02); the producing script is not in the repository history. Nearest variants: PCA5 of F_frac +0.618, slope+break_km +0.764."
+  },
+  "A3_steps_2_5": {
+    "row1_heldout_raw": {
+      "diff": 0.7366,
+      "median_within": 1.6213,
+      "median_between": 2.3579,
+      "p": 0.001,
+      "pass": true,
+      "n": 32
+    },
+    "row1_b3_raw_48": {
+      "diff": 0.7768,
+      "median_within": 1.4603,
+      "median_between": 2.2371,
+      "p": 0.001,
+      "pass": true,
+      "n": 48
+    },
+    "row2a_beyond_semifractal_b3": {
+      "diff": 0.374,
+      "median_within": 1.9356,
+      "median_between": 2.3096,
+      "p": 0.015,
+      "pass": true,
+      "n": 48
+    },
+    "row2b_beyond_scattering_pca10_b3": {
+      "diff": 0.1633,
+      "median_within": 2.326,
+      "median_between": 2.4892,
+      "p": 0.103,
+      "pass": false,
+      "n": 48
+    },
+    "row3_beyond_spectrum_heldout": {
+      "diff": 0.4084,
+      "median_within": 2.0812,
+      "median_between": 2.4896,
+      "p": 0.001,
+      "pass": true,
+      "n": 32
+    },
+    "row3_beyond_spectrum_b3_48_not_in_table": {
+      "diff": 0.0072,
+      "median_within": 2.3077,
+      "median_between": 2.3149,
+      "p": 0.457,
+      "pass": false,
+      "n": 48
+    },
+    "row3_beyond_spectrum_all96_not_in_table": {
+      "diff": 0.3711,
+      "median_within": 1.9071,
+      "median_between": 2.2782,
+      "p": 0.001,
+      "pass": true,
+      "n": 96
+    },
+    "row5_km_anchored_primary": {
+      "diff": 0.7898,
+      "median_within": 1.5875,
+      "median_between": 2.3773,
+      "p": 0.001,
+      "pass": true,
+      "n": 48
+    },
+    "row5_km_anchored_heldout": {
+      "diff": 1.0623,
+      "median_within": 1.3542,
+      "median_between": 2.4164,
+      "p": 0.001,
+      "pass": true,
+      "n": 32
+    },
+    "row6_km_anchored_beyond_spectrum": {
+      "diff": 0.0993,
+      "median_within": 2.2497,
+      "median_between": 2.349,
+      "p": 0.228,
+      "pass": false,
+      "n": 48
+    },
+    "row6_km_raw_beyond_spectrum": {
+      "diff": 0.2384,
+      "median_within": 2.1142,
+      "median_between": 2.3526,
+      "p": 0.041,
+      "pass": true,
+      "n": 48
+    },
+    "all96_raw": {
+      "diff": 1.017,
+      "median_within": 1.1856,
+      "median_between": 2.2026,
+      "p": 0.001,
+      "pass": true,
+      "n": 96
+    },
+    "all80_km_anchored": {
+      "diff": 1.0566,
+      "median_within": 1.3041,
+      "median_between": 2.3607,
+      "p": 0.001,
+      "pass": true,
+      "n": 80
+    },
+    "fine_ordering_steps23_km_anchored": [
+      [
+        "R7_CONGO",
+        0.3874
+      ],
+      [
+        "R9_NPAC",
+        0.383
+      ],
+      [
+        "R1_WPWP",
+        0.3829
+      ],
+      [
+        "R2_NATL",
+        0.3726
+      ],
+      [
+        "R6_SATL",
+        0.3647
+      ],
+      [
+        "R5_SPCZ",
+        0.3499
+      ],
+      [
+        "R10_INDO",
+        0.3378
+      ],
+      [
+        "R8_AUS",
+        0.332
+      ],
+      [
+        "R4_CASIA",
+        0.3211
+      ],
+      [
+        "R12_SAM",
+        0.3098
+      ],
+      [
+        "R11_EURO",
+        0.3015
+      ],
+      [
+        "R3_AMAZ",
+        0.2932
+      ]
+    ],
+    "fine_ordering_steps2_only_km_anchored": [
+      [
+        "R9_NPAC",
+        0.4044
+      ],
+      [
+        "R2_NATL",
+        0.393
+      ],
+      [
+        "R6_SATL",
+        0.391
+      ],
+      [
+        "R7_CONGO",
+        0.3644
+      ],
+      [
+        "R5_SPCZ",
+        0.3584
+      ],
+      [
+        "R1_WPWP",
+        0.3554
+      ],
+      [
+        "R10_INDO",
+        0.3497
+      ],
+      [
+        "R8_AUS",
+        0.3463
+      ],
+      [
+        "R12_SAM",
+        0.3378
+      ],
+      [
+        "R4_CASIA",
+        0.3268
+      ],
+      [
+        "R11_EURO",
+        0.3
+      ],
+      [
+        "R3_AMAZ",
+        0.2974
+      ]
+    ],
+    "H32-3_pass": false,
+    "leave_one_step_out_headline_rows": {
+      "drop_step1": {
+        "row1_heldout_raw": 0.7366,
+        "row5_km_anchored_primary": 0.7898,
+        "row5_km_anchored_heldout": 1.0623
+      },
+      "drop_step2": {
+        "row1_heldout_raw": 0.9941,
+        "row5_km_anchored_primary": 0.9434,
+        "row5_km_anchored_heldout": 1.2664
+      },
+      "drop_step3": {
+        "row1_heldout_raw": 1.1755,
+        "row5_km_anchored_primary": 1.0981,
+        "row5_km_anchored_heldout": 1.4726
+      },
+      "drop_step4": {
+        "row1_heldout_raw": 1.2634,
+        "row5_km_anchored_primary": 1.2938,
+        "row5_km_anchored_heldout": 1.536
+      },
+      "drop_step5": {
+        "row1_heldout_raw": 0.9132,
+        "row5_km_anchored_primary": 1.372,
+        "row5_km_anchored_heldout": 1.5173
+      }
+    }
+  },
+  "A4_effective_resolution": {
+    "heldout_raw_steps45": {
+      "diff": 0.5027,
+      "median_within": 1.2043,
+      "median_between": 1.707,
+      "p": 0.004,
+      "pass": true,
+      "n": 32
+    },
+    "heldout_raw_step5_only": {
+      "diff": 0.5158,
+      "median_within": 0.5086,
+      "median_between": 1.0245,
+      "p": 0.001,
+      "pass": true,
+      "n": 32
+    },
+    "heldout_raw_steps345_provenance_check": {
+      "diff": 0.612,
+      "median_within": 1.5017,
+      "median_between": 2.1137,
+      "p": 0.001,
+      "pass": true,
+      "n": 32
+    },
+    "heldout_raw_regionally_resolved": {
+      "diff": 0.5091,
+      "median_within": 0.4057,
+      "median_between": 0.9148,
+      "p": 0.001,
+      "pass": true,
+      "n": 32
+    },
+    "b3_raw_steps45": {
+      "diff": 0.4145,
+      "median_within": 1.0887,
+      "median_between": 1.5032,
+      "p": 0.001,
+      "pass": true,
+      "n": 48
+    },
+    "b3_raw_step5_only": {
+      "diff": 0.4017,
+      "median_within": 0.6239,
+      "median_between": 1.0255,
+      "p": 0.002,
+      "pass": true,
+      "n": 48
+    },
+    "b3_raw_steps345_provenance_check": {
+      "diff": 0.5923,
+      "median_within": 1.302,
+      "median_between": 1.8944,
+      "p": 0.001,
+      "pass": true,
+      "n": 48
+    },
+    "b3_raw_regionally_resolved": {
+      "diff": 0.4121,
+      "median_within": 0.5812,
+      "median_between": 0.9932,
+      "p": 0.001,
+      "pass": true,
+      "n": 48
+    },
+    "km_anchored_primary_steps45": {
+      "diff": 0.2612,
+      "median_within": 1.2505,
+      "median_between": 1.5118,
+      "p": 0.021,
+      "pass": true,
+      "n": 48
+    },
+    "km_anchored_primary_step5_only": {
+      "diff": 0.1578,
+      "median_within": 0.6832,
+      "median_between": 0.8409,
+      "p": 0.062,
+      "pass": false,
+      "n": 48
+    },
+    "km_anchored_primary_steps345_provenance_check": {
+      "diff": 0.4037,
+      "median_within": 1.5102,
+      "median_between": 1.9139,
+      "p": 0.001,
+      "pass": true,
+      "n": 48
+    },
+    "km_anchored_primary_regionally_resolved": {
+      "diff": 0.1213,
+      "median_within": 0.71,
+      "median_between": 0.8313,
+      "p": 0.122,
+      "pass": false,
+      "n": 48
+    },
+    "km_anchored_heldout_steps45": {
+      "diff": 0.5257,
+      "median_within": 1.0623,
+      "median_between": 1.5881,
+      "p": 0.002,
+      "pass": true,
+      "n": 32
+    },
+    "km_anchored_heldout_step5_only": {
+      "diff": 0.3054,
+      "median_within": 0.6422,
+      "median_between": 0.9476,
+      "p": 0.015,
+      "pass": true,
+      "n": 32
+    },
+    "km_anchored_heldout_steps345_provenance_check": {
+      "diff": 0.7351,
+      "median_within": 1.2957,
+      "median_between": 2.0308,
+      "p": 0.001,
+      "pass": true,
+      "n": 32
+    },
+    "km_anchored_heldout_regionally_resolved": {
+      "diff": 0.4794,
+      "median_within": 0.4353,
+      "median_between": 0.9148,
+      "p": 0.001,
+      "pass": true,
+      "n": 32
+    },
+    "tropical_regions_step5_only": [
+      "R10_INDO",
+      "R1_WPWP",
+      "R3_AMAZ",
+      "R5_SPCZ",
+      "R7_CONGO"
+    ],
+    "note_row7": "Manuscript row 7 (+0.61, p=0.002) is not reproduced on steps 4-5 of the 32 held-out windows (see heldout_raw_steps45); +0.612 is obtained on steps 3-5 (heldout_raw_steps345_provenance_check).",
+    "H32-4_pass": true
+  },
+  "A5_stratified_and_variance": {
+    "degree96_raw": {
+      "unstratified": {
+        "diff": 1.3737,
+        "median_within": 1.253,
+        "median_between": 2.6267,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "season_stratified_all_pairs": {
+        "diff": 1.3737,
+        "median_within": 1.253,
+        "median_between": 2.6267,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "season_stratified_same_season_pairs": {
+        "diff": 1.8324,
+        "median_within": 0.8437,
+        "median_between": 2.6761,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "season_stratified_cross_season_pairs": {
+        "diff": 0.7765,
+        "median_within": 1.8198,
+        "median_between": 2.5963,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "year_stratified_all_pairs": {
+        "diff": 1.3737,
+        "median_within": 1.253,
+        "median_between": 2.6267,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "year_stratified_same_year_pairs": {
+        "diff": 0.7734,
+        "median_within": 1.8209,
+        "median_between": 2.5944,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "year_stratified_cross_year_pairs": {
+        "diff": 1.438,
+        "median_within": 1.2109,
+        "median_between": 2.6489,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "period_stratified_all_pairs": {
+        "diff": 1.3737,
+        "median_within": 1.253,
+        "median_between": 2.6267,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "period_stratified_same_period_pairs": {
+        "diff": 1.1762,
+        "median_within": 1.4179,
+        "median_between": 2.5941,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "period_stratified_cross_period_pairs": {
+        "diff": 1.4663,
+        "median_within": 1.2021,
+        "median_between": 2.6684,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "region_level_median_test": {
+        "stat": 2.4949,
+        "null_median": 1.0315,
+        "p": 0.001,
+        "n_regions": 12
+      },
+      "loo_nearest_centroid_accuracy": 0.5208
+    },
+    "degree96_raw_steps25": {
+      "unstratified": {
+        "diff": 1.017,
+        "median_within": 1.1856,
+        "median_between": 2.2026,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "season_stratified_all_pairs": {
+        "diff": 1.017,
+        "median_within": 1.1856,
+        "median_between": 2.2026,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "season_stratified_same_season_pairs": {
+        "diff": 1.4703,
+        "median_within": 0.8165,
+        "median_between": 2.2868,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "season_stratified_cross_season_pairs": {
+        "diff": 0.3999,
+        "median_within": 1.7387,
+        "median_between": 2.1385,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "year_stratified_all_pairs": {
+        "diff": 1.017,
+        "median_within": 1.1856,
+        "median_between": 2.2026,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "year_stratified_same_year_pairs": {
+        "diff": 0.4063,
+        "median_within": 1.7119,
+        "median_between": 2.1182,
+        "p": 0.005,
+        "pass": true,
+        "n": 96
+      },
+      "year_stratified_cross_year_pairs": {
+        "diff": 1.0701,
+        "median_within": 1.1598,
+        "median_between": 2.23,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "period_stratified_all_pairs": {
+        "diff": 1.017,
+        "median_within": 1.1856,
+        "median_between": 2.2026,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "period_stratified_same_period_pairs": {
+        "diff": 0.7788,
+        "median_within": 1.3468,
+        "median_between": 2.1256,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "period_stratified_cross_period_pairs": {
+        "diff": 1.1101,
+        "median_within": 1.1509,
+        "median_between": 2.2609,
+        "p": 0.001,
+        "pass": true,
+        "n": 96
+      },
+      "region_level_median_test": {
+        "stat": 2.1489,
+        "null_median": 0.9053,
+        "p": 0.001,
+        "n_regions": 12
+      },
+      "loo_nearest_centroid_accuracy": 0.4479
+    },
+    "km80_anchored": {
+      "unstratified": {
+        "diff": 1.5504,
+        "median_within": 1.3501,
+        "median_between": 2.9004,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "season_stratified_all_pairs": {
+        "diff": 1.5504,
+        "median_within": 1.3501,
+        "median_between": 2.9004,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "season_stratified_same_season_pairs": {
+        "diff": 2.0249,
+        "median_within": 0.9099,
+        "median_between": 2.9348,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "season_stratified_cross_season_pairs": {
+        "diff": 1.0933,
+        "median_within": 1.7675,
+        "median_between": 2.8607,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "year_stratified_all_pairs": {
+        "diff": 1.5504,
+        "median_within": 1.3501,
+        "median_between": 2.9004,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "year_stratified_same_year_pairs": {
+        "diff": 0.9367,
+        "median_within": 1.9723,
+        "median_between": 2.9091,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "year_stratified_cross_year_pairs": {
+        "diff": 1.6369,
+        "median_within": 1.2607,
+        "median_between": 2.8977,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "period_stratified_all_pairs": {
+        "diff": 1.5504,
+        "median_within": 1.3501,
+        "median_between": 2.9004,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "period_stratified_same_period_pairs": {
+        "diff": 1.4478,
+        "median_within": 1.466,
+        "median_between": 2.9139,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "period_stratified_cross_period_pairs": {
+        "diff": 1.6683,
+        "median_within": 1.2078,
+        "median_between": 2.876,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "region_level_median_test": {
+        "stat": 2.6159,
+        "null_median": 1.267,
+        "p": 0.001,
+        "n_regions": 12
+      },
+      "loo_nearest_centroid_accuracy": 0.525
+    },
+    "km80_anchored_steps25": {
+      "unstratified": {
+        "diff": 1.0566,
+        "median_within": 1.3041,
+        "median_between": 2.3607,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "season_stratified_all_pairs": {
+        "diff": 1.0566,
+        "median_within": 1.3041,
+        "median_between": 2.3607,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "season_stratified_same_season_pairs": {
+        "diff": 1.5003,
+        "median_within": 0.8988,
+        "median_between": 2.3991,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "season_stratified_cross_season_pairs": {
+        "diff": 0.6316,
+        "median_within": 1.7069,
+        "median_between": 2.3385,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "year_stratified_all_pairs": {
+        "diff": 1.0566,
+        "median_within": 1.3041,
+        "median_between": 2.3607,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "year_stratified_same_year_pairs": {
+        "diff": 0.4349,
+        "median_within": 1.9268,
+        "median_between": 2.3617,
+        "p": 0.005,
+        "pass": true,
+        "n": 80
+      },
+      "year_stratified_cross_year_pairs": {
+        "diff": 1.1639,
+        "median_within": 1.1968,
+        "median_between": 2.3607,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "period_stratified_all_pairs": {
+        "diff": 1.0566,
+        "median_within": 1.3041,
+        "median_between": 2.3607,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "period_stratified_same_period_pairs": {
+        "diff": 0.899,
+        "median_within": 1.4605,
+        "median_between": 2.3595,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "period_stratified_cross_period_pairs": {
+        "diff": 1.1944,
+        "median_within": 1.1698,
+        "median_between": 2.3642,
+        "p": 0.001,
+        "pass": true,
+        "n": 80
+      },
+      "region_level_median_test": {
+        "stat": 2.1704,
+        "null_median": 1.0301,
+        "p": 0.001,
+        "n_regions": 12
+      },
+      "loo_nearest_centroid_accuracy": 0.375
+    },
+    "variance_components_degree96_raw": {
+      "step1": {
+        "share_region": 0.86,
+        "share_season_in_region": 0.122,
+        "share_year_in_region_season_(=residual,_one_window_per_cell)": 0.018,
+        "share_residual_check": 0.0,
+        "icc1_region": 0.852,
+        "pass_icc_ge_0.5": true
+      },
+      "step2": {
+        "share_region": 0.716,
+        "share_season_in_region": 0.255,
+        "share_year_in_region_season_(=residual,_one_window_per_cell)": 0.029,
+        "share_residual_check": 0.0,
+        "icc1_region": 0.695,
+        "pass_icc_ge_0.5": true
+      },
+      "step3": {
+        "share_region": 0.66,
+        "share_season_in_region": 0.27,
+        "share_year_in_region_season_(=residual,_one_window_per_cell)": 0.07,
+        "share_residual_check": 0.0,
+        "icc1_region": 0.634,
+        "pass_icc_ge_0.5": true
+      },
+      "step4": {
+        "share_region": 0.667,
+        "share_season_in_region": 0.189,
+        "share_year_in_region_season_(=residual,_one_window_per_cell)": 0.145,
+        "share_residual_check": 0.0,
+        "icc1_region": 0.641,
+        "pass_icc_ge_0.5": true
+      },
+      "step5": {
+        "share_region": 0.663,
+        "share_season_in_region": 0.204,
+        "share_year_in_region_season_(=residual,_one_window_per_cell)": 0.133,
+        "share_residual_check": 0.0,
+        "icc1_region": 0.637,
+        "pass_icc_ge_0.5": true
+      }
+    },
+    "variance_components_degree96_anchored": {
+      "step1": {
+        "share_region": 0.964,
+        "share_season_in_region": 0.031,
+        "share_year_in_region_season_(=residual,_one_window_per_cell)": 0.005,
+        "share_residual_check": 0.0,
+        "icc1_region": 0.962,
+        "pass_icc_ge_0.5": true
+      },
+      "step2": {
+        "share_region": 0.714,
+        "share_season_in_region": 0.259,
+        "share_year_in_region_season_(=residual,_one_window_per_cell)": 0.027,
+        "share_residual_check": 0.0,
+        "icc1_region": 0.693,
+        "pass_icc_ge_0.5": true
+      },
+      "step3": {
+        "share_region": 0.681,
+        "share_season_in_region": 0.256,
+        "share_year_in_region_season_(=residual,_one_window_per_cell)": 0.063,
+        "share_residual_check": 0.0,
+        "icc1_region": 0.657,
+        "pass_icc_ge_0.5": true
+      },
+      "step4": {
+        "share_region": 0.631,
+        "share_season_in_region": 0.214,
+        "share_year_in_region_season_(=residual,_one_window_per_cell)": 0.155,
+        "share_residual_check": 0.0,
+        "icc1_region": 0.601,
+        "pass_icc_ge_0.5": true
+      },
+      "step5": {
+        "share_region": 0.597,
+        "share_season_in_region": 0.252,
+        "share_year_in_region_season_(=residual,_one_window_per_cell)": 0.151,
+        "share_residual_check": 0.0,
+        "icc1_region": 0.564,
+        "pass_icc_ge_0.5": true
+      }
+    },
+    "variance_components_km80_anchored": {
+      "step1": {
+        "share_region": 0.966,
+        "share_season_in_region": 0.028,
+        "share_year_in_region_season_(=residual,_one_window_per_cell)": 0.006,
+        "share_residual_check": 0.0,
+        "icc1_region": 0.963,
+        "pass_icc_ge_0.5": true
+      },
+      "step2": {
+        "share_region": 0.779,
+        "share_season_in_region": 0.197,
+        "share_year_in_region_season_(=residual,_one_window_per_cell)": 0.024,
+        "share_residual_check": 0.0,
+        "icc1_region": 0.758,
+        "pass_icc_ge_0.5": true
+      },
+      "step3": {
+        "share_region": 0.73,
+        "share_season_in_region": 0.218,
+        "share_year_in_region_season_(=residual,_one_window_per_cell)": 0.052,
+        "share_residual_check": -0.0,
+        "icc1_region": 0.704,
+        "pass_icc_ge_0.5": true
+      },
+      "step4": {
+        "share_region": 0.486,
+        "share_season_in_region": 0.334,
+        "share_year_in_region_season_(=residual,_one_window_per_cell)": 0.18,
+        "share_residual_check": 0.0,
+        "icc1_region": 0.423,
+        "pass_icc_ge_0.5": false
+      },
+      "step5": {
+        "share_region": 0.541,
+        "share_season_in_region": 0.305,
+        "share_year_in_region_season_(=residual,_one_window_per_cell)": 0.154,
+        "share_residual_check": 0.0,
+        "icc1_region": 0.487,
+        "pass_icc_ge_0.5": false
+      }
+    },
+    "H32-5a_pass": true,
+    "H32-5b_pass_steps2_5": true
+  },
+  "A6_spatial_block_uncertainty": {
+    "n": 39,
+    "rho_full": 0.7059,
+    "archived_H13a": 0.7058704453441296,
+    "lon_sectors_60deg": {
+      "n_blocks": 6,
+      "block_sizes": [
+        4,
+        9,
+        5,
+        8,
+        4,
+        9
+      ],
+      "boot_ci90": [
+        0.552,
+        0.824
+      ],
+      "boot_median": 0.704,
+      "jackknife_leave_block_out": [
+        0.732,
+        0.74,
+        0.643,
+        0.693,
+        0.739,
+        0.671
+      ],
+      "pass_lower_gt_0.4": true
+    },
+    "lat_rows": {
+      "n_blocks": 5,
+      "block_sizes": [
+        8,
+        5,
+        9,
+        9,
+        8
+      ],
+      "boot_ci90": [
+        0.549,
+        0.817
+      ],
+      "boot_median": 0.707,
+      "jackknife_leave_block_out": [
+        0.731,
+        0.71,
+        0.786,
+        0.669,
+        0.627
+      ],
+      "pass_lower_gt_0.4": true
+    },
+    "ceiling_recomputed": {
+      "rho_12_regions_early_vs_III": 0.9161,
+      "rho_8_regions_II_vs_III": 0.9048,
+      "archived_ceiling_P": {
+        "n": 8,
+        "rho": 0.9285714285714287
+      },
+      "jackknife_12_leave_one_region": [
+        0.9,
+        0.936,
+        0.9,
+        0.891,
+        0.918,
+        0.891,
+        0.936,
+        0.936,
+        0.909,
+        0.909,
+        0.936,
+        0.891
+      ]
+    },
+    "H32-6_pass": true
+  },
+  "A7_borderline_rows_full_steps": {
+    "row2a_semifractal_b3": {
+      "diff_obs": 0.3322,
+      "boot_ci90": [
+        -0.004,
+        0.832
+      ],
+      "boot_median": 0.33,
+      "ci_excludes_0": false,
+      "region_median_test": {
+        "stat": 1.9911,
+        "null_median": 1.6,
+        "p": 0.016,
+        "n_regions": 12
+      }
+    },
+    "row2b_scattering_pca10_b3": {
+      "diff_obs": 0.2979,
+      "boot_ci90": [
+        -0.309,
+        0.673
+      ],
+      "boot_median": 0.235,
+      "ci_excludes_0": false,
+      "region_median_test": {
+        "stat": 1.6811,
+        "null_median": 1.661,
+        "p": 0.465,
+        "n_regions": 12
+      }
+    },
+    "row3_spectrum_heldout": {
+      "diff_obs": 0.3368,
+      "boot_ci90": [
+        -0.214,
+        0.717
+      ],
+      "boot_median": 0.308,
+      "ci_excludes_0": false,
+      "region_median_test": {
+        "stat": 1.4543,
+        "null_median": 1.5719,
+        "p": 0.725,
+        "n_regions": 8
+      }
+    },
+    "row6_km_anchored_spectrum": {
+      "diff_obs": 0.2179,
+      "boot_ci90": [
+        0.007,
+        0.709
+      ],
+      "boot_median": 0.251,
+      "ci_excludes_0": true,
+      "region_median_test": {
+        "stat": 1.8174,
+        "null_median": 1.5355,
+        "p": 0.048,
+        "n_regions": 12
+      }
+    }
+  },
+  "A7_borderline_rows_steps_2_5": {
+    "row2a_semifractal_b3": {
+      "diff_obs": 0.374,
+      "boot_ci90": [
+        -0.004,
+        0.697
+      ],
+      "boot_median": 0.314,
+      "ci_excludes_0": false,
+      "region_median_test": {
+        "stat": 1.7859,
+        "null_median": 1.4212,
+        "p": 0.016,
+        "n_regions": 12
+      }
+    },
+    "row2b_scattering_pca10_b3": {
+      "diff_obs": 0.1633,
+      "boot_ci90": [
+        -0.347,
+        0.649
+      ],
+      "boot_median": 0.161,
+      "ci_excludes_0": false,
+      "region_median_test": {
+        "stat": 1.4649,
+        "null_median": 1.4772,
+        "p": 0.535,
+        "n_regions": 12
+      }
+    },
+    "row3_spectrum_heldout": {
+      "diff_obs": 0.4084,
+      "boot_ci90": [
+        0.118,
+        0.772
+      ],
+      "boot_median": 0.408,
+      "ci_excludes_0": true,
+      "region_median_test": {
+        "stat": 1.2982,
+        "null_median": 1.3359,
+        "p": 0.585,
+        "n_regions": 8
+      }
+    },
+    "row6_km_anchored_spectrum": {
+      "diff_obs": 0.0993,
+      "boot_ci90": [
+        -0.264,
+        0.563
+      ],
+      "boot_median": 0.109,
+      "ci_excludes_0": false,
+      "region_median_test": {
+        "stat": 1.5157,
+        "null_median": 1.3291,
+        "p": 0.125,
+        "n_regions": 12
+      }
+    }
+  }
+}

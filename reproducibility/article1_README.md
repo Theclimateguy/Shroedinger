@@ -1,18 +1,60 @@
 # Воспроизведение статьи 1 серии
 
-> **Известное ограничение (30.09.2026).** Первая пара полос профиля (<50 | 50–100 км)
-> несет артефакт сетки «широта–долгота» и суррогатов: ее связь с широтой 0,87 → 0,65 на
-> сетке с равным шагом в км. Пары 2–5 не затронуты (согласие 0,97–0,99). Проверка:
-> `clean_experiments/explore_physics_article1_check.py`; сводка — `docs/RECONCILIATION.md`.
+> **Версия v8 (доработка по рецензии, октябрь 2026).** Все числа исправленной рукописи
+> (`manuscript_v2/article1/article1_v8_src.tex`) получены по определению **V12**:
+> сферический ротор (член $u\tan\varphi/a$), узлы с поверхностью выше 1457 м (850 гПа под
+> рельефом) исключены из сглаживания (нормированная свёртка) и корреляций; в MERRA-2 так же
+> исключены заполнители ниже поверхности (раньше они шли нулями). Первая пара полос
+> (<50 | 50–100 км) исключена из выводов: она несёт артефакт сетки «широта–долгота»
+> (связь с широтой 0,87 → 0,65 на сетке с равным шагом в км; пары 2–5 воспроизводятся с
+> согласием 0,97–0,99). Строки «сверх спектра» прежней табл. 2 удалены как неустойчивые.
+> Маршрут v8 — раздел 0 ниже; прежний маршрут v7 (разделы 1–6) сохранён для сверки.
 
 **«Сопряжённость иерархических уровней атмосферной циркуляции как региональный
-инвариант»** (рукопись `manuscript_v2/article1/article1_v7_src.tex`).
+инвариант»** (рукопись v7 `manuscript_v2/article1/article1_v7_src.tex`; исправленная v8 — `article1_v8_src.tex`).
 
 Этот файл — полный маршрут от первичных данных до каждого числа таблицы 2 и
 каждого рисунка статьи. Репозиторий содержит много линий исследовательской
 программы; для статьи 1 нужны **только** перечисленные ниже файлы.
 Оркестратор: [`reproduce_article1.py`](reproduce_article1.py)
 (этапы `download` → `compute` → `check` одним запуском).
+
+## 0. Маршрут исправленной рукописи v8 (определение V12)
+
+Протокол: `docs/PROTOCOL_PHASE32_REVIEW_CHECKS.md` (части 1 и 2). Все скрипты — в
+`clean_experiments/`; запуск из корня репозитория; выходы — `clean_experiments/results/`.
+
+| Что | Скрипт | Выход |
+|---|---|---|
+| Орография ERA5 для маски 850 гПа | `download_b32_era5_orography.py` → `data/b32/era5_orography.nc` | — |
+| Часть 1, проверки A0, A3–A7 по архивным JSON (ступени 2–5, стратифицированные перестановки, ICC, блочный бутстреп, ДИ) | `experiment_B32_review_checks.py` | `experiment_B32_review_checks/summary.json`, `report_A3_A7.md` |
+| Часть 1, A1–A2: сферический ротор и маска на 48 окнах ERA5, MERRA-2, суррогаты на 4 областях | `experiment_B32_vorticity_mask.py --stage era5 / merra / surrogates / consolidate` | `experiment_B32_review_checks/{era5,merra,surrogates}/`, `summary_A1_A2.json` |
+| Часть 2: полный пересчёт под V12 — 96 градусных окон с суррогатами, 80 равновеликих окон (Phase 18), свободный расчёт и решётка (Phase 13), MERRA-2 | `experiment_B33_v12_recompute.py --stage degree / km / model / merra` | `experiment_B2_scale_irreversibility_v12/`, `experiment_B2b_heldout_invariants_v12/`, `experiment_B3_scattering_benchmark_v12/`, `experiment_B18_equal_km_regions_v12/summary.json`, `experiment_B13_free_running_v12/summary.json` |
+| Табл. 2 рукописи v8 «было → стало» (все строки, география, Конго–Амазония, компоненты дисперсии) | `experiment_B33_consolidate.py` | `experiment_B32_review_checks/table2_compare.{json,md}` |
+| Рис. 1 и 5 (схема метода, Конго–Амазония) | `visualize_article1_v8_method.py --stage data`, затем `--stage figures` | `manuscript_v2/article1/figures/v8/fig1_method_v8.png`, `fig5_congo_amazon_v8.png` |
+| Рис. 2–4 и рис. П1–П3 дополнительных материалов | `visualize_article1_v8_figures.py` | `manuscript_v2/article1/figures/v8/*.png` |
+| Сборка рукописи и пакета рисунков | `ARTICLE1_VERSION=v8 python manuscript_v2/article1/tools/build_article1_journal.py`; `..._figures.py` | `article1_v8.{tex,docx,pdf}`, `journal_package/figures_v8/` |
+
+Соответствие строк табл. 2 (v8) артефактам: строка 1 — `table2_compare.json → new.row1_heldout_raw_steps2_5`;
+строка 2 — `new.all96_raw_steps2_5.*_stratified`; строка 3 — `new.row1_heldout_raw_steps4_5`, `..._step5`;
+строка 4 — `new.row5_km_anchored_{primary,heldout}_steps2_5`; строка 5 — `new.row4_merra_signature`,
+`new.row4_geography_era5_vs_merra2`; строка 6 — `new.row8_free_run`; компоненты дисперсии —
+`new.variance_components_raw`; география и Конго–Амазония — `new.geography_steps4_5_median8`,
+`new.congo_amazon_step5`, `b18_summary`.
+
+Контрольные суммы артефактов v8 (SHA-256):
+
+| Артефакт | SHA-256 |
+|---|---|
+| `results/experiment_B32_review_checks/summary.json` | `39d5e72c9589786eda4e0253ad0b795632052c0862162f1fd99c641d47701c57` |
+| `results/experiment_B32_review_checks/summary_A1_A2.json` | `e5f3e3bdbe26f4af2725ee332da0cc76df6a81cf6442718b058a48e2365beb4d` |
+| `results/experiment_B32_review_checks/table2_compare.json` | `f74443fd9427047a4b2c50492b90f00031ef933729ef98ab91bd1678964b8f3e` |
+| `results/experiment_B13_free_running_v12/summary.json` | `8ea6c45ecb5441c2ab790d6b5239ef870c8eea6fae3470da42e74ee180971a32` |
+| `results/experiment_B18_equal_km_regions_v12/summary.json` | `5ace591a10f3fee17374953a45e15d0cb17b9f3e9d8f41989476323f7e758aec` |
+
+Машинное время: часть 1 ≈ 1 ч; часть 2 ≈ 7 ч (8 потоков, суррогаты); рисунки — минуты.
+`python reproducibility/reproduce_article1.py --stage check` сверяет SHA-256 всех артефактов с
+таблицами этого файла и завершается с ошибкой при пропуске или несовпадении.
 
 ## 1. Версия
 

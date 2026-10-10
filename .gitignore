@@ -24,6 +24,8 @@ clean_experiments/results/**
 !clean_experiments/results/**/*.md
 !clean_experiments/results/**/*.json
 !clean_experiments/results/figures/*.png
+!clean_experiments/results/experiment_B18_equal_km_regions/*.png
+!clean_experiments/results/experiment_B18_equal_km_regions_v12/*.png
 
 # TeX and build byproducts
 *.aux
