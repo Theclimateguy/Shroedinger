@@ -123,4 +123,9 @@ Seed 20261015.
 
 ## Deviations
 
-- (none yet)
+- **D1 (2026-10-15, before any model quantity was computed).** The IFS-HR 850-hPa
+  fields have no missing values: the model output is extrapolated below the surface.
+  The protocol's "for the model, its missing values" would leave the model unmasked
+  while ERA5 is masked. The model therefore uses the same ERA5 below-surface mask
+  (surface above 1457 m), sampled on its 0.5-degree grid. Found in a loader test that
+  printed only array shapes and value ranges.
