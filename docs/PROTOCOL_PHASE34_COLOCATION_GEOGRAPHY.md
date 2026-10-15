@@ -129,3 +129,33 @@ Seed 20261015.
   while ERA5 is masked. The model therefore uses the same ERA5 below-surface mask
   (surface above 1457 m), sampled on its 0.5-degree grid. Found in a loader test that
   printed only array shapes and value ranges.
+
+## Result (2026-10-16)
+
+Results: `clean_experiments/results/experiment_B34_colocation_geography/` (summary.json,
+window_fields.npz, per-season window JSONs, null JSONs). No further deviations.
+
+**Verdict: REGIONALISATION_CONFIRMED; template word: "stationary template"** (H34-2
+failed narrowly: the template is not specifically a surface boundary at >= 200 km).
+
+| hypothesis | result | numbers |
+|---|---|---|
+| H34-1 template share invariant (PRIMARY) | PASS | Spearman 2023 vs 2024 0.94 (belt-shift p 0.001); fresh 2022 vs mean 0.93; JFM vs JAS 0.70-0.79; median share 0.20-0.22 |
+| H34-2 tie to the surface | FAIL | rho(s, sdor) +0.34 (bar +0.30, pass); land/ocean median ratio 1.49 (bar 1.5, fail); rho(s, abs latitude) -0.72 |
+| H34-3 compensation (anchored) | FAIL | rho(r_tot, s) +0.28 (bar abs <= 0.20); rho(r_mov, s) -0.34 (pass); anchored total 0.28 vs null 0.04, rho(a_tot, s) +0.31 |
+| H34-4 one template for all bands | PASS | median r_tpl 0.88 (B1-B2), 0.87 (B2-B3), 0.53 (B1-B3) |
+| H34-5 free-running model | PASS | IFS-HR 2014 vs ERA5: share 0.93, P45 0.83 (ERA5 2023 vs 2024: 0.92) |
+| H34-6 regionalisation (PRIMARY) | PASS | k = 4: ARI 2023 vs 2024 0.53, within-belt p 0.001; fresh 2022 0.53, p 0.001 (k = 3: 0.71/0.61; k = 5: 0.52/0.49) |
+
+Clusters (k = 4, pooled 2023-24): tropical/subtropical windows with a large
+stationary share (17; s 0.39, P45 0.73); midlatitude ocean, small share (21; s 0.12,
+P45 0.69); two subtropical groups with lower co-location (6 and 22; P45 0.64). The
+Phase-31 fine-band share averaged into the windows correlates with the new share at
++0.56.
+
+**Caveat registered on the same day (Phase 35, H35-4).** A synthetic field with a
+smoothly varying dominant wavelength and no co-location gives anchored adjacent-band
+coupling of -0.39 and +0.35. The stationary cross-band template correlation (H34-4)
+and the co-location profile used in the regionalisation can contain this
+frequency-modulation component. Its size in real fields is not yet measured; the
+regionalisation is reproducible, its physical reading is open until it is.
