@@ -4,6 +4,31 @@ Falsification-grade research program on cross-scale organization of the
 atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and **retracts the central empirical claim of the v1 manuscript**
 (the A15 "Lambda_b ~ Pi_b closure"): see `docs/RECONCILIATION.md`.
 
+## Status (2026-10-15): Phase 33 — P as a verification metric for forecast models
+
+Applied line opened by the author (the other applied line, regionalisation,
+stays with the papers). Inheritance fidelity D = anchored P of a forecast minus
+anchored P of ERA5 at the same valid times (V12, bands 200-1600 km). A forecast
+that behaves as a conditional mean keeps the fine structure that is slaved to the
+coarse field and drops the rest, so its fine structure becomes a copy of the
+coarse one; a uniform loss of variance does not move D (rank estimator).
+
+Three arms (`docs/PROTOCOL_PHASE33_MODEL_FIDELITY.md`): A (2020 JFM/JAS,
+hypothesis-generating), B (2020 AMJ/OND, all hypotheses pass, verdict
+UNDETERMINED with a post-hoc scale range), **C (2022, 75 initialisations, frozen
+before data): CONFIRMED**. At 120 h GraphCast x1.28, Pangu x1.27 and the IFS ENS
+*mean* x1.24 (p = 1e-4); HRES x1.02 and an IFS ENS member x0.97 stay at truth;
+Aurora (exploratory) x1.35. Equalising the spectrum uniformly reproduces at most
+10 % of D. The physical ensemble mean behaves like the learned models: the effect
+belongs to averaging, not to neural networks. D is one number per system and lead;
+its geography is not consistent across systems and no map is claimed.
+
+**Scale range.** Bands finer than 200 km lie at or below the effective resolution
+of every reanalysis used here. They entered the programme by inheritance (octave
+edges 50-3200 km of the early A15 code, copied into Phases 1-2), not by choice.
+New computations use bands 200-1600 km (steps 4-5); see `docs/RECONCILIATION.md`,
+addendum 2026-10-15.
+
 ## Status (2026-10-10): article 1 revised after review (v6.5)
 
 The journal review of article 1 (accept after revision) found two things in the code: the
@@ -191,7 +216,7 @@ Papers 2 and 3 as released (v6.3, v6.4) predate this audit.
   from this branch on 2026-09-30; they remain in branches `gen1`-`gen3` and
   in tags up to `v6.4`).
 - `docs/PROTOCOL_PHASE*.md`, `docs/PROTOCOL_AUDIT*.md` — frozen
-  preregistered protocols with deviation logs (Phases 1-31, AUDIT-1..4).
+  preregistered protocols with deviation logs (Phases 1-33, AUDIT-1..4).
 - `docs/EXPLORATION_PHYSICS_2026-09-29.md` — exploratory note (not a
   protocol): hypotheses registered before computation, the grid-anisotropy
   artefact, the boundary-template idea.
@@ -200,7 +225,7 @@ Papers 2 and 3 as released (v6.3, v6.4) predate this audit.
 - `docs/THEORY_CANDIDATE_QUENCHED_TEXTURE.md` — theory candidate v1.4 with a
   status addendum (seed note: `docs/THEORY_NOTE_QUENCHED_TEXTURE.md`).
 - `clean_experiments/experiment_B*.py`, `experiment_A*.py` — experiments of
-  the programme (B1-B31, AUDIT-1..4); `explore_physics_*.py` — exploratory
+  the programme (B1-B33, AUDIT-1..4); `explore_physics_*.py` — exploratory
   scripts of 2026-09-29/30; `download_*.py` — data downloaders (CDS API,
   NASA Earthdata, NOAA GEFS on AWS Open Data, WeatherBench 2, ESGF).
 - `clean_experiments/results/` — JSON results, reports, figures.

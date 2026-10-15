@@ -279,3 +279,26 @@ covariance into a stationary template and a moving part. Template share
 one template for all levels; not the below-ground extrapolation. Failed:
 the oceanic coupling map is not geography-free (it repeats between years
 within a season, 0.31-0.39). `PROTOCOL_PHASE31_BOUNDARY_TEMPLATE.md`
+
+## Phase 32 (2026-10-08 .. 2026-10-09) — review checks for article 1 (B32) — definition V12
+
+Requested by the journal review. The spherical metric term in the vorticity is
+negligible (|dP| <= 0.009); the 850 hPa below-terrain mask matters for Central
+Asia (29 % of nodes) and becomes part of the definition (V12). Stratified
+permutations and variance components pass (ICC region 0.58-0.68); the signature
+holds without step 1 and on steps 4-5 alone. Every article-1 quantity re-run under
+V12 (`results/*_v12/`), no qualitative change. `PROTOCOL_PHASE32_REVIEW_CHECKS.md`
+
+## Phase 33 (2026-10-10 .. 2026-10-15) — inheritance fidelity of forecast systems (B33) — CONFIRMED (Arm C)
+
+P as a verification metric: D = P(forecast) - P(ERA5 at the same valid times),
+WeatherBench 2, 39 domains, leads 24/120 h, bands 200-1600 km. Construction
+controls: S1 (truth re-weighted to the model's spectrum, uniform loss) and S2
+(same spectrum, selective loss). Arm A (2020 JFM/JAS) generated the hypothesis;
+Arm B (2020 AMJ/OND) passed every hypothesis but stayed UNDETERMINED, the scale
+range having been fixed after seeing data (deviation D5); Arm C (2022, frozen
+before data) CONFIRMED: conditional means over-inherit at 120 h (GraphCast x1.28,
+Pangu x1.27, IFS ENS mean x1.24), single realisations do not (HRES x1.02, IFS ENS
+member x0.97); S1 reproduces <= 10 % of D, S2 shifts P by about +0.20. The effect is
+absent at 24 h. Geography of D: not claimed. `PROTOCOL_PHASE33_MODEL_FIDELITY.md`
+

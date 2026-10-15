@@ -7,7 +7,7 @@ to `v6.4`. Statuses of all 73 earlier experiments: `docs/RESEARCH_PROGRAM_FULL.c
 
 ## What is here
 
-- `experiment_B1..B31_*.py` — phases of the programme, each under a frozen
+- `experiment_B1..B33_*.py` — phases of the programme, each under a frozen
   protocol `docs/PROTOCOL_PHASE*.md`; `experiment_A1..A4_*.py` — methods
   audits (`docs/PROTOCOL_AUDIT*.md`).
 - `explore_physics_*.py` — exploratory scripts of 2026-09-29/30 (not frozen;
@@ -31,3 +31,14 @@ should use the isotropic grid without the sub-50 km band
 
 Run from the repository root, e.g.
 `python clean_experiments/experiment_B31_boundary_template.py --stage tests`.
+
+## Scale range and definition (2026-10-15)
+
+Current definition of P: V12 (spherical vorticity, 850 hPa below-terrain mask,
+normalised convolution; `experiment_B32_vorticity_mask.py`), bands not finer than
+200 km — steps 4-5 of the ladder (200-400|400-800 and 400-800|800-1600 km). Finer
+bands are below the reanalysis effective resolution and are reported, not scored.
+Phase 33 (`experiment_B33_model_fidelity.py`, arms A/B/C; downloaders
+`download_b33_wb2_fresh.py`, `download_b33c_wb2_2022.py`) follows this rule:
+`python clean_experiments/experiment_B33_model_fidelity.py tests --arm C`.
+

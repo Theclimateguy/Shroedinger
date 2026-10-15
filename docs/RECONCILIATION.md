@@ -869,3 +869,35 @@ need re-derivation before use. Phases 14-19 (temporal) stand.
 **Phase 31.** PARTIAL(H31-1, H31-2): template share 2023 vs 2024 0.97 over
 land; compensation passes; H31-3 fails (oceanic map repeats between years
 within a season); H31-4 and H31-5 pass.
+
+## Addendum 2026-10-15 — scale range 200-1600 km; Phase 33
+
+**Why bands below 200 km were in the programme.** Not by a resolution argument.
+The octave edges 50-3200 km come from the early A15 / Lambda code
+(`experiment_scale_gravity_einstein_box_era.py`, 2026-03); Phase 1 copied them
+"as in A15", Phase 2 for comparability with Phase 1. The addendum of 2026-08-13
+("Where the data may be non-representative", item 1) already placed the effective
+resolution of ERA5 at 125-220 km (500-1000 km by direct spectral estimate) and
+showed that the signatures survive without the sub-200 km bands, but the
+definition was not changed. Decision of the author (2026-10-14): bands below 200 km
+are uninformative in every reanalysis available to the programme; P is reported on
+steps 4-5 (200-1600 km), finer steps only as diagnostics. Article 1 v8 already
+reports steps 4-5 as a robustness row (+0.52, p = 0.002 on held-out windows); its
+headline still rests on steps 2-5.
+
+**Phase 33 — inheritance fidelity.** CONFIRMED on the frozen Arm C (2022).
+
+| system (120 h) | P forecast / ERA5 | D (steps 4-5) | p |
+|---|---|---|---|
+| GraphCast | 1.28 | +0.045 | 1e-4 |
+| Pangu | 1.27 | +0.056 | 1e-4 |
+| IFS ENS mean | 1.24 | +0.041 | 1e-4 |
+| HRES | 1.02 | +0.001 | 0.60 |
+| IFS ENS member | 0.97 | -0.000 | 0.50 |
+
+Status of the two earlier arms: A hypothesis-generating; B replication whose
+scale range was fixed after the data (D5) — all hypotheses pass, formal verdict
+UNDETERMINED. Under the original steps 3-5 every hypothesis passes on B and C,
+but the spectral construction control fails for Pangu on 100-400 km. Not claimed:
+forecast skill, ranking of systems, a geography of D.
+
