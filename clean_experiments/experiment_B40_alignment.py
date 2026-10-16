@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""Phase 40 (DRAFT): the Clark term and strain alignment on the Phase-39 pipeline.
+"""Phase 40: the Clark term and strain alignment on the Phase-39 pipeline.
 
-Draft protocol: docs/PROTOCOL_PHASE40_ALIGNMENT_DRAFT.md (NOT frozen; nothing has been
-computed on ERA5). The code reuses the Phase-34 smoother, envelopes and windows and the
+Frozen protocol: docs/PROTOCOL_PHASE40_ALIGNMENT.md (2026-10-16). The code reuses the Phase-34 smoother, envelopes and windows and the
 Phase-39 flux and gradient operators.
 
 Stages:
@@ -31,7 +30,7 @@ for _p in (str(_HERE), str(_HERE.parent)):
 import experiment_B34_colocation_geography as b34  # noqa: E402
 import experiment_B39_colocation_energy as b39  # noqa: E402
 
-PROTOCOL = Path("docs/PROTOCOL_PHASE40_ALIGNMENT_DRAFT.md")
+PROTOCOL = Path("docs/PROTOCOL_PHASE40_ALIGNMENT.md")
 OUT = Path("clean_experiments/results/experiment_B40_alignment")
 B34 = Path("clean_experiments/results/experiment_B34_colocation_geography")
 B36 = Path("clean_experiments/results/experiment_B36_residual_regions")
@@ -322,7 +321,7 @@ def stage_tests(files: dict | None = None, smoke: bool = False) -> dict:
     Y = {y: load_year(files, y) for y in years}
     main = lambda k: 0.5 * (Y[2023][k] + Y[2024][k])  # noqa: E731
     res = {"protocol": str(PROTOCOL), "protocol_sha256": hashlib.sha256(PROTOCOL.read_bytes()).hexdigest(),
-           "status": "DRAFT — bars provisional" if not smoke else "SMOKE on synthetic fields"}
+           "status": "FROZEN 2026-10-16" if not smoke else "SMOKE on synthetic fields"}
     # H40-1
     h1 = {}; ok1 = True
     for ell in FLUX_ELLS:

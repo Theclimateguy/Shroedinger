@@ -1,12 +1,12 @@
-# PROTOCOL — Phase 40 (DRAFT): the zero-memory (Clark) term and strain alignment on the Phase-39 pipeline (B40)
+# PROTOCOL — Phase 40: the zero-memory (Clark) term and strain alignment on the Phase-39 pipeline (B40)
 
-## Status: DRAFT 2026-10-16 — NOT FROZEN, NOTHING COMPUTED ON ERA5
+## Status: FROZEN 2026-10-16, before any Phase-40 quantity was computed on ERA5
 
-The research phase of 2026 is closed (`PROGRAM_MAP.md`). This draft is written so that
-the author can freeze it by (1) filling the priors, (2) changing the status line to
-FROZEN with a date, (3) committing before the first `season` stage runs. Until then it
-is a plan. Code: `clean_experiments/experiment_B40_alignment.py` (smoke-tested on
-synthetic fields only).
+Drafted the same day as PROTOCOL_PHASE40_ALIGNMENT_DRAFT.md (renamed to this file at
+the freeze; the only edits at the freeze are this status block, the priors and the
+file name). Code: `clean_experiments/experiment_B40_alignment.py`, smoke-tested on
+synthetic fields only. The author opened this phase explicitly on 2026-10-16; the
+closure of the research phase (`PROGRAM_MAP.md`) is lifted for Phase 40 only.
 
 ## Purpose
 
@@ -68,7 +68,7 @@ scale ell' = ell/2 and the envelopes E1, E2, E3 of Phase 34:
 - LKH ratio r = (omega_bar + 2 D_t theta_S) / sigma_bar, with D_t theta_S = d_t theta_S
   + u_bar_ell . grad theta_S, d_t from the +-6 h neighbours (doubled angle wrapped).
 
-## Hypotheses and bars (to be frozen)
+## Hypotheses and bars (frozen)
 
 All window statistics pool pixels over the retained steps of a season with
 cos-latitude weights; year value = mean of JFM and JAS; main sample = mean of 2023 and
@@ -126,9 +126,9 @@ cos-latitude weights; year value = mean of JFM and JAS; main sample = mean of 20
 - **NEGATIVE:** H40-1 fails (the zero-memory term does not describe the atmosphere at
   these scales; the toy-model reading does not transfer).
 
-## Author's priors (to be recorded before computing)
+## Author's priors (recorded before computing, 2026-10-16)
 
-H40-1: __ ; H40-2: __ ; H40-3: __ .
+H40-1: 0.7; H40-2: 0.5; H40-3: 0.4.
 
 ## Code and outputs
 
@@ -141,4 +141,4 @@ first `season` run.
 
 ## Deviations
 
-- (none; not started)
+- (none yet)
