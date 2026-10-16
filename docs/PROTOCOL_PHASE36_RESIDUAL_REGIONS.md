@@ -77,3 +77,29 @@ H36-1 0.55; H36-2 0.40; H36-4 0.5.
 ## Deviations
 
 - (none yet)
+
+## Result (2026-10-16)
+
+Results: `clean_experiments/results/experiment_B36_residual_regions/` (summary.json,
+window_fields.npz, per-season plane JSONs, fig_residual_map_ru.png). No deviations.
+
+**Verdict: RESIDUAL_WITHOUT_REGIONS.**
+
+| hypothesis | result | numbers |
+|---|---|---|
+| H36-1 reproducible residual | PASS | median P45: real 0.675, spectral null 0.400, residual 0.27 (all three years); residual 2023 vs 2024 0.89 (belt-shift p 0.001), fresh 2022 0.82; per-feature reliability P4 0.89, P5 0.83, s 0.95, r_mov 0.88 |
+| H36-2 regions on the residual | FAIL | k = 4: ARI 2023 vs 2024 0.25 (bar 0.40), fresh 2022 to the pooled centroids 0.50 (p 0.001); k = 3: 0.41 / 0.57; k = 5: 0.25 / 0.60 |
+| H36-3 how much was spectral | — | R² of raw P45 on the null across windows 0.17; template share of the null 0.000 (real 0.21); ARI residual vs raw-plane regions 0.63; raw-plane regions themselves 2023 vs 2024 0.29 (Phase-34 global pipeline: 0.53); ARI raw-plane vs Phase-34 regions 0.46 |
+| H36-4 free-running model | PASS | residual P45 IFS-HR 2014 vs ERA5 0.81 |
+
+Reading. The geography of co-location is mostly not spectral: the window's mean
+spectrum explains 17 % of the between-window variance of the raw profile and none of
+the template share; the residual is reproduced between years (0.89), on a fresh year
+(0.82) and by a free-running model (0.81). What is not robust is the k = 4 partition:
+two independent clusterings of 2023 and 2024 agree at 0.25, and so do the raw features
+on the same plane pipeline (0.29), so the instability belongs to the partition of a
+continuous feature field, not to the residual. Article 2 can rest on continuous maps of
+the residual co-location and of the stationary template share; discrete regions only
+as a description, with assignment to fixed centroids (fresh year 0.50-0.60) rather than
+independent clustering. Caveat kept: the null removes the window's mean spectrum, not
+a smoothly varying dominant wavelength (Phase 35, H35-4).
