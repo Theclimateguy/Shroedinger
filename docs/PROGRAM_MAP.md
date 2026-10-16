@@ -330,3 +330,14 @@ velocity of your own scale" (sweeping correction to Lapeyre–Klein–Hua).
 Hypotheses G1–G7 and toy-model v2 (sl(2,R) fibre, alignment instrumentation)
 recorded with priors; nothing computed. Research phase stays closed until the
 author opens Phase 40.
+
+## Phase 40 (2026-10-16) — Clark term and strain alignment (B40) — CLARK_ONLY
+
+Opened by the author the same day (closure lifted for this phase); frozen before
+computing, run on the Spark host. The zero-memory (Clark) enstrophy-flux term holds
+on ERA5 at 400/800 km (corr 0.90/0.87, all windows), the LKH alignment transition is
+present, the energy flux is the divergent piston term (0.96; Sichani et al. 2026).
+But the Phase-39 co-location interaction is not carried by alignment (change <= 8 %)
+and the geography of P is unrelated to strain dominance, mean alignment or the
+divergent share (|rho| <= 0.18). The alignment reading of P is refuted; P stays an
+empirical descriptor. `PROTOCOL_PHASE40_ALIGNMENT.md`

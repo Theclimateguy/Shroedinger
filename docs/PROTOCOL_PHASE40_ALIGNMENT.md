@@ -142,3 +142,29 @@ first `season` run.
 ## Deviations
 
 - (none yet)
+
+## Result (2026-10-16)
+
+Results: `clean_experiments/results/experiment_B40_alignment/` (six season files, computed
+on the Spark host; `summary.json` with the protocol SHA-256). No deviations. The
+optional phase-randomised control of H40-1 was not run (not part of the frozen bars).
+
+**Verdict: CLARK_ONLY.**
+
+| hypothesis | result | numbers (mean 2023-24; fresh 2022) |
+|---|---|---|
+| H40-1 Clark term holds | PASS | median corr(Z, Z^C) 0.90 (400 km), 0.87 (800 km); >= 0.7 in 100 % of windows; fresh 0.90 / 0.88. Reported: corr(Pi, Pi^C) 0.96 / 0.92 — the divergent (piston) term describes the energy flux at 850 hPa almost entirely |
+| H40-2 interaction carried by alignment | FAIL | adding z(log|a_same|) changes the transient interaction d of log|Z| by -2 % (400 km) and -1 % (800 km); for log|Pi| with z(log c), z(log|cos 2 Delta_theta|): +2 % / -8 %. d itself reproduces Phase 39: d(Z) = 0.020 / 0.024 (> 0 in 77 / 86 % of windows), d(Pi) = 0.048 / 0.033 (98 / 100 %) |
+| H40-3 geography of P = alignment efficiency | FAIL | Spearman with P45: f_LKH -0.11 / -0.07, mean a_fine +0.13 / +0.16, f_iso +0.03 / +0.04 (expected +, +, -); with the Phase-36 residual all |rho| <= 0.11; fresh 2022 all |rho| <= 0.18 |
+| H40-4 reported | — | LKH transition present: a_fine falls from 0.18 (|r| << 1) to 0.04 (|r| >> 1) at 400 km, 0.15 -> 0.02 at 800 km, step at |r| ~ 1; forward enstrophy transfer (window-mean Z > 0) in 98 / 97 % of windows, pixel share Z > 0 0.53 / 0.51; isotropic share f_iso = mean|Pi_iso|/mean|Pi| median 0.62 / 0.63; f_LKH median 0.37 / 0.39 |
+
+Reading. The mechanism chain exists on ERA5 at 400-800 km: the zero-memory term
+describes the enstrophy flux (0.90), the LKH alignment transition is present, the
+enstrophy cascade is forward almost everywhere, and the energy flux is dominated by the
+divergent piston term (0.96; cf. Sichani, Storer & Aluie 2026: downscale transfer
+catalysed by divergent motions). But none of it carries the programme's object: the
+co-location interaction of Phase 39 is not the alignment factor, and the geography of
+P is unrelated (|rho| <= 0.18) to strain dominance, mean alignment or the divergent
+share. P stays an empirical descriptor; the "alignment efficiency" reading proposed in
+`THEORY_NOTE_BUNDLE_REVISITED_2026-10-16.md` (G1, G3, G5) is refuted as an explanation
+of P at this scale range. Priors 0.7 / 0.5 / 0.4 -> hit / miss / miss.
