@@ -79,3 +79,21 @@ C37-1 0.7; C37-2 0.7; H37-1 0.5; H37-2 0.65.
 ## Deviations
 
 - (none yet)
+
+## Result (2026-10-16)
+
+**Verdict: CALIBRATION_FAILED.** Nothing was computed on ERA5 or IFS-HR.
+
+| synthetic (100 fields) | real | stationary null | N_FM (shape) | N_A (level) | N_FA (all smooth) |
+|---|---|---|---|---|---|
+| FM field (H35-4) | 0.400 | 0.485 | 0.081 | 0.907 | 0.362 |
+| log-normal cascade | 0.718 | 0.435 | 0.392 | 0.545 | 0.488 |
+
+C37-1 fails: N_FM does not reproduce the FM field (|0.400 - 0.081| = 0.32 > 0.10). C37-2
+passes (0.718 - 0.392 = 0.33). Reason: frequency modulation changes not only the local
+spectral shape but also the common level (where the dominant scale is large, both
+coarse bands are active), so the shape/level split does not isolate it. What the
+calibration does show: the all-smooth null N_FA reproduces the FM field (0.362 vs
+0.400) and does not reproduce the cascade (0.488 vs 0.718). This motivates Phase 38
+(a conservative residual, real minus N_FA), frozen separately with a fresh calibration.
+File: `clean_experiments/results/experiment_B37_frequency_modulation/synth.json`.
