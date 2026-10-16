@@ -341,3 +341,13 @@ But the Phase-39 co-location interaction is not carried by alignment (change <= 
 and the geography of P is unrelated to strain dominance, mean alignment or the
 divergent share (|rho| <= 0.18). The alignment reading of P is refuted; P stays an
 empirical descriptor. `PROTOCOL_PHASE40_ALIGNMENT.md`
+
+## Phase 41 (2026-10-16) — fine-band enstrophy budget vs P (B41) — NEGATIVE
+
+Opened by the author after Phase 40; frozen before computing, Spark host. Source
+composition of the fine band's enstrophy (cascade inflow vs divergent stretching) is
+nearly uniform across regions (share_div 0.80-0.88) and does not carry the geography
+of P: cascade rate +0.26 / +0.21 (below bars), divergent rate wrong sign, nonlinear
+stretching follows the energy (+0.35). With Phase 40 this closes both channels of the
+known cascade kinematics as explanations of P's geography.
+`PROTOCOL_PHASE41_ENSTROPHY_BUDGET.md`

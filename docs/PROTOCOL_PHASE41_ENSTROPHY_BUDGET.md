@@ -89,3 +89,33 @@ SHA-256 of this file is written into the summary at `tests` time.
 ## Deviations
 
 - (none yet)
+
+## Result (2026-10-16)
+
+Results: `clean_experiments/results/experiment_B41_enstrophy_budget/` (six season files,
+Spark host; `summary.json` with the protocol SHA-256). No deviations.
+
+**Verdict: NEGATIVE.**
+
+| hypothesis | result | Spearman with P45 / with Phase-36 residual / fresh 2022 (400 km; 800 km) |
+|---|---|---|
+| H41-1 cascade production rate r_casc carries P (expected +) | FAIL | +0.26 / +0.19 / +0.26; +0.21 / +0.16 / +0.19 — right sign, below every bar |
+| H41-2 divergent forcing rate r_div opposes P (expected −) | FAIL | +0.20 / +0.14 / +0.20; +0.10 / +0.08 / +0.10 — wrong sign |
+| reported share_div (expected −) | — | −0.29 / −0.22 / −0.28; −0.26 / −0.22 / −0.26 — right sign, below bars |
+| reported planetary part r_f (expected −) | — | −0.13 / −0.17 / −0.11; −0.21 / −0.23 / −0.20 |
+| reported nonlinear part r_nl (expected −) | — | +0.35 / +0.34 / +0.35; +0.23 / +0.24 / +0.26 — opposite sign: zeta·delta forcing is largest where vorticity is largest (storm tracks), i.e. it follows the energy, as P does through the spectrum |
+
+Budget facts (median over windows, 2023-24): r_casc 4e-6 s^-1 (400 km), 2e-6 (800 km);
+r_div 3e-5 / 2.3e-5 s^-1; share_div 0.86 / 0.91; outflow/inflow r_out/r_casc 2.3 / 3.1;
+net divergent generation S_div > 0 in 100 % / 97 % of windows; net cascade inflow Z_in >
+0 in 98 % / 97 %; planetary over nonlinear stretching r_f/r_nl 1.18 / 1.22. By Phase-34
+region type share_div ranges only 0.80-0.88 (400 km): the composition of the fine-band
+enstrophy sources is nearly uniform across regions.
+
+Reading. The fine band at 200-800 km on 850 hPa is forced mainly by divergent vortex
+stretching (planetary and nonlinear in comparable measure), with the downscale cascade
+a net positive but smaller contributor, and it loses more to smaller scales than it
+receives from larger ones. This composition is almost the same everywhere, so it
+cannot carry the geography of P. The amplitude reading (inheritance share set by the
+source composition) fails at the window level as the angular reading failed in Phase
+40. Priors (analyst) 0.45 / 0.50 -> miss / miss.
