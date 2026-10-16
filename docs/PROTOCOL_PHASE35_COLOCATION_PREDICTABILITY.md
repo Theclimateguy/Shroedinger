@@ -109,3 +109,45 @@ H35-7 0.75; H35-8 0.8.
 ## Deviations
 
 - (none yet)
+
+## Result (2026-10-16)
+
+All data and stages complete (members, decouple, synth, leads, truth2, variants);
+results `clean_experiments/results/experiment_B35_colocation_predictability/`. No
+deviations.
+
+**Verdict: NEGATIVE** (H35-4 failed; H35-1 failed for both ensembles).
+
+| hypothesis | result | numbers |
+|---|---|---|
+| H35-1 dose-response (PRIMARY) | FAIL | IFS ENS 120 h: median D for N = 1, 2, 4, 8, 16, 32, 50 = +0.007, -0.006, -0.008, +0.001, +0.005, +0.040, +0.045 (rho 0.61); FGN: +0.005 ... +0.040 (rho 0.89, bar 0.90); D(M) > 0 with p <= 0.001 for both |
+| H35-2 mixture model | FAIL | median relative error 0.42 (IFS ENS), 0.33 (FGN), bar 0.25 |
+| H35-3 independent placement | PASS | D = -0.189, 39/39 domains negative |
+| H35-4 frequency modulation | FAIL | uniform amplitude, dominant wavelength 250 -> 900 km: step 4 -0.39, step 5 +0.35, mean -0.021 (bar abs <= 0.02); cascade +0.22 (pass) |
+| H35-6 lead curve | FAIL | GraphCast rho 0.89, FGN mean 0.94, IFS ENS mean 0.66; HRES -0.014 at 120 h |
+| H35-7 IFS analysis as truth | PASS | GraphCast +0.054, Pangu +0.034, IFS ENS mean +0.035 (p 1e-4); HRES -0.005, member -0.002 |
+| H35-8 estimator variants | FAIL | Pearson form keeps the separation (member +0.012 just above delta); **mirror surrogates remove it: GraphCast +0.008, Pangu +0.011, IFS ENS mean -0.026** |
+| H35-5 prior forms | — | Portilla-Simoncelli modulus correlation separates the classes strongly (effect 1.5-3.2, raw, no anchoring); s21 weakly |
+
+**Decomposition of the Phase-33 effect (Arm C, 120 h, steps 4-5, median over domains).**
+
+| system | raw difference | FFT-surrogate difference | anchored (FFT) | mirror-surrogate difference |
+|---|---|---|---|---|
+| GraphCast | +0.066 | +0.017 | +0.045 | +0.060 |
+| Pangu | +0.078 | +0.028 | +0.056 | +0.070 |
+| IFS ENS mean | +0.064 | +0.012 | +0.041 | +0.064 |
+| HRES | +0.002 | -0.004 | +0.001 | -0.006 |
+| IFS ENS member | -0.002 | -0.009 | -0.000 | -0.007 |
+
+Reading. The conditional-mean forecasts do have a higher raw adjacent-band envelope
+correlation (+0.06-0.08). But stationary random fields with each forecast's own
+spectrum, built without periodic edges (mirror surrogates), reproduce almost all of
+it. The raw excess is a property of the spectrum: with overlapping Gaussian bands, a
+spectrum that falls steeply inside a band concentrates the band's content at its
+coarse edge and raises its envelope correlation with the next band. Periodic FFT
+surrogates miss this because their edge discontinuity adds broadband fine-scale power;
+the Phase-33 control S1 missed it because it matched band-integrated variances, not
+the within-band spectral shape. **The Phase-33 claim that the over-coupling is
+non-spectral is retracted.** What stands: the raw statistic separates conditional
+means from realisations (Phase 33, all arms; H35-7 with a second truth) — as the
+spectrum already does.

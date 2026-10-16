@@ -298,3 +298,14 @@ forecasts from single realisations (physical deterministic run, ensemble member)
 on a fresh year, with a non-spectral construction control and a sensitivity
 control. Scored arm: C. Arm A hypothesis-generating, Arm B replication with a
 post-hoc scale range.
+
+### Addendum 2026-10-16 — the non-spectral reading is retracted (Phase 35)
+
+Phase 35 (`docs/PROTOCOL_PHASE35_COLOCATION_PREDICTABILITY.md`, H35-8) recomputed Arm C
+with mirror-extended surrogates. The anchored D falls to +0.008 (GraphCast), +0.011
+(Pangu), -0.026 (IFS ENS mean): random fields with each forecast's own spectrum
+reproduce the raw over-coupling. The Arm C verdict CONFIRMED stands as computed under
+this protocol, but its construction controls were insufficient: periodic FFT
+surrogates carry edge leakage, and S1 matched band variances, not the within-band
+spectral shape. Inheritance fidelity, as defined here, is a spectral diagnostic of
+blurring; no claim beyond the spectrum is made.

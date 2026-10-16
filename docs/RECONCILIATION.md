@@ -901,3 +901,30 @@ UNDETERMINED. Under the original steps 3-5 every hypothesis passes on B and C,
 but the spectral construction control fails for Pangu on 100-400 km. Not claimed:
 forecast skill, ranking of systems, a geography of D.
 
+## Addendum 2026-10-16 — Phase 35 retracts the non-spectral reading of Phase 33; Phase 34
+
+**Phase 35 — NEGATIVE.** Mirror-surrogate anchoring (pre-registered variant H35-8)
+removes the Phase-33 over-coupling: anchored D +0.008 / +0.011 / -0.026 for GraphCast /
+Pangu / IFS ENS mean. Decomposition (Arm C, 120 h, steps 4-5): raw difference
++0.066 / +0.078 / +0.064; FFT-surrogate difference +0.017 / +0.028 / +0.012;
+mirror-surrogate difference +0.060 / +0.070 / +0.064. The raw excess is spectral
+(within-band spectral shape with overlapping Gaussian bands). Periodic FFT surrogates
+add edge leakage; S1 matched band variances only. Other Phase-35 results: frequency
+modulation alone produces adjacent-band coupling of -0.39 / +0.35 (H35-4 fail);
+dose-response in ensemble size not monotone (H35-1 fail); IFS analysis as truth
+reproduces the raw class separation (H35-7 pass); independent placement lowers the
+profile by 0.19 (H35-3 pass).
+
+Scoreboard: "inheritance fidelity beyond the spectrum" (Phase 33) — RETRACTED;
+"conditional means raise the raw adjacent-band coupling" — stands, spectral.
+Consequence for the programme: any anchored quantity computed with periodic FFT
+surrogates on a non-periodic domain is suspect wherever spectra differ between the
+compared fields (this joins the 2026-09-30 finding that FFT vs mirror surrogates change
+tile maps). Article 1 v8 already dropped its beyond-spectrum rows.
+
+**Phase 34 — REGIONALISATION_CONFIRMED** (surrogate-free): template share invariant
+(0.94; fresh 2022 0.93; free model 0.93), regions reproducible (ARI 0.53, fresh 0.53).
+Template stationary, not a surface boundary; no compensation at >= 200 km. Open:
+how much of the raw profile and of the regions is within-band spectral shape or
+frequency modulation.
+

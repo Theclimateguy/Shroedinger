@@ -4,6 +4,31 @@ Falsification-grade research program on cross-scale organization of the
 atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and **retracts the central empirical claim of the v1 manuscript**
 (the A15 "Lambda_b ~ Pi_b closure"): see `docs/RECONCILIATION.md`.
 
+## Status (2026-10-16): Phases 34-35; the Phase-33 metric is spectral
+
+**Phase 35** (`docs/PROTOCOL_PHASE35_COLOCATION_PREDICTABILITY.md`) — NEGATIVE. Its
+pre-registered estimator variants recomputed Phase 33 with mirror-extended surrogates:
+the anchored over-coupling of conditional-mean forecasts vanishes (GraphCast +0.008,
+Pangu +0.011, IFS ENS mean -0.026). Random fields with each forecast's own spectrum
+reproduce the raw excess (+0.06-0.08): with overlapping Gaussian bands, a spectrum that
+falls steeply inside a band raises the envelope correlation with the next band.
+Periodic FFT surrogates (edge leakage) and the S1 control (band variances only) missed
+this. **The Phase-33 claim of an effect beyond the spectrum is retracted**; the raw
+statistic separates conditional means from realisations as the spectrum does. Also
+found: a field with a smoothly varying dominant wavelength and no co-location gives
+adjacent-band coupling of -0.39/+0.35 (frequency modulation, Hyafil 2015); the
+dose-response in ensemble size is not monotone.
+
+**Phase 34** (`docs/PROTOCOL_PHASE34_COLOCATION_GEOGRAPHY.md`) — REGIONALISATION_CONFIRMED
+on bands 200-1600 km: the stationary template share is invariant between years (0.94;
+fresh 2022: 0.93) and reproduced by a free-running model (0.93); a four-type
+regionalisation (monsoon/convergence zones, midlatitude storm tracks, subtropical
+highs, midlatitude continents and subtropical oceans) is reproducible (ARI 0.53, fresh
+year 0.53, p = 0.001 within latitude belts). The template is stationary rather than a
+surface boundary; no compensation at these scales. Surrogate-free, but the
+frequency-modulation and spectral-shape components of the raw profile are not yet
+separated, so the physical reading of the regions is open.
+
 ## Status (2026-10-15): Phase 33 — P as a verification metric for forecast models
 
 Applied line opened by the author (the other applied line, regionalisation,
@@ -18,9 +43,8 @@ hypothesis-generating), B (2020 AMJ/OND, all hypotheses pass, verdict
 UNDETERMINED with a post-hoc scale range), **C (2022, 75 initialisations, frozen
 before data): CONFIRMED**. At 120 h GraphCast x1.28, Pangu x1.27 and the IFS ENS
 *mean* x1.24 (p = 1e-4); HRES x1.02 and an IFS ENS member x0.97 stay at truth;
-Aurora (exploratory) x1.35. Equalising the spectrum uniformly reproduces at most
-10 % of D. The physical ensemble mean behaves like the learned models: the effect
-belongs to averaging, not to neural networks. D is one number per system and lead;
+Aurora (exploratory) x1.35. *Superseded 2026-10-16: with mirror surrogates the
+effect is explained by each forecast's spectrum (see the status note above).* D is one number per system and lead;
 its geography is not consistent across systems and no map is claimed.
 
 **Scale range.** Bands finer than 200 km lie at or below the effective resolution
@@ -216,7 +240,7 @@ Papers 2 and 3 as released (v6.3, v6.4) predate this audit.
   from this branch on 2026-09-30; they remain in branches `gen1`-`gen3` and
   in tags up to `v6.4`).
 - `docs/PROTOCOL_PHASE*.md`, `docs/PROTOCOL_AUDIT*.md` — frozen
-  preregistered protocols with deviation logs (Phases 1-33, AUDIT-1..4).
+  preregistered protocols with deviation logs (Phases 1-35, AUDIT-1..4).
 - `docs/EXPLORATION_PHYSICS_2026-09-29.md` — exploratory note (not a
   protocol): hypotheses registered before computation, the grid-anisotropy
   artefact, the boundary-template idea.
@@ -225,7 +249,7 @@ Papers 2 and 3 as released (v6.3, v6.4) predate this audit.
 - `docs/THEORY_CANDIDATE_QUENCHED_TEXTURE.md` — theory candidate v1.4 with a
   status addendum (seed note: `docs/THEORY_NOTE_QUENCHED_TEXTURE.md`).
 - `clean_experiments/experiment_B*.py`, `experiment_A*.py` — experiments of
-  the programme (B1-B33, AUDIT-1..4); `explore_physics_*.py` — exploratory
+  the programme (B1-B35, AUDIT-1..4); `explore_physics_*.py` — exploratory
   scripts of 2026-09-29/30; `download_*.py` — data downloaders (CDS API,
   NASA Earthdata, NOAA GEFS on AWS Open Data, WeatherBench 2, ESGF).
 - `clean_experiments/results/` — JSON results, reports, figures.
