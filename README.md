@@ -4,6 +4,33 @@ Falsification-grade research program on cross-scale organization of the
 atmospheric circulation (ERA5 / MERRA-2). This branch supersedes gen1-gen3 and **retracts the central empirical claim of the v1 manuscript**
 (the A15 "Lambda_b ~ Pi_b closure"): see `docs/RECONCILIATION.md`.
 
+## Status (2026-10-16): research phase closed for 2026
+
+The analysis programme is closed for this year; next: article 2, then the thesis.
+Article 3 is folded into article 2. What stands after Phases 34-39 (all frozen protocols,
+`docs/PROTOCOL_PHASE3[4-9]_*.md`):
+
+- **Co-location geography is not spectral** (Phase 36). On 66 global windows
+  (~2200 x 3000 km, bands 200-1600 km), a stationary field with each window's spectrum
+  reproduces the overall level of adjacent-band co-location (0.40 of 0.675) but explains
+  only 17 % of its between-window variation and none of the stationary template share.
+  The residual is reproducible between years (0.89), on a fresh year (0.82) and in a
+  free-running model (0.81).
+- **Co-location can ground a regionalisation** (Phase 34): template share invariant
+  (0.94; fresh year 0.93; free model 0.93), four region types reproducible (ARI 0.53,
+  fresh 0.53). Discrete partitions are fragile under independent re-clustering
+  (Phase 36); continuous maps and fixed centroids are robust.
+- **Physical meaning** (Phase 39): the coarse-graining energy flux across 400 and 800 km
+  concentrates where the activity of the two adjacent bands is co-located at that moment
+  (interaction > 0 in 98-100 % of windows, fresh year confirmed; 2.4-3.1 x more |flux|
+  where both bands are active than where one is); the stationary template follows the
+  stationary-eddy share of band energy (0.72; latitude-partial 0.41; fresh 0.60) —
+  largest in monsoon/convergence zones (0.20), smallest in storm tracks (0.06).
+- **Retracted / not established:** the non-spectral reading of the Phase-33 forecast
+  metric (Phase 35); a quantitative frequency-modulation share (Phases 37-38 stopped at
+  their calibrations). Co-location raises both band steps above the spectral null in 66/66
+  windows, the shape expected from co-location rather than from frequency modulation.
+
 ## Status (2026-10-16): Phases 34-35; the Phase-33 metric is spectral
 
 **Phase 35** (`docs/PROTOCOL_PHASE35_COLOCATION_PREDICTABILITY.md`) — NEGATIVE. Its
@@ -240,7 +267,7 @@ Papers 2 and 3 as released (v6.3, v6.4) predate this audit.
   from this branch on 2026-09-30; they remain in branches `gen1`-`gen3` and
   in tags up to `v6.4`).
 - `docs/PROTOCOL_PHASE*.md`, `docs/PROTOCOL_AUDIT*.md` — frozen
-  preregistered protocols with deviation logs (Phases 1-35, AUDIT-1..4).
+  preregistered protocols with deviation logs (Phases 1-39, AUDIT-1..4).
 - `docs/EXPLORATION_PHYSICS_2026-09-29.md` — exploratory note (not a
   protocol): hypotheses registered before computation, the grid-anisotropy
   artefact, the boundary-template idea.
@@ -249,7 +276,7 @@ Papers 2 and 3 as released (v6.3, v6.4) predate this audit.
 - `docs/THEORY_CANDIDATE_QUENCHED_TEXTURE.md` — theory candidate v1.4 with a
   status addendum (seed note: `docs/THEORY_NOTE_QUENCHED_TEXTURE.md`).
 - `clean_experiments/experiment_B*.py`, `experiment_A*.py` — experiments of
-  the programme (B1-B35, AUDIT-1..4); `explore_physics_*.py` — exploratory
+  the programme (B1-B39, AUDIT-1..4); `explore_physics_*.py` — exploratory
   scripts of 2026-09-29/30; `download_*.py` — data downloaders (CDS API,
   NASA Earthdata, NOAA GEFS on AWS Open Data, WeatherBench 2, ESGF).
 - `clean_experiments/results/` — JSON results, reports, figures.

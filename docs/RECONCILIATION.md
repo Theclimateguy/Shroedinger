@@ -928,3 +928,17 @@ Template stationary, not a surface boundary; no compensation at >= 200 km. Open:
 how much of the raw profile and of the regions is within-band spectral shape or
 frequency modulation.
 
+## Addendum 2026-10-16 (b) — Phases 36-39; research phase closed for 2026
+
+| claim | status |
+|---|---|
+| Co-location geography exceeds the window's spectrum (Phase 36) | STANDS: spectrum explains R² 0.17 of between-window P45; residual 0.89 / fresh 0.82 / free model 0.81 |
+| Discrete k = 4 regions robust to independent re-clustering (Phase 36) | NOT ESTABLISHED (ARI 0.25); fixed-centroid assignment 0.50-0.60 |
+| Frequency-modulation share measured (Phases 37-38) | NOT ESTABLISHED (calibration failed twice) |
+| Energy transfer located where adjacent-band activity is co-located (Phase 39) | STANDS: interaction > 0 in 98-100 % of windows, fresh year confirmed |
+| Stationary template = stationary-eddy energy share (Phase 39) | STANDS: 0.72, latitude-partial 0.41, fresh 0.60 |
+
+The analysis programme is closed for 2026 by the author's decision. Article 2 (geography
+and regionalisation by co-location, with its energetic reading) is next; article 3 is
+folded into it.
+

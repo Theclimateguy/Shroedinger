@@ -302,3 +302,18 @@ Pangu x1.27, IFS ENS mean x1.24), single realisations do not (HRES x1.02, IFS EN
 member x0.97); S1 reproduces <= 10 % of D, S2 shifts P by about +0.20. The effect is
 absent at 24 h. Geography of D: not claimed. `PROTOCOL_PHASE33_MODEL_FIDELITY.md`
 
+## Phases 34-39 (2026-10-15 .. 2026-10-16) — co-location geography and its energetics
+
+- Phase 34 (B34) — REGIONALISATION_CONFIRMED on 66 global windows, bands 200-1600 km;
+  template stationary (surface + climatological circulation), not a boundary.
+- Phase 35 (B35) — NEGATIVE: mirror surrogates explain the Phase-33 forecast effect by
+  the spectrum; frequency modulation produces opposite-sign adjacent-band coupling.
+- Phase 36 (B36) — RESIDUAL_WITHOUT_REGIONS: geography beyond the spectral null
+  reproducible (0.89 / fresh 0.82 / model 0.81), k = 4 partition unstable.
+- Phases 37-38 (B37-B38) — CALIBRATION_FAILED: envelope-modulated nulls cannot isolate
+  frequency modulation finer than 1600 km.
+- Phase 39 (B39) — ENERGY_LOCALITY_AND_STATIONARY_ENERGY: flux located where activity is
+  co-located; template share = stationary-eddy energy share.
+
+Research phase closed for 2026; article 2 next (article 3 folded into it).
+
