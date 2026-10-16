@@ -70,3 +70,33 @@ Seed 20261020.
 ## Deviations
 
 - (none yet)
+
+## Result (2026-10-16)
+
+Results: `clean_experiments/results/experiment_B39_colocation_energy/`. No deviations.
+Flux code checked against B1 on a North Pacific box (identical to three decimals).
+
+**Verdict: ENERGY_LOCALITY_AND_STATIONARY_ENERGY.**
+
+| hypothesis | result | numbers |
+|---|---|---|
+| H39-1 transfer located where activity is co-located | PASS | interaction b3 (standardised): 400 km +0.058 (5 days later +0.002), 800 km +0.032 (-0.005); transient locality d > 0 in 98 % and 100 % of windows, p = 1e-4; fresh 2022 +0.051 / +0.040, p = 1e-4 |
+| H39-2 stationary template = stationary-eddy energy | PASS | Spearman(template share, stationary share of 200-1600 km kinetic energy) 0.72; partial for latitude 0.41; fresh 2022 0.60 |
+
+Reported. Mean |Pi| where both adjacent bands are above their window median is 3.1
+(400 km) and 2.4 (800 km) times the mean where only one is. Net transfer is downscale
+(forward) at 400 km in 95 % of windows, at 800 km in 67 %. Stationary share of band
+energy (median 0.08) by Phase-34 region type: monsoon / convergence 0.20, subtropical
+highs 0.12, midlatitude continents and subtropical oceans 0.11, storm tracks 0.06.
+Net downscale flux (1e-6 m²/s³, 400 / 800 km): monsoon 13.6 / 10.3, storm tracks
+13.3 / 5.3, subtropical highs 5.4 / 1.6, continents and subtropical oceans 8.7 / 3.3.
+The Phase-36 residual co-location relates moderately to the transient locality at
+800 km (0.39) and to the net flux (0.24-0.30), weakly to transfer efficiency (0.17-0.25).
+
+Reading. Energy passes between adjacent scales where their activity is co-located at
+that moment, not merely where either is active — a direct physical meaning for the
+co-location measure (locality of the transfer). The stationary template is the share of
+band energy held by stationary eddies: largest in monsoon and convergence zones,
+smallest in the storm tracks. The two together give article 2 its physical layer: the
+regions differ in how much of the co-located, energy-exchanging activity is held in
+place.
