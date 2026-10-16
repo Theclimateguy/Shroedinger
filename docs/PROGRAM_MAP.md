@@ -317,3 +317,16 @@ absent at 24 h. Geography of D: not claimed. `PROTOCOL_PHASE33_MODEL_FIDELITY.md
 
 Research phase closed for 2026; article 2 next (article 3 folded into it).
 
+
+## Theory line reopened (2026-10-16) — note, not a protocol
+
+`THEORY_NOTE_BUNDLE_REVISITED_2026-10-16.md`. The gen1 bundle formalism re-read
+against Phases 27-39: Λ = Tr(Fρ) is an exact identity for the Germano flux
+(Π = −k δ̄ − k c σ̄ cos 2Δθ, ρ = normalised subgrid stress); the zero-memory
+(Clark) model gives Π ≡ 0 in non-divergent 2-D flow, so the energy transfer is the
+"coherent" (history/alignment) part, while the divergent part is the "vacuum"
+part; a non-tautological curvature exists for the connection "advect with the
+velocity of your own scale" (sweeping correction to Lapeyre–Klein–Hua).
+Hypotheses G1–G7 and toy-model v2 (sl(2,R) fibre, alignment instrumentation)
+recorded with priors; nothing computed. Research phase stays closed until the
+author opens Phase 40.

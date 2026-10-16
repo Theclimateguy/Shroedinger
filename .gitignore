@@ -293,3 +293,4 @@ manuscript_v2/article1/journal_package/article1_figures_300dpi.zip
 /manuscript_v2/article2/article2_v3.docx
 /manuscript_v2/article2/article2_v3.pdf
 /manuscript_v2/article2/article2_v3.tex
+!clean_experiments/results/explore_toy_v2/**/*.png
