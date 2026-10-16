@@ -69,3 +69,29 @@ Planes: `experiment_B37_frequency_modulation.py plane` (unchanged) writing to
 ## Deviations
 
 - (none yet)
+
+## Result (2026-10-16)
+
+**Verdict: CALIBRATION_FAILED.** Nothing was computed on ERA5 or IFS-HR under this
+protocol.
+
+| synthetic (100 fields, seed 20261019) | real | stationary null | N_FA | criterion | result |
+|---|---|---|---|---|---|
+| C38-1 FM along y, 300-1200 km | 0.360 | 0.448 | 0.266 | abs(real - N_FA) <= 0.10 | PASS (0.094) |
+| C38-2 FM, two 600-km centres | 0.336 | 0.631 | 0.565 | abs(real - N_FA) <= 0.10 | **FAIL (0.229)** |
+| C38-3 cascade, variance 0.3 | 0.754 | 0.420 | 0.538 | real - N_FA >= 0.05 | PASS (0.216) |
+
+The all-smooth null (log-envelopes smoothed at 1600 km) cannot represent frequency
+modulation whose structure is finer than the smoothing scale. With envelope-modulated
+nulls, FM and co-location are not separable at those scales.
+
+**Descriptive, post hoc, not scored — a sign diagnostic.** In the Phase-37 FM field (the
+only FM field whose per-step values were stored) the residual over the stationary null
+has opposite signs at the two steps (step 4 -0.56, step 5 +0.39): the middle band B2 is active with B1 where the
+dominant scale is small and with B3 where it is large. In the cascade both steps are
+positive (+0.36, +0.21). In ERA5 (Phase 36 residuals) both steps are positive in 66 of
+66 windows in every year (medians +0.30 and +0.25; minima +0.20 and +0.05-0.12), and
+their window-to-window correlation is +0.52 to +0.57. The ERA5 pattern has the shape of
+co-location of activity across the three bands, not of FM. Because it was noticed after
+the calibrations, it needs its own frozen test (synthetic families and a quantitative
+criterion) before it can be claimed.
